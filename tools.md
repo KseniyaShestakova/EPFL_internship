@@ -1,3 +1,10 @@
+## Object filesystems
+#### [The idea of object filesystems](https://en.wikipedia.org/wiki/Object_storage):
+Each object usually contains data, metadata and a global unique identifier 
+(see `index` in fields of Julea data structures). Does not keep structure. 
+Is useful when data is unstructured, written once and read once.
+Opposite to [hierarchical filesystems](https://en.wikipedia.org/wiki/Hierarchical_file_system) (usually tree-structured, like in Linux) and [block storage](https://en.wikipedia.org/wiki/Block_(data_storage)).
+
 ## Meson
 ### Build system aiming to facilitate build and compiling 
 Uses ninja, an underlying build system designed for fast compiling and build.
