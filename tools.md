@@ -36,9 +36,9 @@ Batchs allow aggregating multiple put and delete operations to improve performan
 **Semantics:**
 * *atomicity* - if required, there will a lock for hiding inermediate states of operations
 * *concurrency* - to manage concurrent access patterns
-* *consistency* - if and when clients will see modifications made by other clients (for client-side read caching, for example)
+* *consistency* - if and when clients will see modifications made by other clients (e.g. for client-side read caching)
 * *ordering* - how operations can be reordered for optimizing
-* *persistency* - if and when metadata must be written to persistent storage (for client-side write caching, for example)
+* *persistency* - if and when metadata must be written to persistent storage (e.g. for client-side write caching)
 * *safety* - guarantees about the state of data and metadate
 
 **Clients** provide interfaces with separate namespace in order not to interfere with each other:
@@ -56,6 +56,26 @@ Batchs allow aggregating multiple put and delete operations to improve performan
 * *mongodb* - uses [MongoDB](https://en.wikipedia.org/wiki/MongoDB) and maps key-value pairs to documents using appropriate indexes
 
 Performance depends a lot on the backends used.
+
+### Understanding BlueStore_Julea
+[Ceph](https://en.wikipedia.org/wiki/Ceph_(software)) - self-healing and self-managing storage platform, providing object storage, block storage and file storage based on distributed cluster foundation. \
+[Ceph OSD](https://docs.ceph.com/en/latest/man/8/ceph-osd/) - object storage daemon for the Ceph distributed file system. \
+[BlueStore](https://docs.ceph.com/en/latest/rados/configuration/storage-devices/) - special-purpose storage backend for managing data on disk for Ceph OSD workloads. \
+Complexities: hierarchy of different storage hardware, software stack. Separation between individual layers allows to exchange them easily, but it causes performance and management issues. \
+I/O libraries such as NetCDF, HDF5, ADIOS are used to make data handking easierfor the applivation developers and users. \
+Structured information (lie filesystem metadata) is stored  in key-value stores, while unstructured data (like file content) is stored in object stores. \
+[NoSQL database](https://www.mongodb.com/nosql-explained) - not relational one. \
+[Dual access](https://doi.org/10.1145/3357223.3362703) - the ability to write and read the same data through file systems interfaces and object storage APIs. Is argued to be required to satisfy all current demands.\
+**Notes about evaluation:**
+* *hardware description* - description of processor, main memory capacity, HDD capacity and throughput
+  measuring throughput of one's computer:
+  ```
+  dd if=/dev/zero of=test.jpg bs=4k count=1000 oflag=sync
+  dd if=/dev/zero of=~/Downloads/IMG_20210210_102428.jpg bs=1G count=1 oflag=dsync
+  ```
+  for a detailed description see `man dd`
+* *software description* - OS+Kernel, Ceph and JULEA version, compiler
+* *evaluation* - measurements were formed for different duration (1 to 512s) to rule out variability over time, and for different block sizes. Set `storage=safety` to avoid measuring only cache (every operation will be synced to the HDD). Batched operations should be evaluated with sync performed after every n-th operation, depending on the block size.
 
 
 
@@ -105,6 +125,7 @@ Outputs logs and content of files in created filesystem (?)
 1. What is enzo in the plan? 
 2. *Julea has a tool to gather server statistics*. What should I use to measure performance?
 3. *Clients provide interfaces that can be used by applications or other I/O libraries.* How do clients provide those interfaces? (3.1)
+4. How are different backends connected to JULEA (like BlueStore)?
 
 
 
