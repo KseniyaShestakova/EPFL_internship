@@ -4,6 +4,23 @@ Each object usually contains data, metadata and a global unique identifier
 (see `index` in fields of Julea data structures). Does not keep structure. 
 Is useful when data is unstructured, written once and read once.
 Opposite to [hierarchical filesystems](https://en.wikipedia.org/wiki/Hierarchical_file_system) (usually tree-structured, like in Linux) and [block storage](https://en.wikipedia.org/wiki/Block_(data_storage)).
+#### Something interesting from Survey of Storage Systems for High-Performance Computing:
+Parallel distributed file systems are used for hot data (being accesses immediately after being created, or very frequently) and [tape archives](https://en.wikipedia.org/wiki/Tape_drive) are used for cold data (rarely accessed). \
+[Memory wall problem](https://developer20.com/memory-wall-problem/) - occurs when the speed of processor executing instructions is significantly higher than the speed of writing and reading data from memory. \
+**Data storages:**
+* *tapes* - the most common cold storage technology: cheap, reliable, with long retention time and capacity,
+  no energy is required for inactive media. Provides sequential access, thus is inappropriate for hot data
+* *HDD (Hard Disk Drives)* - dominating storage technology, reliable and with competitive price. Stores data on magnetic coating of rotating platters, with actuator arm, placing the read/write head on different locations of the disc.
+* *SSD (Solid-State Drivers)* - are used to improve small random access I/O performance.
+* *NVRAM (Non-Volatile Random-Access Memory)* - retains data when powered off: flash memory and phase-change memory
+* *VRAM*: *SRAM (Static RAM)* and *DRAM (Dynamic RAM)*. Is used to accelerate access to data that is currently in use or anticipated to be used soon. 
+**File systems:**
+* *Spectrum Scale* - scalable, HPC, very capable, supported by IBM with various useful tools, but very expensive. Based on General Parallel File System.
+* *Lustre* - parallel distributed kernel-space filesystem used on supercomputers under GNU General Public License. Has distinct architectures for clients and servers (Metadata Servers and Object Storage Servers)
+* *BeeGFS* - parallel and POSIX-compliant cluster filesystem for intensive HPC applications
+* *OrangeFS* - parallel distributed completely user-space fs
+* *IBIO* - a user-level file system designed as an internal layer between compute nodes and parallel file system.
+* *GlusterFS* - POSIX-compliant, free and open-source distributed filesystem 
 
 ## Meson
 ### Build system aiming to facilitate build and compiling 
