@@ -7,12 +7,58 @@ Opposite to [hierarchical filesystems](https://en.wikipedia.org/wiki/Hierarchica
 
 ## Meson
 ### Build system aiming to facilitate build and compiling 
-Uses ninja, an underlying build system designed for fast compiling and build.
+Uses ninja, an underlying build system designed for fast compiling and build. Runs completely in user space.
 
 [Quick start guide for meson](https://mesonbuild.com/SimpleStart.html) \
 [Tutorial for meson with example](https://mesonbuild.com/Tutorial.html)
 
 ## Julea
+Not actually an object store, because objects are mapped to files in underlying filesystem.
+### Understanding Kuhn's paper about Julea
+[SDDF](https://www.gartner.com/en/information-technology/glossary/self-describing-messages#:~:text=A%20message%20that%20contains%20data,consists%20of%20tag%2Fvalue%20pairs.) - self describing data formats - the message, containg both data and metadata. Thus, structure and meaning (syntax and semantics) are described simultaneously.
+
+Monolitic filesystems are too inflexible for research and teaching.
+So, for getting more comprehensive understanding of filesystems, there are developed frameworks that are
+extensible using plugins for AFI, stortage backend and semantics.
+
+Many applications access filesystems not directly but via high-level libraries. 
+Multiple projects try to solve the problem (of flexibility and performance) by integrating filesystems and I/O libraries more closely.
+
+Julea is a flexible storage framework for prototyping new approaches in research and teaching.gn 
+
+**Goals and design**: triple model: metadata server + client + data server.
+Client and server communicate via the network.
+Supporting multiple backends allows to use multiple existing storage technologies and foster experimentation.
+Client interfaces can bechanged easily.
+Backend: `create` and `open` return an object handle on success, `delete` and `close` destroy the handle. `status` provide object modification time and size.
+Batchs allow aggregating multiple put and delete operations to improve performance.
+
+**Semantics:**
+* *atomicity* - if required, there will a lock for hiding inermediate states of operations
+* *concurrency* - to manage concurrent access patterns
+* *consistency* - if and when clients will see modifications made by other clients (for client-side read caching, for example)
+* *ordering* - how operations can be reordered for optimizing
+* *persistency* - if and when metadata must be written to persistent storage (for client-side write caching, for example)
+* *safety* - guarantees about the state of data and metadate
+
+**Clients** provide interfaces with separate namespace in order not to interfere with each other:
+* *object* - direct access to JULEA's data store and arbitrary namespaces
+* *kv* - direct access to JULEA's metadata store and arbitrary namespaces. Abstraction for key-value pairs
+* *item* - cloud-like intrface with items and collections; collections can contain only items; collections and items can be listed using iterators
+* *posix* - implements a posix filesystem using fuse framework
+
+**Backends** determine how data and metadata operations are handled:
+* *posix* - compatibility with existing POSIX filesystem
+* *gio* - server-side data backend using [GIO library](https://docs.gtk.org/gio/)
+* *lexos* - server-side data backend using LEXOS to provide a light-weight data store
+* *null* server-side data backend intended for performance measurements
+* *leveldb* - server-side metadata backend uses [LevelDB](https://github.com/google/leveldb) (storage mapping string keys to string values) for metadata storage
+* *mongodb* - uses [MongoDB](https://en.wikipedia.org/wiki/MongoDB) and maps key-value pairs to documents using appropriate indexes
+
+Performance depends a lot on the backends used.
+
+
+
 ### Understanding `julea/example/hello-world.c`
 Can be run via:
 ```console
@@ -54,6 +100,12 @@ Outputs logs and content of files in created filesystem (?)
  [`j_kv_new`](https://julea-io.github.io/julea/group__JKV.html#gabac1e064643e3f6cf9ca25f0f5c492f0) - constructs an object, kv
   from namespace and name, key
 *  `j_kv_put` - actually makes a new operation and adds it to the batch, this operation handles current kv and value
+
+### Questions:
+1. What is enzo in the plan? 
+2. *Julea has a tool to gather server statistics*. What should I use to measure performance?
+3. *Clients provide interfaces that can be used by applications or other I/O libraries.* How do clients provide those interfaces? (3.1)
+
 
 
 
