@@ -6,6 +6,7 @@ Set of functions in `object` structure: `backend_init`, `backend_fini`, `backend
 I didn't find clear explanations of their semantics, 
 thus I can only guess that they should do something similar to standard filesystems
  (like those implemented with futex). \
+ Maybe compared to https://github.com/Bella42/julea/blob/objectstore/bluestore/julea_bluestore.h \
 **Question 1:** should I implement those functions using open-io C-language API? \
 **Question 2:** how is it connected to already existing part of JULEA? 
 Should my part of project use smth from there or is it completely independent from other backends?
