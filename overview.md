@@ -23,6 +23,7 @@ thus I can only guess that they should do something similar to standard filesyst
 **Question 1:** should I implement those functions using open-io C-language API? \
 **Question 2:** how is it connected to already existing part of JULEA? 
 Should my part of project use smth from there or is it completely independent from other backends? \
+**Question 3:** how is the project connected to SDDFs like HDF-5?
 
 
 ### Open-IO
