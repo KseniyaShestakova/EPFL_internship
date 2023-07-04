@@ -138,11 +138,8 @@ Outputs logs and content of files in created filesystem (?)
   from namespace and name, key
 *  `j_kv_put` - actually makes a new operation and adds it to the batch, this operation handles current kv and value
 
-### Questions:
-1. What is enzo in the plan? 
-2. *Julea has a tool to gather server statistics*. What should I use to measure performance?
-3. *Clients provide interfaces that can be used by applications or other I/O libraries.* How do clients provide those interfaces? (3.1)
-4. How are different backends connected to JULEA (like BlueStore)?
+
+
 
 
 
