@@ -27,6 +27,20 @@ Should my part of project use smth from there or is it completely independent fr
 
 
 ### Open-IO
+[Running a docker container with OpenIO](https://docs.openio.io/latest/source/sandbox-guide/docker_image.html) 
+
+```
+docker pull openio/sds:20.04                                     # pulls an image
+docker run --name oio-sds openio/sds:20.04                       # runs it
+docker inspect -f '{{ .NetworkSettings.IPAddress }}' oio-sds     # retrieves container's IP
+```
+using openio client in the docker instance. These commands open a command line where openio is available.
+```
+docker ps
+docker exec -it <container_ID> bash
+[root@9fad98f2a968 /]# openio help
+```
+
 [C API instructions](https://docs.openio.io/latest/source/sdk-guide/c_example.html) - clonning from this instruction didn't work \
 [Github repository](https://github.com/open-io/oio-sds) \
 [Quick Start](https://docs.openio.io/latest/source/sandbox-guide/quickstart.html)
