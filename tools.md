@@ -182,7 +182,24 @@ openio object create my_container existing_file.txt   # creating object from a f
 openio object list my_container                       # list of objects in my_container
  ```
 Ouput of `openio object list` can be filtered with: `--limit n` - shows a maximum of `n` objects,
-`--marker e` shows only objects whose names are lexically greater than e, `--prefix pref`  shows only objects whose names begin with `pref`, `--delimiter _` excludes all the objects whose names contain a `_`.
+`--marker e` shows only objects whose names are lexically greater than e, `--prefix pref`  shows only objects whose names begin with `pref`, `--delimiter _` excludes all the objects whose names contain a `_`. \
+Objects can be saved to files
+```
+openio object save my_container test.txt --file /dest/test.txt
+mkdir test_folder && cd test_folder
+openio container save my_container                              # saves all the objects from a container
+```
+`show`, `locate`, `--property`, `delete` are applicable to objects just like to the containers.
+* **clusters (or namespaces)**
+```
+openio cluster show                       # display the namespace configuration
+openio cluster list                       # display all known services
+openio cluster list rawx meta2            # list only specific types of services
+openio cluster local conf                 # display cluster local configuration
+openio cluster unlock raw 127.0.0.1:6015  # unlock a new service
+openio cluster unlockall                  # unlock all registred services
+ 
+``` 
 
 
 
