@@ -138,9 +138,51 @@ Outputs logs and content of files in created filesystem (?)
   from namespace and name, key
 *  `j_kv_put` - actually makes a new operation and adds it to the batch, this operation handles current kv and value
 
+### Open-IO
+A software-defined object store.
 
+[Running a docker container with OpenIO](https://docs.openio.io/latest/source/sandbox-guide/docker_image.html) 
 
+```
+docker pull openio/sds:20.04                                     # pulls an image
+docker run --name oio-sds openio/sds:20.04                       # runs it
+docker inspect -f '{{ .NetworkSettings.IPAddress }}' oio-sds     # retrieves container's IP
+```
+using openio client in the docker instance. These commands open a command line where openio is available.
+```
+docker ps
+docker exec -it <container_ID> bash
+[root@9fad98f2a968 /]# openio help
+```
 
+[C API instructions](https://docs.openio.io/latest/source/sdk-guide/c_example.html)  \
+[Github repository](https://github.com/open-io/oio-sds) \
+[Quick Start](https://docs.openio.io/latest/source/sandbox-guide/quickstart.html)
+
+What can be understood from [OpenIO End-User CLI](https://docs.openio.io/latest/source/user-guide/openiocli.html#ref-user-guide): \
+OpenIO CLI (command line interface) supports the next abstractions:
+* **accounts** track usage about storages; are usually automatically created though manual creation is also possible. Sample requests:
+```
+openio account create my_account     # creates a new account
+openio account show my_account       # shows info (number of containers, objects, etc.) about an account
+```
+* **containers** are used to store objects
+```
+openio container create my_container --oio-account my_account
+openio container show my_container
+openio container locate my_container                    # to find services used by a given container
+openio container set my_container --property color=blue # to set a property (like metadata)
+openio container unset my_container --property color    # to unset a property
+openio container delete my_container                    # only empty containers can be deleted
+
+```
+* **objects** are alternative for files in classical filesystems
+```
+openio object create my_container existing_file.txt   # creating object from a file
+openio object list my_container                       # list of objects in my_container
+ ```
+Ouput of `openio object list` can be filtered with: `--limit n` - shows a maximum of `n` objects,
+`--marker e` shows only objects whose names are lexically greater than e, `--prefix pref`  shows only objects whose names begin with `pref`, `--delimiter _` excludes all the objects whose names contain a `_`.
 
 
 
