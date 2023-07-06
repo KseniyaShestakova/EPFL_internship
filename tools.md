@@ -202,14 +202,14 @@ openio cluster unlockall                  # unlock all registred services
 ### Building OpenIO from Github repository
 OpenIO seems to be correctly supported only by Ubuntu 18.04, thus one will probably need either docker or virtual machine for running it. \
 I've downloaded docker image with Ubuntu 18.04 and ran a shell inside it. [This one](https://lynxbee.com/how-to-run-ubuntu-18-04-in-docker-container/), probably. \
-[How to save/commit changes to docker image?](https://lynxbee.com/how-to-save-commit-changes-to-docker-image/) - needs to be seen, because installation of all the dependencies wad rather long!!! \
+[How to save/commit changes to docker image?](https://lynxbee.com/how-to-save-commit-changes-to-docker-image/) - needs to be seen, because installation of all the dependencies was rather long!!! \
 [A guide](https://docs.openio.io/latest/source/sandbox-guide/build_from_source.html) that should be followed inside a container. \
 The rootshell of Ubuntu 18.04 needs to be started at this point. \
 **Issues:**
 * needs curl to be installed before configuring the repository: `apt install curl` or `apt-get install curl`
 * `sudo apt -y install golang-go` installs golang with version 1.10, while at least 1.18 is required. Lower versions of go lead to compilation errors because the executed files contain some functions which were added in later versions (method #3 from [this article](https://www.cyberciti.biz/faq/how-to-install-gol-ang-on-ubuntu-linux/) finally worked for me)
 
-After running all the instructions from the quide above I also ran cmake and make form [github](https://github.com/open-io/oio-sds/blob/master/BUILD.md), ran the test suit (almost all the test failed in my case). \
+After running all the instructions from the guide above I also ran cmake and make form [github](https://github.com/open-io/oio-sds/blob/master/BUILD.md), ran the test suit (almost all the test failed in my case). \
 After that I noticed that in `oio-sds/core` there are files with shared libraries `liboiocore.so`, `liboiocore.so.0`, `liboiocore.so.0.0.0` and `liboiosds.so`, `liboiosds.so.0`, `liboiosds.so.0.0.0`.
  Reffering to the symbol table:
  ```
