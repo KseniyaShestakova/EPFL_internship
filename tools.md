@@ -198,9 +198,31 @@ openio cluster list rawx meta2            # list only specific types of services
 openio cluster local conf                 # display cluster local configuration
 openio cluster unlock raw 127.0.0.1:6015  # unlock a new service
 openio cluster unlockall                  # unlock all registred services
- 
-``` 
+```
+### Building OpenIO from Github repository
+OpenIO seems to be correctly supported only by Ubuntu 18.04, thus one will probably need either docker or virtual machine for running it. \
+I've downloaded docker image with Ubuntu 18.04 and ran a shell inside it. [This one](https://lynxbee.com/how-to-run-ubuntu-18-04-in-docker-container/), probably. \
+[How to save/commit changes to docker image?](https://lynxbee.com/how-to-save-commit-changes-to-docker-image/) - needs to be seen, because installation of all the dependencies wad rather long!!! \
+[A guide](https://docs.openio.io/latest/source/sandbox-guide/build_from_source.html) that should be followed inside a container. \
+The rootshell of Ubuntu 18.04 needs to be started at this point. \
+**Issues:**
+* needs curl to be installed before configuring the repository: `apt install curl` or `apt-get install curl`
+* `sudo apt -y install golang-go` installs golang with version 1.10, while at least 1.18 is required. Lower versions of go lead to compilation errors because the executed files contain some functions which were added in later versions (method #3 from [this article](https://www.cyberciti.biz/faq/how-to-install-gol-ang-on-ubuntu-linux/) finally worked for me)
 
+After running all the instructions from the quide above I also ran cmake and make form [github](https://github.com/open-io/oio-sds/blob/master/BUILD.md), ran the test suit (almost all the test failed in my case). \
+After that I noticed that in `oio-sds/core` there are files with shared libraries `liboiocore.so`, `liboiocore.so.0`, `liboiocore.so.0.0.0` and `liboiosds.so`, `liboiosds.so.0`, `liboiosds.so.0.0.0`.
+ Reffering to the symbol table:
+ ```
+objdump -t liboiocore.so
+```
+suggests that these libraries contain functions from official C API, so linking them will probably help running a sample code and further developing JULEA's backend. 
+
+Reference for linking shared libraries:
+* [Example](https://www.baeldung.com/linux/library_path-vs-ld_library_path) of working with shared libraries
+* [Quick introduction](https://linuxhint.com/what-is-ld-library-path/) to what is LD_LIBRARY_PATH
+
+LD_LIBRARY_PATH is an environmental variable telling dynamic loader where to look for shared libraries (affects runtime).
+LIBRARY_PATH affects `gcc` while linking.
 
 
   
