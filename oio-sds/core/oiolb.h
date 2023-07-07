@@ -19,7 +19,7 @@ License along with this library.
 #ifndef OIO_SDS__core__oiolb_h
 # define OIO_SDS__core__oiolb_h 1
 # include <glib.h>
-# include <core/oioloc.h>
+# include "oioloc.h"
 
 typedef guint8 oio_weight_t;
 

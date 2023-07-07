@@ -18,14 +18,14 @@ License along with this library.
 
 #ifndef OIO_SDS__core__core_h
 # define OIO_SDS__core__core_h 1
-# include "core/oiostr.h"
-# include "core/oioext.h"
-# include "core/oiocfg.h"
-# include "core/oiovar.h"
-# include "core/oiolog.h"
-# include "core/oiourl.h"
-# include "core/oioloc.h"
-# include "core/oiocs.h"
-# include "core/oiodir.h"
-# include "core/oiolb.h"
+# include "oiostr.h"
+# include "oioext.h"
+# include "oiocfg.h"
+# include "oiovar.h"
+# include "oiolog.h"
+# include "oiourl.h"
+# include "oioloc.h"
+# include "oiocs.h"
+# include "oiodir.h"
+# include "oiolb.h"
 #endif /*OIO_SDS__core__core_h*/

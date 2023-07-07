@@ -19,7 +19,7 @@ License along with this library.
 #ifndef OIO_SDS__core__var_h
 #define OIO_SDS__core__var_h 1
 #include <glib.h>
-#include <core/oiocfg.h>
+#include "oiocfg.h"
 
 enum oio_var_kind_e {
 	OIO_VARKIND_time = 0,

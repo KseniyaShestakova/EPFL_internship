@@ -25,7 +25,7 @@ extern "C" {
 
 #include <glib.h>
 
-#include <core/oiourl.h>
+#include "oiourl.h"
 
 struct oio_directory_s;
 
