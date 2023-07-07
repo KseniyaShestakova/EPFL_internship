@@ -222,7 +222,25 @@ Reference for linking shared libraries:
 * [Quick introduction](https://linuxhint.com/what-is-ld-library-path/) to what is LD_LIBRARY_PATH
 
 LD_LIBRARY_PATH is an environmental variable telling dynamic loader where to look for shared libraries (affects runtime).
+
 LIBRARY_PATH affects `gcc` while linking.
+
+### Compiling with oio-sds
+File `exp.c` was located in the `/oio-sds/core/`. Compiling and executing it looks like:
+```
+export LIBRARY_PATH=io-sds/core/:oio-sds/:/
+gcc exp.c -o exp -L/oio-sds/core -loiosds -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/oio-sds/core  # not needed if /oio-sds/core is already in LD_LIBRARY_PATH
+
+./exp
+```
+**Explanation:**
+* `-L/oio-sds/core` - path to the directory, containing headers and a library `liboiosds.so` (environmental variable LIBRARY_PATH could be used instead)
+* `-loiosds` reference to the library with necessary functions
+* `-I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0` - compiler doesn't see `glib.h` without it. `glib` should be installed: `apt-get install libglib2.0-dev`. To find the compilation flags needed for compiling with `glib` one can execute: `pkg-config --cflags --libs glib-2.0`
+* `LD_LIBRARY_PATH` - the list of directories in which the compiler will be searching for libraries during runtime
+
+**Attention!** In order to compile this, I changed file `oio_sds.h` : 28 line was changed from `#include <core/oiourl.h>` to `#include "oiourl.h"`.
 
 
   
