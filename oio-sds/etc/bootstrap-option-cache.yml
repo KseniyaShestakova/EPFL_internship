@@ -1,0 +1,2 @@
+config:
+  proxy.cache.enabled: true

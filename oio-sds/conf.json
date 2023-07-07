@@ -1,0 +1,1123 @@
+{
+	"meta2": {
+		"code": "meta2_variables.c",
+		"header": "meta2_variables.h",
+		"variables": [
+			{ "type": "int64", "name": "meta2_container_max_size",
+				"key": "meta2.container.max_size",
+				"descr": "How many bytes may be stored in each container.",
+				"def": 0, "min": 0, "max": "max" },
+
+			{ "type": "epoch", "name": "meta2_retention_period",
+				"key": "meta2.retention_period",
+				"descr": "How long should deleted content be kept.",
+				"def": "7d", "min": "1s", "max": "30d" },
+
+			{ "type": "uint", "name": "meta2_batch_maxlen",
+				"key": "meta2.batch.maxlen",
+				"descr": "When listing a container, limits the number of items to that value.",
+				"def": "1k", "min": 1, "max": "100k" },
+
+			{ "type": "epoch", "name": "meta2_reload_lb_period",
+				"key": "meta2.reload.lb.period",
+				"descr": "Sets the period of the periodical reloading of the Load-balancing state, in the current meta2 service.",
+				"def": "10s", "min": "1s", "max": "1h" },
+
+			{ "type": "epoch", "name": "meta2_reload_nsinfo_period",
+				"key": "meta2.reload.nsinfo.period",
+				"descr": "Sets the period of the periodical reloading of the namespace configuration, in the current meta2 service.",
+				"def": "5s", "min": "1s", "max": "1h" },
+
+			{ "type": "bool", "name": "meta2_flag_precheck_on_generate",
+				"key": "meta2.generate.precheck",
+				"descr": "Should the meta2 check the container state (quota, etc) before generating chunks.",
+				"def": false },
+
+			{ "type": "bool", "name": "meta2_flag_delete_exceeding_versions",
+				"key": "meta2.delete_exceeding_versions",
+				"descr": "When adding alias with versioning, deletes exceeding versions.",
+				"def": false },
+
+			{ "type": "int64", "name": "meta2_flush_limit",
+				"key": "meta2.flush_limit",
+				"descr": "When flushing a container, limits the number of deleted objects.",
+				"def": 1000, "min": 0, "max": "max" }
+		]
+	},
+	"rawx": {
+		"code": "rawx_variables.c",
+		"header": "rawx_variables.h",
+		"variables": [
+			{ "type": "bool", "name": "oio_rawx_events",
+				"key": "rawx.events_allowed",
+				"def": true,
+				"descr": "Is the RAWX allowed to emit events in the beansatlkd?" },
+			{ "type": "bool", "name": "oio_rawx_allow_slash",
+				"key": "rawx.slash_allowed",
+				"def": true,
+				"descr": "Is the RAWX allowed to run if its base directory is hosted in the root partition, a.k.a. '/'." }
+		]
+	},
+	"events": {
+		"code": "events_variables.c",
+		"header": "events_variables.h",
+		"variables": [
+			{ "type": "string",
+				"name": "oio_meta2_tube_container_new",
+				"key": "meta2.tube.container_new",
+				"limit": 64, "def": "oio", "descr": "" },
+
+			{ "type": "string",
+				"name": "oio_meta2_tube_container_deleted",
+				"key": "meta2.tube.container_deleted",
+				"limit": 64, "def": "oio", "descr": "" },
+
+			{ "type": "string",
+				"name": "oio_meta2_tube_container_state",
+				"key": "meta2.tube.container_state",
+				"limit": 64, "def": "oio", "descr": "" },
+
+			{ "type": "string",
+				"name": "oio_meta2_tube_container_updated",
+				"key": "meta2.tube.container_updated",
+				"limit": 64, "def": "oio", "descr": "" },
+
+			{ "type": "string",
+				"name": "oio_meta2_tube_content_created",
+				"key": "meta2.tube.content_created",
+				"limit": 64, "def": "oio", "descr": "" },
+
+			{ "type": "string",
+				"name": "oio_meta2_tube_content_appended",
+				"key": "meta2.tube.content_appended",
+				"limit": 64, "def": "oio", "descr": "" },
+
+			{ "type": "string",
+				"name": "oio_meta2_tube_content_deleted",
+				"key": "meta2.tube.content_deleted",
+				"limit": 64, "def": "oio", "descr": "" },
+
+			{ "type": "string",
+				"name": "oio_meta2_tube_content_updated",
+				"key": "meta2.tube.content_updated",
+				"limit": 64, "def": "oio", "descr": "" },
+
+			{ "type": "string",
+				"name": "oio_meta2_tube_content_drained",
+				"key": "meta2.tube.content_drained",
+				"limit": 64, "def": "oio", "descr": "" },
+
+			{ "type": "string",
+				"name": "oio_meta2_tube_content_broken",
+				"key": "meta2.tube.content_broken",
+				"limit": 64, "def": "oio", "descr": "" },
+
+			{ "type": "string",
+				"name": "oio_meta2_tube_meta2_deleted",
+				"key": "meta2.tube.meta2_deleted",
+				"limit": 64, "def": "oio", "descr": "" },
+
+			{ "type": "string",
+				"name": "oio_rawx_tube_chunk_created",
+				"key": "rawx.tube.chunk_created",
+				"limit": 64, "def": "oio", "descr": "" },
+
+			{ "type": "string",
+				"name": "oio_rawx_tube_chunk_deleted",
+				"key": "rawx.tube.chunk_deleted",
+				"limit": 64, "def": "oio", "descr": "" },
+
+			{ "type": "string",
+				"name": "oio_meta1_tube_references",
+				"key": "meta1.tube.references",
+				"limit": 64, "def": "oio", "descr": "" },
+
+			{ "type": "string",
+				"name": "oio_meta1_tube_services",
+				"key": "meta1.tube.services",
+				"limit": 64, "def": "oio", "descr": "" },
+
+			{ "type": "monotonic", "name": "oio_events_common_buffer_delay",
+				"key": "events.common.pending.delay",
+				"def": "1s", "min": "1ms", "max": "1h",
+				"descr": "Sets the buffering delay of the events emitted by the application" },
+
+			{ "type": "uint32", "name": "oio_events_common_max_pending",
+				"key": "events.common.pending.max",
+				"descr": "Sets the maximum number of pending events, not received yet by the endpoint",
+				"def": "10000", "min": 1, "max": "1Mi" },
+
+			{ "type": "uint", "name": "oio_events_zmq_max_recv",
+				"key": "events.zmq.max_recv",
+				"descr": "Sets the maximum number of ACK managed by the ZMQ notification client",
+				"def": "32", "min": 1, "max": "1<<31 - 1" },
+
+			{ "type": "monotonic", "name": "oio_events_beanstalkd_timeout",
+				"key": "events.beanstalkd.timeout",
+				"descr": "Set the interval between each check of the beanstalkd availability. Set to 0 to never check.",
+				"def": "4s", "min": "100ms", "max": "90s" },
+
+			{ "type": "monotonic", "name": "oio_events_beanstalkd_check_period",
+				"key": "events.beanstalkd.check_period",
+				"descr": "Set the interval between each check of the beanstalkd availability. Set to 0 to never check.",
+				"def": "0", "min": "0", "max": "1d" },
+
+			{ "type": "int64", "name": "oio_events_beanstalkd_check_level_deny",
+				"key": "events.beanstalkd.check_level_deny",
+				"descr": "Set the maximum number of items in beanstalkd before considering it full",
+				"def": "500ki", "min": "0", "max": "max" },
+
+			{ "type": "int64", "name": "oio_events_beanstalkd_check_level_alert",
+				"key": "events.beanstalkd.check_level_alert",
+				"descr": "Set a threshold for the number of items in the beanstalkd, so that the service will alert past that value. Set to 0 for no alert sent.",
+				"def": "0", "min": "0", "max": "max" },
+
+			{ "type": "uint", "name": "oio_events_beanstalkd_default_prio",
+				"key": "events.beanstalkd.prio",
+				"descr": "Sets the priority of each notification sent to the BEANSTALK endpoint",
+				"def": "1 << 32 - 1", "min": 0, "max": "1 << 32 - 1" },
+
+			{ "type": "epoch", "name": "oio_events_beanstalkd_default_delay",
+				"key": "events.beanstalkd.delay",
+				"descr": "Sets the delay on each notification sent to the BEANSTALK endpoint",
+				"def": 0, "min": 0, "max": "1d" },
+
+			{ "type": "epoch", "name": "oio_events_beanstalkd_default_ttr",
+				"key": "events.beanstalkd.ttr",
+				"descr": "Sets the TTR (time to run) allow on the treatment of the notificatio sent to the beanstalkd",
+				"def": 120, "min": 0, "max": 86400 }
+		]
+	},
+	"resolver": {
+		"code": "resolver_variables.c",
+		"header": "resolver_variables.h",
+		"variables": [
+			{ "type": "bool", "name": "oio_resolver_srv_shuffle",
+				"key": "core.resolver.srv_shuffle",
+				"descr": "",
+				"def": true },
+
+			{ "type": "bool", "name": "oio_resolver_dir_shuffle",
+				"key": "core.resolver.dir_shuffle",
+				"descr": "",
+				"def": true },
+
+			{ "type": "bool", "name": "oio_resolver_cache_enabled",
+				"key": "resolver.cache.enabled",
+				"descr": "Allows the resolver instances to cache entries",
+				"def": false },
+
+			{ "type": "monotonic", "name": "oio_resolver_m0cs_default_ttl",
+				"key": "resolver.cache.csm0.ttl.default",
+				"descr": "In any service resolver instanciated, sets the default TTL on the entries related meta0 (meta1 addresses) and conscience (meta0 address)",
+				"def": 0, "min": 0, "max": "max" },
+
+			{ "type": "uint", "name": "oio_resolver_m0cs_default_max",
+				"key": "resolver.cache.csm0.max.default",
+				"descr": "In any service resolver instanciated, sets the maximum number of entries related to meta0 (meta1 addresses) and conscience (meta0 address)",
+				"def": "4Mi", "min": 0, "max": "max" },
+
+			{ "type": "monotonic", "name": "oio_resolver_srv_default_ttl",
+				"key": "resolver.cache.srv.ttl.default",
+				"descr": "In any service resolver instanciated, sets the default TTL on the meta1 entries (data-bound services)",
+				"def": 0, "min": 0, "max": "max" },
+
+			{ "type": "uint", "name": "oio_resolver_srv_default_max",
+				"key": "resolver.cache.srv.max.default",
+				"descr": "In any service resolver instanciated, sets the maximum number of meta1 entries (data-bound services)",
+				"def": "4Mi", "min": 0, "max": "max" }
+		]
+	},
+	"metautils": {
+		"license": "lgpl",
+		"code": "common_variables.c",
+		"header": "common_variables.h",
+		"variables": [
+
+			{ "type": "bool", "name": "oio_volume_lock_lazy",
+				"key": "volume.lazy_lock",
+				"descr": "Allow the services to self-assign to the volume they find in their configuration. This was the default behaviour in pre 5.2 versions of oio-sds.",
+				"def": true},
+
+			{ "type": "uint", "name": "oio_socket_gridd_rcvbuf",
+				"key": "socket.gridd.rcvbuf",
+				"descr": "Set to a non-zero value to explicitely force a RCVBUF option on client sockets to gridd services. Set to 0 to keep the OS default.",
+				"def": 0, "min": 0, "max": "16Mi"},
+
+			{ "type": "uint", "name": "oio_socket_gridd_sndbuf",
+				"key": "socket.gridd.sndbuf",
+				"descr": "Set to a non-zero value to explicitely force a SNDBUF option on client sockets to gridd services. Set to 0 to keep the OS default.",
+				"def": 0, "min": 0, "max": "16Mi"},
+
+			{ "type": "uint", "name": "oio_ns_meta1_digits",
+				"key": "ns.meta1_digits",
+				"descr": "Default number of digits to agregate meta1 databases.",
+				"def": 4, "min": 0, "max": 4,
+				"aliases": ["meta1_digits"]},
+
+			{ "type": "uint", "name": "oio_ns_flat_bits",
+				"key": "ns.flat_bits",
+				"descr": "Default number of bits with flat-NS computation.",
+				"def": 17, "min": 0, "max": 64 },
+
+			{ "type": "int64", "name": "oio_ns_chunk_size",
+				"key": "ns.chunk_size",
+				"descr": "Default chunk size for the given namespace.",
+				"def": "10Mi", "min": 1, "max": "max" },
+
+			{ "type": "string", "name": "oio_ns_service_update_policy",
+				"key": "ns.service_update_policy",
+				"limit": 1024,
+				"def": "meta2=KEEP|3|1;sqlx=KEEP|1|1|;rdir=KEEP|1|1|",
+				"descr": "" },
+
+			{ "type": "string", "name": "oio_ns_storage_policy",
+				"key": "ns.storage_policy",
+				"limit": 128,
+				"def": "NONE",
+				"descr": "" },
+
+			{ "type": "bool", "name": "oio_ns_master",
+				"key": "ns.master",
+				"def": true,
+				"descr": "" },
+
+			{ "type": "bool", "name": "oio_ns_mode_worm",
+				"key": "ns.worm",
+				"def": false,
+				"descr": "Is the NS in a WORM (for Write Once, Read Many --but never delete)." },
+
+			{ "type": "monotonic", "name": "main_log_level_reset_delay",
+				"key": "common.verbosity.reset_delay",
+				"def": "5m", "min": "1s", "max": "1h",
+				"descr": "Tells how long the verbosity remains higher before being reset to the default, after a SIGUSR1 has been received." },
+
+			{ "type": "float", "name": "oio_m1_client_timeout_common",
+				"key": "meta1.outgoing.timeout.common.req",
+				"descr": "Sets the timeout to the set of (quick) RPC that query a meta1 service",
+				"def": 10.0, "min": 0.01, "max": 60.0 },
+
+			{ "type": "float", "name": "oio_m0_client_timeout_common",
+				"key": "meta0.outgoing.timeout.common.req",
+				"descr": "Sets the timeout to the set of (quick) RPC that query a meta0 service",
+				"def": 10.0, "min": 0.01, "max": 60.0 },
+
+			{ "type": "bool", "name": "oio_log_outgoing",
+				"key": "server.log_outgoing",
+				"def": false,
+				"descr": "" },
+
+			{ "type": "bool", "name": "server_perfdata_enabled",
+				"key": "server.perfdata.enabled",
+				"def": false,
+				"descr": "Enable server-side performance data collection."},
+
+			{ "type": "bool", "name": "oio_socket_linger_onoff",
+				"key": "socket.linger.enabled",
+				"def": false,
+				"descr": "Set to TRUE to allow the LINGER behavior of TCP sockets, as a default. The connections then end with a normal FIN packet, and go in the TIME_WAIT state for a given delay. Setting to FALSE causes connections to be closed with a RST packet, then avoiding a lot of TCP sockets in the TIME_WAIT state." },
+
+			{ "type": "epoch", "name": "oio_socket_linger_delay",
+				"key": "socket.linger.delay",
+				"def": "1s", "min": 0, "max": 60,
+				"descr": "When socket.linger.enabled is set to TRUE, socket.linger.delat tells how the socket remains in the TIME_WAIT state after the close() has been called." },
+
+			{ "type": "bool", "name": "oio_socket_quickack",
+				"key": "socket.quickack.enabled",
+				"def": true,
+				"descr": "Should the sockets opened by the application receive the TCP_QUICKACK flag." },
+
+			{ "type": "bool", "name": "oio_socket_nodelay",
+				"key": "socket.nodelay.enabled",
+				"def": true,
+				"descr": "Should the socket to meta~ services receive the TCP_NODELAY flag. When TRUE, it disables the Naggle's algorithm." },
+
+			{ "type": "bool", "name": "oio_socket_fastopen",
+				"key": "socket.fastopen.enabled",
+				"def": true,
+				"descr": "Should the socket to meta~ services use TCP_FASTOPEN flag." },
+
+			{ "type": "int32", "name": "oio_client_fake_timeout_threshold",
+				"key": "enbug.client.fake_timeout.threshold",
+				"descr": "Set the probability of fake timeout failures, in any client RPC to a 'meta' service",
+				"def": 0, "min": 0, "max": 100 },
+
+			{ "type": "bool", "name": "oio_client_down_avoid",
+				"key": "client.down_cache.avoid",
+				"def": true,
+				"descr": "Should an error be raised when the peer is marked down, instead of trying to contact the peer." },
+
+			{ "type": "bool", "name": "oio_client_down_shorten",
+				"key": "client.down_cache.shorten",
+				"def": false,
+				"descr": "Should the connection timeout be dramatically shortened when talking to a peer that has been reported down. Set to false by default, this is evaluated after the avoidance of those peers." },
+
+			{ "type": "bool", "name": "oio_client_cache_errors",
+				"key": "client.errors_cache.enabled",
+				"def": false,
+				"descr": "Should the client feed a cache with the network errors it encounters, and should those errors be used to prevent RPC to be performed toward 'too-faulty' peers." },
+
+			{ "type": "uint64", "name": "oio_client_cache_errors_max",
+				"key": "client.errors_cache.max",
+				"def": "60", "min": 1, "max": "4Gi",
+				"descr": "Sets the number of faults (on the period given by client.errors_cache.period) beyond which a peer is considered as too faulty to try a new RPC." },
+
+			{ "type": "epoch", "name": "oio_client_cache_errors_period",
+				"key": "client.errors_cache.period",
+				"def": "60s", "min": "1s", "max": "1h",
+				"descr": "Sets the size of the time window used to count the number of network errors." },
+
+
+			{ "type": "float", "name": "oio_client_timeout_single",
+				"key": "gridd.timeout.single.common",
+				"def": 30.0, "min": 0.01, "max": 120.0,
+				"descr": "Sets the default timeout for unitary (request/response) RPC, without considering the possible redirection." },
+
+			{ "type": "float", "name": "oio_client_timeout_whole",
+				"key": "gridd.timeout.whole.common",
+				"def": 30.0, "min": 0.1, "max": 120.0,
+				"descr": "Sets the global timeout of a RPC to e 'meta' service, considering all the possible redirections." },
+
+			{ "type": "float", "name": "oio_client_timeout_connect",
+				"key": "gridd.timeout.connect.common",
+				"def": 4.0, "min": 0.1, "max": 30.0,
+				"descr": "Sets the connection timeout, involved in any RPC to a 'meta' service." }
+		]
+	},
+	"sqliterepo_remote": {
+		"license": "lgpl",
+		"code": "sqliterepo_remote_variables.c",
+		"header": "sqliterepo_remote_variables.h",
+		"variables": [
+			{ "type": "float", "name": "oio_election_use_timeout_cnx",
+				"key": "sqliterepo.outgoing.timeout.cnx.use",
+				"descr": "Sets the connection timeout when ping'ing a peer database. Keep it small. Only used when UDP is disabled.",
+				"def": 1.0, "min": 0.01, "max": 30.0 },
+
+			{ "type": "float", "name": "oio_election_use_timeout_req",
+				"key": "sqliterepo.outgoing.timeout.req.use",
+				"descr": "Sets the global timeout when ping'ing a peer database. Keep it small.",
+				"def": 10.0, "min": 0.01, "max": 30.0 },
+
+			{ "type": "float", "name": "oio_election_getvers_timeout_cnx",
+				"key": "sqliterepo.outgoing.timeout.cnx.getvers",
+				"descr": "Sets the connection timeout when exchanging versions between databases replicas.",
+				"def": 5.0, "min": 0.01, "max": 30.0 },
+
+			{ "type": "float", "name": "oio_election_getvers_timeout_req",
+				"key": "sqliterepo.outgoing.timeout.req.getvers",
+				"descr": "Sets the global timeout when performing a version exchange RPC. Keep it rather small, to let election quickly fail on network troubles. Only used when UDP is disabled.",
+				"def": 10.0, "min": 0.01, "max": 30.0 },
+
+			{ "type": "float", "name": "oio_election_replicate_timeout_cnx",
+				"key": "sqliterepo.outgoing.timeout.cnx.replicate",
+				"descr": "Sets the connection timeout sending a replication request.",
+				"def": 5.0, "min": 0.01, "max": 30.0 },
+
+			{ "type": "float", "name": "oio_election_replicate_timeout_req",
+				"key": "sqliterepo.outgoing.timeout.req.replicate",
+				"descr": "Sets the global timeout when sending a replication RPC, from the current MASTER to a SLAVE",
+				"def": 10.0, "min": 0.01, "max": 30.0 },
+
+			{ "type": "float", "name": "oio_election_resync_timeout_cnx",
+				"key": "sqliterepo.outgoing.timeout.cnx.resync",
+				"descr": "Set the connection timeout during RPC to ask for a SLAVE database to be resync on its MASTER",
+				"def": 5.0, "min": 0.01, "max": 30.0 },
+
+			{ "type": "float", "name": "oio_election_resync_timeout_req",
+				"key": "sqliterepo.outgoing.timeout.req.resync",
+				"descr": "Sets the global timeout of a RESYNC request sent to a 'meta' service. Sent to a SLAVE DB, the RESYNC operation involves a RPC from the SLAVE to the MASTER, then a DB dump on the MASTER and restoration on the SLAVE. Thus that operation might be rather long, due to the possibility of network/disk latency/bandwidth, etc. Should be set accordingly with sqliterepo.dumps.timeout",
+				"def": 241.0, "min": 0.01, "max": 300.0 }
+		]
+	},
+	"sqliterepo": {
+		"license": "lgpl",
+		"code": "sqliterepo_variables.c",
+		"header": "sqliterepo_variables.h",
+		"variables": [
+			{ "type": "int64", "name": "sqliterepo_max_rss",
+				"key": "sqliterepo.rss.max",
+				"descr": "Memory size ceiling we try to honor. The check is performed while closing databases. Set to 0 to autodetect the max RSS from the resource limits (see `man getrlimit` for more information). The autodetection considers the environment and is not aware of all the processes that could share that environment.",
+				"def": "0", "min": "0", "max": "max"},
+
+			{ "type": "int", "name": "sqliterepo_dumps_max",
+				"key": "sqliterepo.dumps.max",
+				"descr": "How many concurrent DB dumps may happen in a single process.",
+				"def": 1024, "min": 1, "max": "max"},
+
+			{ "type": "monotonic", "name": "sqliterepo_dumps_timeout",
+				"key": "sqliterepo.dumps.timeout",
+				"descr": "How long to wait for a concurrent DB dump to finish. Should be set accordingly with sqliterepo.outgoing.timeout.req.resync.",
+				"def": "4m", "min": "1s", "max": "1d" },
+
+			{ "type": "bool", "name": "sqliterepo_udp_deferred",
+				"key": "sqliterepo.udp_deferred",
+				"descr": "Should the sendto() of DB_USE be deferred to a thread-pool. Only effective when `oio_udp_allowed` is set. Set to 0 to keep the OS default.",
+				"def": true},
+
+			{ "type": "uint", "name": "sqliterepo_zk_mux_factor",
+				"key": "sqliterepo.zk.mux_factor",
+				"descr": "For testing purposes. The value simulates ZK sharding on different connection to the same cluster.",
+				"def": 1, "min": 1, "max": 64},
+
+			{ "type": "bool", "name": "sqliterepo_zk_shuffle",
+				"key": "sqliterepo.zk.shuffle",
+				"descr": "Should the synchronism mechanism shuffle the set of URL in the ZK connection string? Set to yes as an attempt to a better balancing of the connections to the nodes of the ZK cluster.",
+				"def": true},
+
+			{ "type": "bool", "name": "sqliterepo_election_lazy_recover",
+				"key": "sqliterepo.election.lazy_recover",
+				"descr": "Should the election mecanism try to recreate missing DB?",
+				"def": false},
+
+			{ "type": "monotonic", "name": "oio_election_lock_alert_delay",
+				"key": "sqliterepo.election.lock_alert_delay",
+				"descr": "Only effective when built in DEBUG mode. Dump the long critical sections around the elections lock, when the lock is held for longer than this threshold (in microseconds).",
+				"def": "500", "min": "1", "max": "60s" },
+
+			{ "type": "monotonic", "name": "oio_election_period_cond_wait",
+				"key": "sqliterepo.election.wait.quantum",
+				"descr": "In the current sqliterepo repository, while loop-waiting for a final election status to be reached, this value sets the unit amount of time of eacch unit wait on the lock. Keep this value rather small to avoid waiting for too long, but not too small to avoid dumping CPU cycles in active waiting.",
+				"def": "4s", "min": "100ms", "max": "1h" },
+
+			{ "type": "monotonic", "name": "oio_election_delay_wait",
+				"key": "sqliterepo.election.wait.delay",
+				"descr": "In the current sqliterepo repository, sets the maximum amount of time a worker thread is allowed to wait for an election to get its final status.",
+				"def": "20s", "min": "100ms", "max": "1h" },
+
+			{ "type": "bool", "name": "oio_election_enable_nowait_pending",
+				"key": "sqliterepo.election.nowait.enable",
+				"descr": "Check of the election is pending since too long. If it is, don't way for it.",
+				"def": false },
+
+			{ "type": "monotonic", "name": "oio_election_delay_nowait_pending",
+				"key": "sqliterepo.election.nowait.after",
+				"descr": "In the current sqliterepo repository, sets the amount of time spent in an election resolution that will make a worker thread won't wait at all and consider that election is stalled.",
+				"def": "15m", "min": "1ms", "max": "max" },
+
+			{ "type": "monotonic", "name": "oio_election_delay_expire_NONE",
+				"key": "sqliterepo.election.delay.expire_none",
+				"descr": "In the current sqliterepo repository, sets the amount of time an election without status will be forgotten ",
+				"def": "30m", "min": "1s", "max": "1d" },
+
+			{ "type": "monotonic", "name": "oio_election_delay_expire_SLAVE",
+				"key": "sqliterepo.election.delay.expire_slave",
+				"descr": "In the current sqliterepo repository, sets the amount of time after which a SLAVE election will drop its status and return to the NONE status. This helps recycling established-but-unused elections, and save Zookeeper nodes.",
+				"def": "210m", "min": "1s", "max": "7d" },
+
+			{ "type": "monotonic", "name": "oio_election_delay_expire_MASTER",
+				"key": "sqliterepo.election.delay.expire_master",
+				"descr": "In the current sqliterepo repository, sets the amount of time after which a MASTER election will drop its status and return to the NONE status. This helps recycling established-but-unused elections, and save Zookeeper nodes. Keep this value greater than sqliterepo.election.delay.expire_slave to avoid rotating the master service.",
+				"def": "240m", "min": "1ms", "max": "7d" },
+
+			{ "type": "monotonic", "name": "oio_election_delay_expire_pending",
+				"key": "sqliterepo.election.delay.expire_pending",
+				"descr": "Sets the amount of time after which a pending election (without any status change) will be reset and return to the NONE status. This helps recovering after a ZooKeeper failure. Should be set between sqliterepo.zk.timeout and sqliterepo.election.wait.delay.",
+				"def": "12s", "min": "1s", "max": "7d" },
+
+			{ "type": "monotonic", "name": "oio_election_delay_retry_FAILED",
+				"key": "sqliterepo.election.delay.retry_failed",
+				"descr": "In the current sqliterepo repository, sets the amount of time after which a failed election leaves its FAILED status and returns to the NONE status.",
+				"def": "250ms", "min": "1ms", "max": "7d" },
+
+			{ "type": "uint", "name": "_page_size",
+				"key": "sqliterepo.page_size",
+				"descr": "In the current sqliterepo repository, sets the page size of all the databases used. This value only has effects on databases created with that value.",
+				"def": 4096, "min": 512, "max": "1024 * 1024" },
+
+			{ "type": "uint", "name": "oio_sqliterepo_cache_kbytes_per_db",
+				"key": "sqliterepo.cache.kbytes_per_db",
+				"descr": "Number of kibibytes (kiB) of cache per open DB.",
+				"def": 0, "min": 0, "max": "1024 * 1024" },
+
+			{ "type": "int32", "name": "oio_sqlx_request_failure_threshold",
+				"key": "enbug.sqliterepo.client.failure.threshold",
+				"descr": "In testing situations, sets the average ratio of requests failing for a fake reason (from the peer). This helps testing the retrial mechanisms.",
+				"def": 0, "min": 0, "max": 100 },
+
+			{ "type": "monotonic", "name": "oio_sqlx_timeout_check_period",
+				"key": "enbug.sqliterepo.client.timeout.period",
+				"descr": "In testing situations, sets the average ratio of requests failing for a fake reason (connection timeout). This helps testing the retrial mechanisms and the behavior under strong network split-brain.",
+				"def": "1s", "min": "1ms", "max": "1d" },
+
+			{ "type": "monotonic", "name": "oio_sqlx_timeout_check_max",
+				"key": "sqliterepo.client.timeout.alert_if_longer",
+				"descr": "In the current sqliterepo repository, sets the maximum amount of time a periodical task may take, while checking for the timeouts on the outbound connections.",
+				"def": "5s", "min": "1ms", "max": "1h" },
+
+			{ "type": "bool", "name": "sqliterepo_allow_master",
+				"key": "sqliterepo.election.allow_master",
+				"descr": "Allow the role of MASTER in any election.",
+				"def": true },
+
+			{ "type": "uint", "name": "disconnection_rrd_window",
+			   "key": "sqliterepo.zk.rrd.window",
+				"descr": "Sets the time window to remember the reconnection events, on a ZK connection.",
+			   "def": 30, "min": 1, "max": 4095 },
+
+			{ "type": "uint", "name": "disconnection_threshold",
+				"key": "sqliterepo.zk.rrd.threshold",
+				"descr": "Sets the maximum number of reconnections to the ZK that remains acceptable. Beyond that limit, we consider the current service has been disconnected, and that it loast all its nodes.",
+				"def": 5, "min": 1, "max": "1 << 32 - 1" },
+
+			{ "type": "int32", "name": "oio_sync_failure_threshold_action",
+				"key": "enbug.sqliterepo.synchro.failure",
+				"descr": "Fake Error rate on synchronism RPC (a.k.a. ZK) ",
+				"def": 0, "min": 0, "max": 100 },
+
+			{ "type": "bool", "name": "_cache_fail_on_heavy_load",
+				"key": "sqliterepo.cache.heavyload.fail",
+				"descr": "Triggers an error when a thread waits for an overloaded database.",
+				"def": false},
+
+			{ "type": "bool", "name": "_cache_alert_on_heavy_load",
+				"key": "sqliterepo.cache.heavyload.alert",
+				"descr": "Triggers an alert when a thread tries to wait for an overloaded database.",
+				"def": true },
+
+			{ "type": "uint32", "name": "_cache_max_waiting",
+				"key": "sqliterepo.cache.waiting.max",
+				"descr": "Sets how many threads can wait on a single database. All the additional waiters will be denied with any wait attempt.",
+				"def": 16, "min": 0, "max": "1<<32 - 1" },
+
+			{ "type": "monotonic", "name": "_cache_timeout_open",
+				"key": "sqliterepo.cache.timeout.open",
+				"descr": "Sets how long a worker thread accepts for a DB to become available.",
+				"def": "20s", "min": "1ms", "max": "1d" },
+
+			{ "type": "monotonic", "name": "_cache_period_cond_wait",
+				"key": "sqliterepo.cache.timeout.lock",
+				"descr": "Sets how long we (unit)wait on the lock around the databases. Keep it small.",
+				"def": "1s", "min": "1ms", "max": "1h" },
+
+			{ "type": "uint32", "name": "_cache_heat_threshold",
+				"key": "sqliterepo.cache.heat_threshold",
+				"descr": "Sets the heat value below which a databse is considered hot",
+				"def": 1, "min": 1, "max": "1 << 32 - 1" },
+
+			{ "type": "monotonic", "name": "_cache_grace_delay_cool",
+				"key": "sqliterepo.cache.ttl.cool",
+				"descr": "Sets the period after the return to the IDLE/COLD state, during which the recycling is forbidden. 0 means the base won't be decached.",
+				"def": "1ms", "min": "0", "max": "1d" },
+
+			{ "type": "monotonic", "name": "_cache_grace_delay_hot",
+				"key": "sqliterepo.cache.ttl.hot",
+				"descr": "Sets the period after the return to the IDLE/HOT state, during which the recycling is forbidden. 0 means the base won't be decached.",
+				"def": "1ms", "min": "0", "max": "1d" },
+
+			{ "type": "uint", "name": "sqliterepo_release_size",
+				"key": "sqliterepo.release_size",
+				"descr": "Sets how many bytes bytes are released when the LEAN request is received by the current 'meta' service.",
+				"def": "64Mi", "min": 1, "max": "1<<32 - 1" },
+
+			{ "type": "monotonic", "name": "sqliterepo_zk_timeout",
+				"key": "sqliterepo.zk.timeout",
+				"descr": "Sets the timeout of the zookeeper handle (in the meaning of the zookeeper client library)",
+				"def": "10s", "min": "1ms", "max": "1h" },
+
+			{ "type": "uint", "name": "sqliterepo_repo_max_bases_hard",
+				"key": "sqliterepo.repo.hard_max",
+				"descr": "Sets how many databases can be kept simultaneously open (in use or idle) in the current service. If defined to 0, it is set to 48% of available file descriptors.",
+				"def": "0", "min": "0", "max": "128ki" },
+
+			{ "type": "uint", "name": "sqliterepo_repo_max_bases_soft",
+				"key": "sqliterepo.repo.soft_max",
+				"descr": "Sets how many databases can be in use at the same moment in the current service. If defined to 0, it is set to sqliterepo.repo.hard_max.",
+				"def": "0", "min": "0", "max": "128ki" },
+
+			{ "type": "monotonic", "name": "sqliterepo_getvers_delay",
+				"key": "sqliterepo.repo.getvers_delay",
+				"descr": ".",
+				"def": "100ms", "min": "10ms", "max": "1m",
+				"aliases": ["sqliterepo.repo.getvers_backoff"]},
+
+			{ "type": "uint", "name": "sqliterepo_getvers_attempts",
+				"key": "sqliterepo.repo.getvers_attempts",
+				"descr": "Sets how many versions exchanges are allowed during the journey in the election FSM.",
+				"def": 5, "min": 1, "max": "64",
+				"aliases": ["sqliterepo.repo.getvers_max_retries"]},
+
+			{ "type": "uint", "name": "sqliterepo_fd_max_active",
+				"key": "sqliterepo.repo.fd_max_active",
+				"descr": "Maximum number of simultaneous outgoing connections. Set to 0 for an automatic detection (2% of available file descriptors).",
+				"def": 512, "min": 0, "max": "64ki" },
+
+			{ "type": "uint", "name": "sqliterepo_fd_min_active",
+				"key": "sqliterepo.repo.fd_min_active",
+				"descr": "Minimum number of simultaneous outgoing connections.",
+				"def": 32, "min": 0, "max": "64ki" },
+
+			{ "type": "monotonic", "name": "sqliterepo_active_queue_ttl",
+				"key": "sqliterepo.repo.active_queue_ttl",
+				"descr": "In the current server, sets the maximum amount of time a queued DB_USE, DB_GETVERS or DB_PIPEFROM request may remain in the queue. If the message was queued for too long before being sent, it will be dropped. The purpose of such a mechanism is to avoid clogging the queue and the whole election/cache mechanisms with old messages, those messages having already been resent.",
+				"def": "4s", "min": "100ms", "max": "60s" },
+
+			{ "type": "string", "name": "sqliterepo_election_2master_db",
+				"key": "enbug.election.double_master.db",
+				"descr": "CID of the base to force a double master condition on.",
+				"def": "", "limit": 256 },
+
+			{ "type": "int64", "name": "sqliterepo_dump_chunk_size",
+				"key": "sqliterepo.dump.chunk_size",
+				"descr": "Size of data chunks when copying a database using the chunked DB_PIPEFROM/DB_DUMP mechanism.",
+				"def": "8Mi", "min": 4096, "max": "2047Mi" },
+
+			{ "type": "int64", "name": "sqliterepo_dump_max_size",
+				"key": "sqliterepo.dump.max_size",
+				"descr": "Maximum size of a database dump. If a base is bigger than this size, it will be refused the synchronous DB_RESTORE mechanism, and will be ansynchronously restored with the DB_DUMP/DB_PIPEFROM mechanism.",
+				"def": "1024Mi", "min": 0, "max": "2047Mi" }
+		]
+	},
+	"rdir": {
+		"code": "rdir_variables.c",
+		"header": "rdir_variables.h",
+		"variables": [
+			{ "type": "uint", "name": "rdir_fd_per_base",
+				"key": "rdir.fd_per_base",
+				"descr": "Configure the maximum number of file descriptors allowed to each leveldb database. Set to 0 to autodetermine the value (cf. rdir.fd_reserve). The real value will be clamped at least to 8. Will only be applied on bases opened after the configuration change.",
+				"def": 0, "min": 0, "max": "16ki" },
+
+			{ "type": "uint", "name": "rdir_fd_reserve",
+				"key": "rdir.fd_reserve",
+				"descr": "Configure the total number of file descriptors the leveldb backend may use. Set to 0 to autodetermine the value. Will only be applied on bases opened after the configuration change.",
+				"def": 0, "min": 0, "max": "32ki" }
+		]
+	},
+	"server": {
+		"license": "lgpl",
+		"code": "server_variables.c",
+		"header": "server_variables.h",
+		"variables": [
+			{ "type": "uint", "name": "server_fd_max_passive",
+				"key": "server.fd_max_passive",
+				"descr": "Maximum number of simultaneous incoming connections. Set to 0 for an automatic detection (50% of available file descriptors).",
+				"def": 0, "min": 0, "max": "64ki" },
+
+			{ "type": "bool", "name": "oio_udp_allowed",
+				"key": "udp_allowed",
+				"def": true,
+				"descr": "Allow the sqlx client DB_USE RPC to be sent via UDP instead of the default TCP channel."},
+
+			{ "type": "epoch", "name": "oio_sqlx_lb_refresh_period",
+				"key": "sqlx.lb.refresh_period",
+				"descr": "In the current sqlx-based service, tells the period (in seconds) at which the service will refresh its load-balancing information.",
+				"def": "1", "min": 1, "max": "60s" },
+
+			{ "type": "uint", "name": "server_event_batch_size",
+				"key": "server.batch.events",
+				"descr": "In the network core of a server, how many events do you manage in each call to epoll_wait(). Set to a low value to quickly react on new connections, to an higher value to rather treat established connections. The value is bound to a stack-allocated buffer, keep it rather small.",
+				"def": 128, "min": 1, "max": "4ki" },
+
+			{ "type": "uint", "name": "server_accept_batch_size",
+				"key": "server.batch.accept",
+				"descr": "In the network core, when the server socket wakes the call to epoll_wait(), that value sets the number of subsequent calls to accept(). Setting it to a low value allows to quickly switch to other events (established connection) and can lead to a strvation on the new connections. Setting to a high value might spend too much time in accepting and ease denials of service (with established but idle cnx).",
+				"def": 64, "min": 1, "max": "4ki" },
+
+			{ "type": "monotonic", "name": "sqliterepo_server_exit_ttl",
+				"key": "sqliterepo.service.exit_ttl",
+				"descr": ".",
+				"def": "10s", "min": "1ms", "max": "1h" },
+
+			{ "type": "int", "name": "server_threadpool_max_unused",
+				"key": "server.pool.max_unused",
+				"descr": "In the current server, sets how many threads may remain unused. This value is, in the GLib, common to all the threadpools.",
+				"def": "20", "min":0, "max":"1<<31 -1" },
+
+			{ "type": "monotonic", "name": "server_threadpool_max_idle",
+				"key": "server.pool.max_idle",
+				"descr": "In the current server, sets how long a thread can remain unused before considered as idle (and thus to be stopped)",
+				"def": "30s", "min": 1, "max": "1h" },
+
+			{ "type": "int", "name": "server_threadpool_max_tcp",
+				"key": "server.pool.max_tcp",
+				"descr": "In the current server, sets the maximum number of threads for the pool responsible for the TCP connections (threading model is one thread per request being managed, and one request at once per TCP connection). Set to 0 for no limit.",
+				"def": "0", "min": 0, "max": "1 << 31 - 1" },
+
+			{ "type": "int", "name": "server_threadpool_max_udp",
+				"key": "server.pool.max_udp",
+				"descr": "In the current server, sets the maximum number of threads for pool responsible for the UDP messages handling. UDP is only used for quick synchronisation messages during MASTER elections. Set ot 0 for no limit.",
+				"def": 4, "min": 0, "max": "1 << 31 - 1" },
+
+			{ "type": "monotonic", "name": "server_cnx_ttl_never",
+				"key": "server.cnx.timeout.never",
+				"descr": "In the current server, sets the maximum amount of time an established connection is allowed to live when it has no activity at all.",
+				"def": "30s", "min": 0, "max": "1d" },
+
+			{ "type": "monotonic", "name": "server_cnx_ttl_persist",
+				"key": "server.cnx.timeout.persist",
+				"descr": "In the current server, sets the maximum amount of time a connection is allowed to live, since its creation by the accept() call, wheter it presents activity or not.",
+				"def": "2h", "min": 0, "max": "1d" },
+
+			{ "type": "monotonic", "name": "server_cnx_ttl_idle",
+				"key": "server.cnx.timeout.idle",
+				"descr": "In the current server, sets the maximumu amount of time a connection may live without activity since the last activity (i.e. the last reply sent)",
+				"def": "5m", "min": 0, "max": "1d" },
+
+			{ "type": "monotonic", "name": "server_udp_queue_ttl",
+				"key": "server.udp_queue.ttl",
+				"descr": "In the current server, sets the maximum amount of time a queued UDP frame may remain in the queue. When unqueued, if the message was queued for too long, it will be dropped. The purpose of such a mechanism is to avoid clogging the queue and the whole election/cache mechanisms with old messages, those messages having already been resent.",
+				"def": "1s", "min": "100ms", "max": "1d" },
+
+			{ "type": "uint", "name": "server_udp_queue_maxlen",
+				"key": "server.udp_queue.max",
+				"descr": "In the current server, sets the maximum length of the queue for UDP messages. When that number has been reached and a new message arrives, the message will be dropped.",
+				"def": 512, "min": 0, "max": "1 << 32 - 1" },
+
+			{ "type": "monotonic", "name": "server_queue_max_delay",
+				"key": "server.queue.max_delay",
+				"descr": "Anti-DDoS counter-mesure. In the current server, sets the maximum amount of time a queued TCP event may remain in the queue. If an event is polled and the thread sees the event stayed longer than that delay, the connection is immediately closed. Keep this value rather high because the connection closing doesn't involve a reply that will help the client to retry with an exponential back-off.",
+				"def": "60s", "min": "10ms", "max": "1h" },
+
+			{ "type": "monotonic", "name": "server_queue_warn_delay",
+				"key": "server.queue.warn_delay",
+				"descr": "In the current server, set the time threshold after which a warning is sent when a file descriptor stays longer than that in the queue of the Thread Pool.",
+				"def": "4s", "min": "10ms", "max": "1h" },
+
+			{ "type": "monotonic", "name": "meta_queue_max_delay",
+				"key": "meta.queue.max_delay",
+				"descr": "Anti-DDoS counter-mesure. In the current server, sets the maximum amount of time a queued TCP event may remain in the queue. If an event is polled and the thread sees the event stayed longer than that delay, A '503 Unavailabe' error is replied.",
+				"def": "40s", "min": "10ms", "max": "1h" },
+
+			{ "type": "int32", "name": "oio_server_request_failure_threshold",
+				"key": "enbug.server.request.failure.threshold",
+				"descr": "In testing situations, sets the average ratio of requests failing for a fake reason (from the peer). This helps testing the retrial mechanisms.",
+				"def": 0, "min": 0, "max": 100 },
+
+			{ "type": "uint", "name": "malloc_trim_size_ondemand",
+				"key": "server.malloc_trim_size.ondemand",
+				"descr": "Sets how many bytes bytes are released when the LEAN request is received by the current 'meta' service.",
+				"def": 0, "min": 0, "max": "1<<32 - 1" },
+
+			{ "type": "uint", "name": "sqlx_periodic_malloctrim_period",
+				"key": "server.task.malloc_trim.period",
+				"descr": "In jiffies, how often the periodic task that calls malloc_trim() is fired.",
+				"def": 3600, "min": 0, "max": "86400" },
+
+			{ "type": "uint", "name": "sqlx_periodic_malloctrim_size",
+				"key": "server.malloc_trim_size.periodic",
+				"descr": "Sets how many bytes bytes are released when the LEAN request is received by the current 'meta' service.",
+				"def": 0, "min": 0, "max": "1<<32 - 1" },
+
+			{ "type": "uint", "name": "sqlx_periodic_decache_period",
+				"key": "server.periodic_decache.period",
+				"descr": "In ticks / jiffies, with approx. 1 tick per second. 0 means never",
+				"def": 0, "min": 0, "max": "1Mi" },
+
+			{ "type": "uint", "name": "sqlx_periodic_decache_max_bases",
+				"key": "server.periodic_decache.max_bases",
+				"descr": "How many bases may be decached each time the background task performs its Dance of Death",
+				"def": 1, "min": 1, "max": "4Mi" },
+
+			{ "type": "monotonic", "name": "sqlx_periodic_decache_max_delay",
+				"key": "server.periodic_decache.max_delay",
+				"descr": "How long may the decache routine take",
+				"def": "500ms", "min": "1ms", "max": "1m" },
+
+			{ "type": "monotonic", "name": "sqlx_request_max_run_time",
+				"key": "server.request.max_run_time",
+				"descr": "How long a request might take to run on the server side. This value is used to compute a deadline for several waitings (DB cache, manager of elections, etc). Common to all sqliterepo-based services, it might be overriden.",
+				"def": "300s", "min": "1ms", "max": "1h",
+				"aliases": ["server.request.max_delay_start"] }
+
+		]
+	},
+	"proxy": {
+		"code": "proxy_variables.c",
+		"header": "proxy_variables.h",
+		"variables": [
+			{ "type": "int", "name": "oio_proxy_local_prepare",
+				"key": "proxy.srv_local.prepare",
+				"descr": "Should the proxy allocate services with a local preference. 0 for no, 1 for only one local service and 2 for a maimum of services in spite of the location constraints. The value 2 is a quirk that should be avoided unless upon exceptional conditon wherein you accept the risk.",
+				"def": 0, "min": 0, "max": 2},
+
+			{ "type": "string", "name": "oio_proxy_location",
+				"key": "proxy.location",
+				"limit": 256,
+				"def": "",
+				"descr": "Specify the OpenIO SDS location of the service." },
+
+			{ "type": "bool", "name": "oio_proxy_local_patch",
+				"key": "proxy.srv_local.patch",
+				"descr": "Should the proxy patch the services descriptions to let the caller prefer local services.",
+				"def": false,
+				"aliases": ["proxy.srv_local.prefer"] },
+
+			{ "type": "monotonic", "name": "proxy_request_max_delay",
+				"key": "proxy.request.max_delay",
+				"descr": "How long a request might take to execute, when no specific deadline has been received. Used to compute a deadline transmitted to backend services, when no timeout is present in the request.",
+				"def": "1m", "min": "1ms", "max": "1h" },
+
+			{ "type": "bool", "name": "oio_proxy_srv_shuffle",
+				"key": "proxy.srv_shuffle",
+				"descr": "Should the proxy shuffle the meta2 addresses before the query, to do a better load-balancing of the requests.",
+				"def": true },
+
+			{ "type": "bool", "name": "oio_proxy_dir_shuffle",
+				"key": "proxy.dir_shuffle",
+				"descr": "Should the proxy shuffle the meta1 addresses before contacting them, thus trying to perform a better fanout of the requests.",
+				"def": true },
+
+			{ "type": "epoch", "name": "csurl_refresh_delay",
+				"key": "proxy.period.refresh.csurl",
+				"descr": "In the proxy, tells the period between the reloadings of the conscience URL, known from the local configuration",
+				"def": "30s", "min": 0, "max": "1d" },
+
+			{ "type": "epoch", "name": "srvtypes_refresh_delay",
+				"key": "proxy.period.refresh.srvtypes",
+				"descr": "In the proxy, tells the period between two refreshes of the known service types, from the conscience",
+				"def": "30s", "min": "1s", "max": "1d" },
+
+			{ "type": "epoch", "name": "nsinfo_refresh_delay",
+				"key": "proxy.period.reload.nsinfo",
+				"descr": "In the proxy, tells the period between two refreshes of the namespace configuration, from the conscience",
+				"def": "30s", "min": "1s", "max": "1h" },
+
+			{ "type": "monotonic", "name": "ttl_expire_local_services",
+				"key": "proxy.ttl.services.local",
+				"descr": "In the proxy cache, sets the TTL of a local service",
+				"def": "30s", "min": 0, "max": "1d" },
+
+			{ "type": "monotonic", "name": "ttl_down_services",
+				"key": "proxy.ttl.services.down",
+				"descr": "In the proxy cache, sets the TTL of a service known to be down",
+				"def": "5s", "min": 0, "max": "1d" },
+
+			{ "type": "monotonic", "name": "ttl_known_services",
+				"key": "proxy.ttl.services.known",
+				"descr": "In a proxy, sets the TTL of each service already encountered",
+				"def": "5d", "min": 0, "max": "7d" },
+
+			{ "type": "monotonic", "name": "ttl_expire_master_services",
+				"key": "proxy.ttl.services.master",
+				"descr": "In a proxy, sets the TTL on each 'known master' entry. That cache is filled each time a redirection to a MASTER occurs, so that we can immediately direct write operation to the service that owns the MASTER copy.",
+				"def": "30m", "min": 0, "max": "7d" },
+
+			{ "type": "epoch", "name": "lb_downstream_delay",
+				"key": "proxy.period.cs.downstream",
+				"descr": "In a proxy, sets the period between the refreshes of the load-balancing state from the central conscience.",
+				"def": "5s", "min": 0, "max": "1m" },
+
+			{ "type": "epoch", "name": "lb_upstream_delay",
+				"key": "proxy.period.cs.upstream",
+				"descr": "In a proxy, sets the period between two sendings of services states to the conscience.",
+				"def": "1s", "min": "1s", "max": "1m" },
+
+			{ "type": "uint", "name": "proxy_bulk_max_create_many",
+				"key": "proxy.bulk.max.create_many",
+				"descr": "In a proxy, sets how many containers can be created at once.",
+				"def": "100", "min": 0, "max": "10k" },
+
+			{ "type": "uint", "name": "proxy_bulk_max_delete_many",
+				"key": "proxy.bulk.max.delete_many",
+				"descr": "In a proxy, sets how many objects can be deleted at once.",
+				"def": "100", "min": 0, "max": "10k" },
+
+			{ "type": "bool", "name": "flag_cache_enabled",
+				"key": "proxy.cache.enabled",
+				"descr": "In a proxy, sets if any form of caching is allowed. Supersedes the value of resolver.cache.enabled.",
+				"def": true,
+				"aliases": ["Cache"]},
+
+			{ "type": "bool", "name": "flag_local_scores",
+				"key": "proxy.quirk.local_scores",
+				"descr": "In a proxy, tells if the (ugly-as-hell) quirk that sets the score known from the conscience on the corresponding entries in the cache of services 'known to be local'",
+				"def": false,
+				"aliases": ["LocalScores"]},
+
+			{ "type": "bool", "name": "flag_prefer_master_for_write",
+				"key": "proxy.prefer.master_for_write",
+				"descr": "In a proxy, upon a write request, should the proxy prefer services known to host the MASTER copy of the DB ",
+				"def": true,
+				"aliases": ["PreferMasterForWrites"]},
+
+			{ "type": "bool", "name": "flag_prefer_master_for_read",
+				"key": "proxy.prefer.master_for_read",
+				"descr": "In a proxy, upon a read request, should the proxy prefer a service known to host a MASTER copy of the DB. Supersedes proxy.prefer.slave_for_read",
+				"def": false,
+				"aliases": ["PreferMaster"]},
+
+			{ "type": "bool", "name": "flag_prefer_slave_for_read",
+				"key": "proxy.prefer.slave_for_read",
+				"descr": "In a proxy, upon a read request, should the proxy prefer a service known to host a SLAVE copy of the DB.",
+				"def": true,
+				"aliases": ["PreferSlave"]},
+
+			{ "type": "bool", "name": "flag_force_master",
+				"key": "proxy.force.master",
+				"descr": "In a proxy, should the process ask the target service (with the help of an option in each RPC) to accept the RPC only if it is MASTER on that DB.",
+				"def": false,
+				"aliases": ["ForceMaster"]},
+
+			{ "type": "uint", "name": "proxy_url_path_maxlen",
+				"key": "proxy.url.path.maxlen",
+				"descr": "In a proxy, sets the maximum length for the URL it receives. This options protects stack allocation for that URL.",
+				"def": 2048, "min": 32, "max": 65536 },
+
+			{ "type": "float", "name": "proxy_timeout_info",
+				"key": "proxy.outgoing.timeout.info",
+				"descr": "In a proxy, sets the global timeout for 'info' requests issued",
+				"def": 5.0, "min": 0.01, "max": 60.0 },
+
+			{ "type": "float", "name": "proxy_timeout_config",
+				"key": "proxy.outgoing.timeout.config",
+				"descr": "In a proxy, sets the global timeout for 'config' requests issued",
+				"def": 10.0, "min": 0.1, "max": 60.0 },
+
+			{ "type": "float", "name": "proxy_timeout_stat",
+				"key": "proxy.outgoing.timeout.stat",
+				"descr": "In a proxy, sets the global timeout for 'stat' requests issued (mostly forwarded for the event-agent)",
+				"def": 10.0, "min": 0.1, "max": 60.0 },
+
+			{ "type": "float", "name": "proxy_timeout_conscience",
+				"key": "proxy.outgoing.timeout.conscience",
+				"descr": "In a proxy, sets the global timeout for the RPC to the central cosnience service.",
+				"def": 10.0, "min": 0.1, "max": 60.0 },
+
+			{ "type": "float", "name": "proxy_timeout_common",
+				"key": "proxy.outgoing.timeout.common",
+				"descr": "In a proxy, sets the global timeout for all the other RPC issued (not conscience, not stats-related)",
+				"def": 30.0, "min": 0.1, "max": 60.0 },
+
+			{ "type": "int32", "name": "proxy_enbug_cs_failure_rate",
+				"key": "enbug.proxy.cs.failure_rate",
+				"descr": "Proxy probability to fail with 503 on a /cs route",
+				"def": 0, "min": 0, "max": 100 },
+
+			{ "type": "int32", "name": "oio_proxy_request_failure_threshold_alone",
+				"key": "enbug.proxy.request_failure.alone",
+				"descr": "Really, do not use this!",
+				"def": 0, "min": 0, "max": 100 },
+
+			{ "type": "int32", "name": "oio_proxy_request_failure_threshold_first",
+				"key": "enbug.proxy.request_failure.first",
+				"descr": "Really, do not use this!",
+				"def": 0, "min": 0, "max": 100 },
+
+			{ "type": "int32", "name": "oio_proxy_request_failure_threshold_middle",
+				"key": "enbug.proxy.request_failure.middle",
+				"descr": "Really, do not use this!",
+				"def": 0, "min": 0, "max": 100 },
+
+			{ "type": "int32", "name": "oio_proxy_request_failure_threshold_last",
+				"key": "enbug.proxy.request_failure.last",
+				"descr": "Really, do not use this!",
+				"def": 0, "min": 0, "max": 100 }
+		]
+	},
+	"client": {
+		"license": "lgpl",
+		"code": "client_variables.c",
+		"header": "client_variables.h",
+		"variables": [
+			{ "type": "int64", "name": "meta2_max_versions",
+				"key": "meta2.max_versions",
+				"descr": "Namespace configuration of the max number of versions for a single alias, in a container.",
+				"def": 1, "min": -1, "max": "max" },
+
+			{ "type": "uint", "name": "oio_socket_proxy_buflen",
+				"key": "socket.proxy.buflen",
+				"descr": "Advice the libcurl to use that buffer size for the interactions with the proxy. libcurl gives no guaranty to take the advice into account. Set to 0 to let the default. libcurl applies its own range, usually between 1k and 512k.",
+				"def": "0", "min": 0, "max": "512k"},
+
+			{ "type": "uint", "name": "oio_socket_rawx_buflen",
+				"key": "socket.rawx.buflen",
+				"descr": "Advice the libcurl to use that buffer size for the interactions with the rawx services. libcurl gives no guaranty to take the advice into account. Set to 0 to let the default. libcurl applies its own range, usually between 1k and 512k.",
+				"def": "0", "min": 0, "max": "512k"},
+
+			{ "type": "bool", "name": "oio_sds_default_autocreate",
+				"key": "core.sds.autocreate",
+				"descr": "In the current oio-sds client SDK, should the entities be autocreated while accessed for the first time. So, when pushing a content in a container, when this option is set to 'true', the USER and the CONTAINER will be created and configured to the namespace's defaults.",
+				"def": false, "declare": false },
+
+			{ "type": "bool", "name": "oio_sds_no_shuffle",
+				"key": "core.sds.noshuffle",
+				"descr": "In the current oio-sds client SDK, should the rawx services be shuffled before accessed. This helps ensuring a little load-balancing on the client side.",
+				"def": false },
+
+			{ "type": "monotonic", "name": "_refresh_major_minor",
+				"key": "core.period.refresh.major_minor",
+				"descr": "Sets the minimal amount of time between two refreshes of the list of the major/minor numbers of the known devices, currently mounted on the current host. If the set of mounted file systems doesn't change, keep this value high.",
+				"def": "30s", "min": "100ms", "max": "1h" },
+
+			{ "type": "monotonic", "name": "_refresh_io_idle",
+				"key": "core.period.refresh.io_idle",
+				"descr": "Sets the minimal amount of time between two refreshes of the known IO-idle counters for the current host. Keep this small.",
+				"def": "1s", "min": "100ms", "max": "1h" },
+
+			{ "type": "float", "name": "oio_sqlx_timeout_req",
+				"key": "sqlx.outgoing.timeout.req",
+				"descr": "Sets the timeout for the requests issued to the SQLX services.",
+				"def": 30.0, "min": 0.01, "max": 60.0 },
+
+			{ "type": "float", "name": "oio_client_rawx_timeout_cnx",
+				"key": "core.sds.timeout.cnx.rawx",
+				"descr": "Sets the connection timeout for requests issued to rawx services.",
+				"def": 5.0, "min": 0.001, "max": 300.0 },
+
+			{ "type": "float", "name": "oio_client_rawx_timeout_req",
+				"key": "core.sds.timeout.req.rawx",
+				"descr": "Sets the global timeout when uploading a chunk to a rawx service.",
+				"def": 60.0, "min": 0.001, "max": 600.0 },
+
+			{ "type": "monotonic", "name": "_refresh_cpu_idle",
+				"key": "core.period.refresh.cpu_idle",
+				"descr": "Sets the miniimal amount of time between two refreshed of the known CPU-idle counters for the current host. Keep this value small.",
+				"def": "1s", "min": "100ms", "max": "1h" },
+
+			{ "type": "string", "name": "oio_core_http_user_agent",
+				"key": "core.http.user_agent",
+				"limit": 64,
+				"def": "",
+				"descr": "HTTP User-Agent to be used between any C client and the proxy" },
+
+			{ "type": "string", "name": "oio_sds_client_version",
+				"key": "core.sds.version",
+				"limit": 64,
+				"def": "4.2",
+				"descr": "The version of the sds. It's used to know the expected metadata of a chunk" },
+
+			{ "type": "bool", "name": "oio_sds_client_patch_metachunk_size",
+				"key": "core.sds.adapt_metachunk_size",
+				"def": "true",
+				"descr": "Should the client adapt metachunk size to EC policy parameters? Letting this on will make bigger metachunks, but chunks on storage will stay at normal chunk size. Disabling this option allows clients to do write alignment." },
+
+			{ "type": "int64", "name": "oio_chunk_size_minimum",
+				"key": "core.chunk_size.min",
+				"descr": "Should the C API adjust the chunk size when below this threshold. Set to 0 for no action",
+				"def": "10M", "min": 0, "max": "max",
+				"aliases":["core.chunk_size.minimum"]},
+
+			{ "type": "int64", "name": "oio_chunk_size_maximum",
+				"key": "core.chunk_size.max",
+				"descr": "Should the C API adjust the chunk size when over this ceiling. Set to 0 for no action.",
+				"def": 0, "min": 0, "max": "max",
+				"aliases":["core.chunk_size.maximum"]},
+
+			{ "type": "bool", "name": "oio_url_must_be_unicode",
+				"key": "core.sds.strict_utf8",
+				"def": "true",
+				"descr": "Should the object URLs be checked for non-UTF-8 characters? Disable this only if you have trouble reading old objects, uploaded before we check for invalid names."
+			}
+
+		]
+	},
+	"lb": {
+		"code": "lb_variables.c",
+		"header": "lb_variables.h",
+		"license": "lgpl",
+		"variables": [
+			{ "type": "uint", "name": "oio_lb_weighted_random_attempts",
+				"key": "core.lb.weighted_random_attempts",
+				"descr": "How many times shall we try to select a service using a weighted random algorithm, before switching to the shuffled selection. Increase this if you observe too many choices of low-score services while high-score services are available.",
+				"def": "1", "min": 1, "max": "64k"},
+			{ "type": "monotonic", "name": "oio_lb_writer_lock_alert_delay",
+				"key": "core.lb.writer_lock_alert_delay",
+				"descr": "Dump the time spent while holding the global writer lock, when the lock is held for longer than this threshold (in microseconds).",
+				"def": "5000", "min": "1", "max": "60s" },
+			{ "type": "bool", "name": "oio_lb_allow_distance_bypass",
+				"key": "core.lb.allow_distance_bypass",
+				"def": "true",
+				"descr": "Compare the number of items to select to the number of items available at the current location level, and decide if it is desirable to bypass or slacken the time-consuming distance checks. Disable this if you detect too many situations where distance between selected items could have been bigger." }
+		]
+	}
+}

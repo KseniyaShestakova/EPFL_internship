@@ -1,0 +1,4 @@
+OpenIO SDS is dual-licenced, either LPGLv3 or AGPLv3, depending on the code concerned.
+Each file carries a header explained how it is licenced.
+In the general case, client code is LGPL and server code is AGPL.
+Both licences texts are provided with the current code.

@@ -1,0 +1,158 @@
+ASN_MODULE_SOURCES=	\
+	Parameter.c	\
+	ParameterSequence.c	\
+	Message.c	\
+	AddrInfo.c	\
+	NamespaceInfo.c	\
+	Meta0Info.c	\
+	Meta0InfoSequence.c	\
+	M2V2Alias.c	\
+	M2V2ContentHeader.c	\
+	M2V2Chunk.c	\
+	M2V2Property.c	\
+	M2V2Bean.c	\
+	M2V2BeanSequence.c	\
+	Score.c	\
+	ServiceTag.c	\
+	ServiceInfo.c	\
+	ServiceInfoSequence.c	\
+	RowFieldValue.c	\
+	RowField.c	\
+	RowFieldSequence.c	\
+	Row.c	\
+	RowSet.c	\
+	RowFieldType.c	\
+	RowName.c	\
+	TableHeader.c	\
+	Table.c	\
+	TableSequence.c	\
+	TableVersion.c	\
+	BaseVersion.c
+
+ASN_MODULE_HEADERS=	\
+	Parameter.h	\
+	ParameterSequence.h	\
+	Message.h	\
+	AddrInfo.h	\
+	NamespaceInfo.h	\
+	Meta0Info.h	\
+	Meta0InfoSequence.h	\
+	M2V2Alias.h	\
+	M2V2ContentHeader.h	\
+	M2V2Chunk.h	\
+	M2V2Property.h	\
+	M2V2Bean.h	\
+	M2V2BeanSequence.h	\
+	Score.h	\
+	ServiceTag.h	\
+	ServiceInfo.h	\
+	ServiceInfoSequence.h	\
+	RowFieldValue.h	\
+	RowField.h	\
+	RowFieldSequence.h	\
+	Row.h	\
+	RowSet.h	\
+	RowFieldType.h	\
+	RowName.h	\
+	TableHeader.h	\
+	Table.h	\
+	TableSequence.h	\
+	TableVersion.h	\
+	BaseVersion.h
+
+ASN_MODULE_HEADERS+=BOOLEAN.h
+ASN_MODULE_SOURCES+=BOOLEAN.c
+ASN_MODULE_HEADERS+=ENUMERATED.h
+ASN_MODULE_SOURCES+=ENUMERATED.c
+ASN_MODULE_HEADERS+=INTEGER.h
+ASN_MODULE_HEADERS+=NativeEnumerated.h
+ASN_MODULE_SOURCES+=INTEGER.c
+ASN_MODULE_HEADERS+=NULL.h
+ASN_MODULE_SOURCES+=NULL.c
+ASN_MODULE_SOURCES+=NativeEnumerated.c
+ASN_MODULE_HEADERS+=NativeInteger.h
+ASN_MODULE_SOURCES+=NativeInteger.c
+ASN_MODULE_HEADERS+=REAL.h
+ASN_MODULE_HEADERS+=PrintableString.h
+ASN_MODULE_SOURCES+=PrintableString.c
+ASN_MODULE_SOURCES+=REAL.c
+ASN_MODULE_HEADERS+=asn_SEQUENCE_OF.h
+ASN_MODULE_SOURCES+=asn_SEQUENCE_OF.c
+ASN_MODULE_HEADERS+=asn_SET_OF.h
+ASN_MODULE_SOURCES+=asn_SET_OF.c
+ASN_MODULE_HEADERS+=constr_CHOICE.h
+ASN_MODULE_SOURCES+=constr_CHOICE.c
+ASN_MODULE_HEADERS+=constr_SEQUENCE.h
+ASN_MODULE_SOURCES+=constr_SEQUENCE.c
+ASN_MODULE_HEADERS+=constr_SEQUENCE_OF.h
+ASN_MODULE_SOURCES+=constr_SEQUENCE_OF.c
+ASN_MODULE_HEADERS+=constr_SET_OF.h
+ASN_MODULE_SOURCES+=constr_SET_OF.c
+ASN_MODULE_HEADERS+=asn_application.h
+ASN_MODULE_HEADERS+=asn_system.h
+ASN_MODULE_HEADERS+=asn_codecs.h
+ASN_MODULE_HEADERS+=asn_internal.h
+ASN_MODULE_HEADERS+=OCTET_STRING.h
+ASN_MODULE_SOURCES+=OCTET_STRING.c
+ASN_MODULE_HEADERS+=BIT_STRING.h
+ASN_MODULE_SOURCES+=BIT_STRING.c
+ASN_MODULE_SOURCES+=asn_codecs_prim.c
+ASN_MODULE_HEADERS+=asn_codecs_prim.h
+ASN_MODULE_HEADERS+=ber_tlv_length.h
+ASN_MODULE_SOURCES+=ber_tlv_length.c
+ASN_MODULE_HEADERS+=ber_tlv_tag.h
+ASN_MODULE_SOURCES+=ber_tlv_tag.c
+ASN_MODULE_HEADERS+=ber_decoder.h
+ASN_MODULE_SOURCES+=ber_decoder.c
+ASN_MODULE_HEADERS+=der_encoder.h
+ASN_MODULE_SOURCES+=der_encoder.c
+ASN_MODULE_HEADERS+=constr_TYPE.h
+ASN_MODULE_SOURCES+=constr_TYPE.c
+ASN_MODULE_HEADERS+=constraints.h
+ASN_MODULE_SOURCES+=constraints.c
+ASN_MODULE_HEADERS+=xer_support.h
+ASN_MODULE_SOURCES+=xer_support.c
+ASN_MODULE_HEADERS+=xer_decoder.h
+ASN_MODULE_SOURCES+=xer_decoder.c
+ASN_MODULE_HEADERS+=xer_encoder.h
+ASN_MODULE_SOURCES+=xer_encoder.c
+ASN_MODULE_HEADERS+=per_support.h
+ASN_MODULE_SOURCES+=per_support.c
+ASN_MODULE_HEADERS+=per_decoder.h
+ASN_MODULE_SOURCES+=per_decoder.c
+ASN_MODULE_HEADERS+=per_encoder.h
+ASN_MODULE_SOURCES+=per_encoder.c
+ASN_MODULE_HEADERS+=per_opentype.h
+ASN_MODULE_SOURCES+=per_opentype.c
+ASN_CONVERTER_SOURCES+=converter-sample.c
+
+
+lib_LTLIBRARIES=libsomething.la
+libsomething_la_SOURCES=$(ASN_MODULE_SOURCES) $(ASN_MODULE_HEADERS)
+
+# This file may be used as an input for make(3)
+# Remove the lines below to convert it into a pure .am file
+TARGET = progname
+CFLAGS += -I.
+OBJS=${ASN_MODULE_SOURCES:.c=.o} ${ASN_CONVERTER_SOURCES:.c=.o}
+
+all: $(TARGET)
+
+$(TARGET): ${OBJS}
+	$(CC) $(CFLAGS) -o $(TARGET) ${OBJS} $(LDFLAGS) $(LIBS)
+
+.SUFFIXES:
+.SUFFIXES: .c .o
+
+.c.o:
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+clean:
+	rm -f $(TARGET)
+	rm -f $(OBJS)
+
+regen: regenerate-from-asn1-source
+
+regenerate-from-asn1-source:
+	/usr/bin/asn1c -fwide-types -fcompound-names -fskeletons-copy //oio-sds/metautils/lib/description.asn
+

@@ -1,0 +1,24 @@
+config:
+  sqliterepo.outgoing.timeout.cnx.use: 5.0
+  sqliterepo.outgoing.timeout.req.use: 10.0
+  sqliterepo.outgoing.timeout.cnx.getvers: 5.0
+  sqliterepo.outgoing.timeout.req.getvers: 15.0
+  sqliterepo.outgoing.timeout.cnx.replicate: 5.0
+  sqliterepo.outgoing.timeout.req.replicate: 20.0
+  sqliterepo.outgoing.timeout.cnx.resync: 5.0
+  sqliterepo.outgoing.timeout.req.resync: 60.0
+
+  sqliterepo.election.wait.delay: 25s
+  sqliterepo.election.wait.quantum: 4s
+  sqliterepo.election.nowait.after: 15m
+  sqliterepo.repo.getvers_delay: 500ms
+
+  proxy.outgoing.timeout.stat: 10.0
+  proxy.outgoing.timeout.conscience: 10.0
+  proxy.outgoing.timeout.common: 59.5
+
+  gridd.timeout.connect.common: 4.0
+  gridd.timeout.single.common: 45.0
+  gridd.timeout.whole.common: 59.0
+
+  server.periodic_decache.period: 30

@@ -1,0 +1,2 @@
+from oio.container.backup import create_app
+application = create_app()

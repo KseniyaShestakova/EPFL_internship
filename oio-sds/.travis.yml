@@ -1,0 +1,124 @@
+sudo: required
+dist: bionic
+language: python
+python:
+    - "2.7"
+addons:
+  apt:
+    sources:
+    - sourceline: 'deb http://mirror2.openio.io/pub/repo/openio/sds/19.10/ubuntu/ bionic/'
+      key_url: 'http://mirror2.openio.io/pub/repo/openio/APT-GPG-KEY-OPENIO-0'
+# Please keep the following list sorted!
+    packages:
+    - apache2
+    - apache2-dev
+    - asn1c
+    - attr
+    - beanstalkd
+    - bison
+    - curl
+    - flex
+    - gdb
+    - lcov
+    - libapreq2-dev
+    - libattr1-dev
+    - libcurl4-gnutls-dev
+    - liberasurecode-dev
+    - libglib2.0-dev
+    - libjson-c-dev
+    - libleveldb-dev
+    - liblzo2-dev
+    - libsqlite3-dev
+    - libzmq3-dev
+    - libzookeeper-mt-dev
+    - openio-gridinit
+    - python-all-dev
+    - python-dev
+    - python-pbr
+    - python-setuptools
+    - python-virtualenv
+    - python3
+    - python3-coverage
+    - redis-server
+    - redis-tools
+    - sqlite3
+    - zookeeper
+    - zookeeper-bin
+    - zookeeperd
+services:
+  - zookeeper
+before_install:
+  - sudo apt-get install $([ "$TRAVIS_PYTHON_VERSION" == "2.7" ] && echo 'libapache2-mod-wsgi' || echo 'libapache2-mod-wsgi-py3')
+install:
+  - pip install --upgrade pip setuptools virtualenv tox -r all-requirements.txt -r test-requirements.txt
+  - go get gopkg.in/ini.v1 golang.org/x/sys/unix
+  - sudo bash -c "echo '/tmp/core.%p.%E' > /proc/sys/kernel/core_pattern"
+  - mkdir /tmp/oio
+  - git fetch --tags
+
+env:
+  global:
+  - CMAKE_OPTS="-DENABLE_CODECOVERAGE=on -DCMAKE_INSTALL_PREFIX=/tmp/oio -DLD_LIBDIR=lib -DZK_LIBDIR=/usr/lib -DZK_INCDIR=/usr/include/zookeeper"
+  - G_DEBUG=fatal_warnings
+  - G_DEBUG_LEVEL=W
+  - ZK=127.0.0.1:2181
+  - LD_LIBRARY_PATH=/tmp/oio/lib
+  - PKG_CONFIG_PATH=/tmp/oio/lib/pkgconfig
+
+jobs:
+  fast_finish: true
+  include:
+    - stage: Fail Fast tests
+      script: ./tools/oio-travis-failfast.sh
+      name: Copyright, Release build, SDK build
+    - script: ./tools/oio-travis-unit.sh
+      name: C unit/func, Python 2 unit/pep8
+    - script: ./tools/oio-travis-unit.sh
+      name: C unit/func, Python 3 unit/pep8
+      python: 3.6
+
+    - stage: Functional tests (fast)
+      script: ./tools/oio-travis-suites.sh
+      env: TEST_SUITE=slave
+    - script: ./tools/oio-travis-suites.sh
+      env: TEST_SUITE=cli
+    - script: ./tools/oio-travis-suites.sh
+      env: TEST_SUITE=worm
+
+    - stage: Functional tests (Python 3)
+      script: ./tools/oio-travis-suites.sh
+      env: TEST_SUITE=cli
+      python: 3.6
+    - script: ./tools/oio-travis-suites.sh
+      env: TEST_SUITE=rebuilder,with-service-id,zlib
+      python: 3.6
+    - script: ./tools/oio-travis-suites.sh
+      env: TEST_SUITE=repli,with_tls
+      python: 3.6
+    - script: ./tools/oio-travis-suites.sh
+      env: TEST_SUITE=ec,with-service-id
+      python: 3.6
+    - script: ./tools/oio-travis-suites.sh
+      env: TEST_SUITE=3copies,with-service-id
+      python: 3.6
+    - script: ./tools/oio-travis-suites.sh
+      env: TEST_SUITE=mover,with-service-id
+      python: 3.6
+
+    - stage: Functional tests (Python 2)
+      script: ./tools/oio-travis-suites.sh
+      env: TEST_SUITE=repli
+    - script: ./tools/oio-travis-suites.sh
+      env: TEST_SUITE=ec,with-service-id,with_tls
+    - script: ./tools/oio-travis-suites.sh
+      env: TEST_SUITE=3copies,with-service-id
+    - script: ./tools/oio-travis-suites.sh
+      env: TEST_SUITE=single,small-cache,fsync,webhook,zlib
+    - script: ./tools/oio-travis-suites.sh
+      env: TEST_SUITE=multi-beanstalk
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -f /tmp/cmake_coverage.output
+  - codecov
+  - if cat ${HOME}/go_coverage.output.* > go_coverage.output; then rm ${HOME}/go_coverage.output.*; else echo "" > go_coverage.output; fi
+  - bash <(curl -s https://codecov.io/bash) -f go_coverage.output

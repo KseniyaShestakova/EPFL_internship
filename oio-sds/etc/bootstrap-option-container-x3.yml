@@ -1,0 +1,2 @@
+zookeeper: true
+container_replicas: 3

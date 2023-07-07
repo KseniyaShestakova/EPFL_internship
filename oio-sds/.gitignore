@@ -1,0 +1,58 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Swap
+*.sw?
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Python objects
+*.pyc
+*.pyo
+dist
+build
+*.egg
+*.egg-info
+.tox/
+.eggs/
+
+# Python tools
+.noseids
+
+# IDE
+.idea
+tags
+
+# cmake
+install_manifest.txt
+CMakeFiles
+*.cmake
+CMakeCache.txt
+Makefile
+Temporary
+cmake-build-debug/

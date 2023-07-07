@@ -1,0 +1,30 @@
+storage_policy: "THREECOPIES"
+config:
+  ns.chunk_size: 1048576
+# Must be on the same host as some rawx
+# services for the tests to pass.
+  proxy.location: "rack.127-0-0-4.6000"
+zookeeper: true
+redis: true
+directory_replicas: 3
+container_replicas: 3
+hosts:
+  - "127.0.0.1"
+  - "127.0.0.2"
+  - "127.0.0.3"
+conscience:
+  count: 3
+rawx:
+  hosts:
+    - "127.0.0.4"
+    - "127.0.0.5"
+    - "127.0.0.6"
+  count: 7
+rdir:
+  count: 7
+meta0:
+  count: 3
+meta1:
+  count: 7
+meta2:
+  count: 7

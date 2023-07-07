@@ -1,0 +1,71 @@
+#!/usr/bin/env python
+
+# Copyright (C) 2018 OpenIO SAS, as part of OpenIO SDS
+#
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 3.0 of the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library.
+
+
+from __future__ import print_function
+
+import argparse
+import sys
+
+from oio.directory.meta2 import Meta2Database
+
+from oio.cli import make_logger_args_parser, get_logger_from_args
+
+
+def make_arg_parser():
+    descr = """
+    Move a base from source service to destination service.
+    If the destination service isn't set,
+    a destination service is automatically selected.
+    """
+    parser = argparse.ArgumentParser(description=descr,
+                                     parents=[make_logger_args_parser()])
+    parser.add_argument('namespace',
+                        metavar='<namespace>',
+                        help="Namespace")
+    parser.add_argument('base',
+                        metavar='<base>',
+                        help="ID of the base (cid[.seq]). If the "
+                             "sequence is not set, apply to all sequences.")
+    parser.add_argument('src',
+                        metavar='<service_id>',
+                        help="ID of the source service")
+    parser.add_argument('dst',
+                        metavar='<service_id>',
+                        nargs='?',
+                        help="ID of the destination service")
+    return parser
+
+
+if __name__ == '__main__':
+    print("DEPRECATED: You'd better use 'openio-admin container move'",
+          file=sys.stderr)
+
+    args = make_arg_parser().parse_args()
+    logger = get_logger_from_args(args)
+
+    meta2 = Meta2Database({'namespace': args.namespace}, logger=logger)
+    moved = meta2.move(args.base, args.src, dst=args.dst)
+
+    return_code = 0
+    for res in moved:
+        if res['err'] is None:
+            print(res['base'])
+        else:
+            print("ERROR: " + str(res['err']), file=sys.stderr)
+            return_code = 1
+    sys.exit(return_code)

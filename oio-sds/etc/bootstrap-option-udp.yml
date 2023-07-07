@@ -1,0 +1,2 @@
+config:
+  udp_allowed: true

@@ -1,0 +1,2 @@
+zookeeper: true
+directory_replicas: 3
