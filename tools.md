@@ -226,23 +226,31 @@ LD_LIBRARY_PATH is an environmental variable telling dynamic loader where to loo
 LIBRARY_PATH affects `gcc` while linking.
 
 ### Compiling with oio-sds
-File `exp.c` was located in the `/oio-sds/core/`. Compiling and executing it looks like:
+Suppose we want to compile a file [remote.c](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/auxiliary/remote.c) calling functions from [OpenIO C API](https://docs.openio.io/latest/source/sdk-guide/c_example.html).  It can be done as follows: \
+Set `LIBRARY_PATH` - path to the directory containing header files `oio_sds.h` and  `oio_core.h`.
 ```
-export LIBRARY_PATH=io-sds/core/:oio-sds/:/
-gcc remote.c -o remote -L/oio-sds/core  -loiosds -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0 -I/oio-sds/core
-
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/oio-sds/core  # not needed if /oio-sds/core is already in LD_LIBRARY_PATH
-
-./remote
+export LIBRARY_PATH=oio-sds/core/:oio-sds/:/
 ```
+Set `LD_LIBRARY_PATH` - path to the directory containing libraries `liboiosds.so` and `liboiocore.so`. This list of pathes will be used by dynamic linker in runtime to search for libraries.
+```
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/oio-sds/core 
+```
+Use the following line to compile `remote.c`:
+```
+gcc remote.c -o remote -L/oio-sds/core  -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0 -I/oio-sds/core -loiosds -loiocore
+```
+
 **Explanation:**
 * `-L/oio-sds/core` - path to the directory, containing headers and a library `liboiosds.so` (environmental variable LIBRARY_PATH could be used instead)
-* `-loiosds` reference to the library with necessary functions
+* `-loiosds -loiocore` reference to the library with necessary functions
 * `-I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0` - compiler doesn't see `glib.h` without it. `glib` should be installed: `apt-get install libglib2.0-dev`. To find the compilation flags needed for compiling with `glib` one can execute: `pkg-config --cflags --libs glib-2.0`
 * `LD_LIBRARY_PATH` - the list of directories in which the compiler will be searching for libraries during runtime
 * `-I/oio-sds/core` - path to the directory with header file `oio_sds.h` in it
 
-**Attention!** In order to compile this, I changed file `oio_sds.h` : 28 line was changed from `#include <core/oiourl.h>` to `#include "oiourl.h"`.
+**List of changes applied to the original library in order to compile it:**
+* `oio_sds.h:28` : `#include <core/oiourl.h>` --> `#include "oiourl.h"`
+*  `oio-sds/core/oio_core.h:21-30` : `# include "core/oiostr.h"` -->  `# include "oiostr.h"` and so on for 10 lines
+*  `oio-sds/core/oiodir.h:28` : `#include <core/oiourl.h>` --> `#include "oiourl.h"`
+*  `oio-sds/core/oiolb.h:22` : `#include <core/oioloc.h>` --> `#include "oioloc.h"`
+*  `oio-sds/core/oiovar.h:22` : `#include <core/oiocfg.h>` --> `#include "oiocfg.h"`
 
-
-  
