@@ -265,6 +265,6 @@ For doing that one should:
 * Launched Docker container runs an openio server accepting requests sent by executed `remote`.
 * In order to make these two servers communicate on correct ports, they should have similar configurations
 * Configuration (`/etc/oio/sds.conf.d/NAMESPACE` or `~/.oio/sds.conf`) describes a namespace for the object storage, which will be used in your program. It mostly describes hosts and posts for different servers (proxy, consience, etc.)
-
+* If NAMESPACE used in your program is not described in config file, the error will be arisen. ACCOUNT and CONTAINER are up to you.
 
 
