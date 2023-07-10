@@ -120,6 +120,38 @@ void listing_example(struct oio_sds_s* client, struct oio_error_s* err) {
 
     basic_init(url, NULL);
 
+    // ------------- fill container ---------------------
+    err = oio_sds_create(client, url);
+    g_assert_no_error((GError*)err);
+
+    struct oio_sds_ul_dst_s dst = OIO_SDS_UPLOAD_DST_INIT;
+    dst.url = url;
+    gchar data[] = "sample";
+
+    gchar* name = NULL;
+    for (int i = 0; i < 5; ++i) {
+        name = g_strdup_printf("object%d", i);
+        oio_url_set(url, OIOURL_PATH, name);
+        err = oio_sds_upload_from_buffer(client, &dst, data, sizeof(data));
+        g_free(name);
+        g_assert_no_error((GError*)err);
+    }
+
+    for (gchar id = 'a'; id <= 'd'; ++id) {
+        name = g_strdup_printf("foo/%c", id);
+        oio_url_set(url, OIOURL_PATH, name);
+        err = oio_sds_upload_from_buffer(client, &dst, data, sizeof(data));
+        g_free(name);
+        g_assert_no_error((GError*)err);
+    }
+
+    oio_url_clean(url);
+    //-------------------------------------
+    url = create_empty_url();
+ 
+    basic_init(url, NULL);
+
+
     struct oio_sds_list_param_s list_in = {
         .url = url,
         .prefix = NULL, .marker = NULL, .end = NULL, .delimiter = 0, .max_items = 0,
@@ -132,6 +164,7 @@ void listing_example(struct oio_sds_s* client, struct oio_error_s* err) {
         .on_item = print_item, .on_prefix = NULL, .on_bound = NULL
     };
 
+    printf("List of all objects:\n");
     err = oio_sds_list(client, &list_in, &list_out);
     oio_url_clean(url);
 
