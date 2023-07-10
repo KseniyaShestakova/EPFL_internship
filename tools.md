@@ -254,3 +254,17 @@ gcc remote.c -o remote -L/oio-sds/core  -I/usr/include/glib-2.0 -I/usr/lib/x86_6
 *  `oio-sds/core/oiolb.h:22` : `#include <core/oioloc.h>` --> `#include "oioloc.h"`
 *  `oio-sds/core/oiovar.h:22` : `#include <core/oiocfg.h>` --> `#include "oiocfg.h"`
 
+### Running code with OpenIO C API
+Suppose we succeeded in compiling [remote.c](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/auxiliary/remote.c) and want to run it now. After compilation we get executable file [remote](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/auxiliary/remote.c). \
+For doing that one should:
+1. Run a Docker container with OpenIO as described [here](https://docs.openio.io/latest/source/sandbox-guide/docker_image.html).
+2. Check that OpenIO CLI is working correctly inside obtained container.
+3. Copy the content of `/etc/oio/sds.conf.d/OPENIO` into `/etc/oio/sds.conf.d/OPENIO` (if you launched similar container; I didn't do that) or to `~/.oio/sds.conf` (if you deployed from source, as I did).
+
+**Explanation:**
+* Launched Docker container runs an openio server accepting requests sent by executed `remote`.
+* In order to make these two servers communicate on correct ports, they should have similar configurations
+* Configuration (`/etc/oio/sds.conf.d/NAMESPACE` or `~/.oio/sds.conf`) describes a namespace for the object storage, which will be used in your program. It mostly describes hosts and posts for different servers (proxy, consience, etc.)
+
+
+
