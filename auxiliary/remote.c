@@ -8,11 +8,10 @@ static const char* ns = "OPENIO";
 static const char* account = "ACCOUNT";
 static const char* user = "CONTAINER";
 
-// TODO: this example uses both stdio.h and glib for I/O
 
 void print_element(void* ctx, const char* key, const char* value) {
 	(void) ctx;
-	printf("\"%s\" : \"%s\", ", key, value);
+	g_print("\"%s\" : \"%s\", ", key, value);
 }
 
 int print_item(void* ctx, const struct oio_sds_list_item_s* item) {
@@ -43,12 +42,10 @@ void container_example(struct oio_sds_s* client) {
     basic_init(url, NULL);
 
     struct oio_error_s* err_on_creating = oio_sds_create(client, url);
-    //struct oio_error_s* err_on_deleting = oio_sds_delete_container(client, url);
     oio_url_clean(url);
 
     g_assert_no_error((GError*)err_on_creating);
-    //g_assert_no_error((GError*)err_on_deleting);
-    printf("Successfully created a container.\n\n");
+    g_print("Successfully created a container.\n\n");
 }
 
 void object_example(struct oio_sds_s* client) {
@@ -74,43 +71,48 @@ void object_example(struct oio_sds_s* client) {
 
     // downloaded data from src (pointing to url) to dst (with buffer of data)
     struct oio_error_s* err_on_downloading = oio_sds_download(client, &src, &dst); 
-
-    struct oio_error_s* err_on_deleting = oio_sds_delete(client, url);
-
     oio_url_clean(url);
 
     g_assert_no_error((GError*)err_on_uploading);
-    printf("Data was successfully uploaded...\n");
+    g_print("Data was successfully uploaded...\n");
     g_assert_no_error((GError*)err_on_downloading);
-    printf("Data was successfully downloaded...\n");
-    g_assert_no_error((GError*)err_on_deleting);
-    printf("Object was deleted...\n");
+    g_print("Data was successfully downloaded...\n");
 
     g_print("Resulting buffer contains: %s\n", data);
-    printf("Passed object example.\n\n");
+    g_print("Passed object example.\n\n");
 
     fflush(stdout);
 }
 
 void metadata_example(struct oio_sds_s* client, struct oio_error_s* err) {
-    // TODO: add metadata example with objects
     struct oio_url_s* container_url = create_empty_url();
+    struct oio_url_s* object_url = create_empty_url();
 
     basic_init(container_url, NULL);
+    basic_init(object_url, "object.txt");
 
     const gchar* const container_properties[5] = { "color", "red", "flag", "true", NULL};
+    const gchar* const object_properties[5] = {"color", "blue", "flag", "false", NULL};
 
     err = 
         oio_sds_set_container_properties(client, container_url, container_properties);
     g_assert_no_error((GError*)err);
+    err = oio_sds_set_content_properties(client, object_url, object_properties);
+    g_assert_no_error((GError*)err);
 
-    printf("Container metadata: {");
+    g_print("Container metadata: {");
     err = oio_sds_get_container_properties(client, container_url, print_element, NULL);
     oio_url_clean(container_url);
     g_assert_no_error((GError*)err);
-    printf("}\n");
+    g_print("}\n");
 
-    printf("Passed metadata example.\n\n");
+    g_print("Object metadata: {");
+    err = oio_sds_get_content_properties(client, object_url, print_element, NULL);
+    oio_url_clean(object_url);
+    g_assert_no_error((GError*)err);
+    g_print("}\n");
+
+    g_print("Passed metadata example.\n\n");
 
     fflush(stdout);
 }
@@ -351,8 +353,8 @@ void run_all_examples() {
     struct oio_error_s* err = NULL;
     err = oio_sds_init(&client, ns);
     g_assert_no_error((GError*)err);
-    printf("Created oio_sds_s in namespace: %s...\n", ns);
-    printf("Starting examples...\n\n");
+    g_print("Created oio_sds_s in namespace: %s...\n", ns);
+    g_print("Starting examples...\n\n");
 
     container_example(client);
 
@@ -367,7 +369,5 @@ void run_all_examples() {
 
 
 int main() {
-    printf("Hello world!\n");
     run_all_examples();
- 
 }
