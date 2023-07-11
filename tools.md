@@ -267,4 +267,8 @@ For doing that one should:
 * Configuration (`/etc/oio/sds.conf.d/NAMESPACE` or `~/.oio/sds.conf`) describes a namespace for the object storage, which will be used in your program. It mostly describes hosts and posts for different servers (proxy, consience, etc.)
 * If NAMESPACE used in your program is not described in config file, the error will be arisen. ACCOUNT and CONTAINER are up to you.
 
+### Another  way of running OpenIO app (extremelly crutchy)
+1. Compile [remote.c](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/auxiliary/remote.c) inside a container with compiled openio library (docker container running Ubuntu 18.04 in my case).
+2. Execute [transfer.sh](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/transfer.sh) on your host machine to transfer executable [remote](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/auxiliary/remote) from the docker container with Ubuntu 18.04 to the docker container with CentOS 7 running openio.
+3. Run transferred executable: `./remote`
 
