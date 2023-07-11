@@ -175,8 +175,7 @@ void listing_example(struct oio_sds_s* client, struct oio_error_s* err) {
     fflush(stdout);
 }
 
-
-int main() {
+void run_all_examples() {
     struct oio_sds_s* client = NULL;
     struct oio_error_s* err = NULL;
     err = oio_sds_init(&client, ns);
@@ -191,4 +190,12 @@ int main() {
     metadata_example(client, err);
 
     listing_example(client, err);
+
+}
+
+
+int main() {
+    printf("Hello world!\n");
+    //run_all_examples();
+ 
 }
