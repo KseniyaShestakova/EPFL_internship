@@ -33,4 +33,5 @@ Set of functions in `object` structure:
 * check `oio_sds_ul_dst_s` for `write` function. Need to get how to use append, offset, etc. in order not to make extra operations every time
 * understand how to get modification time
 * probably the good idea will be to find how these functions may be used
+
 File [`oio_sds.h`](https://github.com/open-io/oio-sds/blob/master/core/oio_sds.h) seems to provide better documentation than which is given on the webpage with documentation...
