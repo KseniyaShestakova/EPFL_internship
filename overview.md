@@ -28,8 +28,10 @@ Set of functions in `object` structure:
 * [`backend_iterate`](https://julea-io.github.io/julea/structJBackend.html#a0b6e7c8e5d5fc89cf4594decba9fffd6) - obtains metadata - takes two iterators as input and fills bson_t* with metadata ??? \
   `gboolean backend_iterate(gpointer, gpointer, gchar const**)`
 
-
-I didn't find clear explanations of their semantics, 
-thus I can only guess that they should do something similar to standard filesystems
- (like those implemented with futex). \
  May be compared to [BlueStore project](https://github.com/Bella42/julea/blob/objectstore/bluestore/julea_bluestore.h) \
+**TODO:**
+* check `oio_sds_ul_dst_s` for `write` function. Need to get how to use append, offset, etc. in order not to make extra operations every time
+* understand how to get modification time
+* probably the good idea will be to find how these functions may be used
+
+File [`oio_sds.h`](https://github.com/open-io/oio-sds/blob/master/core/oio_sds.h) seems to provide better documentation than which is given on the webpage with documentation...
