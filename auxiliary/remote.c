@@ -3,6 +3,8 @@
 
 #include "string.h"
 #include "stdlib.h"
+#include "stdio.h"
+
 
 static const gchar* _ns_ = "OPENIO";
 static const gchar* _account_ = "ACCOUNT";
@@ -29,7 +31,8 @@ void load_content_from_buffer(struct oio_sds_s* client, struct oio_error_s* err,
                   struct oio_url_s* url, gchar* content) {
     struct oio_sds_ul_dst_s ul_dst = OIO_SDS_UPLOAD_DST_INIT;
     ul_dst.url = url;
-    err = oio_sds_upload_from_buffer(client, &ul_dst, content, sizeof(content));
+    g_print("trying to write %ld bytes...\n", sizeof(content));
+    err = oio_sds_upload_from_buffer(client, &ul_dst, content, strlen(content) + 1);
     g_assert_no_error((GError*)err);
 }
 
@@ -115,9 +118,17 @@ void show_layout(struct oio_sds_s* client, struct oio_error_s* err,
         g_print("meta.%s : %s\n", key, value);
     }
 
+    void _oio_sds_metachunk_reporter(void* cb_data,
+                                     unsigned int seq,
+                                     size_t offset,
+                                     size_t length) {
+        (void) cb_data;
+        g_print("seq: %d; offset: %ld; length: %ld\n", seq, offset, length);
+    }
+
     err = oio_sds_show_content(client, url, NULL,
                               _oio_sds_info_reporter,
-                              NULL,
+                              _oio_sds_metachunk_reporter,
                               _oio_sds_property_reporter);
     g_assert_no_error((GError*)err);
 }
@@ -145,8 +156,8 @@ void content_retrieving() {
     show_content(client, err, url);
     //show_info(client, err, url);
 
-    load_content_from_file(client, err, url, "/root/file.txt", 0, 9);
-    show_content(client, err, url);
+    //load_content_from_file(client, err, url, "/root/file.txt", 0, 9);
+    //show_content(client, err, url);
     //show_info(client, err, url);
 
     // works only if file is not already existing
@@ -155,9 +166,9 @@ void content_retrieving() {
     show_layout(client, err, url);
 
     // size should be aligned by metachunk boundary
-    err = oio_sds_truncate(client, url, 9);
-    g_assert_no_error((GError*)err);
-    show_content(client, err, url);
+    //err = oio_sds_truncate(client, url, 9);
+    //g_assert_no_error((GError*)err);
+    //show_content(client, err, url);
 
     basic_init(url, NULL, "new_object.txt");
     load_content_from_buffer(client, err, url, content);
@@ -184,11 +195,11 @@ void content_retrieving() {
     char* field = malloc(17);
     snprintf(field, 16, "arbitrary_field");
 
-    if (oio_url_check(url, _ns_, &field)) {
+    /*if (oio_url_check(url, _ns_, &field)) {
         g_print("It's normal field!\n");
     } else {
         g_print("It's a faulty field :(\n");
-    }
+    }*/
 
     free(field);
     
@@ -196,7 +207,126 @@ void content_retrieving() {
     oio_sds_free(client);
 }
 
+//-----------------------------------------------------------------------------------
+// attempts to make a step towards real implementation :)
+
+// creates a new object; is supposed to change *object_handle
+// handle type is url!
+gboolean _create(gpointer global_handle,
+                         gchar const* namespace, gchar const* name,
+                         gpointer* object_handle) {
+
+}
+
+gboolean _delete(gpointer global_handle, gpointer object_handle) {
+
+}
+
+gboolean _read(gpointer global_handle, gpointer object_handle,
+               gpointer buffer,
+               guint64 length, guint64 offset,
+               guint64* bytes_read) {
+
+}
+
+gboolean _write(gpointer global_handle, gpointer object_handle,
+                gconstpointer data,
+                guint64 length, guint64 offset, guint64* bytes_written) {
+
+}
+
+gboolean _status(gpointer global_handle, gpointer object_handle,
+                 gint64* modification_time, guint64* size) {
+
+}
+
+
+//---------------------------------------------------------------
+// examples for better understanding of implementation design
+
+
+void write_from_buffer(struct oio_sds_s* client, struct oio_error_s* err,
+                       struct oio_url_s* url,
+                       guint64 length, guint64 offset,
+                       gchar* buffer) {
+    
+    struct oio_sds_ul_dst_s ul_dst = OIO_SDS_UPLOAD_DST_INIT;
+    ul_dst.url = url;
+    /* this parameters should be chosen wisely in order not get overhead
+    
+    ul_dst.offset = offset;
+    ul_dst.append = 1;
+    ul_dst.partial = 1;
+    ul_dst.chunk_size = 1;
+    ul_dst.content_id = oio_url_get_id(url);
+    */
+
+    err = oio_sds_upload_from_buffer(client, &ul_dst, buffer, length);
+    g_assert_no_error((GError*)err);
+}
+
+void read_to_buffer(struct oio_sds_s* client, struct oio_error_s* err,
+                    struct oio_url_s* url,
+                    guchar* buffer,
+                    guint64 length, guint64 offset,
+                    guint64* bytes_read) {
+    struct oio_sds_dl_range_s _ranges_ = { .offset = offset, .size = length };
+    struct oio_sds_dl_range_s* ranges = &_ranges_;
+    struct oio_sds_dl_src_s src = { .url = url,
+                                    .ranges = &ranges };
+    // to be set, ranges should contain a null-terminated
+    // array of pointers to ranges
+    struct oio_sds_dl_dst_s dst = {  .type = OIO_DL_DST_BUFFER,
+                                     .data = { .buffer =
+                                               { .ptr = buffer, .length = length } }
+    };
+    err = oio_sds_download(client, &src, &dst);
+    g_assert_no_error((GError*)err);
+
+    *bytes_read = dst.out_size;
+}
+
+
+
+// supposes that container default_container already exists
+void read_write_example() {
+    struct oio_sds_s* client = NULL;
+    struct oio_error_s* err = NULL;
+    err = oio_sds_init(&client, _ns_);
+    g_assert_no_error((GError*)err);
+
+    struct oio_url_s* url = create_empty_url();
+    basic_init(url, NULL,"obj.txt");
+    gchar content[] = "Sample content"; // first fill url with this content
+    g_print("%ld\n", sizeof(content));
+
+    load_content_from_buffer(client, err, url, content);
+    show_content(client, err, url);
+    fflush(stdout);
+
+    gchar buffer[256];
+    guint64 bytes_read = 0;
+    guint64 length = 3;
+    read_to_buffer(client, err, url, buffer, length, 3, &bytes_read);
+    buffer[length] = 0;
+    g_print("Read %ld bytes: %s\n", bytes_read, buffer);
+
+}
+
+void quick_init_example() {
+    struct oio_sds_s* client = NULL;
+    struct oio_error_s* err = NULL;
+    err = oio_sds_init(&client, _ns_);
+    g_assert_no_error((GError*)err);
+
+    struct oio_url_s* url = oio_url_init("OPENIO/ACCOUNT/container//content_name");
+    show_info(client, err, url);
+}
+
 int main() {
-    content_retrieving();
+    // content_retrieving();
+    //quick_init_example();
+
+    read_write_example();
 
 }
