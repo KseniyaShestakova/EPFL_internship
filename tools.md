@@ -154,6 +154,12 @@ docker ps
 docker exec -it <container_ID> bash
 [root@9fad98f2a968 /]# openio help
 ```
+Before usage set up environment and install necessary dependencies inside a container
+```
+export OIO_NS=OPENIO
+export OIO_ACCOUNT=ACCOUNT
+yum -y install gdb     # for debugging already compiled files
+```
 
 [C API instructions](https://docs.openio.io/latest/source/sdk-guide/c_example.html)  \
 [Github repository](https://github.com/open-io/oio-sds) \
