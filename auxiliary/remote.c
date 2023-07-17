@@ -31,7 +31,7 @@ void load_content_from_buffer(struct oio_sds_s* client, struct oio_error_s* err,
                   struct oio_url_s* url, gchar* content) {
     struct oio_sds_ul_dst_s ul_dst = OIO_SDS_UPLOAD_DST_INIT;
     ul_dst.url = url;
-    g_print("trying to write %ld bytes...\n", sizeof(content));
+    g_print("trying to write %ld bytes...\n", strlen(content));
     err = oio_sds_upload_from_buffer(client, &ul_dst, content, strlen(content) + 1);
     g_assert_no_error((GError*)err);
 }
@@ -209,7 +209,6 @@ void content_retrieving() {
 
 //-----------------------------------------------------------------------------------
 // attempts to make a step towards real implementation :)
-
 // creates a new object; is supposed to change *object_handle
 // handle type is url!
 gboolean _create(gpointer global_handle,
@@ -244,6 +243,41 @@ gboolean _status(gpointer global_handle, gpointer object_handle,
 //---------------------------------------------------------------
 // examples for better understanding of implementation design
 
+void get_size(struct oio_sds_s* client, struct oio_error_s* err,
+              struct oio_url_s* url,
+              guint64* size) {
+    void _oio_sds_info_reporter_size(void* cb_data,
+                                     enum oio_sds_content_key_e key,
+                                     const char* value){
+        if (key == OIO_SDS_CONTENT_SIZE) {
+            sscanf(value, "%zu", (guint64*)cb_data);
+        }
+    }
+
+    err = oio_sds_show_content(client, url, (void*)size,
+                               _oio_sds_info_reporter_size, NULL, NULL);
+    g_assert_no_error((GError*)err);
+}
+
+void get_content_id(struct oio_sds_s* client, struct oio_error_s* err,
+                     struct oio_url_s* url, char* content_id) {
+    void _oio_sds_info_reporter_id(void* cb_data,
+                                   enum oio_sds_content_key_e key,
+                                   const char* value) {
+        if (key == OIO_SDS_CONTENT_ID) {
+            g_print("Current content id: %s\n", value);
+            char* id_buffer = (char*)cb_data;
+            memcpy(id_buffer, value, strlen(value));
+            id_buffer[strlen(value)] = 0;
+        }
+    }
+
+    err = oio_sds_show_content(client, url, (void*)content_id,
+                               _oio_sds_info_reporter_id, NULL, NULL);
+
+    g_assert_no_error((GError*)err);
+}
+
 
 void write_from_buffer(struct oio_sds_s* client, struct oio_error_s* err,
                        struct oio_url_s* url,
@@ -252,14 +286,19 @@ void write_from_buffer(struct oio_sds_s* client, struct oio_error_s* err,
     
     struct oio_sds_ul_dst_s ul_dst = OIO_SDS_UPLOAD_DST_INIT;
     ul_dst.url = url;
-    /* this parameters should be chosen wisely in order not get overhead
-    
-    ul_dst.offset = offset;
-    ul_dst.append = 1;
+
+    ul_dst.autocreate = 0;
+    ul_dst.append = 0;
     ul_dst.partial = 1;
+
+    char content_id[256];
+    get_content_id(client, err, url, content_id);
+    ul_dst.content_id = content_id;
+    g_print("Got content id: %s\n", ul_dst.content_id);
+
+    ul_dst.meta_pos = 0;
+    ul_dst.offset = offset;
     ul_dst.chunk_size = 1;
-    ul_dst.content_id = oio_url_get_id(url);
-    */
 
     err = oio_sds_upload_from_buffer(client, &ul_dst, buffer, length);
     g_assert_no_error((GError*)err);
@@ -270,12 +309,14 @@ void read_to_buffer(struct oio_sds_s* client, struct oio_error_s* err,
                     guchar* buffer,
                     guint64 length, guint64 offset,
                     guint64* bytes_read) {
-    struct oio_sds_dl_range_s _ranges_ = { .offset = offset, .size = length };
-    struct oio_sds_dl_range_s* ranges = &_ranges_;
+    struct oio_sds_dl_range_s range = { .offset = offset, .size = length };
+
+    struct oio_sds_dl_range_s* ranges_arr[2];
+    ranges_arr[0] = &range;
+    ranges_arr[1] = NULL;
+
     struct oio_sds_dl_src_s src = { .url = url,
-                                    .ranges = &ranges };
-    // to be set, ranges should contain a null-terminated
-    // array of pointers to ranges
+                                    .ranges = ranges_arr };
     struct oio_sds_dl_dst_s dst = {  .type = OIO_DL_DST_BUFFER,
                                      .data = { .buffer =
                                                { .ptr = buffer, .length = length } }
@@ -304,13 +345,25 @@ void read_write_example() {
     show_content(client, err, url);
     fflush(stdout);
 
-    gchar buffer[256];
-    guint64 bytes_read = 0;
-    guint64 length = 3;
-    read_to_buffer(client, err, url, buffer, length, 3, &bytes_read);
-    buffer[length] = 0;
-    g_print("Read %ld bytes: %s\n", bytes_read, buffer);
+    char buffer[256];
+    size_t bytes_read = 0;
+    size_t wanted = 4;
+    read_to_buffer(client, err, url, buffer, wanted, 1, &bytes_read);
+    if (wanted != bytes_read) {
+        g_print("Read only %ld bytes):\n", bytes_read);
+    } else {
+        buffer[bytes_read] = 0;
+        g_print("%ld bytes read: %s\n", bytes_read, buffer);    
+    }
 
+    guint64 size = 0;
+    get_size(client, err, url, &size);
+    g_print("Obtained size: %zu\n", size);
+    
+    show_layout(client, err, url);
+    char new_content[] = "hello";
+    write_from_buffer(client, err, url, 3, 14, new_content);
+    show_content(client, err, url);
 }
 
 void quick_init_example() {
@@ -324,8 +377,8 @@ void quick_init_example() {
 }
 
 int main() {
-    // content_retrieving();
-    //quick_init_example();
+    content_retrieving();
+    quick_init_example();
 
     read_write_example();
 
