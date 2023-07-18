@@ -35,3 +35,12 @@ Set of functions in `object` structure:
 * probably the good idea will be to find how these functions may be used
 
 File [`oio_sds.h`](https://github.com/open-io/oio-sds/blob/master/core/oio_sds.h) seems to provide better documentation than which is given on the webpage with documentation...
+
+### Issues and questions
+1. No normal modification time support. I can save it myself like a field or like metadata, but probably it is not the case.
+2. Write behaves strange, seems like there is no possibility to modify text without rewriting it completely. (the whole content may be saved to a file, but probaly it is not ok)
+3. I didn't find a function for sync.
+4. Do I need a hash table like in posix implementation of backend? Probably yes, because I can't find another way to support understanding whether the object already exists.
+5. Is my iterator ok?
+6. `open` and `close` do nothing at ths point and have no wrappers. Can they just check if object exists or no?
+7. Cannot understand what a namespace is. In OpenIO there are namespace, account and user. what should be considered to be a namespace here? Maybe namespace is formed of namespace, account and user in case of OpenIO?
