@@ -9,22 +9,89 @@ static const gchar* _ns_ = "OPENIO";
 static const gchar* _account_ = "ACCOUNT";
 
 struct oio_url_s* create_empty_url() {
-    struct oio_url_s* url = oio_url_empty();
-    g_assert_nonnull(url);
-    return url;
+     struct oio_url_s* url = oio_url_empty();
+     g_assert_nonnull(url);
+     return url;
+ }
+
+ void basic_init(struct oio_url_s* url, const gchar* user, const gchar* path) {
+     oio_url_set(url, OIOURL_NS, _ns_);
+     oio_url_set(url, OIOURL_ACCOUNT, _account_);
+
+     if (user != NULL) {
+         oio_url_set(url, OIOURL_USER, user);
+     }
+
+     if (path != NULL) {
+         oio_url_set(url, OIOURL_PATH, path);
+     }
+ }
+
+struct JBackendIterator {
+    char* marker;
+    char* prefix;
 }
 
-void basic_init(struct oio_url_s* url, const gchar* user, const gchar* path) {
-    oio_url_set(url, OIOURL_NS, _ns_);
-    oio_url_set(url, OIOURL_ACCOUNT, _account_);
+typedef struct Iterator Iterator;
 
-    if (user != NULL) {
-        oio_url_set(url, OIOURL_USER, user);
+Iterator* iterator_new(char* prefix) {
+    Iterator* it = g_slice_new(Iterator);
+
+    it->marker = g_strdup("");
+    it->prefix = (prefix == NULL) ? NULL : g_strdup(prefix);
+
+    return it;
+}
+
+void iterator_free(Iterator* it) {
+    if (it->marker != NULL) {
+        g_free(it->marker);
     }
-    
-    if (path != NULL) {
-        oio_url_set(url, OIOURL_PATH, path);
+
+    if (it->prefix != NULL) {
+        g_free(it->prefix);
     }
+
+    g_slice_free(Iterator, it);
+}
+
+void iterator_next(struct oio_sds_s* client, struct oio_error_s* err,
+                   Iterator* it,
+                   const char* prefix,
+                   const char* container) {
+    struct oio_url_s* url = create_empty_url();
+    basic_init(url, container, NULL);
+
+    struct oio_sds_list_param_s list_in = {
+        .url = url,
+        .prefix = prefix, .marker = it->marker, .end = NULL, .delimiter = 0,
+        .max_items = 1,
+        .flag_allversions = 1, .flag_nodeleted = 1, .flag_properties = 1
+    };
+
+    gchar marker[256];
+
+    int _process_item(void* ctx, const struct oio_sds_list_item_s* item) {
+        (void)ctx;
+        g_strlcpy(marker, item->name, 256);
+        // after that marker contains name of current item also!
+        return 0;
+    }
+
+    struct oio_sds_list_listener_s list_out = {
+        .ctx = NULL,
+        .on_item = _process_item, .on_prefix = NULL, .on_bound = NULL
+    };
+
+    err = oio_sds_list(client, &list_in, &list_out);
+    g_assert_no_error((GError*)err);
+
+    g_free(it->marker);
+    it->marker = g_strdup(marker);
+}
+
+char* iterator_get(Iterator* it) {
+    return it->marker;
 }
 
 void clean_up(struct oio_sds_s* client, gchar* path) {
@@ -105,12 +172,6 @@ struct JBackendData {
 };
 
 typedef struct JBackendData JBackendData;
-
-struct JBackendIterator {
-    /* ?? some list items probably ?? */
-};
-
-typedef struct JBackendIterator JBackendIterator;
 
 struct JBackendObject {
     struct oio_url_s* url;
@@ -202,7 +263,7 @@ backend_status(gpointer backend_data, gpointer backend_object,
 
 static gboolean
 backend_sync(gpointer backend_data, gpointer backend_object) {
-
+    /* does nothing...  */
 }
 
 static gboolean
@@ -276,19 +337,44 @@ backend_write(gpointer backend_data, gpointer backend_object,
 static gboolean
 backend_get_all(gpointer backend_data, gchar const* namespace,
                 gpointer* backend_iterator) {
+    (void)namespace;
+    (void)backend_data;
+    
+    JBackendIterator* bi = iterator_new(NULL);
 
+    *backend_iterator = (void*)bi;
+
+    return TRUE;
 }
 
 static gboolean
 backend_get_by_prefix(gpointer backend_data, gchar const* namespace,
                       gchar const* prefix, gpointer* backend_iterator) {
+    (void)namespace;
+    (void)backend_data;
 
+    JBackendIterator* bi = iterator_new(prefix);
+
+    *backend_iterator = (void*)bi;
+
+    return TRUE;
 }
 
 static gboolean
 backend_iterate(gpointer backend_data, gpointer backend_iterator,
                 gchar const** name) {
+    struct oio_error_s* err = NULL;
 
+    JBackendData* bd = (JBackendData*)backend_data;
+    JBackendIterator* bi = (JBackendIterator*)backend_iterator;
+
+    iterator_next(bd->client, err, bi, bi->prefix);
+
+    if (name != NULL) {
+        *name = iterator_get(bi);
+    }
+
+    return (*name != NULL);
 }
 
 static gboolean
