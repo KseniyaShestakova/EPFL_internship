@@ -38,7 +38,7 @@ File [`oio_sds.h`](https://github.com/open-io/oio-sds/blob/master/core/oio_sds.h
 
 ### Issues and questions
 1. No normal modification time support. I can save it myself like a field or like metadata, but probably it is not the case.
-2. Write behaves strange, seems like there is no possibility to modify text without rewriting it completely. (the whole content may be saved to a file, but probaly it is not ok)
+2. Write behaves strange, seems like there is no possibility to modify text without rewriting it completely. (the whole content may be saved to a file, but probaly it is not ok) ------- maybe can be handled via upload from hook, but I didn't understand what it is
 3. I didn't find a function for sync.
 4. Do I need a hash table like in posix implementation of backend? Probably yes, because I can't find another way to support understanding whether the object already exists.
 5. Is my iterator ok?
