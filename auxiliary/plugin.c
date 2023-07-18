@@ -30,12 +30,12 @@ struct oio_url_s* create_empty_url() {
 struct JBackendIterator {
     char* marker;
     char* prefix;
-}
+};
 
-typedef struct Iterator Iterator;
+typedef struct JBackendIterator JBackendIterator;
 
-Iterator* iterator_new(char* prefix) {
-    Iterator* it = g_slice_new(Iterator);
+JBackendIterator* iterator_new(const char* prefix) {
+    JBackendIterator* it = g_slice_new(JBackendIterator);
 
     it->marker = g_strdup("");
     it->prefix = (prefix == NULL) ? NULL : g_strdup(prefix);
@@ -43,7 +43,7 @@ Iterator* iterator_new(char* prefix) {
     return it;
 }
 
-void iterator_free(Iterator* it) {
+void iterator_free(JBackendIterator* it) {
     if (it->marker != NULL) {
         g_free(it->marker);
     }
@@ -52,11 +52,13 @@ void iterator_free(Iterator* it) {
         g_free(it->prefix);
     }
 
-    g_slice_free(Iterator, it);
+    g_slice_free(JBackendIterator, it);
+
+    
 }
 
 void iterator_next(struct oio_sds_s* client, struct oio_error_s* err,
-                   Iterator* it,
+                   JBackendIterator* it,
                    const char* prefix,
                    const char* container) {
     struct oio_url_s* url = create_empty_url();
@@ -87,10 +89,19 @@ void iterator_next(struct oio_sds_s* client, struct oio_error_s* err,
     g_assert_no_error((GError*)err);
 
     g_free(it->marker);
+
+    if (list_out.out_count <= 0) {
+        it->marker = NULL;
+        return;
+    }
+
     it->marker = g_strdup(marker);
 }
 
-char* iterator_get(Iterator* it) {
+char* iterator_get(JBackendIterator* it) {
+    if (it == NULL) {
+        return NULL;
+    }
     return it->marker;
 }
 
@@ -362,13 +373,13 @@ backend_get_by_prefix(gpointer backend_data, gchar const* namespace,
 
 static gboolean
 backend_iterate(gpointer backend_data, gpointer backend_iterator,
-                gchar const** name) {
+                gchar** name) {
     struct oio_error_s* err = NULL;
 
     JBackendData* bd = (JBackendData*)backend_data;
     JBackendIterator* bi = (JBackendIterator*)backend_iterator;
 
-    iterator_next(bd->client, err, bi, bi->prefix);
+    iterator_next(bd->client, err, bi, bi->prefix, bd->user);
 
     if (name != NULL) {
         *name = iterator_get(bi);
@@ -418,6 +429,29 @@ backend_fini(gpointer backend_data) {
     g_slice_free(JBackendData, bd);
 }
 
+
+/*
+ *
+ *
+ * Here you can find some test
+ * to ensure that written plugin really works somehow
+ *
+ *
+ *
+ *
+ *
+ * Tests will be removed from final version of the code
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
 void short_test() {
     // shows that easy functions really work
     struct oio_error_s* err = NULL;
@@ -456,6 +490,83 @@ void short_test() {
     backend_fini((void*)bd);
 }
 
+void fill_container(JBackendData* bd) {
+    struct oio_error_s* err = NULL;
+
+    gboolean flag;
+
+    gchar data[] = "Sample";
+    gchar foo[] = "foo/_";
+    size_t foo_pos = strlen(foo) - 1;
+    gchar object[] = "obj_";
+    size_t object_pos = strlen(object) - 1;
+
+    guint64 cnt;
+
+    for (char i = 'a'; i < 'e'; ++i) {
+        foo[foo_pos] = i;
+
+        JBackendObject* bo = NULL;
+        flag = backend_create(bd, "OPENIO", foo, (void**)&bo);
+        if (!flag) g_print("Error on creating :(\n");
+        // we don't need to fill objects with smth at this point
+    }
+
+    for (char i = '0'; i < '5'; ++i) {
+        object[object_pos] = i;
+
+        JBackendObject* bo = NULL;
+        flag = backend_create(bd, "OPENIO", object, (void**)&bo);
+        if (!flag) g_print("Error on creating :(\n");
+    }
+}
+
+void iterator_test() {
+    struct oio_error_s* err = NULL;
+    JBackendData* bd = NULL;
+
+    backend_init("new_container", (void**)&bd);
+    fill_container(bd);
+
+    JBackendIterator* bi = NULL;
+
+    gboolean flag = backend_get_all(bd, "OPENIO", (void**)&bi);
+
+    char* name = NULL;
+   
+    g_print("List of all objects: ");
+    while (backend_iterate(bd, bi, &name)) {
+        g_print("%s, ", name);        
+    } 
+    g_print("NULL\n");
+
+    iterator_free(bi);
+
+    bi = NULL;
+
+    flag = backend_get_by_prefix(bd, "OPENIO", "foo", (void**)&bi);
+
+    g_print("List of objects with prefix `foo`: ");
+    while (backend_iterate(bd, bi, &name)) {
+        g_print("%s, ", name);
+    }
+    g_print("NULL\n");
+
+    iterator_free(bi);
+
+    bi = NULL;
+
+    flag = backend_get_by_prefix(bd, "OPENIO", "obj", (void**)&bi);
+
+    g_print("List of objects with prefix `obj`: ");
+    while (backend_iterate(bd, bi, &name)) {
+        g_print("%s, ", name);
+    }
+    g_print("NULL\n");
+
+}
+
 int main()  {
     short_test();
+    iterator_test();
 }
