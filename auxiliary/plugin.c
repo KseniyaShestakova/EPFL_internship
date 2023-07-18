@@ -6,6 +6,7 @@
 #include <stdio.h>
 
 static const gchar* _ns_ = "OPENIO";
+static const gchar* _account_ = "ACCOUNT";
 
 struct oio_url_s* create_empty_url() {
     struct oio_url_s* url = oio_url_empty();
@@ -15,6 +16,7 @@ struct oio_url_s* create_empty_url() {
 
 void basic_init(struct oio_url_s* url, const gchar* user, const gchar* path) {
     oio_url_set(url, OIOURL_NS, _ns_);
+    oio_url_set(url, OIOURL_ACCOUNT, _account_);
 
     if (user != NULL) {
         oio_url_set(url, OIOURL_USER, user);
@@ -66,6 +68,37 @@ void clean_up(struct oio_sds_s* client, gchar* path) {
     oio_url_clean(url);
 }
 
+void show_info(struct oio_sds_s* client, struct oio_error_s* err,
+               struct oio_url_s* url) {
+    g_print("OIOURL_NS: %s\n", oio_url_get(url, OIOURL_NS));
+    g_print("OIOURL_ACCOUNT: %s\n", oio_url_get(url, OIOURL_ACCOUNT));
+    g_print("OIOURL_USER: %s\n", oio_url_get(url, OIOURL_USER));
+    g_print("OIOURL_PATH: %s\n", oio_url_get(url, OIOURL_PATH));
+    g_print("OIOURL_VERSION: %s\n", oio_url_get(url, OIOURL_VERSION));
+    g_print("OIOURL_WHOLE: %s\n", oio_url_get(url, OIOURL_WHOLE));
+    g_print("OIOURL_HEXID: %s\n", oio_url_get(url, OIOURL_HEXID));
+    g_print("OIOURL_CONTENTID: %s\n", oio_url_get(url, OIOURL_CONTENTID));
+    g_print("OIOURL_FULLPATH: %s\n", oio_url_get(url, OIOURL_FULLPATH));
+}
+
+
+
+void show_content(struct oio_sds_s* client, struct oio_error_s* err,
+                  struct oio_url_s* url) {
+    const char* name = oio_url_get(url, OIOURL_PATH);
+
+    guchar data[1024];
+    memset(data, 0, 1024);
+    struct oio_sds_dl_src_s src = { .url = url, .ranges = NULL };
+    struct oio_sds_dl_dst_s dst = { .type = OIO_DL_DST_BUFFER,
+                        .data = { .buffer = { .ptr = data, .length = sizeof(data) } }
+    };
+    err = oio_sds_download(client, &src, &dst);
+    g_assert_no_error((GError*)err);
+
+    g_print("Content of `%s`: %s\n", name, data);
+}
+
 struct JBackendData {
     struct oio_sds_s* client;
     gchar* user; // container name
@@ -105,10 +138,12 @@ backend_create(gpointer backend_data, gchar const* namespace,
     ul_dst.url = url;
     gchar content[] = "";
     
-    err = oio_sds_upload_from_buffer(bd->client, &ul_dst, content, 0);
+    err = oio_sds_upload_from_buffer(bd->client, &ul_dst, content, 1);
     g_assert_no_error((GError*)err);
 
     bo->url = url;
+
+    *backend_object = bo;
 
     return TRUE;
 }
@@ -124,8 +159,8 @@ static gboolean
 backend_delete(gpointer backend_data, gpointer backend_object) {
     struct oio_error_s* err = NULL;
 
-    JBackendData* bd = (JBackendData*)bd;
-    JBackendObject* bo = (JBackendObject*)bo;
+    JBackendData* bd = (JBackendData*)backend_data;
+    JBackendObject* bo = (JBackendObject*)backend_object;
 
 
     err = oio_sds_delete(bd->client, bo->url);
@@ -138,14 +173,9 @@ backend_close(gpointer backend_data, gpointer backend_object) {
     /* does nothing */
 }
 
-static gboolean
-backend_status(gpointer backend_data, gpointer backend_object,
-               guint64* modification_time, guint64* size) {
-    struct oio_error_s* err = NULL;
-
-    JBackendData* bd = (JBackendData*)bd;
-    JBackendObject* bo = (JBackendObject*)bo;
-
+void get_size(struct oio_sds_s* client, struct oio_error_s* err,
+              struct oio_url_s* url,
+              guint64* size) {
     void _oio_sds_info_reporter_size(void* cb_data,
                                      enum oio_sds_content_key_e key,
                                      const char* value){
@@ -154,10 +184,20 @@ backend_status(gpointer backend_data, gpointer backend_object,
         }
     }
 
-    err = oio_sds_show_content(bd->client, bo->url, (void*)size,
+    err = oio_sds_show_content(client, url, (void*)size,
                                _oio_sds_info_reporter_size, NULL, NULL);
     g_assert_no_error((GError*)err);
+}
 
+static gboolean
+backend_status(gpointer backend_data, gpointer backend_object,
+               guint64* modification_time, guint64* size) {
+    struct oio_error_s* err = NULL;
+
+    JBackendData* bd = (JBackendData*)backend_data;
+    JBackendObject* bo = (JBackendObject*)backend_object;
+
+    get_size(bd->client, err, bo->url, size);
 }
 
 static gboolean
@@ -211,7 +251,26 @@ backend_write(gpointer backend_data, gpointer backend_object,
               gconstpointer buffer,
               guint64 length, guint64 offset,
               guint64* bytes_written) {
+    if (offset != 0) return FALSE; // TODO: what if offset is not equal to 0? 
 
+    struct oio_error_s* err= NULL;
+
+    JBackendData* bd = (JBackendData*)backend_data;
+    JBackendObject* bo = (JBackendObject*)backend_object;
+
+    show_info(bd->client, err, bo->url);
+    fflush(stdout);
+
+    struct oio_sds_ul_dst_s ul_dst = OIO_SDS_UPLOAD_DST_INIT;
+    ul_dst.url = bo->url;
+
+    err = oio_sds_upload_from_buffer(bd->client, &ul_dst, buffer, length);
+    g_assert_no_error((GError*)err);
+
+    g_print("wrote %ld bytes\n", ul_dst.out_size);
+    *bytes_written = ul_dst.out_size; // does not give expected result :(
+
+    return (ul_dst.out_size == length);
 }
 
 static gboolean
@@ -242,16 +301,19 @@ backend_init(gchar const* path, gpointer* backend_data) {
     bd->user = g_strdup(path);
     bd->client = NULL;
 
-    err = oio_sds_init(&(bd->client), _ns_);
+    struct oio_sds_s* client = NULL;
+
+    err = oio_sds_init(&client, _ns_);
     g_assert_no_error((GError*)err);
 
     // need to create a container
     struct oio_url_s* url = create_empty_url();
     basic_init(url, path, NULL);
-    err = oio_sds_create(bd->client, url);
+    err = oio_sds_create(client, url);
     g_assert_no_error((GError*)err);
     oio_url_clean(url);
 
+    bd->client = client;
     *backend_data = bd;
 
     return TRUE;
@@ -270,6 +332,44 @@ backend_fini(gpointer backend_data) {
     g_slice_free(JBackendData, bd);
 }
 
+void short_test() {
+    // shows that easy functions really work
+    struct oio_error_s* err = NULL;
+    JBackendData* bd = NULL;
+
+    backend_init("new_container", (void**)&bd);
+
+    JBackendObject* bo = NULL;
+    gboolean flag  = backend_create(bd, "OPENIO", "obj", (void**)&bo);
+    if (flag) g_print("Success on creating!\n");
+
+    char buffer[] = "Sample content";
+    guint64 cnt = 0;
+
+    flag = backend_write((void*)bd, (void*)bo,
+                         (void*)buffer,
+                         strlen(buffer) + 1, 0, &cnt);
+    show_content(bd->client, err, bo->url);
+    g_print("%ld bytes written\n", cnt);
+
+    char buff[256];
+    flag = backend_read((void*)bd, (void*)bo,
+                        (void*)buff,
+                        strlen(buffer) - 1, 2, &cnt);
+    g_print("Read %ld bytes: %s\n", cnt, buff);
+
+    guint64 modification_time = 0;
+    guint64 size = 0;
+
+    //get_size(bd->client, err, bo->url, &size);
+    backend_status((void*)bd, (void*)bo, &modification_time, &size);
+    g_print("modification time: %ld, size: %ld\n", modification_time, size);
+
+    backend_delete((void*)bd, (void*)bo);
+
+    backend_fini((void*)bd);
+}
+
 int main()  {
-    
+    short_test();
 }

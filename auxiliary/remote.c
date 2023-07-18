@@ -377,12 +377,12 @@ void quick_init_example() {
 }
 
 int main() {
-    //content_retrieving();
-    //quick_init_example();
+    content_retrieving();
+    quick_init_example();
 
     //read_write_example();
-    struct oio_url_s* url = create_empty_url();
-    basic_init(url, NULL, "experiment");
+    //struct oio_url_s* url = create_empty_url();
+    //basic_init(url, NULL, "experiment");
    
 
 }
