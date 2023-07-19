@@ -278,3 +278,11 @@ For doing that one should:
 2. Execute [transfer.sh](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/transfer.sh) on your host machine to transfer executable [remote](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/auxiliary/remote) from the docker container with Ubuntu 18.04 to the docker container with CentOS 7 running openio.
 3. Run transferred executable: `./remote`
 
+### Building OpenIO backend implementation to JULEA
+File with backend should be placed into the [backend directory](https://github.com/Bella42/julea/tree/objectstore/backend). \
+For this backend to be seen from code, it should be mentioned in [meson.build](https://github.com/julea-io/julea/blob/master/meson.build). New dependency with openio should be added to the list of dependencies and if Meson will be able to find it then it should be added to `extra_deps`  and to the list of backends (somewhere around 550-th line of `meson.build` file you will see how it was done for previous backends). \
+Meson searchs for included libraries using `pkg-config`. One can read more about `pkg-config` [here](https://people.freedesktop.org/~dbn/pkg-config-guide.html). \
+Another way of including library in Meson is [`compiler.find_library`](https://mesonbuild.com/Reference-manual_returned_compiler.html#compilerfind_library). In JULEA you don't need to find compiler, it is done for you in the beginning of `meson.build` file, variable with compiler is named `cc`. \
+After editing `meson.build`, one should build the project as described in [tutorial](https://github.com/Bella42/julea/blob/objectstore/README.md). \
+For running JULEA with new backend the config file should be changed as described [here](https://github.com/Bella42/julea/blob/objectstore/doc/configuration.md). Usually config file is saved in `~/.config/julea/julea`. There you should change field `backend` in section `[Object]`, probably. \
+The easiest way to test is running `hello-world.c` from `example` directory. Unfortunately, `openio` is not running on the machine where I can compile with `openio library`, so `Makefile` should be changed so that it will only make an executable file without running it. The executable should be transferred to the docker container with running `openio` and run there.
