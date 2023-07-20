@@ -161,6 +161,12 @@ foo_dep = cc.find_library('foo',
 	  required: true,
 )
 
+bar_dep = cc.find_library('bar',
+	  dirs: ['/home/xxeniash/bar_lib/bar/', 
+		'/home/xxeniash/bar_lib/'],
+	  required: true,
+)
+
 # FIXME The config-tool variant does not work correctly at the moment (see https://github.com/mesonbuild/meson/pull/8423)
 hdf_dep = dependency('hdf5',
 	language: 'c',
@@ -366,7 +372,9 @@ julea_incs = include_directories([
 	'include',
 	'include/core',
 	'/home/xxeniash/foo_lib/foo',
-	'/home/xxeniash/foo_lib/'
+	'/home/xxeniash/foo_lib/',
+	'/home/xxeniash/bar_lib/bar',
+	'/home/xxeniash/bar_lib/'
 ])
 
 julea_srcs = files([
@@ -628,7 +636,9 @@ if rados_dep.found()
 endif
 
 if foo_dep.found()
-	julea_backends += 'object/foo'
+	if bar_dep.found()
+		julea_backends += 'object/foo'
+	endif
 endif
 
 if leveldb_dep.found()
@@ -667,6 +677,7 @@ foreach backend: julea_backends
 		extra_deps += rados_dep
 	elif backend == 'object/foo'
 		extra_deps += foo_dep
+		extra_deps += bar_dep
 	elif backend == 'kv/leveldb'
 		extra_deps += leveldb_dep
 	elif backend == 'kv/lmdb'

@@ -6,6 +6,7 @@
 #include <julea.h>
 
 #include "foo.h"
+#include "bar.h"
 
 int a = 0;
 
@@ -31,7 +32,7 @@ backend_open(gpointer backend_data, gchar const* namespace, gchar const* path, g
 	(void)backend_object;
 
 	g_print("Trying to open... ");
-	a = foo(a);
+	a = bar(a);
 	return TRUE;
 }
 
