@@ -155,16 +155,14 @@ rados_dep = cc.find_library('rados',
 	required: false,
 )
 
-foo_dep = cc.find_library('foo',
- 	  dirs: ['/home/xxeniash/foo_lib/foo/', 
-		'/home/xxeniash/foo_lib/'],
-	  required: true,
+oiocore_dep = cc.find_library('oiocore',
+	dirs: ['/oio-sds/core/'],
+	required: true,
 )
 
-bar_dep = cc.find_library('bar',
-	  dirs: ['/home/xxeniash/bar_lib/bar/', 
-		'/home/xxeniash/bar_lib/'],
-	  required: true,
+oiosds_dep = cc.find_library('oiosds',
+	dirs: ['/oio-sds/core/'],
+	required: true,
 )
 
 # FIXME The config-tool variant does not work correctly at the moment (see https://github.com/mesonbuild/meson/pull/8423)
@@ -371,10 +369,7 @@ common_deps = [m_dep, glib_dep, gio_dep, gmodule_dep, gthread_dep, gobject_dep, 
 julea_incs = include_directories([
 	'include',
 	'include/core',
-	'/home/xxeniash/foo_lib/foo',
-	'/home/xxeniash/foo_lib/',
-	'/home/xxeniash/bar_lib/bar',
-	'/home/xxeniash/bar_lib/'
+	'/oio-sds/core'
 ])
 
 julea_srcs = files([
@@ -635,9 +630,9 @@ if rados_dep.found()
 	julea_backends += 'object/rados'
 endif
 
-if foo_dep.found()
-	if bar_dep.found()
-		julea_backends += 'object/foo'
+if oiocore_dep.found()
+	if oiosds_dep.found()
+		julea_backends += 'object/oio'
 	endif
 endif
 
@@ -675,9 +670,9 @@ foreach backend: julea_backends
 
 	if backend == 'object/rados'
 		extra_deps += rados_dep
-	elif backend == 'object/foo'
-		extra_deps += foo_dep
-		extra_deps += bar_dep
+	elif backend == 'object/oio'
+		extra_deps += oiocore_dep
+		extra_deps += oiosds_dep
 	elif backend == 'kv/leveldb'
 		extra_deps += leveldb_dep
 	elif backend == 'kv/lmdb'
