@@ -286,3 +286,7 @@ Another way of including library in Meson is [`compiler.find_library`](https://m
 After editing `meson.build`, one should build the project as described in [tutorial](https://github.com/Bella42/julea/blob/objectstore/README.md). \
 For running JULEA with new backend the config file should be changed as described [here](https://github.com/Bella42/julea/blob/objectstore/doc/configuration.md). Usually config file is saved in `~/.config/julea/julea`. There you should change field `backend` in section `[Object]`, probably. \
 The easiest way to test is running `hello-world.c` from `example` directory. Unfortunately, `openio` is not running on the machine where I can compile with `openio library`, so `Makefile` should be changed so that it will only make an executable file without running it. The executable should be transferred to the docker container with running `openio` and run there.
+
+In order to build JULEA with OpenIO one should change `meson.build` like [here](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/build/meson.build). Be carefull: here `/oio-sds/core/` stays for the pass to the directory containing files `oio_sds.h`, `oio_core.h`, `liboiocore.so` and `liboiosds.so`. The backend implementation from [oio.c](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/build/oio.c) was used. In order to use this implementation one should change `~/.config/julea/julea` file ( [object] section, `backend` variable). 
+
+After that it should be run, though I did not yet find a way to run it correctly...
