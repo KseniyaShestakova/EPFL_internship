@@ -90,4 +90,9 @@ stored inside *buckets* (containers with specified name and AWS region).
   [Page](https://minio-cpp.min.io/args_8h_source.html) with header file for arguments passed into different functions (can work like a reference for specifying one's requests).
 
 
+  ## Using AWS C++ SDK
+  For using AWS C++ SDK with MinIO server one should change endpoint when creating client configuration. Changing configuration and using API example can be found [here](https://github.com/KseniyaShestakova/EPFL_internship/tree/main/amazon/s3_exp). \
+  [Compile & Run](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/build-cmake.html) \
+  [Documentation](https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-s3/html/namespace_aws.html) \
+  [Building library guide](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/setup-linux.html)
   
