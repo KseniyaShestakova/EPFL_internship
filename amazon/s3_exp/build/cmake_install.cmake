@@ -1,4 +1,4 @@
-# Install script for directory: /home/xxeniash/EPFL_internship/s3exp
+# Install script for directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/xxeniash/EPFL_internship/s3exp/bld/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

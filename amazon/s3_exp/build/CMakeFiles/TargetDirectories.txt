@@ -1,0 +1,3 @@
+/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/CMakeFiles/app.dir
+/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/CMakeFiles/edit_cache.dir
+/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/CMakeFiles/rebuild_cache.dir

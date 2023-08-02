@@ -31,7 +31,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/Platform/Linux-GNU.cmake"
   "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/Platform/Linux.cmake"
   "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/Platform/UnixPaths.cmake"
-  "/home/xxeniash/EPFL_internship/s3exp/CMakeLists.txt"
+  "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/CMakeLists.txt"
   "CMakeFiles/3.26.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.26.3/CMakeSystem.cmake"
   "/usr/local/lib/aws-c-auth/cmake/aws-c-auth-config.cmake"

@@ -57,10 +57,10 @@ RM = /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E r
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/xxeniash/EPFL_internship/s3exp
+CMAKE_SOURCE_DIR = /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/xxeniash/EPFL_internship/s3exp/bld
+CMAKE_BINARY_DIR = /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xxeniash/EPFL_internship/s3exp/bld/CMakeFiles /home/xxeniash/EPFL_internship/s3exp/bld//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/CMakeFiles /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xxeniash/EPFL_internship/s3exp/bld/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,29 +129,29 @@ app/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/build
 .PHONY : app/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+backend.o: backend.cpp.o
+.PHONY : backend.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/main.cpp.o
-.PHONY : main.cpp.o
+backend.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/backend.cpp.o
+.PHONY : backend.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+backend.i: backend.cpp.i
+.PHONY : backend.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/main.cpp.i
-.PHONY : main.cpp.i
+backend.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/backend.cpp.i
+.PHONY : backend.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+backend.s: backend.cpp.s
+.PHONY : backend.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/main.cpp.s
-.PHONY : main.cpp.s
+backend.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/backend.cpp.s
+.PHONY : backend.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... app"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... backend.o"
+	@echo "... backend.i"
+	@echo "... backend.s"
 .PHONY : help
 
 
