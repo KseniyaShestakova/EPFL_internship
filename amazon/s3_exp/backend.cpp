@@ -17,6 +17,9 @@
 #include <aws/core/auth/AWSCredentialsProvider.h>
 #include <aws/s3/model/DeleteObjectRequest.h>
 
+// C-style structs, no OOP
+
+
 struct BackendData {
     std::string path = "127.0.0.1:9000";
     Aws::SDKOptions* options;
@@ -26,46 +29,189 @@ struct BackendData {
 struct BackendObject {
     Aws::String bucket;
     Aws::String objectKey;
-
+    uint64_t refCount = 0;
 };
 
-bool open(BackendData* bd, const Aws::String&/*namespace*/ bucket,
-                           const Aws::String&/*path*/ object,
-                           BackendObject** bo, bool create = true) {
-    if (!create) { //TODO: copypaste
-        *bo = new BackendObject;
-        (*bo)->bucket = bucket;
-        (*bo)->objectKey = object;
-        return true;
+void increaseRefCount(BackendObject* bo) {
+    ++(bo->refCount);
+}
+
+void decreaseRefCount(BackendObject* bo) {
+    --(bo->refCount);
+}
+
+std::unordered_map<Aws::String, BackendObject*> handler;
+
+//TODO: adopt for naming rules of amazon
+Aws::String get_path(const Aws::String& bucket, const Aws::String& objectKey) {
+    return bucket + ";" + objectKey;
+}
+
+struct BackendIterator {
+    Aws::Vector<Aws::S3::Model::Object>* objects = nullptr;
+    uint64_t pos = 0;
+};
+
+BackendIterator* iterator_new() {
+    auto it = new BackendIterator;
+
+    it->objects = nullptr;
+    it->pos = 0;
+
+    return it;
+}
+
+void iterator_free(BackendIterator* it) {
+    if (it->objects != nullptr) {
+        delete it->objects;
     }
+
+    delete it;
+}
+
+void iterator_next(BackendIterator* it) {
+    if (it->objects == nullptr) return;
+
+    if (it->pos < (it->objects)->size()) {
+        ++(it->pos);
+    }
+}
+
+bool isValid(BackendIterator* it) {
+    return (it->objects != nullptr) && (it->pos < (it->objects)->size());
+}
+
+void iterator_get(BackendIterator* it, std::string& name) {
+    name =  isValid(it) ? (it->objects)->operator[](it->pos).GetKey() : "";
+}
+
+void fill_object(BackendObject** bo,
+                 const Aws::String& bucket,
+                 const Aws::String& object) {
+    *bo = new BackendObject;
+    (*bo)->bucket = bucket;
+    (*bo)->objectKey = object;
+    (*bo)->refCount = 1;
+}
+
+bool create_without_check(BackendData*bd, const Aws::String& bucket,
+                                          const Aws::String& object,
+                                          BackendObject** bo,
+                                          const Aws::String& path) {
     Aws::S3::Model::PutObjectRequest request;
     request.SetBucket(bucket);
     request.SetKey(object);
-    
-    std::shared_ptr<Aws::IOStream> inputData = 
-        Aws::MakeShared<Aws::StringStream>("SampleAllocationTag", "");
-
+ 
+    std::shared_ptr<Aws::IOStream> inputData =
+         Aws::MakeShared<Aws::StringStream>("SampleAllocationTag", "");
+ 
     if (!*inputData) {
         std::cerr << "Error while creating shared_ptr" << std::endl;
         return false;
     }
-
+ 
     request.SetBody(inputData);
-
+ 
     Aws::S3::Model::PutObjectOutcome outcome = (bd->client)->PutObject(request);
-
+ 
     if (!outcome.IsSuccess()) {
         std::cerr << "Error: PutObject: " <<
             outcome.GetError().GetMessage() << std::endl;
-    } else {
-        std::cout << "Added object " << object << " to bucket " <<
+        return false;
+    } 
+    std::cout << "Added object " << object << " to bucket " <<
             bucket << std::endl;
-        *bo = new BackendObject;
-        (*bo)->bucket = bucket;
-        (*bo)->objectKey = object;
-    }
-    return outcome.IsSuccess();
+    fill_object(bo, bucket, object);
+    auto it_bool_pair = handler.emplace(path, *bo);
+    
+    return it_bool_pair.second;
 }
+
+bool create(BackendData* bd, const Aws::String& bucket,
+                             const Aws::String& object,
+                             BackendObject** bo) {
+    Aws::String path = get_path(bucket, object);
+
+    auto it = handler.find(path);
+
+    if (it != handler.end()) {
+        increaseRefCount((*it).second);
+        *bo = (*it).second;
+        return false;
+    }
+
+    return create_without_check(bd, bucket, object, bo, path);
+}
+
+bool open(BackendData* bd, const Aws::String&/*namespace*/ bucket,
+                           const Aws::String&/*path*/ object,
+                           BackendObject** bo) {
+    Aws::String path = get_path(bucket, object);
+
+    auto it = handler.find(path);
+
+    if (it != handler.end()) {
+        increaseRefCount((*it).second);
+        *bo = (*it).second;
+        return true;
+    }
+    return create_without_check(bd, bucket, object, bo, path);
+}
+
+bool close(BackendData* bd, BackendObject* bo) {
+    (void)bd;
+    Aws::String path = get_path(bo->bucket, bo->objectKey);
+
+    auto it = handler.find(path);
+
+    if (it == handler.end()) {
+        return false;
+    }
+
+    decreaseRefCount((*it).second);
+
+    if ((*it).second->refCount <= 0) {
+        delete bo; // was allocated either in create or in open
+        size_t num_erased = handler.erase(path);
+        return num_erased == 1;
+    }
+
+    return true;
+}
+
+// we cannot delete an object used by another process or thread
+bool delete_object(BackendData* bd, BackendObject* bo) {
+    Aws::String path = get_path(bo->bucket, bo->objectKey);
+
+    auto it = handler.find(path);
+
+    if (it == handler.end() || (*it).second->refCount > 1) {
+        return false;
+    }
+
+    // delete an object
+    Aws::S3::Model::DeleteObjectRequest request;
+ 
+    request.SetBucket(bo->bucket);
+    request.SetKey(bo->objectKey);
+ 
+    Aws::S3::Model::DeleteObjectOutcome outcome = (bd->client)->DeleteObject(request);
+ 
+    if (!outcome.IsSuccess()) {
+        auto err = outcome.GetError();
+        std::cerr << "Error: DeleteObject: " <<
+                  err.GetExceptionName() << ": " << err.GetMessage() << std::endl;
+        return false;
+    }
+
+    std::cout << "Successfully deleted " << bo->objectKey << std::endl;
+    
+    // delete from unordered map
+    delete bo;
+    size_t num_erased = handler.erase(path);
+    return num_erased == 1;
+ }
+
 
 bool status(BackendData* bd, BackendObject* bo,
             int64_t* modification_time, uint64_t* size) {
@@ -163,24 +309,60 @@ bool write(BackendData* bd, BackendObject* bo,
     
 }
 
-bool delete_object(BackendData* bd, BackendObject* bo) {
-    Aws::S3::Model::DeleteObjectRequest request;
 
-    request.SetBucket(bo->bucket);
-    request.SetKey(bo->objectKey);
+bool get_list(BackendData* bd, const  Aws::String& bucket,
+        BackendIterator** bi,
+        const Aws::String& prefix = "") {
+    *bi = iterator_new();
 
-    Aws::S3::Model::DeleteObjectOutcome outcome = (bd->client)->DeleteObject(request);
-
-    if (!outcome.IsSuccess()) {
-        auto err = outcome.GetError();
-        std::cerr << "Error: DeleteObject: " <<
-                  err.GetExceptionName() << ": " << err.GetMessage() << std::endl;
-    } else {
-        std::cout << "Successfully deleted " << bo->objectKey << std::endl;
+    if (*bi == nullptr) {
+        return false;
     }
 
-    return outcome.IsSuccess();
+    Aws::S3::Model::ListObjectsRequest request;
+    request.SetBucket(bucket);
+    request.SetPrefix(prefix);
+
+    auto outcome = (bd->client)->ListObjects(request);
+
+    if (!outcome.IsSuccess()) {
+        auto& err = outcome.GetError();
+        std::cerr << "Error: ListObjects: " <<
+            err.GetExceptionName() << ": " << err.GetMessage() << std::endl;
+        return false;
+    }
+
+    (*bi)->objects = 
+        new Aws::Vector<Aws::S3::Model::Object>(outcome.GetResult().GetContents());
+    (*bi)->pos = 0;
+
+    return true;
 }
+
+bool get_all(BackendData* bd,
+             const std::string& /*namespace*/ns,
+             BackendIterator** bi) {
+    return get_list(bd, ns, bi);
+} 
+
+bool get_by_prefix(BackendData* bd,
+                   const std::string&/*namespace*/ ns,
+                   BackendIterator** bi,
+                   const std::string& prefix) {
+    return get_list(bd, ns, bi, prefix);
+}
+
+bool iterate(BackendData* bd, BackendIterator* bi, std::string& name) {
+    (void)bd;
+
+    iterator_get(bi, name);
+
+    iterator_next(bi);
+
+    return (name != "");
+}
+
+
 
 // default value of path = "127.0.0.1:9000"
 bool init(const std::string& path, BackendData** bd) {
@@ -224,44 +406,100 @@ void fini(BackendData* bd) {
     delete bd;
 }
 
-int main() {
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+void manual_test() {
+    std::string path = "127.0.0.1:9000";
+     BackendData* bd = nullptr;
+     init(path, &bd);
+ 
+     BackendObject* bo = nullptr;
+     open(bd, "test-bucket", "new.txt", &bo);
+ 
+     uint64_t bytes_read = 0;
+     uint64_t bytes_written = -1;
+     char buffer[256];
+     write(bd, bo, "hello", 5, 0, &bytes_written);
+     read(bd, bo, buffer, 100, 0, &bytes_read);
+     buffer[bytes_read] = 0;
+     std::cout << "Read " << bytes_read << " bytes: " << buffer << std::endl;
+ 
+ 
+     int64_t modification_time = 0;
+     uint64_t size = -1;
+     status(bd, bo, &modification_time, &size);
+ 
+     std::cout << "size: " << size << "; modification time: " <<
+             modification_time << std::endl;
+ 
+     BackendObject* inspect = nullptr;
+     open(bd, "test-bucket", "test.txt", &inspect);
+     status(bd, inspect, &modification_time, &size);
+     std::cout << "size: " << size << "; modification time: " <<
+              modification_time << std::endl;
+
+     read(bd, inspect, buffer, size, 3, &bytes_read);
+     buffer[bytes_read] = 0;
+     std::cout << "Read " << bytes_read << " bytes: " << buffer << std::endl;
+
+     BackendIterator* bi;
+     get_all(bd, "test-bucket", &bi);
+
+     std::string name;
+
+     std::cout << "List of elements in test-bucket:\n";
+     while (iterate(bd, bi, name)) {
+         std::cout << name << std::endl;
+     }
+
+     get_by_prefix(bd, "test-bucket", &bi, "te");
+
+     std::cout << "\nList of elements with prefix `te` in test-bucket:\n";
+     while(iterate(bd, bi, name)) {
+         std::cout << name << std::endl;
+     }
+
+
+     delete_object(bd, bo);
+
+     fini(bd);
+
+}
+
+void existence_test() {
     std::string path = "127.0.0.1:9000";
     BackendData* bd = nullptr;
     init(path, &bd);
 
-    BackendObject* bo = nullptr;
-    open(bd, "test-bucket", "new.txt", &bo); 
+    BackendObject* new_bo = nullptr;
+    std::cout << "Create new.txt: "
+        << create(bd, "test-bucket", "new.txt", &new_bo) << std::endl;
 
-    uint64_t bytes_read = 0;
-    uint64_t bytes_written = -1;
-    char buffer[256];
-    write(bd, bo, "hello", 5, 0, &bytes_written);
-    read(bd, bo, buffer, 100, 0, &bytes_read);
-    buffer[bytes_read] = 0;
-    std::cout << "Read " << bytes_read << " bytes: " << buffer << std::endl;
-
-
-    int64_t modification_time = 0;
-    uint64_t size = -1;
-    status(bd, bo, &modification_time, &size);
-
-    std::cout << "size: " << size << "; modification time: " << 
-            modification_time << std::endl;
-
-    BackendObject* inspect = nullptr;
-    open(bd, "test-bucket", "test.txt", &inspect, false);
-    status(bd, inspect, &modification_time, &size);
-    std::cout << "size: " << size << "; modification time: " <<
-             modification_time << std::endl;
-    
-    read(bd, inspect, buffer, size, 3, &bytes_read);
-    buffer[bytes_read] = 0;
-    std::cout << "Read " << bytes_read << " bytes: " << buffer << std::endl;
-
-    
-    delete_object(bd, bo);
+    BackendObject* old_bo = nullptr;
+    std::cout << "Create test.txt: " 
+        << create(bd, "test-bucket", "new.txt", &old_bo) << std::endl;
 
     fini(bd);
+}
+
+int main() {
+    //manual_test();
+    existence_test();
+
+    return 0;
 }
 
 
