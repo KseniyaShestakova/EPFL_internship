@@ -31,7 +31,13 @@ struct BackendObject {
 
 bool open(BackendData* bd, const Aws::String&/*namespace*/ bucket,
                            const Aws::String&/*path*/ object,
-                           BackendObject** bo) {
+                           BackendObject** bo, bool create = true) {
+    if (!create) { //TODO: copypaste
+        *bo = new BackendObject;
+        (*bo)->bucket = bucket;
+        (*bo)->objectKey = object;
+        return true;
+    }
     Aws::S3::Model::PutObjectRequest request;
     request.SetBucket(bucket);
     request.SetKey(object);
@@ -59,6 +65,102 @@ bool open(BackendData* bd, const Aws::String&/*namespace*/ bucket,
         (*bo)->objectKey = object;
     }
     return outcome.IsSuccess();
+}
+
+bool status(BackendData* bd, BackendObject* bo,
+            int64_t* modification_time, uint64_t* size) {
+    Aws::S3::Model::GetObjectRequest request;
+    request.SetBucket(bo->bucket);
+    request.SetKey(bo->objectKey);
+
+    Aws::S3::Model::GetObjectOutcome outcome = (bd->client)->GetObject(request);
+
+    if (!outcome.IsSuccess()) {
+        const Aws::S3::S3Error& err = outcome.GetError();
+        std::cerr << "Error: GetObject: " <<
+                  err.GetExceptionName() << ": " << err.GetMessage() << std::endl;
+        return false;
+    }
+
+    Aws::S3::Model::GetObjectResult& result = outcome.GetResult();
+
+    *size = result.GetContentLength();
+
+    const Aws::Utils::DateTime& last_modified = result.GetLastModified();
+
+    *modification_time = last_modified.Millis();
+
+    return true;
+}
+
+bool read(BackendData* bd, BackendObject* bo,
+          char* buffer,
+          uint64_t length, uint64_t offset,
+          uint64_t* bytes_read) {
+    Aws::S3::Model::GetObjectRequest request;
+    request.SetBucket(bo->bucket);
+    request.SetKey(bo->objectKey);
+
+    std::string range = "bytes=";
+    range += std::to_string(offset);
+    range += "-";
+    range += std::to_string(offset + length);
+
+    request.SetRange(range);
+
+    Aws::S3::Model::GetObjectOutcome outcome = (bd->client)->GetObject(request);
+    if (!outcome.IsSuccess()) {
+        auto err = outcome.GetError();
+        std::cerr << "Error: GetObject: " << err.GetExceptionName() <<
+            ": " << err.GetMessage() << std::endl;
+        return false;
+    }
+
+    Aws::S3::Model::GetObjectResult& result = outcome.GetResult();
+    Aws::IOStream& stream = result.GetBody();
+
+    stream.read(buffer, length);
+    *bytes_read = stream.gcount();
+
+    return true;    
+}
+
+// can only rewrite the object with specified content
+// buffer should be convertible to std::string
+bool write(BackendData* bd, BackendObject* bo,
+           const char* buffer,
+           uint64_t length, uint64_t offset,
+           uint64_t* bytes_written) {
+    (void)offset; // ignored
+
+    Aws::S3::Model::PutObjectRequest request;
+    request.SetBucket(bo->bucket);
+    request.SetKey(bo->objectKey);
+    request.SetContentLength(length);
+
+    std::shared_ptr<Aws::IOStream> inputData = 
+        Aws::MakeShared<Aws::StringStream>("SampleAllocationTag", buffer);
+
+    if (!*inputData) {
+        std::cerr << "Error while creating shared ptr" << std::endl;
+        return false;
+    }
+
+    request.SetBody(inputData);
+
+    Aws::S3::Model::PutObjectOutcome outcome = (bd->client)->PutObject(request);
+
+    if (!outcome.IsSuccess()) {
+        auto err = outcome.GetError();
+        std::cerr << "Error: PutObject: " << err.GetExceptionName() <<
+            ": " << err.GetMessage() << std::endl;
+        return false;
+    }
+
+    *bytes_written = inputData->gcount();
+
+    return true;
+    
 }
 
 bool delete_object(BackendData* bd, BackendObject* bo) {
@@ -109,10 +211,15 @@ bool init(const std::string& path, BackendData** bd) {
 }
 
 void fini(BackendData* bd) {
-    Aws::ShutdownAPI(*(bd->options));
+    if (bd == nullptr) return;
 
-    delete bd->options;
-    delete bd->client;
+    if (bd->options != nullptr)     
+        Aws::ShutdownAPI(*(bd->options));
+
+    if (bd->options != nullptr) 
+        delete bd->options;
+    if (bd->client != nullptr)  
+        delete bd->client;
 
     delete bd;
 }
@@ -125,6 +232,33 @@ int main() {
     BackendObject* bo = nullptr;
     open(bd, "test-bucket", "new.txt", &bo); 
 
+    uint64_t bytes_read = 0;
+    uint64_t bytes_written = -1;
+    char buffer[256];
+    write(bd, bo, "hello", 5, 0, &bytes_written);
+    read(bd, bo, buffer, 100, 0, &bytes_read);
+    buffer[bytes_read] = 0;
+    std::cout << "Read " << bytes_read << " bytes: " << buffer << std::endl;
+
+
+    int64_t modification_time = 0;
+    uint64_t size = -1;
+    status(bd, bo, &modification_time, &size);
+
+    std::cout << "size: " << size << "; modification time: " << 
+            modification_time << std::endl;
+
+    BackendObject* inspect = nullptr;
+    open(bd, "test-bucket", "test.txt", &inspect, false);
+    status(bd, inspect, &modification_time, &size);
+    std::cout << "size: " << size << "; modification time: " <<
+             modification_time << std::endl;
+    
+    read(bd, inspect, buffer, size, 3, &bytes_read);
+    buffer[bytes_read] = 0;
+    std::cout << "Read " << bytes_read << " bytes: " << buffer << std::endl;
+
+    
     delete_object(bd, bo);
 
     fini(bd);
