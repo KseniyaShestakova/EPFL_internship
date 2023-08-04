@@ -18,7 +18,12 @@
 #include <aws/s3/model/DeleteObjectRequest.h>
 
 // C-style structs, no OOP
+#include <glib.h>
 
+void foo(gchar const* str) {
+    Aws::String string = str;
+    std::cout << str;
+}
 
 struct BackendData {
     std::string path = "127.0.0.1:9000";
@@ -151,10 +156,10 @@ bool create_or_open(BackendData* bd, const Aws::String& bucket,
                                      const Aws::String& object,
                                      BackendObject** bo,
                                      bool non_create) {
-    if (*bo != nullptr) {
+    /*if (*bo != nullptr) {
         std::cerr << "You are about to lose existing object handler!" << std::endl;
         return false;
-    }
+    }*/
     Aws::String path = get_path(bucket, object);
 
     auto it = handler.find(path);
