@@ -1,0 +1,6 @@
+/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/backend/bld/CMakeFiles/app.dir
+/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/backend/bld/CMakeFiles/edit_cache.dir
+/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/backend/bld/CMakeFiles/rebuild_cache.dir
+/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/backend/bld/lib/CMakeFiles/backend.dir
+/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/backend/bld/lib/CMakeFiles/edit_cache.dir
+/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/backend/bld/lib/CMakeFiles/rebuild_cache.dir

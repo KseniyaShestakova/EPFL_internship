@@ -1,14 +1,18 @@
 #include <glib.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 static gboolean
 backend_create(gpointer backend_data,
-               gchar const* namespace,
+               gchar const* ns,
                gchar const* path,
                gpointer* backend_object);
 
 static gboolean
 backend_open(gpointer backend_data,
-                gchar const* namespace,
+                gchar const* ns,
                 gchar const* path,
                 gpointer* backend_object);
 
@@ -28,6 +32,14 @@ backend_status(gpointer backend_data,
 
 static gboolean
 backend_sync(gpointer backend_data, gpointer backend_object);
+
+static gboolean
+backend_read(gpointer backend_data,
+              gpointer backend_object,
+              gpointer buffer,
+              guint64 length,
+              guint64 offset,
+              guint64* bytes_read);
 
 static gboolean
 backend_write(gpointer backend_data,
@@ -58,3 +70,7 @@ backend_init(gchar const* path, gpointer* backend_data);
 
 static void
 backend_fini(gpointer backend_data);
+                
+#ifdef __cplusplus
+}
+#endif
