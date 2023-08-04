@@ -127,35 +127,65 @@ bool create_without_check(BackendData*bd, const Aws::String& bucket,
     return it_bool_pair.second;
 }
 
-bool create(BackendData* bd, const Aws::String& bucket,
-                             const Aws::String& object,
-                             BackendObject** bo) {
+bool exists(BackendData* bd, const Aws::String& bucket, const Aws::String& object) {
+    Aws::S3::Model::GetObjectRequest request;
+    request.SetBucket(bucket);
+    request.SetKey(object);
+
+    Aws::S3::Model::GetObjectOutcome outcome =
+            (bd->client)->GetObject(request);
+
+    if (!outcome.IsSuccess()) {
+        const Aws::S3::S3Error &err = outcome.GetError();
+        if (err.GetExceptionName() == "NoSuchKey") {
+            return false;
+        }
+        std::cerr << "Error: GetObject: " <<
+                  err.GetExceptionName() << ": " << err.GetMessage() << std::endl;
+        return true; //error should be handled somehow!
+    }
+    return true; 
+}
+
+bool create_or_open(BackendData* bd, const Aws::String& bucket,
+                                     const Aws::String& object,
+                                     BackendObject** bo,
+                                     bool non_create) {
+    if (*bo != nullptr) {
+        std::cerr << "You are about to lose existing object handler!" << std::endl;
+        return false;
+    }
     Aws::String path = get_path(bucket, object);
 
     auto it = handler.find(path);
 
     if (it != handler.end()) {
-        increaseRefCount((*it).second);
-        *bo = (*it).second;
-        return false;
+         increaseRefCount((*it).second);
+         *bo = (*it).second;
+         return non_create;
     }
-
+ 
+    if (exists(bd, bucket, object)) {
+        fill_object(bo, bucket, object);
+        if (non_create) {
+            return handler.emplace(path, *bo).second;
+        }
+        return non_create;
+    }
+ 
     return create_without_check(bd, bucket, object, bo, path);
+}
+
+bool create(BackendData* bd, const Aws::String& bucket,
+                             const Aws::String& object,
+                             BackendObject** bo) {
+    return create_or_open(bd, bucket, object, bo, false);
 }
 
 bool open(BackendData* bd, const Aws::String&/*namespace*/ bucket,
                            const Aws::String&/*path*/ object,
                            BackendObject** bo) {
-    Aws::String path = get_path(bucket, object);
-
-    auto it = handler.find(path);
-
-    if (it != handler.end()) {
-        increaseRefCount((*it).second);
-        *bo = (*it).second;
-        return true;
-    }
-    return create_without_check(bd, bucket, object, bo, path);
+    return create_or_open(bd, bucket, object, bo, true);
 }
 
 bool close(BackendData* bd, BackendObject* bo) {
@@ -165,6 +195,7 @@ bool close(BackendData* bd, BackendObject* bo) {
     auto it = handler.find(path);
 
     if (it == handler.end()) {
+        std::cout << "Not found" << std::endl;
         return false;
     }
 
@@ -184,6 +215,17 @@ bool delete_object(BackendData* bd, BackendObject* bo) {
     Aws::String path = get_path(bo->bucket, bo->objectKey);
 
     auto it = handler.find(path);
+
+    if (it == handler.end()) {
+        std::cout << "Not found in the map" << std::endl;
+        return false;
+    }
+
+    if ((*it).second->refCount > 1) {
+        std::cout << "Many links, can't delete: "
+            << (*it).second->refCount << std::endl;
+        return false;
+    }
 
     if (it == handler.end() || (*it).second->refCount > 1) {
         return false;
@@ -479,18 +521,62 @@ void manual_test() {
 
 }
 
+
 void existence_test() {
     std::string path = "127.0.0.1:9000";
     BackendData* bd = nullptr;
     init(path, &bd);
 
+
     BackendObject* new_bo = nullptr;
+    // should be 0, cause new.txt exists
     std::cout << "Create new.txt: "
         << create(bd, "test-bucket", "new.txt", &new_bo) << std::endl;
 
     BackendObject* old_bo = nullptr;
+    // should be 0, cause test.txt exists
     std::cout << "Create test.txt: " 
-        << create(bd, "test-bucket", "new.txt", &old_bo) << std::endl;
+        << create(bd, "test-bucket", "test.txt", &old_bo) << std::endl;
+
+    // should be 1
+    std::cout << "Open new.txt: "
+        << open(bd, "test-bucket", "new.txt", &new_bo) << std::endl;
+
+    // should be 1
+    std::cout << "Open test.txt: " 
+        << open(bd, "test-bucket", "test.txt", &old_bo) << std::endl;
+
+    BackendObject* new_bo_1;
+    // should be 1
+    std::cout << "Create new1.txt: "
+        << create(bd, "test-bucket", "new1.txt", &new_bo_1) << std::endl;
+
+    BackendObject* new_bo_2;
+    // should be 1
+    std::cout << "Open new2.txt: "
+        << open(bd, "test-bucket", "new2.txt", &new_bo_2) << std::endl;
+
+    // should be 1
+    std::cout << "Close new.txt: " << close(bd, new_bo) << std::endl;
+
+    // should be 1
+    std::cout << "Delete test.txt: " << delete_object(bd, old_bo) << std::endl;
+
+    // should be 1
+    std::cout << "Open new1.txt: "
+        << open(bd, "test-bucket", "new1.txt", &new_bo_2) << std::endl;
+
+    // should be 0, cause there are 2 references
+    std::cout << "Delete new1.txt: "
+        << delete_object(bd, new_bo_1) << std::endl;
+
+    // should be 1
+    std::cout << "Close new1.txt: "
+        << close(bd, new_bo_1) << std::endl;
+
+    // should be 1
+    std::cout << "Delete new1.txt: " 
+        << delete_object(bd, new_bo_2) << std::endl;
 
     fini(bd);
 }
