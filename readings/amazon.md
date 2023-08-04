@@ -66,33 +66,38 @@ stored inside *buckets* (containers with specified name and AWS region).
 * *Regions*. You can choose geographical AWS Region where Amazon S3 stores the buckets that you create
   in order to optimize latency, minimize cost or address regulatory requirements.
 
-  ## MinIO
-  MinIO is an object storage solution that provides an Amazon Web Services S3-compatible API and supports core
-  S3 features.
-  So the **idea** of developing with Amazon tools is the next:
-  try free tier of the Amazon S3 for writing a small app,
-  write JULEA backend using Amazon API,
-  test and benchmark it using MinIO server.
-  
-  Installation guides:
-  [docker](https://min.io/docs/minio/container/index.html),
-  [linux](https://min.io/docs/minio/linux/index.html).
+## MinIO
+MinIO is an object storage solution that provides an Amazon Web Services S3-compatible API and supports core
+S3 features.
+So the **idea** of developing with Amazon tools is the next:
+try free tier of the Amazon S3 for writing a small app,
+write JULEA backend using Amazon API,
+test and benchmark it using MinIO server.
 
-  For me installation worked fine, but compiling and running files is still tricky.
+Installation guides:
+[docker](https://min.io/docs/minio/container/index.html),
+[linux](https://min.io/docs/minio/linux/index.html). \
+Launching MinIO server:
+```
+# mkdir ~/minio
+minio server ~/minio --console-address :9090
+```
 
-  Instructions for building from source can be found [here](https://github.com/minio/minio-cpp).Running cmake instructions from here builds the projects and saves executable files for code from `example/` and `test/` directories into corresponding subdirectories of `build/`. In order to compile and run
-  [`TestAll.cpp`](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/minio_exp/TestAll.cpp)
-  you can put it into `example/` and modify
-  [`CMakeLists.txt`](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/minio_exp/CMakeLists.txt)
-  in `example/`. For quick building project refer to `build_minio.sh` in `scripts/`.  Now `TestAll.cpp` contains examples of using API, mainly taken from
-  [here](https://github.com/minio/minio-cpp/tree/main/examples). \
-  [MinIO C++ SDK Documentation](https://minio-cpp.min.io/) repeats building instructions and provides brief documentation. \
-  [Page](https://minio-cpp.min.io/args_8h_source.html) with header file for arguments passed into different functions (can work like a reference for specifying one's requests).
+For me installation worked fine, but compiling and running files is still tricky.
+
+Instructions for building from source can be found [here](https://github.com/minio/minio-cpp).Running cmake instructions from here builds the projects and saves executable files for code from `example/` and `test/` directories into corresponding subdirectories of `build/`. In order to compile and run
+[`TestAll.cpp`](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/minio_exp/TestAll.cpp)
+you can put it into `example/` and modify
+[`CMakeLists.txt`](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/minio_exp/CMakeLists.txt)
+in `example/`. For quick building project refer to `build_minio.sh` in `scripts/`.  Now `TestAll.cpp` contains examples of using API, mainly taken from
+[here](https://github.com/minio/minio-cpp/tree/main/examples). \
+[MinIO C++ SDK Documentation](https://minio-cpp.min.io/) repeats building instructions and provides brief documentation. \
+[Page](https://minio-cpp.min.io/args_8h_source.html) with header file for arguments passed into different functions (can work like a reference for specifying one's requests).
 
 
-  ## Using AWS C++ SDK
-  For using AWS C++ SDK with MinIO server one should change endpoint when creating client configuration. Changing configuration and using API example can be found [here](https://github.com/KseniyaShestakova/EPFL_internship/tree/main/amazon/s3_exp). \
-  [Compile & Run](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/build-cmake.html) \
-  [Documentation](https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-s3/html/namespace_aws.html) \
-  [Building library guide](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/setup-linux.html)
-  
+## Using AWS C++ SDK
+For using AWS C++ SDK with MinIO server one should change endpoint when creating client configuration. Changing configuration and using API example can be found [here](https://github.com/KseniyaShestakova/EPFL_internship/tree/main/amazon/s3_exp). \
+[Compile & Run](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/build-cmake.html) \
+[Documentation](https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-s3/html/namespace_aws.html) \
+[Building library guide](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/setup-linux.html)
+
