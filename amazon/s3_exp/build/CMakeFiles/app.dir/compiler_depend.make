@@ -703,8 +703,254 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
   /usr/local/include/aws/core/config/EC2InstanceProfileConfigLoader.h \
   /usr/local/include/aws/core/config/ConfigAndCredentialsCacheManager.h \
   /usr/local/include/aws/core/client/RetryStrategy.h \
-  /usr/local/include/aws/s3/model/DeleteObjectRequest.h
+  /usr/local/include/aws/s3/model/DeleteObjectRequest.h \
+  /usr/include/glib-2.0/glib.h \
+  /usr/include/glib-2.0/glib/galloca.h \
+  /usr/include/glib-2.0/glib/gtypes.h \
+  /usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h \
+  /usr/include/glib-2.0/glib/gmacros.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h \
+  /usr/include/glib-2.0/glib/gversionmacros.h \
+  /usr/include/glib-2.0/glib/garray.h \
+  /usr/include/glib-2.0/glib/gasyncqueue.h \
+  /usr/include/glib-2.0/glib/gthread.h \
+  /usr/include/glib-2.0/glib/gatomic.h \
+  /usr/include/glib-2.0/glib/gerror.h \
+  /usr/include/glib-2.0/glib/gquark.h \
+  /usr/include/glib-2.0/glib/gutils.h \
+  /usr/include/glib-2.0/glib/gbacktrace.h \
+  /usr/include/signal.h \
+  /usr/include/x86_64-linux-gnu/bits/signum-generic.h \
+  /usr/include/x86_64-linux-gnu/bits/signum-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
+  /usr/include/x86_64-linux-gnu/bits/siginfo-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/siginfo-consts.h \
+  /usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigval_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
+  /usr/include/x86_64-linux-gnu/bits/sigevent-consts.h \
+  /usr/include/x86_64-linux-gnu/bits/sigaction.h \
+  /usr/include/x86_64-linux-gnu/bits/sigcontext.h \
+  /usr/include/x86_64-linux-gnu/bits/types/stack_t.h \
+  /usr/include/x86_64-linux-gnu/sys/ucontext.h \
+  /usr/include/x86_64-linux-gnu/bits/sigstack.h \
+  /usr/include/x86_64-linux-gnu/bits/sigstksz.h \
+  /usr/include/unistd.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+  /usr/include/linux/close_range.h \
+  /usr/include/x86_64-linux-gnu/bits/ss_flags.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h \
+  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
+  /usr/include/x86_64-linux-gnu/bits/signal_ext.h \
+  /usr/include/glib-2.0/glib/gbase64.h \
+  /usr/include/glib-2.0/glib/gbitlock.h \
+  /usr/include/glib-2.0/glib/gbookmarkfile.h \
+  /usr/include/glib-2.0/glib/gdatetime.h \
+  /usr/include/glib-2.0/glib/gtimezone.h \
+  /usr/include/glib-2.0/glib/gbytes.h \
+  /usr/include/glib-2.0/glib/gcharset.h \
+  /usr/include/glib-2.0/glib/gchecksum.h \
+  /usr/include/glib-2.0/glib/gconvert.h \
+  /usr/include/glib-2.0/glib/gdataset.h \
+  /usr/include/glib-2.0/glib/gdate.h \
+  /usr/include/glib-2.0/glib/gdir.h \
+  /usr/include/dirent.h \
+  /usr/include/x86_64-linux-gnu/bits/dirent.h \
+  /usr/include/x86_64-linux-gnu/bits/dirent_ext.h \
+  /usr/include/glib-2.0/glib/genviron.h \
+  /usr/include/glib-2.0/glib/gfileutils.h \
+  /usr/include/glib-2.0/glib/ggettext.h \
+  /usr/include/glib-2.0/glib/ghash.h \
+  /usr/include/glib-2.0/glib/glist.h \
+  /usr/include/glib-2.0/glib/gmem.h \
+  /usr/include/glib-2.0/glib/gnode.h \
+  /usr/include/glib-2.0/glib/ghmac.h \
+  /usr/include/glib-2.0/glib/gchecksum.h \
+  /usr/include/glib-2.0/glib/ghook.h \
+  /usr/include/glib-2.0/glib/ghostutils.h \
+  /usr/include/glib-2.0/glib/giochannel.h \
+  /usr/include/glib-2.0/glib/gmain.h \
+  /usr/include/glib-2.0/glib/gpoll.h \
+  /usr/include/glib-2.0/glib/gslist.h \
+  /usr/include/glib-2.0/glib/gstring.h \
+  /usr/include/glib-2.0/glib/gunicode.h \
+  /usr/include/glib-2.0/glib/gkeyfile.h \
+  /usr/include/glib-2.0/glib/gmappedfile.h \
+  /usr/include/glib-2.0/glib/gmarkup.h \
+  /usr/include/glib-2.0/glib/gmessages.h \
+  /usr/include/glib-2.0/glib/gvariant.h \
+  /usr/include/glib-2.0/glib/gvarianttype.h \
+  /usr/include/glib-2.0/glib/goption.h \
+  /usr/include/glib-2.0/glib/gpattern.h \
+  /usr/include/glib-2.0/glib/gprimes.h \
+  /usr/include/glib-2.0/glib/gqsort.h \
+  /usr/include/glib-2.0/glib/gqueue.h \
+  /usr/include/glib-2.0/glib/grand.h \
+  /usr/include/glib-2.0/glib/grcbox.h \
+  /usr/include/glib-2.0/glib/grefcount.h \
+  /usr/include/glib-2.0/glib/grefstring.h \
+  /usr/include/glib-2.0/glib/gmem.h \
+  /usr/include/glib-2.0/glib/gmacros.h \
+  /usr/include/glib-2.0/glib/gregex.h \
+  /usr/include/glib-2.0/glib/gscanner.h \
+  /usr/include/glib-2.0/glib/gsequence.h \
+  /usr/include/glib-2.0/glib/gshell.h \
+  /usr/include/glib-2.0/glib/gslice.h \
+  /usr/include/glib-2.0/glib/gspawn.h \
+  /usr/include/glib-2.0/glib/gstrfuncs.h \
+  /usr/include/glib-2.0/glib/gstringchunk.h \
+  /usr/include/glib-2.0/glib/gstrvbuilder.h \
+  /usr/include/glib-2.0/glib/gtestutils.h \
+  /usr/include/glib-2.0/glib/gthreadpool.h \
+  /usr/include/glib-2.0/glib/gtimer.h \
+  /usr/include/glib-2.0/glib/gtrashstack.h \
+  /usr/include/glib-2.0/glib/gtree.h \
+  /usr/include/glib-2.0/glib/guri.h \
+  /usr/include/glib-2.0/glib/guuid.h \
+  /usr/include/glib-2.0/glib/gversion.h \
+  /usr/include/glib-2.0/glib/deprecated/gallocator.h \
+  /usr/include/glib-2.0/glib/deprecated/gcache.h \
+  /usr/include/glib-2.0/glib/deprecated/gcompletion.h \
+  /usr/include/glib-2.0/glib/deprecated/gmain.h \
+  /usr/include/glib-2.0/glib/deprecated/grel.h \
+  /usr/include/glib-2.0/glib/deprecated/gthread.h \
+  /usr/include/glib-2.0/glib/glib-autocleanups.h
 
+
+/usr/include/glib-2.0/glib/glib-autocleanups.h:
+
+/usr/include/glib-2.0/glib/deprecated/gthread.h:
+
+/usr/include/glib-2.0/glib/deprecated/gcompletion.h:
+
+/usr/include/glib-2.0/glib/deprecated/gallocator.h:
+
+/usr/include/glib-2.0/glib/gversion.h:
+
+/usr/include/glib-2.0/glib/guuid.h:
+
+/usr/include/glib-2.0/glib/gtree.h:
+
+/usr/include/glib-2.0/glib/gtrashstack.h:
+
+/usr/include/glib-2.0/glib/gthreadpool.h:
+
+/usr/include/glib-2.0/glib/gspawn.h:
+
+/usr/include/glib-2.0/glib/gshell.h:
+
+/usr/include/glib-2.0/glib/gscanner.h:
+
+/usr/include/glib-2.0/glib/gregex.h:
+
+/usr/include/glib-2.0/glib/grefstring.h:
+
+/usr/include/glib-2.0/glib/grand.h:
+
+/usr/include/glib-2.0/glib/gqsort.h:
+
+/usr/include/glib-2.0/glib/gvarianttype.h:
+
+/usr/include/glib-2.0/glib/gvariant.h:
+
+/usr/include/glib-2.0/glib/gmessages.h:
+
+/usr/include/glib-2.0/glib/gstring.h:
+
+/usr/include/glib-2.0/glib/gslist.h:
+
+/usr/include/glib-2.0/glib/giochannel.h:
+
+/usr/include/glib-2.0/glib/ghostutils.h:
+
+/usr/include/glib-2.0/glib/ghook.h:
+
+/usr/include/glib-2.0/glib/gmem.h:
+
+/usr/include/glib-2.0/glib/glist.h:
+
+/usr/include/glib-2.0/glib/ghash.h:
+
+/usr/include/glib-2.0/glib/ggettext.h:
+
+/usr/include/glib-2.0/glib/gfileutils.h:
+
+/usr/include/glib-2.0/glib/genviron.h:
+
+/usr/include/x86_64-linux-gnu/bits/dirent.h:
+
+/usr/include/dirent.h:
+
+/usr/include/glib-2.0/glib/gbookmarkfile.h:
+
+/usr/include/glib-2.0/glib/gbitlock.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigthread.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
+
+/usr/include/glib-2.0/glib/guri.h:
+
+/usr/include/linux/close_range.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
+
+/usr/include/x86_64-linux-gnu/bits/environments.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+
+/usr/include/unistd.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigstksz.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/stack_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigcontext.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigaction.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sigval_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo-consts.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
+
+/usr/include/glib-2.0/glib/gerror.h:
+
+/usr/include/glib-2.0/glib/gatomic.h:
+
+/usr/include/x86_64-linux-gnu/bits/signum-generic.h:
+
+/usr/include/glib-2.0/glib/garray.h:
+
+/usr/include/glib-2.0/glib/gversionmacros.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/float.h:
+
+/usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h:
+
+/usr/include/glib-2.0/glib/gtimezone.h:
+
+/usr/include/glib-2.0/glib/galloca.h:
+
+/usr/include/glib-2.0/glib.h:
 
 /usr/local/include/aws/core/client/RetryStrategy.h:
 
@@ -713,6 +959,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/local/include/aws/core/internal/AWSHttpResourceClient.h:
 
 /usr/local/include/aws/core/utils/UUID.h:
+
+/usr/include/glib-2.0/glib/gunicode.h:
 
 /usr/local/include/aws/s3/model/OptionalObjectAttributes.h:
 
@@ -766,6 +1014,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/local/include/aws/s3/model/Object.h:
 
+/usr/include/glib-2.0/glib/goption.h:
+
 /usr/local/include/aws/s3/model/ListObjectsResult.h:
 
 /usr/local/include/aws/s3/model/RestoreStatus.h:
@@ -802,11 +1052,15 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/local/include/aws/s3/model/ObjectLockRetentionMode.h:
 
+/usr/include/glib-2.0/glib/gsequence.h:
+
 /usr/local/include/aws/s3/model/ObjectLockRule.h:
 
 /usr/local/include/aws/s3/model/Checksum.h:
 
 /usr/local/include/aws/s3/model/GetObjectAttributesResult.h:
+
+/usr/include/glib-2.0/glib/gchecksum.h:
 
 /usr/local/include/aws/s3/model/ObjectLockMode.h:
 
@@ -833,6 +1087,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/local/include/aws/s3/model/ListBucketsResult.h:
 
 /usr/local/include/aws/s3/model/GetBucketTaggingResult.h:
+
+/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
 
 /usr/local/include/aws/s3/model/ObjectLockRetention.h:
 
@@ -862,6 +1118,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/local/include/aws/s3/model/ReplicationRuleAndOperator.h:
 
+/usr/include/glib-2.0/glib/grefcount.h:
+
 /usr/local/include/aws/s3/model/ReplicationRuleFilter.h:
 
 /usr/local/include/aws/s3/model/ReplicationConfiguration.h:
@@ -878,9 +1136,13 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/local/include/aws/s3/model/OwnershipControls.h:
 
+/usr/include/glib-2.0/glib/gnode.h:
+
 /usr/local/include/aws/s3/model/GetBucketOwnershipControlsResult.h:
 
 /usr/local/include/aws/s3/model/LambdaFunctionConfiguration.h:
+
+/usr/include/glib-2.0/glib/gthread.h:
 
 /usr/local/include/aws/s3/model/FilterRule.h:
 
@@ -913,6 +1175,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
 /usr/include/c++/11/bits/istream.tcc:
+
+/usr/include/glib-2.0/glib/gtimer.h:
 
 /usr/include/c++/11/bits/locale_facets.tcc:
 
@@ -948,6 +1212,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/include/c++/11/bits/locale_classes.h:
 
+/usr/include/glib-2.0/glib/gasyncqueue.h:
+
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
 /usr/local/include/aws/s3/model/ObjectLockLegalHold.h:
@@ -958,17 +1224,25 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/local/include/aws/s3/model/InventoryOptionalField.h:
 
+/usr/include/glib-2.0/glib/gstrvbuilder.h:
+
 /usr/include/c++/11/istream:
 
 /usr/local/include/aws/core/utils/DateTime.h:
 
+/usr/include/glib-2.0/glib/gtypes.h:
+
 /usr/local/include/aws/auth/exports.h:
+
+/usr/include/glib-2.0/glib/ghmac.h:
 
 /usr/local/include/aws/core/utils/memory/stl/AWSStringStream.h:
 
 /usr/local/include/aws/common/task_scheduler.h:
 
 /usr/local/include/aws/core/utils/stream/ResponseStream.h:
+
+/usr/include/glib-2.0/glib/gslice.h:
 
 /usr/include/c++/11/bits/basic_string.tcc:
 
@@ -983,6 +1257,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/include/limits.h:
 
 /usr/local/include/aws/s3/model/SSEKMS.h:
+
+/usr/include/glib-2.0/glib/gprimes.h:
 
 /usr/include/c++/11/cerrno:
 
@@ -1000,9 +1276,13 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/local/include/aws/common/error.inl:
 
+/usr/include/glib-2.0/glib/gutils.h:
+
 /usr/local/include/aws/core/config/AWSProfileConfigLoader.h:
 
 /usr/local/include/aws/core/utils/crypto/Sha256HMAC.h:
+
+/usr/include/x86_64-linux-gnu/bits/dirent_ext.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
 
@@ -1052,6 +1332,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/include/c++/11/bits/cxxabi_init_exception.h:
 
+/usr/include/glib-2.0/glib/gcharset.h:
+
 /usr/local/include/aws/s3/model/ListBucketIntelligentTieringConfigurationsResult.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
@@ -1071,6 +1353,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/local/include/smithy/tracing/TracerProvider.h:
 
 /usr/local/include/aws/crt/StringView.h:
+
+/usr/include/glib-2.0/glib/gbacktrace.h:
 
 /usr/local/include/aws/crt/Allocator.h:
 
@@ -1098,6 +1382,10 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
+/usr/include/glib-2.0/glib/deprecated/gcache.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:
+
 /usr/local/include/aws/core/utils/crypto/HashResult.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
@@ -1105,6 +1393,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/glib-2.0/glib/gmappedfile.h:
 
 /usr/local/include/aws/s3/model/PutObjectRetentionResult.h:
 
@@ -1135,6 +1425,10 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/include/c++/11/bits/alloc_traits.h:
 
 /usr/include/ctype.h:
+
+/usr/include/glib-2.0/glib/gdataset.h:
+
+/usr/include/glib-2.0/glib/gmacros.h:
 
 /usr/local/include/aws/s3/model/InventoryEncryption.h:
 
@@ -1171,6 +1465,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/include/asm-generic/errno.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigstack.h:
 
 /usr/include/stdlib.h:
 
@@ -1210,6 +1506,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/local/include/aws/core/Aws.h:
 
+/usr/include/glib-2.0/glib/gbase64.h:
+
 /usr/local/include/aws/s3/model/CreateBucketResult.h:
 
 /usr/local/include/aws/core/client/AWSAsyncOperationTemplate.h:
@@ -1233,6 +1531,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/include/c++/11/bits/list.tcc:
 
 /usr/local/include/aws/common/package.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
 
 /usr/local/include/aws/common/atomics.h:
 
@@ -1272,6 +1572,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/local/include/aws/core/monitoring/CoreMetrics.h:
 
+/usr/include/signal.h:
+
 /usr/local/include/aws/s3/model/GetObjectLockConfigurationResult.h:
 
 /usr/local/include/aws/common/zero.inl:
@@ -1293,6 +1595,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/include/stdio.h:
 
 /usr/include/c++/11/bits/basic_ios.h:
+
+/usr/include/glib-2.0/glib/gquark.h:
 
 /usr/local/include/aws/core/utils/memory/stl/AWSVector.h:
 
@@ -1360,11 +1664,15 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/local/include/aws/core/client/AWSUrlPresigner.h:
 
+/usr/include/glib-2.0/glib/gmain.h:
+
 /usr/local/include/aws/s3/model/DeleteObjectRequest.h:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
 /usr/include/c++/11/bits/cpp_type_traits.h:
+
+/usr/include/glib-2.0/glib/gpoll.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
 
@@ -1420,6 +1728,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/include/c++/11/bits/ptr_traits.h:
 
+/usr/include/glib-2.0/glib/deprecated/grel.h:
+
 /usr/include/c++/11/sstream:
 
 /usr/include/c++/11/utility:
@@ -1456,6 +1766,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/local/include/aws/core/endpoint/ClientContextParameters.h:
 
+/usr/include/x86_64-linux-gnu/bits/signal_ext.h:
+
 /usr/include/c++/11/tuple:
 
 /usr/include/c++/11/ext/new_allocator.h:
@@ -1475,6 +1787,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/local/include/aws/crt/Types.h:
 
 /usr/include/c++/11/bits/stl_raw_storage_iter.h:
+
+/usr/include/glib-2.0/glib/gconvert.h:
 
 /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/backend.cpp:
 
@@ -1519,6 +1833,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/include/c++/11/bits/ostream.tcc:
 
 /usr/include/c++/11/bits/atomic_lockfree_defines.h:
+
+/usr/include/x86_64-linux-gnu/sys/ucontext.h:
 
 /usr/include/c++/11/bits/shared_ptr_atomic.h:
 
@@ -1590,6 +1906,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/local/include/aws/core/monitoring/MonitoringManager.h:
 
+/usr/include/glib-2.0/glib/gqueue.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h:
 
 /usr/local/include/aws/s3/model/FilterRuleName.h:
@@ -1607,6 +1925,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/include/x86_64-linux-gnu/bits/sockaddr.h:
 
 /usr/local/include/aws/s3/model/InventoryFrequency.h:
+
+/usr/include/glib-2.0/glib/gpattern.h:
 
 /usr/include/x86_64-linux-gnu/asm/socket.h:
 
@@ -1640,6 +1960,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/local/include/aws/io/logging.h:
 
+/usr/include/glib-2.0/glib/grcbox.h:
+
 /usr/local/include/aws/common/string.inl:
 
 /usr/local/include/aws/s3/model/Destination.h:
@@ -1653,6 +1975,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/local/include/aws/auth/auth.h:
 
 /usr/include/c++/11/condition_variable:
+
+/usr/include/x86_64-linux-gnu/bits/ss_flags.h:
 
 /usr/local/include/aws/core/config/EC2InstanceProfileConfigLoader.h:
 
@@ -1694,11 +2018,15 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/include/c++/11/bits/stl_vector.h:
 
+/usr/include/glib-2.0/glib/gstrfuncs.h:
+
 /usr/include/c++/11/bits/stl_bvector.h:
 
 /usr/include/c++/11/cassert:
 
 /usr/include/c++/11/cstring:
+
+/usr/include/glib-2.0/glib/deprecated/gmain.h:
 
 /usr/local/include/aws/io/exports.h:
 
@@ -1719,6 +2047,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/include/c++/11/bits/stl_tree.h:
 
 /usr/include/c++/11/bits/stl_map.h:
+
+/usr/include/glib-2.0/glib/gstringchunk.h:
 
 /usr/include/c++/11/bits/stl_algo.h:
 
@@ -1750,6 +2080,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/include/c++/11/bits/hashtable.h:
 
+/usr/include/glib-2.0/glib/gdate.h:
+
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
 /usr/local/include/aws/s3/model/NoncurrentVersionExpiration.h:
@@ -1761,6 +2093,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/include/c++/11/iostream:
 
 /usr/local/include/aws/core/client/AWSClient.h:
+
+/usr/include/glib-2.0/glib/gmarkup.h:
 
 /usr/local/include/aws/core/client/ClientConfiguration.h:
 
@@ -1785,6 +2119,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/local/include/smithy/tracing/MonotonicCounter.h:
 
 /usr/local/include/smithy/tracing/UpDownCounter.h:
+
+/usr/include/glib-2.0/glib/gdir.h:
 
 /usr/include/x86_64-linux-gnu/asm/posix_types_64.h:
 
@@ -1830,11 +2166,15 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/local/include/aws/core/auth/signer/AWSAuthSignerCommon.h:
 
+/usr/include/x86_64-linux-gnu/bits/signum-arch.h:
+
 /usr/local/include/aws/core/utils/memory/stl/AWSSet.h:
 
 /usr/include/c++/11/cwchar:
 
 /usr/local/include/aws/s3/model/StorageClassAnalysis.h:
+
+/usr/include/glib-2.0/glib/gtestutils.h:
 
 /usr/include/c++/11/unordered_set:
 
@@ -1851,6 +2191,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/local/include/aws/core/utils/threading/ReaderWriterLock.h:
 
 /usr/local/include/aws/core/utils/crypto/Sha256.h:
+
+/usr/include/glib-2.0/glib/gkeyfile.h:
 
 /usr/local/include/aws/core/client/AsyncCallerContext.h:
 
@@ -1908,6 +2250,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 
 /usr/local/include/aws/core/http/URI.h:
 
+/usr/include/glib-2.0/glib/gbytes.h:
+
 /usr/local/include/aws/core/utils/xml/XmlSerializer.h:
 
 /usr/local/include/aws/common/ref_count.h:
@@ -1929,6 +2273,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/local/include/aws/s3/model/LifecycleExpiration.h:
 
 /usr/local/include/aws/common/hash_table.h:
+
+/usr/include/glib-2.0/glib/gdatetime.h:
 
 /usr/include/c++/11/ext/string_conversions.h:
 
@@ -2077,6 +2423,8 @@ CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship
 /usr/local/include/aws/crt/StlAllocator.h:
 
 /usr/local/include/aws/s3/model/InventoryFormat.h:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo-arch.h:
 
 /usr/local/include/aws/s3/model/SSES3.h:
 
