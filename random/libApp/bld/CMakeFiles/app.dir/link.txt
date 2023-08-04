@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/app.dir/main.c.o -o app  foo/libfoo.a 

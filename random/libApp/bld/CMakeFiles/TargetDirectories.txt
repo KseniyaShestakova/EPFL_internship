@@ -1,0 +1,6 @@
+/home/xxeniash/cmake_experiments/libApp/bld/CMakeFiles/app.dir
+/home/xxeniash/cmake_experiments/libApp/bld/CMakeFiles/edit_cache.dir
+/home/xxeniash/cmake_experiments/libApp/bld/CMakeFiles/rebuild_cache.dir
+/home/xxeniash/cmake_experiments/libApp/bld/foo/CMakeFiles/foo.dir
+/home/xxeniash/cmake_experiments/libApp/bld/foo/CMakeFiles/edit_cache.dir
+/home/xxeniash/cmake_experiments/libApp/bld/foo/CMakeFiles/rebuild_cache.dir
