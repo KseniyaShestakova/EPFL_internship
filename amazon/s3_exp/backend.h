@@ -415,6 +415,12 @@ bool iterate(BackendData* bd, BackendIterator* bi, std::string& name) {
 
     iterator_next(bi);
 
+    /*if (name == "") {
+        iterator_free(bi);
+        return false;
+    }
+
+    return false;*/
     return (name != "");
 }
 
@@ -422,6 +428,11 @@ bool iterate(BackendData* bd, BackendIterator* bi, std::string& name) {
 
 // default value of path = "127.0.0.1:9000"
 bool init(const std::string& path, BackendData** bd) {
+    if (*bd != nullptr) {
+        std::cerr << "You are going to loose non-empty BackendData pointer";
+        return false;
+    }
+
     *bd = new BackendData;
 
     if (*bd == nullptr) {
@@ -679,6 +690,7 @@ bool clean_namespace(BackendData* bd, const Aws::String&/*namespace*/ bucket) {
     }
 
     iterator_free(bi);
+
 
     return delete_bucket(bd, bucket);
 }
