@@ -101,3 +101,15 @@ For using AWS C++ SDK with MinIO server one should change endpoint when creating
 [Documentation](https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-s3/html/namespace_aws.html) \
 [Building library guide](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/setup-linux.html)
 
+## Testing backend implementation
+You can find implemented
+[backend](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/amazon/s3_exp/backend.h) 
+and [tests](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/amazon/s3_exp/test.cpp) for it.
+To run that, use ( from `amazon/s3_exp/build/` directory):
+```
+cmake -G ..
+make
+valgrind --leak-check=full -s ./app
+```
+This will run all the tests under valgrind.
+
