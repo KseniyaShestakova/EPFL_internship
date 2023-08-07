@@ -185,8 +185,20 @@ CMakeFiles/app.dir/main.c.o: /home/xxeniash/EPFL_internship/EPFL_internship/amaz
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/setjmp.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
-  /usr/include/glib-2.0/glib/glib-autocleanups.h
+  /usr/include/glib-2.0/glib/glib-autocleanups.h \
+  /usr/include/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
 
+
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
@@ -258,6 +270,8 @@ CMakeFiles/app.dir/main.c.o: /home/xxeniash/EPFL_internship/EPFL_internship/amaz
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+
 /usr/include/glib-2.0/glib/gutils.h:
 
 /usr/include/glib-2.0/glib/genviron.h:
@@ -267,6 +281,8 @@ CMakeFiles/app.dir/main.c.o: /home/xxeniash/EPFL_internship/EPFL_internship/amaz
 /usr/include/glib-2.0/glib/glib-autocleanups.h:
 
 /usr/include/glib-2.0/glib/gerror.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
@@ -341,6 +357,8 @@ CMakeFiles/app.dir/main.c.o: /home/xxeniash/EPFL_internship/EPFL_internship/amaz
 /usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
 
 /usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h:
+
+/usr/include/stdio.h:
 
 /usr/include/glib-2.0/glib/gtrashstack.h:
 
@@ -431,6 +449,8 @@ CMakeFiles/app.dir/main.c.o: /home/xxeniash/EPFL_internship/EPFL_internship/amaz
 /usr/include/glib-2.0/glib/gquark.h:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
@@ -527,6 +547,10 @@ CMakeFiles/app.dir/main.c.o: /home/xxeniash/EPFL_internship/EPFL_internship/amaz
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
 
 /usr/include/glib-2.0/glib/gchecksum.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
 /usr/include/glib-2.0/glib/gdir.h:
 

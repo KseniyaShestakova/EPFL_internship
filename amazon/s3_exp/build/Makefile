@@ -129,29 +129,29 @@ app/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/build
 .PHONY : app/fast
 
-backend.o: backend.cpp.o
-.PHONY : backend.o
+test.o: test.cpp.o
+.PHONY : test.o
 
 # target to build an object file
-backend.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/backend.cpp.o
-.PHONY : backend.cpp.o
+test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/test.cpp.o
+.PHONY : test.cpp.o
 
-backend.i: backend.cpp.i
-.PHONY : backend.i
+test.i: test.cpp.i
+.PHONY : test.i
 
 # target to preprocess a source file
-backend.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/backend.cpp.i
-.PHONY : backend.cpp.i
+test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/test.cpp.i
+.PHONY : test.cpp.i
 
-backend.s: backend.cpp.s
-.PHONY : backend.s
+test.s: test.cpp.s
+.PHONY : test.s
 
 # target to generate assembly for a file
-backend.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/backend.cpp.s
-.PHONY : backend.cpp.s
+test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/test.cpp.s
+.PHONY : test.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... app"
-	@echo "... backend.o"
-	@echo "... backend.i"
-	@echo "... backend.s"
+	@echo "... test.o"
+	@echo "... test.i"
+	@echo "... test.s"
 .PHONY : help
 
 

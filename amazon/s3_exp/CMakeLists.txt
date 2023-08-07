@@ -13,7 +13,7 @@ set(BUILD_SHARED_LIBS ON CACHE STRING "Link to shared libraries by default.")
 
 #Load required services/packages: This basic example uses S3.
 find_package(AWSSDK REQUIRED COMPONENTS s3)
-add_executable(${PROJECT_NAME} "backend.cpp") #Add app's main starting file.
+add_executable(${PROJECT_NAME} "test.cpp") #Add app's main starting file.
 
 add_definitions(${GLIB_CFLAGS_OTHER})
 set_compiler_flags(${PROJECT_NAME})

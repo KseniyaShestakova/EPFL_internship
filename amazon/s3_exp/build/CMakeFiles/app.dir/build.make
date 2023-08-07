@@ -69,28 +69,28 @@ include CMakeFiles/app.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/app.dir/flags.make
 
-CMakeFiles/app.dir/backend.cpp.o: CMakeFiles/app.dir/flags.make
-CMakeFiles/app.dir/backend.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/backend.cpp
-CMakeFiles/app.dir/backend.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/app.dir/backend.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/backend.cpp.o -MF CMakeFiles/app.dir/backend.cpp.o.d -o CMakeFiles/app.dir/backend.cpp.o -c /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/backend.cpp
+CMakeFiles/app.dir/test.cpp.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/test.cpp.o: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/test.cpp
+CMakeFiles/app.dir/test.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/app.dir/test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/test.cpp.o -MF CMakeFiles/app.dir/test.cpp.o.d -o CMakeFiles/app.dir/test.cpp.o -c /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/test.cpp
 
-CMakeFiles/app.dir/backend.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/app.dir/backend.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/backend.cpp > CMakeFiles/app.dir/backend.cpp.i
+CMakeFiles/app.dir/test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/app.dir/test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/test.cpp > CMakeFiles/app.dir/test.cpp.i
 
-CMakeFiles/app.dir/backend.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/app.dir/backend.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/backend.cpp -o CMakeFiles/app.dir/backend.cpp.s
+CMakeFiles/app.dir/test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/app.dir/test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/test.cpp -o CMakeFiles/app.dir/test.cpp.s
 
 # Object files for target app
 app_OBJECTS = \
-"CMakeFiles/app.dir/backend.cpp.o"
+"CMakeFiles/app.dir/test.cpp.o"
 
 # External object files for target app
 app_EXTERNAL_OBJECTS =
 
-app: CMakeFiles/app.dir/backend.cpp.o
+app: CMakeFiles/app.dir/test.cpp.o
 app: CMakeFiles/app.dir/build.make
 app: /usr/local/lib/libaws-cpp-sdk-s3.so
 app: /usr/local/lib/libaws-cpp-sdk-core.so
