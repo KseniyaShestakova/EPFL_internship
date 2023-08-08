@@ -16,13 +16,21 @@ set(BUILD_SHARED_LIBS ON CACHE STRING "Link to shared libraries by default.")
 #Load required services/packages: This basic example uses S3.
 find_package(AWSSDK REQUIRED COMPONENTS s3)
 add_executable(${PROJECT_NAME} "test.cpp") #Add app's main starting file.
+add_executable(setup "setup.cpp")
+add_executable(finish "finish.cpp")
 
 add_definitions(${GLIB_CFLAGS_OTHER})
 set_compiler_flags(${PROJECT_NAME})
 set_compiler_warnings(${PROJECT_NAME})
+
 target_link_libraries(${PROJECT_NAME} PRIVATE ${AWSSDK_LINK_LIBRARIES})
 target_link_libraries(${PROJECT_NAME}  PRIVATE ${GLIB_LDFLAGS})
 
+target_link_libraries(setup PRIVATE ${AWSSDK_LINK_LIBRARIES})
+target_link_libraries(setup  PRIVATE ${GLIB_LDFLAGS})
+
+target_link_libraries(finish PRIVATE ${AWSSDK_LINK_LIBRARIES})
+target_link_libraries(finish  PRIVATE ${GLIB_LDFLAGS})
 
 include(FetchContent)
 
@@ -38,4 +46,5 @@ target_link_libraries(GTest::GTest INTERFACE gtest_main)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE GTest::GTest)
 
-add_test(test ${PROJECT_NAME})
+include(GoogleTest)
+gtest_discover_tests(${PROJECT_NAME})

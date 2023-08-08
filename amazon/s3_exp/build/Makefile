@@ -185,6 +185,32 @@ app/fast:
 .PHONY : app/fast
 
 #=============================================================================
+# Target rules for targets named setup
+
+# Build rule for target.
+setup: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 setup
+.PHONY : setup
+
+# fast build rule for target.
+setup/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/setup.dir/build.make CMakeFiles/setup.dir/build
+.PHONY : setup/fast
+
+#=============================================================================
+# Target rules for targets named finish
+
+# Build rule for target.
+finish: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 finish
+.PHONY : finish
+
+# fast build rule for target.
+finish/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/finish.dir/build.make CMakeFiles/finish.dir/build
+.PHONY : finish/fast
+
+#=============================================================================
 # Target rules for targets named gmock
 
 # Build rule for target.
@@ -236,6 +262,54 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+finish.o: finish.cpp.o
+.PHONY : finish.o
+
+# target to build an object file
+finish.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/finish.dir/build.make CMakeFiles/finish.dir/finish.cpp.o
+.PHONY : finish.cpp.o
+
+finish.i: finish.cpp.i
+.PHONY : finish.i
+
+# target to preprocess a source file
+finish.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/finish.dir/build.make CMakeFiles/finish.dir/finish.cpp.i
+.PHONY : finish.cpp.i
+
+finish.s: finish.cpp.s
+.PHONY : finish.s
+
+# target to generate assembly for a file
+finish.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/finish.dir/build.make CMakeFiles/finish.dir/finish.cpp.s
+.PHONY : finish.cpp.s
+
+setup.o: setup.cpp.o
+.PHONY : setup.o
+
+# target to build an object file
+setup.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/setup.dir/build.make CMakeFiles/setup.dir/setup.cpp.o
+.PHONY : setup.cpp.o
+
+setup.i: setup.cpp.i
+.PHONY : setup.i
+
+# target to preprocess a source file
+setup.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/setup.dir/build.make CMakeFiles/setup.dir/setup.cpp.i
+.PHONY : setup.cpp.i
+
+setup.s: setup.cpp.s
+.PHONY : setup.s
+
+# target to generate assembly for a file
+setup.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/setup.dir/build.make CMakeFiles/setup.dir/setup.cpp.s
+.PHONY : setup.cpp.s
+
 test.o: test.cpp.o
 .PHONY : test.o
 
@@ -274,10 +348,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... app"
+	@echo "... finish"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... setup"
+	@echo "... finish.o"
+	@echo "... finish.i"
+	@echo "... finish.s"
+	@echo "... setup.o"
+	@echo "... setup.i"
+	@echo "... setup.s"
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"

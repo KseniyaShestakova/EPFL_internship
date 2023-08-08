@@ -1,3 +1,32 @@
 test 1 0
+HelloTest.Basic 1 24.3118
+Basic.JustBoot 6 1.0091
+CAssert.easy_test_1 6 1.01152
+CAssert.easy_test_2 6 1.01528
+CAssert.easy_test_3 6 1.01358
+CAssert.easy_test_4 6 1.02297
+Basic.BootAndCreateNamespace 4 1.5221
+HighLoad.Create100 1 6.60559
+HighLoad.Create200 12 0.585786
+HighLoad.Create500 11 0.740019
+Aux.Setup 2 3.0197
+Aux.TearDown 1 0.00576714
+Fini.TearDown 1 0.00629009
+HighLoad.Open200 6 1.04684
+HighLoad.Open500 6 1.12236
+HighLoad.Delete200 2 3.29904
+HighLoad.Delete500 2 3.66026
+HigLoad.Close200 2 3.15026
+HigLoad.Close500 2 3.29393
+HighLoad.Write512_200 6 1.19182
+Exp.Write 3 2.34625
+HighLoad.Write512_500 2 4.16898
+HighLoad.Write2048_200 2 3.50675
+HighLoad.Write2048_500 2 4.24264
+HighLoad.Read512_200 7 0.930052
+HighLoad.Read512_500 4 1.80171
+HighLoad.Read2048_200 4 1.62273
+HighLoad.Read2048_500 4 1.77214
+HighLoad.ListNoPrefix 2 5.99192
+HighLoad.ListWithPrefix 2 8.42111
 ---
-test

@@ -1,7 +1,7 @@
 #include "backend.h"
 #include <cassert>
 #include <vector>
-
+#include <gtest/gtest.h>
 
 /* Case 1:
  * creating a new file,
@@ -254,10 +254,314 @@ void easy_test_4() {
 }
 
 
-int main() {
+void multiple_creates(int num_iter) {
+    BackendData* bd = nullptr;
+    std::string path = "127.0.0.1:9000";
+    EXPECT_TRUE(init(path, &bd));
+
+    bool flag = false;
+
+    std::string ns = "ns-create-" + std::to_string(num_iter);
+
+    std::vector<BackendObject*> bo(num_iter, nullptr);
+
+    // memory leak!
+    for (int i = 0; i < num_iter; ++i) {
+        flag = create(bd, ns, "obj" + std::to_string(i), &bo[i]);
+        EXPECT_TRUE(flag) << "Failed to create object\n";
+    }
+
+    fini(bd);
+}
+
+void multiple_opens(int num_iter) {
+    BackendData* bd = nullptr;
+    std::string path = "127.0.0.1:9000";
+    EXPECT_TRUE(init(path, &bd));
+ 
+    bool flag = false;
+ 
+    std::string ns = "ns-open-" + std::to_string(num_iter);
+
+    std::vector<BackendObject*> bo(num_iter, nullptr);
+
+    // memory leak!
+    for (int i = 0; i < num_iter; ++i) {
+        flag = open(bd, ns, "obj" + std::to_string(i), &bo[i]);
+        EXPECT_TRUE(flag) << "Failed to open object\n";
+    }
+
+    fini(bd);
+}
+
+void multiple_closes(int num_iter) {
+    BackendData* bd = nullptr;
+    std::string path = "127.0.0.1:9000";
+    EXPECT_TRUE(init(path, &bd));
+ 
+    bool flag = false;
+
+    std::string ns = "ns-close-" + std::to_string(num_iter);
+
+    std::vector<BackendObject*> bo(num_iter, nullptr);
+
+    for (int i = 0; i < num_iter; ++i) {
+         flag = open(bd, ns, "obj" + std::to_string(i), &bo[i]);
+         EXPECT_TRUE(flag) << "Failed to open object\n";
+     }
+
+    for (int i = 0; i < num_iter; ++i) {
+        flag = close(bd, bo[i]);
+        EXPECT_TRUE(flag) << "Failed to close object\n";
+    }
+
+    fini(bd);
+}
+
+void multiple_deletes(int num_iter) {
+    BackendData* bd = nullptr;
+    std::string path = "127.0.0.1:9000";
+    EXPECT_TRUE(init(path, &bd));
+ 
+    bool flag = false;
+ 
+    std::string ns = "ns-delete-" + std::to_string(num_iter);
+ 
+    std::vector<BackendObject*> bo(num_iter, nullptr);
+ 
+    for (int i = 0; i < num_iter; ++i) {
+         flag = open(bd, ns, "obj" + std::to_string(i), &bo[i]);
+         EXPECT_TRUE(flag) << "Failed to open object\n";
+    }
+ 
+    for (int i = 0; i < num_iter; ++i) {
+        flag = delete_object(bd, bo[i]);
+        EXPECT_TRUE(flag) << "Failed to close object\n";
+    }
+ 
+    fini(bd);
+}
+
+
+void multiple_writes(int size, int num_iter) {
+    bool flag = false;
+
+    std::string path = "127.0.0.1:9000";
+    BackendData* bd = nullptr;
+    flag = init(path, &bd);
+    assert("Failed to initialize backend" && flag);
+
+    std::string ns = "ns-write-" + std::to_string(size) + "-" + std::to_string(num_iter);
+
+    std::vector<BackendObject*> bo(num_iter, nullptr);
+
+    // memory leak!
+    for (int i = 0; i < num_iter; ++i) {
+        flag = open(bd, ns, "obj" + std::to_string(i), &bo[i]);
+        EXPECT_TRUE(flag) << "Failed to open\n";
+    }
+
+    std::string str(size, 'a');
+    uint64_t length = size;
+    uint64_t offset = 0;
+    uint64_t bytes_written = -1;
+
+    for (int i = 0; i < num_iter; ++i) {
+        flag = write(bd, bo[i], str.c_str(), length, offset, &bytes_written);
+        EXPECT_TRUE(flag) << "Failed to write\n";
+    }
+
+    fini(bd);
+}
+
+void multiple_reads(uint64_t size, int num_iter) {
+    bool flag = false;
+    std::string path = "127.0.0.1:9000";
+    BackendData* bd = nullptr;
+    flag = init(path, &bd);
+    assert("Failed to initialize" && flag);
+
+    std::string ns = "ns-read-" + std::to_string(size) + "-" + std::to_string(num_iter);
+
+    std::vector<BackendObject*> bo(num_iter, nullptr);
+
+    // memory leak!
+    for (int i = 0; i < num_iter; ++i) {
+        flag = open(bd, ns, "obj" + std::to_string(i), &bo[i]);
+        EXPECT_TRUE(flag) << "Failed to open\n";
+    }
+
+    char* buffer = new char[size];
+    std::string str(size, 'a');
+    uint64_t length = size;
+    uint64_t offset = 0;
+    uint64_t bytes_read = -1;
+
+    for (int i = 0; i < num_iter; ++i) {
+        flag = read(bd, bo[i], buffer, length, offset, &bytes_read);
+        EXPECT_TRUE(flag) << "Failed to read\n";
+        EXPECT_TRUE(0 < bytes_read && bytes_read <= size) << "Strange bytes_read\n";
+        EXPECT_EQ(0, memcmp(str.c_str(), buffer, bytes_read)) << "Wrong read content\n";
+    }
+
+    fini(bd);
+}
+
+
+
+void multiple_lists(int no_prefix, int with_prefix, int num_iter,
+                    bool include_prefix, bool iterate) {
+    bool flag = false;
+    std::string path = "127.0.0.1:9000";
+    BackendData* bd = nullptr;
+    flag = init(path, &bd);
+    assert("Failed to initialize" && flag);
+
+    std::string ns = "ns-list-" + std::to_string(no_prefix) +
+            "-" + std::to_string(with_prefix);
+
+    std::vector<BackendObject*> bo_no_prefix(no_prefix, nullptr);
+    std::vector<BackendObject*> bo_with_prefix(with_prefix, nullptr);
+
+    for (int i = 0; i < no_prefix; ++i) {
+        flag = open(bd, ns, "obj" + std::to_string(i), &bo_no_prefix[i]);
+        EXPECT_TRUE(flag) << "Failed to open\n";
+    }
+
+    for (int i = 0; i < with_prefix; ++i) {
+        flag = open(bd, ns, "prefix/obj" + std::to_string(i), &bo_with_prefix[i]);
+        EXPECT_TRUE(flag) << "Failed to open\n";
+    }
+
+    for (int it = 0; it < num_iter; ++it) {
+        BackendIterator* bi = nullptr;
+
+        if (include_prefix) {
+            get_all(bd, ns, &bi);
+        } else {
+            get_by_prefix(bd, ns, &bi, "prefix/");
+        }
+
+        if (!iterate) {
+            continue;
+        }
+    }
+}
+
+
+
+
+TEST(Basic, JustBoot) {
+    std::string path = "127.0.0.1:9000";
+    BackendData* bd = nullptr;
+    assert(init(path, &bd));
+
+    fini(bd);
+}
+
+TEST(Basic, BootAndCreateNamespace) {
+    std::string path = "127.0.0.1:9000";
+    BackendData* bd = nullptr;
+    assert(init(path, &bd));
+
+    std::string ns = "test-ns-0";
+    assert(create_namespace(bd, ns));
+ 
+    assert(clean_namespace(bd, ns));
+    fini(bd);
+}
+
+
+
+TEST(CAssert, easy_test_1) {
     easy_test_1();
+}
+
+TEST(CAssert, easy_test_2) {
     easy_test_2();
+}
+
+TEST(CAssert, easy_test_3) {
     easy_test_3();
+}
+
+TEST(CAssert, easy_test_4) {
     easy_test_4();
-    return 0;
+}
+
+
+
+TEST(HighLoad, Create200) {
+    multiple_creates(200);
+}
+
+TEST(HighLoad, Create500) {
+    multiple_creates(500);
+}
+
+TEST(HighLoad, Open200) {
+    multiple_opens(200);
+}
+
+TEST(HighLoad, Open500) {
+    multiple_opens(500);
+}
+
+TEST(HigLoad, Close200) {
+    multiple_closes(200);
+}
+
+TEST(HigLoad, Close500) {
+    multiple_closes(500);
+}
+
+TEST(HighLoad, Delete200) {
+    multiple_deletes(200);
+}
+
+TEST(HighLoad, Delete500) {
+     multiple_deletes(500);
+ }
+
+
+
+TEST(HighLoad, Write512_200) {
+    multiple_writes(512, 200);
+}
+
+TEST(HighLoad, Write512_500) {
+     multiple_writes(512, 500);
+}
+
+TEST(HighLoad, Write2048_200) {
+    multiple_writes(2048, 200);
+}
+
+TEST(HighLoad, Write2048_500) {
+    multiple_writes(2048, 500);
+}
+
+
+TEST(HighLoad, Read512_200) {
+    multiple_reads(512, 200);
+}
+
+TEST(HighLoad, Read512_500) {
+    multiple_reads(512, 500);
+}
+
+TEST(HighLoad, Read2048_200) {
+    multiple_reads(2048, 200);
+}
+
+TEST(HighLoad, Read2048_500) {
+    multiple_reads(2048, 500);
+}
+
+TEST(HighLoad, ListNoPrefix) {
+    multiple_lists(500, 500, 200, false, false);
+}
+
+TEST(HighLoad, ListWithPrefix) {
+    multiple_lists(500, 500, 200, true, false);
 }

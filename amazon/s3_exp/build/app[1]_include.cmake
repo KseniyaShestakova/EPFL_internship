@@ -1,0 +1,5 @@
+if(EXISTS "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app[1]_tests.cmake")
+  include("/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app[1]_tests.cmake")
+else()
+  add_test(app_NOT_BUILT app_NOT_BUILT)
+endif()

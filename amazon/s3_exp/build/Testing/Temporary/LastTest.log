@@ -1,19 +1,2132 @@
-Start testing: Aug 08 10:50 CEST
+Start testing: Aug 08 17:31 CEST
 ----------------------------------------------------------
-1/1 Testing: test
-1/1 Test: test
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app"
+1/24 Testing: Basic.JustBoot
+1/24 Test: Basic.JustBoot
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Basic.JustBoot" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"test" start time: Aug 08 10:50 CEST
+"Basic.JustBoot" start time: Aug 08 17:31 CEST
 Output:
 ----------------------------------------------------------
-app: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/test.cpp:258: int main(): Assertion `1 == 2' failed.
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = Basic.JustBoot
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Basic
+[ RUN      ] Basic.JustBoot
+[       OK ] Basic.JustBoot (6039 ms)
+[----------] 1 test from Basic (6039 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (6039 ms total)
+[  PASSED  ] 1 test.
 <end of output>
-Test time =   0.01 sec
+Test time =   6.05 sec
 ----------------------------------------------------------
-Test Failed.
-"test" end time: Aug 08 10:50 CEST
-"test" time elapsed: 00:00:00
+Test Passed.
+"Basic.JustBoot" end time: Aug 08 17:31 CEST
+"Basic.JustBoot" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-End testing: Aug 08 10:50 CEST
+2/24 Testing: Basic.BootAndCreateNamespace
+2/24 Test: Basic.BootAndCreateNamespace
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Basic.BootAndCreateNamespace" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"Basic.BootAndCreateNamespace" start time: Aug 08 17:31 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = Basic.BootAndCreateNamespace
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Basic
+[ RUN      ] Basic.BootAndCreateNamespace
+Successfully deleted test-ns-0
+[       OK ] Basic.BootAndCreateNamespace (6064 ms)
+[----------] 1 test from Basic (6065 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (6065 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   6.09 sec
+----------------------------------------------------------
+Test Passed.
+"Basic.BootAndCreateNamespace" end time: Aug 08 17:31 CEST
+"Basic.BootAndCreateNamespace" time elapsed: 00:00:06
+----------------------------------------------------------
+
+3/24 Testing: CAssert.easy_test_1
+3/24 Test: CAssert.easy_test_1
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=CAssert.easy_test_1" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"CAssert.easy_test_1" start time: Aug 08 17:31 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = CAssert.easy_test_1
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CAssert
+[ RUN      ] CAssert.easy_test_1
+Added object obj1.txt to bucket test-ns-1
+Many links, can't delete: 2
+Successfully deleted obj1.txt
+Successfully deleted test-ns-1
+Easy test 1 passed!
+
+[       OK ] CAssert.easy_test_1 (6057 ms)
+[----------] 1 test from CAssert (6057 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (6057 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   6.07 sec
+----------------------------------------------------------
+Test Passed.
+"CAssert.easy_test_1" end time: Aug 08 17:31 CEST
+"CAssert.easy_test_1" time elapsed: 00:00:06
+----------------------------------------------------------
+
+4/24 Testing: CAssert.easy_test_2
+4/24 Test: CAssert.easy_test_2
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=CAssert.easy_test_2" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"CAssert.easy_test_2" start time: Aug 08 17:31 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = CAssert.easy_test_2
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CAssert
+[ RUN      ] CAssert.easy_test_2
+Added object obj1.txt to bucket test-ns-2
+You are about to lose existing object handler!
+Added object obj2.txt to bucket test-ns-2
+Successfully deleted obj2.txt
+deleting obj1.txt...
+Successfully deleted obj1.txt
+Successfully deleted test-ns-2
+Easy test 2 passed!
+
+[       OK ] CAssert.easy_test_2 (6084 ms)
+[----------] 1 test from CAssert (6084 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (6084 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   6.09 sec
+----------------------------------------------------------
+Test Passed.
+"CAssert.easy_test_2" end time: Aug 08 17:31 CEST
+"CAssert.easy_test_2" time elapsed: 00:00:06
+----------------------------------------------------------
+
+5/24 Testing: CAssert.easy_test_3
+5/24 Test: CAssert.easy_test_3
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=CAssert.easy_test_3" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"CAssert.easy_test_3" start time: Aug 08 17:31 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = CAssert.easy_test_3
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CAssert
+[ RUN      ] CAssert.easy_test_3
+Added object obj1.txt to bucket test-ns-3
+written0out of10
+Got modification time:1691508690000 and size: 10
+Bytes read 10
+Read: Test write
+deleting obj1.txt...
+Successfully deleted obj1.txt
+Successfully deleted test-ns-3
+Easy test 3 passed!
+
+[       OK ] CAssert.easy_test_3 (6074 ms)
+[----------] 1 test from CAssert (6074 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (6074 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   6.08 sec
+----------------------------------------------------------
+Test Passed.
+"CAssert.easy_test_3" end time: Aug 08 17:31 CEST
+"CAssert.easy_test_3" time elapsed: 00:00:06
+----------------------------------------------------------
+
+6/24 Testing: CAssert.easy_test_4
+6/24 Test: CAssert.easy_test_4
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=CAssert.easy_test_4" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"CAssert.easy_test_4" start time: Aug 08 17:31 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = CAssert.easy_test_4
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CAssert
+[ RUN      ] CAssert.easy_test_4
+Added object obj0 to bucket test-ns-4
+Added object obj1 to bucket test-ns-4
+Added object obj2 to bucket test-ns-4
+Added object obj3 to bucket test-ns-4
+Added object obj4 to bucket test-ns-4
+Added object foo/obj0 to bucket test-ns-4
+Added object foo/obj1 to bucket test-ns-4
+Added object foo/obj2 to bucket test-ns-4
+Added object foo/obj3 to bucket test-ns-4
+Added object foo/obj4 to bucket test-ns-4
+Added object foo/obj5 to bucket test-ns-4
+List of all elements in test-ns-4
+foo/obj0
+foo/obj1
+foo/obj2
+foo/obj3
+foo/obj4
+foo/obj5
+obj0
+obj1
+obj2
+obj3
+obj4
+List of all elements in test-ns-4foo/
+foo/obj0
+foo/obj1
+foo/obj2
+foo/obj3
+foo/obj4
+foo/obj5
+deleting foo/obj0...
+Successfully deleted foo/obj0
+deleting foo/obj1...
+Successfully deleted foo/obj1
+deleting foo/obj2...
+Successfully deleted foo/obj2
+deleting foo/obj3...
+Successfully deleted foo/obj3
+deleting foo/obj4...
+Successfully deleted foo/obj4
+deleting foo/obj5...
+Successfully deleted foo/obj5
+deleting obj0...
+Successfully deleted obj0
+deleting obj1...
+Successfully deleted obj1
+deleting obj2...
+Successfully deleted obj2
+deleting obj3...
+Successfully deleted obj3
+deleting obj4...
+Successfully deleted obj4
+Successfully deleted test-ns-4
+Easy test 4 passed!
+
+[       OK ] CAssert.easy_test_4 (6130 ms)
+[----------] 1 test from CAssert (6130 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (6130 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   6.14 sec
+----------------------------------------------------------
+Test Passed.
+"CAssert.easy_test_4" end time: Aug 08 17:31 CEST
+"CAssert.easy_test_4" time elapsed: 00:00:06
+----------------------------------------------------------
+
+7/24 Testing: HighLoad.Create200
+7/24 Test: HighLoad.Create200
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Create200" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.Create200" start time: Aug 08 17:31 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.Create200
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.Create200
+Added object obj0 to bucket ns-create-200
+Added object obj1 to bucket ns-create-200
+Added object obj2 to bucket ns-create-200
+Added object obj3 to bucket ns-create-200
+Added object obj4 to bucket ns-create-200
+Added object obj5 to bucket ns-create-200
+Added object obj6 to bucket ns-create-200
+Added object obj7 to bucket ns-create-200
+Added object obj8 to bucket ns-create-200
+Added object obj9 to bucket ns-create-200
+Added object obj10 to bucket ns-create-200
+Added object obj11 to bucket ns-create-200
+Added object obj12 to bucket ns-create-200
+Added object obj13 to bucket ns-create-200
+Added object obj14 to bucket ns-create-200
+Added object obj15 to bucket ns-create-200
+Added object obj16 to bucket ns-create-200
+Added object obj17 to bucket ns-create-200
+Added object obj18 to bucket ns-create-200
+Added object obj19 to bucket ns-create-200
+Added object obj20 to bucket ns-create-200
+Added object obj21 to bucket ns-create-200
+Added object obj22 to bucket ns-create-200
+Added object obj23 to bucket ns-create-200
+Added object obj24 to bucket ns-create-200
+Added object obj25 to bucket ns-create-200
+Added object obj26 to bucket ns-create-200
+Added object obj27 to bucket ns-create-200
+Added object obj28 to bucket ns-create-200
+Added object obj29 to bucket ns-create-200
+Added object obj30 to bucket ns-create-200
+Added object obj31 to bucket ns-create-200
+Added object obj32 to bucket ns-create-200
+Added object obj33 to bucket ns-create-200
+Added object obj34 to bucket ns-create-200
+Added object obj35 to bucket ns-create-200
+Added object obj36 to bucket ns-create-200
+Added object obj37 to bucket ns-create-200
+Added object obj38 to bucket ns-create-200
+Added object obj39 to bucket ns-create-200
+Added object obj40 to bucket ns-create-200
+Added object obj41 to bucket ns-create-200
+Added object obj42 to bucket ns-create-200
+Added object obj43 to bucket ns-create-200
+Added object obj44 to bucket ns-create-200
+Added object obj45 to bucket ns-create-200
+Added object obj46 to bucket ns-create-200
+Added object obj47 to bucket ns-create-200
+Added object obj48 to bucket ns-create-200
+Added object obj49 to bucket ns-create-200
+Added object obj50 to bucket ns-create-200
+Added object obj51 to bucket ns-create-200
+Added object obj52 to bucket ns-create-200
+Added object obj53 to bucket ns-create-200
+Added object obj54 to bucket ns-create-200
+Added object obj55 to bucket ns-create-200
+Added object obj56 to bucket ns-create-200
+Added object obj57 to bucket ns-create-200
+Added object obj58 to bucket ns-create-200
+Added object obj59 to bucket ns-create-200
+Added object obj60 to bucket ns-create-200
+Added object obj61 to bucket ns-create-200
+Added object obj62 to bucket ns-create-200
+Added object obj63 to bucket ns-create-200
+Added object obj64 to bucket ns-create-200
+Added object obj65 to bucket ns-create-200
+Added object obj66 to bucket ns-create-200
+Added object obj67 to bucket ns-create-200
+Added object obj68 to bucket ns-create-200
+Added object obj69 to bucket ns-create-200
+Added object obj70 to bucket ns-create-200
+Added object obj71 to bucket ns-create-200
+Added object obj72 to bucket ns-create-200
+Added object obj73 to bucket ns-create-200
+Added object obj74 to bucket ns-create-200
+Added object obj75 to bucket ns-create-200
+Added object obj76 to bucket ns-create-200
+Added object obj77 to bucket ns-create-200
+Added object obj78 to bucket ns-create-200
+Added object obj79 to bucket ns-create-200
+Added object obj80 to bucket ns-create-200
+Added object obj81 to bucket ns-create-200
+Added object obj82 to bucket ns-create-200
+Added object obj83 to bucket ns-create-200
+Added object obj84 to bucket ns-create-200
+Added object obj85 to bucket ns-create-200
+Added object obj86 to bucket ns-create-200
+Added object obj87 to bucket ns-create-200
+Added object obj88 to bucket ns-create-200
+Added object obj89 to bucket ns-create-200
+Added object obj90 to bucket ns-create-200
+Added object obj91 to bucket ns-create-200
+Added object obj92 to bucket ns-create-200
+Added object obj93 to bucket ns-create-200
+Added object obj94 to bucket ns-create-200
+Added object obj95 to bucket ns-create-200
+Added object obj96 to bucket ns-create-200
+Added object obj97 to bucket ns-create-200
+Added object obj98 to bucket ns-create-200
+Added object obj99 to bucket ns-create-200
+Added object obj100 to bucket ns-create-200
+Added object obj101 to bucket ns-create-200
+Added object obj102 to bucket ns-create-200
+Added object obj103 to bucket ns-create-200
+Added object obj104 to bucket ns-create-200
+Added object obj105 to bucket ns-create-200
+Added object obj106 to bucket ns-create-200
+Added object obj107 to bucket ns-create-200
+Added object obj108 to bucket ns-create-200
+Added object obj109 to bucket ns-create-200
+Added object obj110 to bucket ns-create-200
+Added object obj111 to bucket ns-create-200
+Added object obj112 to bucket ns-create-200
+Added object obj113 to bucket ns-create-200
+Added object obj114 to bucket ns-create-200
+Added object obj115 to bucket ns-create-200
+Added object obj116 to bucket ns-create-200
+Added object obj117 to bucket ns-create-200
+Added object obj118 to bucket ns-create-200
+Added object obj119 to bucket ns-create-200
+Added object obj120 to bucket ns-create-200
+Added object obj121 to bucket ns-create-200
+Added object obj122 to bucket ns-create-200
+Added object obj123 to bucket ns-create-200
+Added object obj124 to bucket ns-create-200
+Added object obj125 to bucket ns-create-200
+Added object obj126 to bucket ns-create-200
+Added object obj127 to bucket ns-create-200
+Added object obj128 to bucket ns-create-200
+Added object obj129 to bucket ns-create-200
+Added object obj130 to bucket ns-create-200
+Added object obj131 to bucket ns-create-200
+Added object obj132 to bucket ns-create-200
+Added object obj133 to bucket ns-create-200
+Added object obj134 to bucket ns-create-200
+Added object obj135 to bucket ns-create-200
+Added object obj136 to bucket ns-create-200
+Added object obj137 to bucket ns-create-200
+Added object obj138 to bucket ns-create-200
+Added object obj139 to bucket ns-create-200
+Added object obj140 to bucket ns-create-200
+Added object obj141 to bucket ns-create-200
+Added object obj142 to bucket ns-create-200
+Added object obj143 to bucket ns-create-200
+Added object obj144 to bucket ns-create-200
+Added object obj145 to bucket ns-create-200
+Added object obj146 to bucket ns-create-200
+Added object obj147 to bucket ns-create-200
+Added object obj148 to bucket ns-create-200
+Added object obj149 to bucket ns-create-200
+Added object obj150 to bucket ns-create-200
+Added object obj151 to bucket ns-create-200
+Added object obj152 to bucket ns-create-200
+Added object obj153 to bucket ns-create-200
+Added object obj154 to bucket ns-create-200
+Added object obj155 to bucket ns-create-200
+Added object obj156 to bucket ns-create-200
+Added object obj157 to bucket ns-create-200
+Added object obj158 to bucket ns-create-200
+Added object obj159 to bucket ns-create-200
+Added object obj160 to bucket ns-create-200
+Added object obj161 to bucket ns-create-200
+Added object obj162 to bucket ns-create-200
+Added object obj163 to bucket ns-create-200
+Added object obj164 to bucket ns-create-200
+Added object obj165 to bucket ns-create-200
+Added object obj166 to bucket ns-create-200
+Added object obj167 to bucket ns-create-200
+Added object obj168 to bucket ns-create-200
+Added object obj169 to bucket ns-create-200
+Added object obj170 to bucket ns-create-200
+Added object obj171 to bucket ns-create-200
+Added object obj172 to bucket ns-create-200
+Added object obj173 to bucket ns-create-200
+Added object obj174 to bucket ns-create-200
+Added object obj175 to bucket ns-create-200
+Added object obj176 to bucket ns-create-200
+Added object obj177 to bucket ns-create-200
+Added object obj178 to bucket ns-create-200
+Added object obj179 to bucket ns-create-200
+Added object obj180 to bucket ns-create-200
+Added object obj181 to bucket ns-create-200
+Added object obj182 to bucket ns-create-200
+Added object obj183 to bucket ns-create-200
+Added object obj184 to bucket ns-create-200
+Added object obj185 to bucket ns-create-200
+Added object obj186 to bucket ns-create-200
+Added object obj187 to bucket ns-create-200
+Added object obj188 to bucket ns-create-200
+Added object obj189 to bucket ns-create-200
+Added object obj190 to bucket ns-create-200
+Added object obj191 to bucket ns-create-200
+Added object obj192 to bucket ns-create-200
+Added object obj193 to bucket ns-create-200
+Added object obj194 to bucket ns-create-200
+Added object obj195 to bucket ns-create-200
+Added object obj196 to bucket ns-create-200
+Added object obj197 to bucket ns-create-200
+Added object obj198 to bucket ns-create-200
+Added object obj199 to bucket ns-create-200
+[       OK ] HighLoad.Create200 (7022 ms)
+[----------] 1 test from HighLoad (7022 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (7022 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   7.03 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.Create200" end time: Aug 08 17:31 CEST
+"HighLoad.Create200" time elapsed: 00:00:07
+----------------------------------------------------------
+
+8/24 Testing: HighLoad.Create500
+8/24 Test: HighLoad.Create500
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Create500" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.Create500" start time: Aug 08 17:31 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.Create500
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.Create500
+Added object obj0 to bucket ns-create-500
+Added object obj1 to bucket ns-create-500
+Added object obj2 to bucket ns-create-500
+Added object obj3 to bucket ns-create-500
+Added object obj4 to bucket ns-create-500
+Added object obj5 to bucket ns-create-500
+Added object obj6 to bucket ns-create-500
+Added object obj7 to bucket ns-create-500
+Added object obj8 to bucket ns-create-500
+Added object obj9 to bucket ns-create-500
+Added object obj10 to bucket ns-create-500
+Added object obj11 to bucket ns-create-500
+Added object obj12 to bucket ns-create-500
+Added object obj13 to bucket ns-create-500
+Added object obj14 to bucket ns-create-500
+Added object obj15 to bucket ns-create-500
+Added object obj16 to bucket ns-create-500
+Added object obj17 to bucket ns-create-500
+Added object obj18 to bucket ns-create-500
+Added object obj19 to bucket ns-create-500
+Added object obj20 to bucket ns-create-500
+Added object obj21 to bucket ns-create-500
+Added object obj22 to bucket ns-create-500
+Added object obj23 to bucket ns-create-500
+Added object obj24 to bucket ns-create-500
+Added object obj25 to bucket ns-create-500
+Added object obj26 to bucket ns-create-500
+Added object obj27 to bucket ns-create-500
+Added object obj28 to bucket ns-create-500
+Added object obj29 to bucket ns-create-500
+Added object obj30 to bucket ns-create-500
+Added object obj31 to bucket ns-create-500
+Added object obj32 to bucket ns-create-500
+Added object obj33 to bucket ns-create-500
+Added object obj34 to bucket ns-create-500
+Added object obj35 to bucket ns-create-500
+Added object obj36 to bucket ns-create-500
+Added object obj37 to bucket ns-create-500
+Added object obj38 to bucket ns-create-500
+Added object obj39 to bucket ns-create-500
+Added object obj40 to bucket ns-create-500
+Added object obj41 to bucket ns-create-500
+Added object obj42 to bucket ns-create-500
+Added object obj43 to bucket ns-create-500
+Added object obj44 to bucket ns-create-500
+Added object obj45 to bucket ns-create-500
+Added object obj46 to bucket ns-create-500
+Added object obj47 to bucket ns-create-500
+Added object obj48 to bucket ns-create-500
+Added object obj49 to bucket ns-create-500
+Added object obj50 to bucket ns-create-500
+Added object obj51 to bucket ns-create-500
+Added object obj52 to bucket ns-create-500
+Added object obj53 to bucket ns-create-500
+Added object obj54 to bucket ns-create-500
+Added object obj55 to bucket ns-create-500
+Added object obj56 to bucket ns-create-500
+Added object obj57 to bucket ns-create-500
+Added object obj58 to bucket ns-create-500
+Added object obj59 to bucket ns-create-500
+Added object obj60 to bucket ns-create-500
+Added object obj61 to bucket ns-create-500
+Added object obj62 to bucket ns-create-500
+Added object obj63 to bucket ns-create-500
+Added object obj64 to bucket ns-create-500
+Added object obj65 to bucket ns-create-500
+Added object obj66 to bucket ns-create-500
+Added object obj67 to bucket ns-create-500
+Added object obj68 to bucket ns-create-500
+Added object obj69 to bucket ns-create-500
+Added object obj70 to bucket ns-create-500
+Added object obj71 to bucket ns-create-500
+Added object obj72 to bucket ns-create-500
+Added object obj73 to bucket ns-create-500
+Added object obj74 to bucket ns-create-500
+Added object obj75 to bucket ns-create-500
+Added object obj76 to bucket ns-create-500
+Added object obj77 to bucket ns-create-500
+Added object obj78 to bucket ns-create-500
+Added object obj79 to bucket ns-create-500
+Added object obj80 to bucket ns-create-500
+Added object obj81 to bucket ns-create-500
+Added object obj82 to bucket ns-create-500
+Added object obj83 to bucket ns-create-500
+Added object obj84 to bucket ns-create-500
+Added object obj85 to bucket ns-create-500
+Added object obj86 to bucket ns-create-500
+Added object obj87 to bucket ns-create-500
+Added object obj88 to bucket ns-create-500
+Added object obj89 to bucket ns-create-500
+Added object obj90 to bucket ns-create-500
+Added object obj91 to bucket ns-create-500
+Added object obj92 to bucket ns-create-500
+Added object obj93 to bucket ns-create-500
+Added object obj94 to bucket ns-create-500
+Added object obj95 to bucket ns-create-500
+Added object obj96 to bucket ns-create-500
+Added object obj97 to bucket ns-create-500
+Added object obj98 to bucket ns-create-500
+Added object obj99 to bucket ns-create-500
+Added object obj100 to bucket ns-create-500
+Added object obj101 to bucket ns-create-500
+Added object obj102 to bucket ns-create-500
+Added object obj103 to bucket ns-create-500
+Added object obj104 to bucket ns-create-500
+Added object obj105 to bucket ns-create-500
+Added object obj106 to bucket ns-create-500
+Added object obj107 to bucket ns-create-500
+Added object obj108 to bucket ns-create-500
+Added object obj109 to bucket ns-create-500
+Added object obj110 to bucket ns-create-500
+Added object obj111 to bucket ns-create-500
+Added object obj112 to bucket ns-create-500
+Added object obj113 to bucket ns-create-500
+Added object obj114 to bucket ns-create-500
+Added object obj115 to bucket ns-create-500
+Added object obj116 to bucket ns-create-500
+Added object obj117 to bucket ns-create-500
+Added object obj118 to bucket ns-create-500
+Added object obj119 to bucket ns-create-500
+Added object obj120 to bucket ns-create-500
+Added object obj121 to bucket ns-create-500
+Added object obj122 to bucket ns-create-500
+Added object obj123 to bucket ns-create-500
+Added object obj124 to bucket ns-create-500
+Added object obj125 to bucket ns-create-500
+Added object obj126 to bucket ns-create-500
+Added object obj127 to bucket ns-create-500
+Added object obj128 to bucket ns-create-500
+Added object obj129 to bucket ns-create-500
+Added object obj130 to bucket ns-create-500
+Added object obj131 to bucket ns-create-500
+Added object obj132 to bucket ns-create-500
+Added object obj133 to bucket ns-create-500
+Added object obj134 to bucket ns-create-500
+Added object obj135 to bucket ns-create-500
+Added object obj136 to bucket ns-create-500
+Added object obj137 to bucket ns-create-500
+Added object obj138 to bucket ns-create-500
+Added object obj139 to bucket ns-create-500
+Added object obj140 to bucket ns-create-500
+Added object obj141 to bucket ns-create-500
+Added object obj142 to bucket ns-create-500
+Added object obj143 to bucket ns-create-500
+Added object obj144 to bucket ns-create-500
+Added object obj145 to bucket ns-create-500
+Added object obj146 to bucket ns-create-500
+Added object obj147 to bucket ns-create-500
+Added object obj148 to bucket ns-create-500
+Added object obj149 to bucket ns-create-500
+Added object obj150 to bucket ns-create-500
+Added object obj151 to bucket ns-create-500
+Added object obj152 to bucket ns-create-500
+Added object obj153 to bucket ns-create-500
+Added object obj154 to bucket ns-create-500
+Added object obj155 to bucket ns-create-500
+Added object obj156 to bucket ns-create-500
+Added object obj157 to bucket ns-create-500
+Added object obj158 to bucket ns-create-500
+Added object obj159 to bucket ns-create-500
+Added object obj160 to bucket ns-create-500
+Added object obj161 to bucket ns-create-500
+Added object obj162 to bucket ns-create-500
+Added object obj163 to bucket ns-create-500
+Added object obj164 to bucket ns-create-500
+Added object obj165 to bucket ns-create-500
+Added object obj166 to bucket ns-create-500
+Added object obj167 to bucket ns-create-500
+Added object obj168 to bucket ns-create-500
+Added object obj169 to bucket ns-create-500
+Added object obj170 to bucket ns-create-500
+Added object obj171 to bucket ns-create-500
+Added object obj172 to bucket ns-create-500
+Added object obj173 to bucket ns-create-500
+Added object obj174 to bucket ns-create-500
+Added object obj175 to bucket ns-create-500
+Added object obj176 to bucket ns-create-500
+Added object obj177 to bucket ns-create-500
+Added object obj178 to bucket ns-create-500
+Added object obj179 to bucket ns-create-500
+Added object obj180 to bucket ns-create-500
+Added object obj181 to bucket ns-create-500
+Added object obj182 to bucket ns-create-500
+Added object obj183 to bucket ns-create-500
+Added object obj184 to bucket ns-create-500
+Added object obj185 to bucket ns-create-500
+Added object obj186 to bucket ns-create-500
+Added object obj187 to bucket ns-create-500
+Added object obj188 to bucket ns-create-500
+Added object obj189 to bucket ns-create-500
+Added object obj190 to bucket ns-create-500
+Added object obj191 to bucket ns-create-500
+Added object obj192 to bucket ns-create-500
+Added object obj193 to bucket ns-create-500
+Added object obj194 to bucket ns-create-500
+Added object obj195 to bucket ns-create-500
+Added object obj196 to bucket ns-create-500
+Added object obj197 to bucket ns-create-500
+Added object obj198 to bucket ns-create-500
+Added object obj199 to bucket ns-create-500
+Added object obj200 to bucket ns-create-500
+Added object obj201 to bucket ns-create-500
+Added object obj202 to bucket ns-create-500
+Added object obj203 to bucket ns-create-500
+Added object obj204 to bucket ns-create-500
+Added object obj205 to bucket ns-create-500
+Added object obj206 to bucket ns-create-500
+Added object obj207 to bucket ns-create-500
+Added object obj208 to bucket ns-create-500
+Added object obj209 to bucket ns-create-500
+Added object obj210 to bucket ns-create-500
+Added object obj211 to bucket ns-create-500
+Added object obj212 to bucket ns-create-500
+Added object obj213 to bucket ns-create-500
+Added object obj214 to bucket ns-create-500
+Added object obj215 to bucket ns-create-500
+Added object obj216 to bucket ns-create-500
+Added object obj217 to bucket ns-create-500
+Added object obj218 to bucket ns-create-500
+Added object obj219 to bucket ns-create-500
+Added object obj220 to bucket ns-create-500
+Added object obj221 to bucket ns-create-500
+Added object obj222 to bucket ns-create-500
+Added object obj223 to bucket ns-create-500
+Added object obj224 to bucket ns-create-500
+Added object obj225 to bucket ns-create-500
+Added object obj226 to bucket ns-create-500
+Added object obj227 to bucket ns-create-500
+Added object obj228 to bucket ns-create-500
+Added object obj229 to bucket ns-create-500
+Added object obj230 to bucket ns-create-500
+Added object obj231 to bucket ns-create-500
+Added object obj232 to bucket ns-create-500
+Added object obj233 to bucket ns-create-500
+Added object obj234 to bucket ns-create-500
+Added object obj235 to bucket ns-create-500
+Added object obj236 to bucket ns-create-500
+Added object obj237 to bucket ns-create-500
+Added object obj238 to bucket ns-create-500
+Added object obj239 to bucket ns-create-500
+Added object obj240 to bucket ns-create-500
+Added object obj241 to bucket ns-create-500
+Added object obj242 to bucket ns-create-500
+Added object obj243 to bucket ns-create-500
+Added object obj244 to bucket ns-create-500
+Added object obj245 to bucket ns-create-500
+Added object obj246 to bucket ns-create-500
+Added object obj247 to bucket ns-create-500
+Added object obj248 to bucket ns-create-500
+Added object obj249 to bucket ns-create-500
+Added object obj250 to bucket ns-create-500
+Added object obj251 to bucket ns-create-500
+Added object obj252 to bucket ns-create-500
+Added object obj253 to bucket ns-create-500
+Added object obj254 to bucket ns-create-500
+Added object obj255 to bucket ns-create-500
+Added object obj256 to bucket ns-create-500
+Added object obj257 to bucket ns-create-500
+Added object obj258 to bucket ns-create-500
+Added object obj259 to bucket ns-create-500
+Added object obj260 to bucket ns-create-500
+Added object obj261 to bucket ns-create-500
+Added object obj262 to bucket ns-create-500
+Added object obj263 to bucket ns-create-500
+Added object obj264 to bucket ns-create-500
+Added object obj265 to bucket ns-create-500
+Added object obj266 to bucket ns-create-500
+Added object obj267 to bucket ns-create-500
+Added object obj268 to bucket ns-create-500
+Added object obj269 to bucket ns-create-500
+Added object obj270 to bucket ns-create-500
+Added object obj271 to bucket ns-create-500
+Added object obj272 to bucket ns-create-500
+Added object obj273 to bucket ns-create-500
+Added object obj274 to bucket ns-create-500
+Added object obj275 to bucket ns-create-500
+Added object obj276 to bucket ns-create-500
+Added object obj277 to bucket ns-create-500
+Added object obj278 to bucket ns-create-500
+Added object obj279 to bucket ns-create-500
+Added object obj280 to bucket ns-create-500
+Added object obj281 to bucket ns-create-500
+Added object obj282 to bucket ns-create-500
+Added object obj283 to bucket ns-create-500
+Added object obj284 to bucket ns-create-500
+Added object obj285 to bucket ns-create-500
+Added object obj286 to bucket ns-create-500
+Added object obj287 to bucket ns-create-500
+Added object obj288 to bucket ns-create-500
+Added object obj289 to bucket ns-create-500
+Added object obj290 to bucket ns-create-500
+Added object obj291 to bucket ns-create-500
+Added object obj292 to bucket ns-create-500
+Added object obj293 to bucket ns-create-500
+Added object obj294 to bucket ns-create-500
+Added object obj295 to bucket ns-create-500
+Added object obj296 to bucket ns-create-500
+Added object obj297 to bucket ns-create-500
+Added object obj298 to bucket ns-create-500
+Added object obj299 to bucket ns-create-500
+Added object obj300 to bucket ns-create-500
+Added object obj301 to bucket ns-create-500
+Added object obj302 to bucket ns-create-500
+Added object obj303 to bucket ns-create-500
+Added object obj304 to bucket ns-create-500
+Added object obj305 to bucket ns-create-500
+Added object obj306 to bucket ns-create-500
+Added object obj307 to bucket ns-create-500
+Added object obj308 to bucket ns-create-500
+Added object obj309 to bucket ns-create-500
+Added object obj310 to bucket ns-create-500
+Added object obj311 to bucket ns-create-500
+Added object obj312 to bucket ns-create-500
+Added object obj313 to bucket ns-create-500
+Added object obj314 to bucket ns-create-500
+Added object obj315 to bucket ns-create-500
+Added object obj316 to bucket ns-create-500
+Added object obj317 to bucket ns-create-500
+Added object obj318 to bucket ns-create-500
+Added object obj319 to bucket ns-create-500
+Added object obj320 to bucket ns-create-500
+Added object obj321 to bucket ns-create-500
+Added object obj322 to bucket ns-create-500
+Added object obj323 to bucket ns-create-500
+Added object obj324 to bucket ns-create-500
+Added object obj325 to bucket ns-create-500
+Added object obj326 to bucket ns-create-500
+Added object obj327 to bucket ns-create-500
+Added object obj328 to bucket ns-create-500
+Added object obj329 to bucket ns-create-500
+Added object obj330 to bucket ns-create-500
+Added object obj331 to bucket ns-create-500
+Added object obj332 to bucket ns-create-500
+Added object obj333 to bucket ns-create-500
+Added object obj334 to bucket ns-create-500
+Added object obj335 to bucket ns-create-500
+Added object obj336 to bucket ns-create-500
+Added object obj337 to bucket ns-create-500
+Added object obj338 to bucket ns-create-500
+Added object obj339 to bucket ns-create-500
+Added object obj340 to bucket ns-create-500
+Added object obj341 to bucket ns-create-500
+Added object obj342 to bucket ns-create-500
+Added object obj343 to bucket ns-create-500
+Added object obj344 to bucket ns-create-500
+Added object obj345 to bucket ns-create-500
+Added object obj346 to bucket ns-create-500
+Added object obj347 to bucket ns-create-500
+Added object obj348 to bucket ns-create-500
+Added object obj349 to bucket ns-create-500
+Added object obj350 to bucket ns-create-500
+Added object obj351 to bucket ns-create-500
+Added object obj352 to bucket ns-create-500
+Added object obj353 to bucket ns-create-500
+Added object obj354 to bucket ns-create-500
+Added object obj355 to bucket ns-create-500
+Added object obj356 to bucket ns-create-500
+Added object obj357 to bucket ns-create-500
+Added object obj358 to bucket ns-create-500
+Added object obj359 to bucket ns-create-500
+Added object obj360 to bucket ns-create-500
+Added object obj361 to bucket ns-create-500
+Added object obj362 to bucket ns-create-500
+Added object obj363 to bucket ns-create-500
+Added object obj364 to bucket ns-create-500
+Added object obj365 to bucket ns-create-500
+Added object obj366 to bucket ns-create-500
+Added object obj367 to bucket ns-create-500
+Added object obj368 to bucket ns-create-500
+Added object obj369 to bucket ns-create-500
+Added object obj370 to bucket ns-create-500
+Added object obj371 to bucket ns-create-500
+Added object obj372 to bucket ns-create-500
+Added object obj373 to bucket ns-create-500
+Added object obj374 to bucket ns-create-500
+Added object obj375 to bucket ns-create-500
+Added object obj376 to bucket ns-create-500
+Added object obj377 to bucket ns-create-500
+Added object obj378 to bucket ns-create-500
+Added object obj379 to bucket ns-create-500
+Added object obj380 to bucket ns-create-500
+Added object obj381 to bucket ns-create-500
+Added object obj382 to bucket ns-create-500
+Added object obj383 to bucket ns-create-500
+Added object obj384 to bucket ns-create-500
+Added object obj385 to bucket ns-create-500
+Added object obj386 to bucket ns-create-500
+Added object obj387 to bucket ns-create-500
+Added object obj388 to bucket ns-create-500
+Added object obj389 to bucket ns-create-500
+Added object obj390 to bucket ns-create-500
+Added object obj391 to bucket ns-create-500
+Added object obj392 to bucket ns-create-500
+Added object obj393 to bucket ns-create-500
+Added object obj394 to bucket ns-create-500
+Added object obj395 to bucket ns-create-500
+Added object obj396 to bucket ns-create-500
+Added object obj397 to bucket ns-create-500
+Added object obj398 to bucket ns-create-500
+Added object obj399 to bucket ns-create-500
+Added object obj400 to bucket ns-create-500
+Added object obj401 to bucket ns-create-500
+Added object obj402 to bucket ns-create-500
+Added object obj403 to bucket ns-create-500
+Added object obj404 to bucket ns-create-500
+Added object obj405 to bucket ns-create-500
+Added object obj406 to bucket ns-create-500
+Added object obj407 to bucket ns-create-500
+Added object obj408 to bucket ns-create-500
+Added object obj409 to bucket ns-create-500
+Added object obj410 to bucket ns-create-500
+Added object obj411 to bucket ns-create-500
+Added object obj412 to bucket ns-create-500
+Added object obj413 to bucket ns-create-500
+Added object obj414 to bucket ns-create-500
+Added object obj415 to bucket ns-create-500
+Added object obj416 to bucket ns-create-500
+Added object obj417 to bucket ns-create-500
+Added object obj418 to bucket ns-create-500
+Added object obj419 to bucket ns-create-500
+Added object obj420 to bucket ns-create-500
+Added object obj421 to bucket ns-create-500
+Added object obj422 to bucket ns-create-500
+Added object obj423 to bucket ns-create-500
+Added object obj424 to bucket ns-create-500
+Added object obj425 to bucket ns-create-500
+Added object obj426 to bucket ns-create-500
+Added object obj427 to bucket ns-create-500
+Added object obj428 to bucket ns-create-500
+Added object obj429 to bucket ns-create-500
+Added object obj430 to bucket ns-create-500
+Added object obj431 to bucket ns-create-500
+Added object obj432 to bucket ns-create-500
+Added object obj433 to bucket ns-create-500
+Added object obj434 to bucket ns-create-500
+Added object obj435 to bucket ns-create-500
+Added object obj436 to bucket ns-create-500
+Added object obj437 to bucket ns-create-500
+Added object obj438 to bucket ns-create-500
+Added object obj439 to bucket ns-create-500
+Added object obj440 to bucket ns-create-500
+Added object obj441 to bucket ns-create-500
+Added object obj442 to bucket ns-create-500
+Added object obj443 to bucket ns-create-500
+Added object obj444 to bucket ns-create-500
+Added object obj445 to bucket ns-create-500
+Added object obj446 to bucket ns-create-500
+Added object obj447 to bucket ns-create-500
+Added object obj448 to bucket ns-create-500
+Added object obj449 to bucket ns-create-500
+Added object obj450 to bucket ns-create-500
+Added object obj451 to bucket ns-create-500
+Added object obj452 to bucket ns-create-500
+Added object obj453 to bucket ns-create-500
+Added object obj454 to bucket ns-create-500
+Added object obj455 to bucket ns-create-500
+Added object obj456 to bucket ns-create-500
+Added object obj457 to bucket ns-create-500
+Added object obj458 to bucket ns-create-500
+Added object obj459 to bucket ns-create-500
+Added object obj460 to bucket ns-create-500
+Added object obj461 to bucket ns-create-500
+Added object obj462 to bucket ns-create-500
+Added object obj463 to bucket ns-create-500
+Added object obj464 to bucket ns-create-500
+Added object obj465 to bucket ns-create-500
+Added object obj466 to bucket ns-create-500
+Added object obj467 to bucket ns-create-500
+Added object obj468 to bucket ns-create-500
+Added object obj469 to bucket ns-create-500
+Added object obj470 to bucket ns-create-500
+Added object obj471 to bucket ns-create-500
+Added object obj472 to bucket ns-create-500
+Added object obj473 to bucket ns-create-500
+Added object obj474 to bucket ns-create-500
+Added object obj475 to bucket ns-create-500
+Added object obj476 to bucket ns-create-500
+Added object obj477 to bucket ns-create-500
+Added object obj478 to bucket ns-create-500
+Added object obj479 to bucket ns-create-500
+Added object obj480 to bucket ns-create-500
+Added object obj481 to bucket ns-create-500
+Added object obj482 to bucket ns-create-500
+Added object obj483 to bucket ns-create-500
+Added object obj484 to bucket ns-create-500
+Added object obj485 to bucket ns-create-500
+Added object obj486 to bucket ns-create-500
+Added object obj487 to bucket ns-create-500
+Added object obj488 to bucket ns-create-500
+Added object obj489 to bucket ns-create-500
+Added object obj490 to bucket ns-create-500
+Added object obj491 to bucket ns-create-500
+Added object obj492 to bucket ns-create-500
+Added object obj493 to bucket ns-create-500
+Added object obj494 to bucket ns-create-500
+Added object obj495 to bucket ns-create-500
+Added object obj496 to bucket ns-create-500
+Added object obj497 to bucket ns-create-500
+Added object obj498 to bucket ns-create-500
+Added object obj499 to bucket ns-create-500
+[       OK ] HighLoad.Create500 (8133 ms)
+[----------] 1 test from HighLoad (8133 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (8133 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   8.14 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.Create500" end time: Aug 08 17:31 CEST
+"HighLoad.Create500" time elapsed: 00:00:08
+----------------------------------------------------------
+
+9/24 Testing: HighLoad.Open200
+9/24 Test: HighLoad.Open200
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Open200" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.Open200" start time: Aug 08 17:31 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.Open200
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.Open200
+[       OK ] HighLoad.Open200 (6273 ms)
+[----------] 1 test from HighLoad (6273 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (6273 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   6.28 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.Open200" end time: Aug 08 17:31 CEST
+"HighLoad.Open200" time elapsed: 00:00:06
+----------------------------------------------------------
+
+10/24 Testing: HighLoad.Open500
+10/24 Test: HighLoad.Open500
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Open500" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.Open500" start time: Aug 08 17:31 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.Open500
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.Open500
+[       OK ] HighLoad.Open500 (6726 ms)
+[----------] 1 test from HighLoad (6726 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (6726 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   6.73 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.Open500" end time: Aug 08 17:32 CEST
+"HighLoad.Open500" time elapsed: 00:00:06
+----------------------------------------------------------
+
+11/24 Testing: HighLoad.Delete200
+11/24 Test: HighLoad.Delete200
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Delete200" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.Delete200" start time: Aug 08 17:32 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.Delete200
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.Delete200
+Successfully deleted obj0
+Successfully deleted obj1
+Successfully deleted obj2
+Successfully deleted obj3
+Successfully deleted obj4
+Successfully deleted obj5
+Successfully deleted obj6
+Successfully deleted obj7
+Successfully deleted obj8
+Successfully deleted obj9
+Successfully deleted obj10
+Successfully deleted obj11
+Successfully deleted obj12
+Successfully deleted obj13
+Successfully deleted obj14
+Successfully deleted obj15
+Successfully deleted obj16
+Successfully deleted obj17
+Successfully deleted obj18
+Successfully deleted obj19
+Successfully deleted obj20
+Successfully deleted obj21
+Successfully deleted obj22
+Successfully deleted obj23
+Successfully deleted obj24
+Successfully deleted obj25
+Successfully deleted obj26
+Successfully deleted obj27
+Successfully deleted obj28
+Successfully deleted obj29
+Successfully deleted obj30
+Successfully deleted obj31
+Successfully deleted obj32
+Successfully deleted obj33
+Successfully deleted obj34
+Successfully deleted obj35
+Successfully deleted obj36
+Successfully deleted obj37
+Successfully deleted obj38
+Successfully deleted obj39
+Successfully deleted obj40
+Successfully deleted obj41
+Successfully deleted obj42
+Successfully deleted obj43
+Successfully deleted obj44
+Successfully deleted obj45
+Successfully deleted obj46
+Successfully deleted obj47
+Successfully deleted obj48
+Successfully deleted obj49
+Successfully deleted obj50
+Successfully deleted obj51
+Successfully deleted obj52
+Successfully deleted obj53
+Successfully deleted obj54
+Successfully deleted obj55
+Successfully deleted obj56
+Successfully deleted obj57
+Successfully deleted obj58
+Successfully deleted obj59
+Successfully deleted obj60
+Successfully deleted obj61
+Successfully deleted obj62
+Successfully deleted obj63
+Successfully deleted obj64
+Successfully deleted obj65
+Successfully deleted obj66
+Successfully deleted obj67
+Successfully deleted obj68
+Successfully deleted obj69
+Successfully deleted obj70
+Successfully deleted obj71
+Successfully deleted obj72
+Successfully deleted obj73
+Successfully deleted obj74
+Successfully deleted obj75
+Successfully deleted obj76
+Successfully deleted obj77
+Successfully deleted obj78
+Successfully deleted obj79
+Successfully deleted obj80
+Successfully deleted obj81
+Successfully deleted obj82
+Successfully deleted obj83
+Successfully deleted obj84
+Successfully deleted obj85
+Successfully deleted obj86
+Successfully deleted obj87
+Successfully deleted obj88
+Successfully deleted obj89
+Successfully deleted obj90
+Successfully deleted obj91
+Successfully deleted obj92
+Successfully deleted obj93
+Successfully deleted obj94
+Successfully deleted obj95
+Successfully deleted obj96
+Successfully deleted obj97
+Successfully deleted obj98
+Successfully deleted obj99
+Successfully deleted obj100
+Successfully deleted obj101
+Successfully deleted obj102
+Successfully deleted obj103
+Successfully deleted obj104
+Successfully deleted obj105
+Successfully deleted obj106
+Successfully deleted obj107
+Successfully deleted obj108
+Successfully deleted obj109
+Successfully deleted obj110
+Successfully deleted obj111
+Successfully deleted obj112
+Successfully deleted obj113
+Successfully deleted obj114
+Successfully deleted obj115
+Successfully deleted obj116
+Successfully deleted obj117
+Successfully deleted obj118
+Successfully deleted obj119
+Successfully deleted obj120
+Successfully deleted obj121
+Successfully deleted obj122
+Successfully deleted obj123
+Successfully deleted obj124
+Successfully deleted obj125
+Successfully deleted obj126
+Successfully deleted obj127
+Successfully deleted obj128
+Successfully deleted obj129
+Successfully deleted obj130
+Successfully deleted obj131
+Successfully deleted obj132
+Successfully deleted obj133
+Successfully deleted obj134
+Successfully deleted obj135
+Successfully deleted obj136
+Successfully deleted obj137
+Successfully deleted obj138
+Successfully deleted obj139
+Successfully deleted obj140
+Successfully deleted obj141
+Successfully deleted obj142
+Successfully deleted obj143
+Successfully deleted obj144
+Successfully deleted obj145
+Successfully deleted obj146
+Successfully deleted obj147
+Successfully deleted obj148
+Successfully deleted obj149
+Successfully deleted obj150
+Successfully deleted obj151
+Successfully deleted obj152
+Successfully deleted obj153
+Successfully deleted obj154
+Successfully deleted obj155
+Successfully deleted obj156
+Successfully deleted obj157
+Successfully deleted obj158
+Successfully deleted obj159
+Successfully deleted obj160
+Successfully deleted obj161
+Successfully deleted obj162
+Successfully deleted obj163
+Successfully deleted obj164
+Successfully deleted obj165
+Successfully deleted obj166
+Successfully deleted obj167
+Successfully deleted obj168
+Successfully deleted obj169
+Successfully deleted obj170
+Successfully deleted obj171
+Successfully deleted obj172
+Successfully deleted obj173
+Successfully deleted obj174
+Successfully deleted obj175
+Successfully deleted obj176
+Successfully deleted obj177
+Successfully deleted obj178
+Successfully deleted obj179
+Successfully deleted obj180
+Successfully deleted obj181
+Successfully deleted obj182
+Successfully deleted obj183
+Successfully deleted obj184
+Successfully deleted obj185
+Successfully deleted obj186
+Successfully deleted obj187
+Successfully deleted obj188
+Successfully deleted obj189
+Successfully deleted obj190
+Successfully deleted obj191
+Successfully deleted obj192
+Successfully deleted obj193
+Successfully deleted obj194
+Successfully deleted obj195
+Successfully deleted obj196
+Successfully deleted obj197
+Successfully deleted obj198
+Successfully deleted obj199
+[       OK ] HighLoad.Delete200 (6588 ms)
+[----------] 1 test from HighLoad (6588 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (6588 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   6.60 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.Delete200" end time: Aug 08 17:32 CEST
+"HighLoad.Delete200" time elapsed: 00:00:06
+----------------------------------------------------------
+
+12/24 Testing: HighLoad.Delete500
+12/24 Test: HighLoad.Delete500
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Delete500" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.Delete500" start time: Aug 08 17:32 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.Delete500
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.Delete500
+Successfully deleted obj0
+Successfully deleted obj1
+Successfully deleted obj2
+Successfully deleted obj3
+Successfully deleted obj4
+Successfully deleted obj5
+Successfully deleted obj6
+Successfully deleted obj7
+Successfully deleted obj8
+Successfully deleted obj9
+Successfully deleted obj10
+Successfully deleted obj11
+Successfully deleted obj12
+Successfully deleted obj13
+Successfully deleted obj14
+Successfully deleted obj15
+Successfully deleted obj16
+Successfully deleted obj17
+Successfully deleted obj18
+Successfully deleted obj19
+Successfully deleted obj20
+Successfully deleted obj21
+Successfully deleted obj22
+Successfully deleted obj23
+Successfully deleted obj24
+Successfully deleted obj25
+Successfully deleted obj26
+Successfully deleted obj27
+Successfully deleted obj28
+Successfully deleted obj29
+Successfully deleted obj30
+Successfully deleted obj31
+Successfully deleted obj32
+Successfully deleted obj33
+Successfully deleted obj34
+Successfully deleted obj35
+Successfully deleted obj36
+Successfully deleted obj37
+Successfully deleted obj38
+Successfully deleted obj39
+Successfully deleted obj40
+Successfully deleted obj41
+Successfully deleted obj42
+Successfully deleted obj43
+Successfully deleted obj44
+Successfully deleted obj45
+Successfully deleted obj46
+Successfully deleted obj47
+Successfully deleted obj48
+Successfully deleted obj49
+Successfully deleted obj50
+Successfully deleted obj51
+Successfully deleted obj52
+Successfully deleted obj53
+Successfully deleted obj54
+Successfully deleted obj55
+Successfully deleted obj56
+Successfully deleted obj57
+Successfully deleted obj58
+Successfully deleted obj59
+Successfully deleted obj60
+Successfully deleted obj61
+Successfully deleted obj62
+Successfully deleted obj63
+Successfully deleted obj64
+Successfully deleted obj65
+Successfully deleted obj66
+Successfully deleted obj67
+Successfully deleted obj68
+Successfully deleted obj69
+Successfully deleted obj70
+Successfully deleted obj71
+Successfully deleted obj72
+Successfully deleted obj73
+Successfully deleted obj74
+Successfully deleted obj75
+Successfully deleted obj76
+Successfully deleted obj77
+Successfully deleted obj78
+Successfully deleted obj79
+Successfully deleted obj80
+Successfully deleted obj81
+Successfully deleted obj82
+Successfully deleted obj83
+Successfully deleted obj84
+Successfully deleted obj85
+Successfully deleted obj86
+Successfully deleted obj87
+Successfully deleted obj88
+Successfully deleted obj89
+Successfully deleted obj90
+Successfully deleted obj91
+Successfully deleted obj92
+Successfully deleted obj93
+Successfully deleted obj94
+Successfully deleted obj95
+Successfully deleted obj96
+Successfully deleted obj97
+Successfully deleted obj98
+Successfully deleted obj99
+Successfully deleted obj100
+Successfully deleted obj101
+Successfully deleted obj102
+Successfully deleted obj103
+Successfully deleted obj104
+Successfully deleted obj105
+Successfully deleted obj106
+Successfully deleted obj107
+Successfully deleted obj108
+Successfully deleted obj109
+Successfully deleted obj110
+Successfully deleted obj111
+Successfully deleted obj112
+Successfully deleted obj113
+Successfully deleted obj114
+Successfully deleted obj115
+Successfully deleted obj116
+Successfully deleted obj117
+Successfully deleted obj118
+Successfully deleted obj119
+Successfully deleted obj120
+Successfully deleted obj121
+Successfully deleted obj122
+Successfully deleted obj123
+Successfully deleted obj124
+Successfully deleted obj125
+Successfully deleted obj126
+Successfully deleted obj127
+Successfully deleted obj128
+Successfully deleted obj129
+Successfully deleted obj130
+Successfully deleted obj131
+Successfully deleted obj132
+Successfully deleted obj133
+Successfully deleted obj134
+Successfully deleted obj135
+Successfully deleted obj136
+Successfully deleted obj137
+Successfully deleted obj138
+Successfully deleted obj139
+Successfully deleted obj140
+Successfully deleted obj141
+Successfully deleted obj142
+Successfully deleted obj143
+Successfully deleted obj144
+Successfully deleted obj145
+Successfully deleted obj146
+Successfully deleted obj147
+Successfully deleted obj148
+Successfully deleted obj149
+Successfully deleted obj150
+Successfully deleted obj151
+Successfully deleted obj152
+Successfully deleted obj153
+Successfully deleted obj154
+Successfully deleted obj155
+Successfully deleted obj156
+Successfully deleted obj157
+Successfully deleted obj158
+Successfully deleted obj159
+Successfully deleted obj160
+Successfully deleted obj161
+Successfully deleted obj162
+Successfully deleted obj163
+Successfully deleted obj164
+Successfully deleted obj165
+Successfully deleted obj166
+Successfully deleted obj167
+Successfully deleted obj168
+Successfully deleted obj169
+Successfully deleted obj170
+Successfully deleted obj171
+Successfully deleted obj172
+Successfully deleted obj173
+Successfully deleted obj174
+Successfully deleted obj175
+Successfully deleted obj176
+Successfully deleted obj177
+Successfully deleted obj178
+Successfully deleted obj179
+Successfully deleted obj180
+Successfully deleted obj181
+Successfully deleted obj182
+Successfully deleted obj183
+Successfully deleted obj184
+Successfully deleted obj185
+Successfully deleted obj186
+Successfully deleted obj187
+Successfully deleted obj188
+Successfully deleted obj189
+Successfully deleted obj190
+Successfully deleted obj191
+Successfully deleted obj192
+Successfully deleted obj193
+Successfully deleted obj194
+Successfully deleted obj195
+Successfully deleted obj196
+Successfully deleted obj197
+Successfully deleted obj198
+Successfully deleted obj199
+Successfully deleted obj200
+Successfully deleted obj201
+Successfully deleted obj202
+Successfully deleted obj203
+Successfully deleted obj204
+Successfully deleted obj205
+Successfully deleted obj206
+Successfully deleted obj207
+Successfully deleted obj208
+Successfully deleted obj209
+Successfully deleted obj210
+Successfully deleted obj211
+Successfully deleted obj212
+Successfully deleted obj213
+Successfully deleted obj214
+Successfully deleted obj215
+Successfully deleted obj216
+Successfully deleted obj217
+Successfully deleted obj218
+Successfully deleted obj219
+Successfully deleted obj220
+Successfully deleted obj221
+Successfully deleted obj222
+Successfully deleted obj223
+Successfully deleted obj224
+Successfully deleted obj225
+Successfully deleted obj226
+Successfully deleted obj227
+Successfully deleted obj228
+Successfully deleted obj229
+Successfully deleted obj230
+Successfully deleted obj231
+Successfully deleted obj232
+Successfully deleted obj233
+Successfully deleted obj234
+Successfully deleted obj235
+Successfully deleted obj236
+Successfully deleted obj237
+Successfully deleted obj238
+Successfully deleted obj239
+Successfully deleted obj240
+Successfully deleted obj241
+Successfully deleted obj242
+Successfully deleted obj243
+Successfully deleted obj244
+Successfully deleted obj245
+Successfully deleted obj246
+Successfully deleted obj247
+Successfully deleted obj248
+Successfully deleted obj249
+Successfully deleted obj250
+Successfully deleted obj251
+Successfully deleted obj252
+Successfully deleted obj253
+Successfully deleted obj254
+Successfully deleted obj255
+Successfully deleted obj256
+Successfully deleted obj257
+Successfully deleted obj258
+Successfully deleted obj259
+Successfully deleted obj260
+Successfully deleted obj261
+Successfully deleted obj262
+Successfully deleted obj263
+Successfully deleted obj264
+Successfully deleted obj265
+Successfully deleted obj266
+Successfully deleted obj267
+Successfully deleted obj268
+Successfully deleted obj269
+Successfully deleted obj270
+Successfully deleted obj271
+Successfully deleted obj272
+Successfully deleted obj273
+Successfully deleted obj274
+Successfully deleted obj275
+Successfully deleted obj276
+Successfully deleted obj277
+Successfully deleted obj278
+Successfully deleted obj279
+Successfully deleted obj280
+Successfully deleted obj281
+Successfully deleted obj282
+Successfully deleted obj283
+Successfully deleted obj284
+Successfully deleted obj285
+Successfully deleted obj286
+Successfully deleted obj287
+Successfully deleted obj288
+Successfully deleted obj289
+Successfully deleted obj290
+Successfully deleted obj291
+Successfully deleted obj292
+Successfully deleted obj293
+Successfully deleted obj294
+Successfully deleted obj295
+Successfully deleted obj296
+Successfully deleted obj297
+Successfully deleted obj298
+Successfully deleted obj299
+Successfully deleted obj300
+Successfully deleted obj301
+Successfully deleted obj302
+Successfully deleted obj303
+Successfully deleted obj304
+Successfully deleted obj305
+Successfully deleted obj306
+Successfully deleted obj307
+Successfully deleted obj308
+Successfully deleted obj309
+Successfully deleted obj310
+Successfully deleted obj311
+Successfully deleted obj312
+Successfully deleted obj313
+Successfully deleted obj314
+Successfully deleted obj315
+Successfully deleted obj316
+Successfully deleted obj317
+Successfully deleted obj318
+Successfully deleted obj319
+Successfully deleted obj320
+Successfully deleted obj321
+Successfully deleted obj322
+Successfully deleted obj323
+Successfully deleted obj324
+Successfully deleted obj325
+Successfully deleted obj326
+Successfully deleted obj327
+Successfully deleted obj328
+Successfully deleted obj329
+Successfully deleted obj330
+Successfully deleted obj331
+Successfully deleted obj332
+Successfully deleted obj333
+Successfully deleted obj334
+Successfully deleted obj335
+Successfully deleted obj336
+Successfully deleted obj337
+Successfully deleted obj338
+Successfully deleted obj339
+Successfully deleted obj340
+Successfully deleted obj341
+Successfully deleted obj342
+Successfully deleted obj343
+Successfully deleted obj344
+Successfully deleted obj345
+Successfully deleted obj346
+Successfully deleted obj347
+Successfully deleted obj348
+Successfully deleted obj349
+Successfully deleted obj350
+Successfully deleted obj351
+Successfully deleted obj352
+Successfully deleted obj353
+Successfully deleted obj354
+Successfully deleted obj355
+Successfully deleted obj356
+Successfully deleted obj357
+Successfully deleted obj358
+Successfully deleted obj359
+Successfully deleted obj360
+Successfully deleted obj361
+Successfully deleted obj362
+Successfully deleted obj363
+Successfully deleted obj364
+Successfully deleted obj365
+Successfully deleted obj366
+Successfully deleted obj367
+Successfully deleted obj368
+Successfully deleted obj369
+Successfully deleted obj370
+Successfully deleted obj371
+Successfully deleted obj372
+Successfully deleted obj373
+Successfully deleted obj374
+Successfully deleted obj375
+Successfully deleted obj376
+Successfully deleted obj377
+Successfully deleted obj378
+Successfully deleted obj379
+Successfully deleted obj380
+Successfully deleted obj381
+Successfully deleted obj382
+Successfully deleted obj383
+Successfully deleted obj384
+Successfully deleted obj385
+Successfully deleted obj386
+Successfully deleted obj387
+Successfully deleted obj388
+Successfully deleted obj389
+Successfully deleted obj390
+Successfully deleted obj391
+Successfully deleted obj392
+Successfully deleted obj393
+Successfully deleted obj394
+Successfully deleted obj395
+Successfully deleted obj396
+Successfully deleted obj397
+Successfully deleted obj398
+Successfully deleted obj399
+Successfully deleted obj400
+Successfully deleted obj401
+Successfully deleted obj402
+Successfully deleted obj403
+Successfully deleted obj404
+Successfully deleted obj405
+Successfully deleted obj406
+Successfully deleted obj407
+Successfully deleted obj408
+Successfully deleted obj409
+Successfully deleted obj410
+Successfully deleted obj411
+Successfully deleted obj412
+Successfully deleted obj413
+Successfully deleted obj414
+Successfully deleted obj415
+Successfully deleted obj416
+Successfully deleted obj417
+Successfully deleted obj418
+Successfully deleted obj419
+Successfully deleted obj420
+Successfully deleted obj421
+Successfully deleted obj422
+Successfully deleted obj423
+Successfully deleted obj424
+Successfully deleted obj425
+Successfully deleted obj426
+Successfully deleted obj427
+Successfully deleted obj428
+Successfully deleted obj429
+Successfully deleted obj430
+Successfully deleted obj431
+Successfully deleted obj432
+Successfully deleted obj433
+Successfully deleted obj434
+Successfully deleted obj435
+Successfully deleted obj436
+Successfully deleted obj437
+Successfully deleted obj438
+Successfully deleted obj439
+Successfully deleted obj440
+Successfully deleted obj441
+Successfully deleted obj442
+Successfully deleted obj443
+Successfully deleted obj444
+Successfully deleted obj445
+Successfully deleted obj446
+Successfully deleted obj447
+Successfully deleted obj448
+Successfully deleted obj449
+Successfully deleted obj450
+Successfully deleted obj451
+Successfully deleted obj452
+Successfully deleted obj453
+Successfully deleted obj454
+Successfully deleted obj455
+Successfully deleted obj456
+Successfully deleted obj457
+Successfully deleted obj458
+Successfully deleted obj459
+Successfully deleted obj460
+Successfully deleted obj461
+Successfully deleted obj462
+Successfully deleted obj463
+Successfully deleted obj464
+Successfully deleted obj465
+Successfully deleted obj466
+Successfully deleted obj467
+Successfully deleted obj468
+Successfully deleted obj469
+Successfully deleted obj470
+Successfully deleted obj471
+Successfully deleted obj472
+Successfully deleted obj473
+Successfully deleted obj474
+Successfully deleted obj475
+Successfully deleted obj476
+Successfully deleted obj477
+Successfully deleted obj478
+Successfully deleted obj479
+Successfully deleted obj480
+Successfully deleted obj481
+Successfully deleted obj482
+Successfully deleted obj483
+Successfully deleted obj484
+Successfully deleted obj485
+Successfully deleted obj486
+Successfully deleted obj487
+Successfully deleted obj488
+Successfully deleted obj489
+Successfully deleted obj490
+Successfully deleted obj491
+Successfully deleted obj492
+Successfully deleted obj493
+Successfully deleted obj494
+Successfully deleted obj495
+Successfully deleted obj496
+Successfully deleted obj497
+Successfully deleted obj498
+Successfully deleted obj499
+[       OK ] HighLoad.Delete500 (7310 ms)
+[----------] 1 test from HighLoad (7310 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (7310 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   7.32 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.Delete500" end time: Aug 08 17:32 CEST
+"HighLoad.Delete500" time elapsed: 00:00:07
+----------------------------------------------------------
+
+13/24 Testing: HighLoad.Write512_200
+13/24 Test: HighLoad.Write512_200
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Write512_200" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.Write512_200" start time: Aug 08 17:32 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.Write512_200
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.Write512_200
+[       OK ] HighLoad.Write512_200 (7143 ms)
+[----------] 1 test from HighLoad (7143 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (7143 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   7.15 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.Write512_200" end time: Aug 08 17:32 CEST
+"HighLoad.Write512_200" time elapsed: 00:00:07
+----------------------------------------------------------
+
+14/24 Testing: HighLoad.Write512_500
+14/24 Test: HighLoad.Write512_500
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Write512_500" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.Write512_500" start time: Aug 08 17:32 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.Write512_500
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.Write512_500
+[       OK ] HighLoad.Write512_500 (8330 ms)
+[----------] 1 test from HighLoad (8330 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (8330 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   8.34 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.Write512_500" end time: Aug 08 17:32 CEST
+"HighLoad.Write512_500" time elapsed: 00:00:08
+----------------------------------------------------------
+
+15/24 Testing: HighLoad.Write2048_200
+15/24 Test: HighLoad.Write2048_200
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Write2048_200" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.Write2048_200" start time: Aug 08 17:32 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.Write2048_200
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.Write2048_200
+[       OK ] HighLoad.Write2048_200 (7006 ms)
+[----------] 1 test from HighLoad (7006 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (7006 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   7.01 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.Write2048_200" end time: Aug 08 17:32 CEST
+"HighLoad.Write2048_200" time elapsed: 00:00:07
+----------------------------------------------------------
+
+16/24 Testing: HighLoad.Write2048_500
+16/24 Test: HighLoad.Write2048_500
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Write2048_500" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.Write2048_500" start time: Aug 08 17:32 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.Write2048_500
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.Write2048_500
+[       OK ] HighLoad.Write2048_500 (8478 ms)
+[----------] 1 test from HighLoad (8478 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (8478 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   8.49 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.Write2048_500" end time: Aug 08 17:32 CEST
+"HighLoad.Write2048_500" time elapsed: 00:00:08
+----------------------------------------------------------
+
+17/24 Testing: HighLoad.Read512_200
+17/24 Test: HighLoad.Read512_200
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Read512_200" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.Read512_200" start time: Aug 08 17:32 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.Read512_200
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.Read512_200
+[       OK ] HighLoad.Read512_200 (6503 ms)
+[----------] 1 test from HighLoad (6503 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (6503 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   6.51 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.Read512_200" end time: Aug 08 17:32 CEST
+"HighLoad.Read512_200" time elapsed: 00:00:06
+----------------------------------------------------------
+
+18/24 Testing: HighLoad.Read512_500
+18/24 Test: HighLoad.Read512_500
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Read512_500" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.Read512_500" start time: Aug 08 17:32 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.Read512_500
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.Read512_500
+[       OK ] HighLoad.Read512_500 (7199 ms)
+[----------] 1 test from HighLoad (7199 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (7199 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   7.21 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.Read512_500" end time: Aug 08 17:33 CEST
+"HighLoad.Read512_500" time elapsed: 00:00:07
+----------------------------------------------------------
+
+19/24 Testing: HighLoad.Read2048_200
+19/24 Test: HighLoad.Read2048_200
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Read2048_200" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.Read2048_200" start time: Aug 08 17:33 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.Read2048_200
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.Read2048_200
+[       OK ] HighLoad.Read2048_200 (6483 ms)
+[----------] 1 test from HighLoad (6483 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (6483 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   6.49 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.Read2048_200" end time: Aug 08 17:33 CEST
+"HighLoad.Read2048_200" time elapsed: 00:00:06
+----------------------------------------------------------
+
+20/24 Testing: HighLoad.Read2048_500
+20/24 Test: HighLoad.Read2048_500
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Read2048_500" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.Read2048_500" start time: Aug 08 17:33 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.Read2048_500
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.Read2048_500
+[       OK ] HighLoad.Read2048_500 (7081 ms)
+[----------] 1 test from HighLoad (7081 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (7081 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   7.09 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.Read2048_500" end time: Aug 08 17:33 CEST
+"HighLoad.Read2048_500" time elapsed: 00:00:07
+----------------------------------------------------------
+
+21/24 Testing: HighLoad.ListNoPrefix
+21/24 Test: HighLoad.ListNoPrefix
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.ListNoPrefix" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.ListNoPrefix" start time: Aug 08 17:33 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.ListNoPrefix
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.ListNoPrefix
+[       OK ] HighLoad.ListNoPrefix (11974 ms)
+[----------] 1 test from HighLoad (11974 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (11974 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =  11.98 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.ListNoPrefix" end time: Aug 08 17:33 CEST
+"HighLoad.ListNoPrefix" time elapsed: 00:00:11
+----------------------------------------------------------
+
+22/24 Testing: HighLoad.ListWithPrefix
+22/24 Test: HighLoad.ListWithPrefix
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.ListWithPrefix" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.ListWithPrefix" start time: Aug 08 17:33 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.ListWithPrefix
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.ListWithPrefix
+[       OK ] HighLoad.ListWithPrefix (16831 ms)
+[----------] 1 test from HighLoad (16831 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (16831 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =  16.84 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.ListWithPrefix" end time: Aug 08 17:33 CEST
+"HighLoad.ListWithPrefix" time elapsed: 00:00:16
+----------------------------------------------------------
+
+23/24 Testing: HigLoad.Close200
+23/24 Test: HigLoad.Close200
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HigLoad.Close200" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HigLoad.Close200" start time: Aug 08 17:33 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HigLoad.Close200
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HigLoad
+[ RUN      ] HigLoad.Close200
+[       OK ] HigLoad.Close200 (6292 ms)
+[----------] 1 test from HigLoad (6292 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (6292 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   6.30 sec
+----------------------------------------------------------
+Test Passed.
+"HigLoad.Close200" end time: Aug 08 17:33 CEST
+"HigLoad.Close200" time elapsed: 00:00:06
+----------------------------------------------------------
+
+24/24 Testing: HigLoad.Close500
+24/24 Test: HigLoad.Close500
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HigLoad.Close500" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HigLoad.Close500" start time: Aug 08 17:33 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HigLoad.Close500
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HigLoad
+[ RUN      ] HigLoad.Close500
+[       OK ] HigLoad.Close500 (6580 ms)
+[----------] 1 test from HigLoad (6580 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (6580 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   6.59 sec
+----------------------------------------------------------
+Test Passed.
+"HigLoad.Close500" end time: Aug 08 17:33 CEST
+"HigLoad.Close500" time elapsed: 00:00:06
+----------------------------------------------------------
+
+End testing: Aug 08 17:33 CEST
