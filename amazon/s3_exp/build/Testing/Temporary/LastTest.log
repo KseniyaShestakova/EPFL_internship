@@ -1,0 +1,19 @@
+Start testing: Aug 08 10:50 CEST
+----------------------------------------------------------
+1/1 Testing: test
+1/1 Test: test
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"test" start time: Aug 08 10:50 CEST
+Output:
+----------------------------------------------------------
+app: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/test.cpp:258: int main(): Assertion `1 == 2' failed.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Failed.
+"test" end time: Aug 08 10:50 CEST
+"test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Aug 08 10:50 CEST

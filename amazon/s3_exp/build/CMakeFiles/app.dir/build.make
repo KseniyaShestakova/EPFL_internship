@@ -109,6 +109,8 @@ app: /usr/local/lib/libcrypto.so
 app: /usr/local/lib/libaws-c-sdkutils.a
 app: /usr/local/lib/libaws-checksums.a
 app: /usr/local/lib/libaws-c-common.a
+app: lib/libgtest_main.so.1.11.0
+app: lib/libgtest.so.1.11.0
 app: CMakeFiles/app.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/app.dir/link.txt --verbose=$(VERBOSE)
