@@ -1,0 +1,115 @@
+{
+  "$schema": "https://raw.githubusercontent.com/spdx/spdx-spec/v2.2.1/schemas/spdx-schema.json",
+  "spdxVersion": "SPDX-2.2",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "documentNamespace": "https://spdx.org/spdxdocs/pugixml-x64-linux-1.13.0-5293b745-e9d7-4cc4-87e4-2e331f2bc0e3",
+  "name": "pugixml:x64-linux@1.13.0 6f54ea8f05e7516fdeb7a8c2cbdebfd99923f444107a6ac207f1a37beb860060",
+  "creationInfo": {
+    "creators": [
+      "Tool: vcpkg-814b7ec837b59f1c8778f72351c1dd7605983cd2"
+    ],
+    "created": "2023-07-25T08:43:46Z"
+  },
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "GENERATES",
+      "relatedSpdxElement": "SPDXRef-binary"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-0"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-1"
+    },
+    {
+      "spdxElementId": "SPDXRef-binary",
+      "relationshipType": "GENERATED_FROM",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-0",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-1",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-1",
+      "relationshipType": "DEPENDENCY_MANIFEST_OF",
+      "relatedSpdxElement": "SPDXRef-port"
+    }
+  ],
+  "packages": [
+    {
+      "name": "pugixml",
+      "SPDXID": "SPDXRef-port",
+      "versionInfo": "1.13.0",
+      "downloadLocation": "NOASSERTION",
+      "homepage": "https://github.com/zeux/pugixml",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "description": "Light-weight, simple and fast XML parser for C++ with XPath support",
+      "comment": "This is the port (recipe) consumed by vcpkg."
+    },
+    {
+      "name": "pugixml:x64-linux",
+      "SPDXID": "SPDXRef-binary",
+      "versionInfo": "6f54ea8f05e7516fdeb7a8c2cbdebfd99923f444107a6ac207f1a37beb860060",
+      "downloadLocation": "NONE",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "comment": "This is a binary package built by vcpkg."
+    },
+    {
+      "SPDXID": "SPDXRef-resource-1",
+      "name": "zeux/pugixml",
+      "downloadLocation": "git+https://github.com/zeux/pugixml@a0e064336317c9347a91224112af9933598714e9",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "9fe2285215520b6ac5f832d457bdfedcf183787a7058bb970a20ea7ca111e1afd864f5b90a4810c79470afefc55c0199febf04d1600634c1ffdbbe000ef6e1df"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "fileName": "./portfile.cmake",
+      "SPDXID": "SPDXRef-file-0",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7e38ee4652e4e83c58f16aca50d2d00f4dfcb61825840d3df18583c8cc75eb20"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./vcpkg.json",
+      "SPDXID": "SPDXRef-file-1",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "0280d805d7e3f34dd43341a1bad3c07d61a20e239b6643ec3884befa7adefec8"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    }
+  ]
+}

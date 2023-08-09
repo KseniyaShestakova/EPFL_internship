@@ -1,0 +1,2 @@
+/usr/bin/ar qc libminiocpp.a CMakeFiles/miniocpp.dir/args.cc.o CMakeFiles/miniocpp.dir/baseclient.cc.o CMakeFiles/miniocpp.dir/client.cc.o CMakeFiles/miniocpp.dir/http.cc.o CMakeFiles/miniocpp.dir/request.cc.o CMakeFiles/miniocpp.dir/response.cc.o CMakeFiles/miniocpp.dir/select.cc.o CMakeFiles/miniocpp.dir/signer.cc.o CMakeFiles/miniocpp.dir/types.cc.o CMakeFiles/miniocpp.dir/utils.cc.o
+/usr/bin/ranlib libminiocpp.a

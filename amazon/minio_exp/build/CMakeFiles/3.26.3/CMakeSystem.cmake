@@ -3,7 +3,7 @@ set(CMAKE_HOST_SYSTEM_NAME "Linux")
 set(CMAKE_HOST_SYSTEM_VERSION "5.13.0-52-generic")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
-
+include("/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/vcpkg-master/scripts/buildsystems/vcpkg.cmake")
 
 set(CMAKE_SYSTEM "Linux-5.13.0-52-generic")
 set(CMAKE_SYSTEM_NAME "Linux")

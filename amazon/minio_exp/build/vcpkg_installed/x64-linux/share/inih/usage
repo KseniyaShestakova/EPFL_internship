@@ -1,0 +1,3 @@
+inih provides CMake targets:
+    find_package(unofficial-inih CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE unofficial::inih::inih)

@@ -1,0 +1,37 @@
+Detecting compiler hash for triplet x64-linux...
+All requested packages are currently installed.
+Total install time: 266 ns
+The package openssl is compatible with built-in CMake targets:
+
+    find_package(OpenSSL REQUIRED)
+    target_link_libraries(main PRIVATE OpenSSL::SSL OpenSSL::Crypto)
+
+curlpp provides CMake targets:
+
+    # this is heuristically generated, and may not be correct
+    find_package(unofficial-curlpp CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE unofficial::curlpp::curlpp)
+
+inih provides CMake targets:
+    find_package(unofficial-inih CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE unofficial::inih::inih)
+
+The package nlohmann-json provides CMake targets:
+
+    find_package(nlohmann_json CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE nlohmann_json::nlohmann_json)
+
+The package nlohmann-json can be configured to not provide implicit conversions via a custom triplet file:
+
+    set(nlohmann-json_IMPLICIT_CONVERSIONS OFF)
+
+For more information, see the docs here:
+    
+    https://json.nlohmann.me/api/macros/json_use_implicit_conversions/
+
+pugixml provides CMake targets:
+
+    # this is heuristically generated, and may not be correct
+    find_package(pugixml CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE pugixml::static pugixml::pugixml)
+

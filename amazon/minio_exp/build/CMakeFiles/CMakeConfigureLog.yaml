@@ -5,7 +5,7 @@ events:
     kind: "message-v1"
     backtrace:
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake:204 (message)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:16 (project)"
     message: |
       The system is: Linux - 5.13.0-52-generic - x86_64
   -
@@ -14,7 +14,7 @@ events:
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:16 (project)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
       Compiler: /usr/bin/cc 
@@ -28,7 +28,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
       
       The C compiler identification is GNU, found in:
-        /home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/3.26.3/CompilerIdC/a.out
+        /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/3.26.3/CompilerIdC/a.out
       
   -
     kind: "message-v1"
@@ -36,7 +36,7 @@ events:
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:16 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
       Compiler: /usr/bin/c++ 
@@ -50,31 +50,34 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
       
       The CXX compiler identification is GNU, found in:
-        /home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/3.26.3/CompilerIdCXX/a.out
+        /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/3.26.3/CompilerIdCXX/a.out
       
   -
     kind: "try_compile-v1"
     backtrace:
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:16 (project)"
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/CMakeScratch/TryCompile-gW5pJC"
-      binary: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/CMakeScratch/TryCompile-gW5pJC"
+      source: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-TgygYa"
+      binary: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-TgygYa"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
+      VCPKG_APPLOCAL_DEPS: "ON"
+      VCPKG_TARGET_TRIPLET: "x64-linux"
+      Z_VCPKG_ROOT_DIR: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/vcpkg-master"
     buildResult:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/CMakeScratch/TryCompile-gW5pJC
+        Change Dir: /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-TgygYa
         
-        Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_64e1a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_64e1a.dir/build.make CMakeFiles/cmTC_64e1a.dir/build
-        gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/CMakeScratch/TryCompile-gW5pJC'
-        Building C object CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o
-        /usr/bin/cc   -v -o CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o -c /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c
+        Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0c2c6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0c2c6.dir/build.make CMakeFiles/cmTC_0c2c6.dir/build
+        gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-TgygYa'
+        Building C object CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -v -o CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o -c /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=/usr/bin/cc
         OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
@@ -84,8 +87,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 11.2.0 (Ubuntu 11.2.0-7ubuntu2) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_64e1a.dir/'
-         /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_64e1a.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cc12Qfnx.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_0c2c6.dir/'
+         /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_0c2c6.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cch8jam8.s
         GNU C17 (Ubuntu 11.2.0-7ubuntu2) version 11.2.0 (x86_64-linux-gnu)
         	compiled by GNU C version 11.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.0, isl version isl-0.24-GMP
         
@@ -105,15 +108,15 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: f3dd7923bcb266d3f9d710c81aeb9218
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_64e1a.dir/'
-         as -v --64 -o CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o /tmp/cc12Qfnx.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_0c2c6.dir/'
+         as -v --64 -o CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o /tmp/cch8jam8.s
         GNU assembler version 2.37 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.37
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.'
-        Linking C executable cmTC_64e1a
-        /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_64e1a.dir/link.txt --verbose=1
-        /usr/bin/cc  -v -rdynamic CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o -o cmTC_64e1a 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.'
+        Linking C executable cmTC_0c2c6
+        /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0c2c6.dir/link.txt --verbose=1
+        /usr/bin/cc  -v CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o -o cmTC_0c2c6 
         Using built-in specs.
         COLLECT_GCC=/usr/bin/cc
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
@@ -126,10 +129,10 @@ events:
         gcc version 11.2.0 (Ubuntu 11.2.0-7ubuntu2) 
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_64e1a' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_64e1a.'
-         /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc6RTuyk.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_64e1a /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
-        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_64e1a' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_64e1a.'
-        gmake[1]: Leaving directory '/home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/CMakeScratch/TryCompile-gW5pJC'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0c2c6' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_0c2c6.'
+         /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccgGy2EI.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_0c2c6 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0c2c6' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_0c2c6.'
+        gmake[1]: Leaving directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-TgygYa'
         
       exitCode: 0
   -
@@ -137,7 +140,7 @@ events:
     backtrace:
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:16 (project)"
     message: |
       Parsed C implicit include dir info: rv=done
         found start of include info
@@ -159,16 +162,16 @@ events:
     backtrace:
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:152 (message)"
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:16 (project)"
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/CMakeScratch/TryCompile-gW5pJC]
+        ignore line: [Change Dir: /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-TgygYa]
         ignore line: []
-        ignore line: [Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_64e1a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_64e1a.dir/build.make CMakeFiles/cmTC_64e1a.dir/build]
-        ignore line: [gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/CMakeScratch/TryCompile-gW5pJC']
-        ignore line: [Building C object CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o]
-        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o -c /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0c2c6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0c2c6.dir/build.make CMakeFiles/cmTC_0c2c6.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-TgygYa']
+        ignore line: [Building C object CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o -c /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/cc]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
@@ -178,8 +181,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 11.2.0 (Ubuntu 11.2.0-7ubuntu2) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_64e1a.dir/']
-        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_64e1a.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cc12Qfnx.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_0c2c6.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_0c2c6.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cch8jam8.s]
         ignore line: [GNU C17 (Ubuntu 11.2.0-7ubuntu2) version 11.2.0 (x86_64-linux-gnu)]
         ignore line: [	compiled by GNU C version 11.2.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.0  isl version isl-0.24-GMP]
         ignore line: []
@@ -199,15 +202,15 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: f3dd7923bcb266d3f9d710c81aeb9218]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_64e1a.dir/']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o /tmp/cc12Qfnx.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_0c2c6.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o /tmp/cch8jam8.s]
         ignore line: [GNU assembler version 2.37 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.37]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.']
-        ignore line: [Linking C executable cmTC_64e1a]
-        ignore line: [/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_64e1a.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/cc  -v -rdynamic CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o -o cmTC_64e1a ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_0c2c6]
+        ignore line: [/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0c2c6.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/cc  -v CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o -o cmTC_0c2c6 ]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/cc]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper]
@@ -220,13 +223,13 @@ events:
         ignore line: [gcc version 11.2.0 (Ubuntu 11.2.0-7ubuntu2) ]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_64e1a' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_64e1a.']
-        link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/cc6RTuyk.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_64e1a /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0c2c6' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_0c2c6.']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccgGy2EI.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_0c2c6 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/cc6RTuyk.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccgGy2EI.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -238,14 +241,13 @@ events:
           arg [elf_x86_64] ==> ignore
           arg [--hash-style=gnu] ==> ignore
           arg [--as-needed] ==> ignore
-          arg [-export-dynamic] ==> ignore
           arg [-dynamic-linker] ==> ignore
           arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
           arg [-pie] ==> ignore
           arg [-znow] ==> ignore
           arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_64e1a] ==> ignore
+          arg [cmTC_0c2c6] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
@@ -257,7 +259,7 @@ events:
           arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
           arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
           arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..]
-          arg [CMakeFiles/cmTC_64e1a.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [CMakeFiles/cmTC_0c2c6.dir/CMakeCCompilerABI.c.o] ==> ignore
           arg [-lgcc] ==> lib [gcc]
           arg [--push-state] ==> ignore
           arg [--as-needed] ==> ignore
@@ -293,24 +295,27 @@ events:
     backtrace:
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:16 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/CMakeScratch/TryCompile-aiVpZN"
-      binary: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/CMakeScratch/TryCompile-aiVpZN"
+      source: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-zxd2SG"
+      binary: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-zxd2SG"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
+      VCPKG_APPLOCAL_DEPS: "ON"
+      VCPKG_TARGET_TRIPLET: "x64-linux"
+      Z_VCPKG_ROOT_DIR: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/vcpkg-master"
     buildResult:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/CMakeScratch/TryCompile-aiVpZN
+        Change Dir: /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-zxd2SG
         
-        Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_9615f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9615f.dir/build.make CMakeFiles/cmTC_9615f.dir/build
-        gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/CMakeScratch/TryCompile-aiVpZN'
-        Building CXX object CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/bin/c++   -v -o CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o -c /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_de60a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_de60a.dir/build.make CMakeFiles/cmTC_de60a.dir/build
+        gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-zxd2SG'
+        Building CXX object CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o -c /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
@@ -320,8 +325,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 11.2.0 (Ubuntu 11.2.0-7ubuntu2) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_9615f.dir/'
-         /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_9615f.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccOlzG7e.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_de60a.dir/'
+         /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_de60a.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cc3kwLmj.s
         GNU C++17 (Ubuntu 11.2.0-7ubuntu2) version 11.2.0 (x86_64-linux-gnu)
         	compiled by GNU C version 11.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.0, isl version isl-0.24-GMP
         
@@ -345,15 +350,15 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: b2aa013a9bb78f98e29ce58cd37c6337
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_9615f.dir/'
-         as -v --64 -o CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccOlzG7e.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_de60a.dir/'
+         as -v --64 -o CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc3kwLmj.s
         GNU assembler version 2.37 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.37
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.'
-        Linking CXX executable cmTC_9615f
-        /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9615f.dir/link.txt --verbose=1
-        /usr/bin/c++  -v -rdynamic CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_9615f 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_de60a
+        /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de60a.dir/link.txt --verbose=1
+        /usr/bin/c++  -v CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_de60a 
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
@@ -366,10 +371,10 @@ events:
         gcc version 11.2.0 (Ubuntu 11.2.0-7ubuntu2) 
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_9615f' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_9615f.'
-         /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJWIy93.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_9615f /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
-        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_9615f' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_9615f.'
-        gmake[1]: Leaving directory '/home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/CMakeScratch/TryCompile-aiVpZN'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_de60a' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_de60a.'
+         /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccxqHdRE.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_de60a /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_de60a' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_de60a.'
+        gmake[1]: Leaving directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-zxd2SG'
         
       exitCode: 0
   -
@@ -377,7 +382,7 @@ events:
     backtrace:
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:16 (project)"
     message: |
       Parsed CXX implicit include dir info: rv=done
         found start of include info
@@ -405,16 +410,16 @@ events:
     backtrace:
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:152 (message)"
       - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt"
+      - "CMakeLists.txt:16 (project)"
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/CMakeScratch/TryCompile-aiVpZN]
+        ignore line: [Change Dir: /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-zxd2SG]
         ignore line: []
-        ignore line: [Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_9615f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9615f.dir/build.make CMakeFiles/cmTC_9615f.dir/build]
-        ignore line: [gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/EPFL_internship/amazon/minio_exp/build/CMakeFiles/CMakeScratch/TryCompile-aiVpZN']
-        ignore line: [Building CXX object CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o -c /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_de60a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_de60a.dir/build.make CMakeFiles/cmTC_de60a.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-zxd2SG']
+        ignore line: [Building CXX object CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o -c /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
@@ -424,8 +429,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 11.2.0 (Ubuntu 11.2.0-7ubuntu2) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_9615f.dir/']
-        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_9615f.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccOlzG7e.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_de60a.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_de60a.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cc3kwLmj.s]
         ignore line: [GNU C++17 (Ubuntu 11.2.0-7ubuntu2) version 11.2.0 (x86_64-linux-gnu)]
         ignore line: [	compiled by GNU C version 11.2.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.0  isl version isl-0.24-GMP]
         ignore line: []
@@ -449,15 +454,15 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: b2aa013a9bb78f98e29ce58cd37c6337]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_9615f.dir/']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccOlzG7e.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_de60a.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc3kwLmj.s]
         ignore line: [GNU assembler version 2.37 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.37]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.']
-        ignore line: [Linking CXX executable cmTC_9615f]
-        ignore line: [/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9615f.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/c++  -v -rdynamic CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_9615f ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_de60a]
+        ignore line: [/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de60a.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/c++  -v CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_de60a ]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper]
@@ -470,13 +475,13 @@ events:
         ignore line: [gcc version 11.2.0 (Ubuntu 11.2.0-7ubuntu2) ]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_9615f' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_9615f.']
-        link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJWIy93.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_9615f /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_de60a' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_de60a.']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccxqHdRE.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_de60a /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccJWIy93.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccxqHdRE.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -488,14 +493,13 @@ events:
           arg [elf_x86_64] ==> ignore
           arg [--hash-style=gnu] ==> ignore
           arg [--as-needed] ==> ignore
-          arg [-export-dynamic] ==> ignore
           arg [-dynamic-linker] ==> ignore
           arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
           arg [-pie] ==> ignore
           arg [-znow] ==> ignore
           arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_9615f] ==> ignore
+          arg [cmTC_de60a] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
@@ -507,7 +511,7 @@ events:
           arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
           arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
           arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..]
-          arg [CMakeFiles/cmTC_9615f.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_de60a.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
           arg [-lgcc_s] ==> lib [gcc_s]
@@ -534,4 +538,285 @@ events:
         implicit fwks: []
       
       
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "vcpkg-master/scripts/buildsystems/vcpkg.cmake:855 (_find_package)"
+      - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/FindOpenSSL.cmake:151 (find_package)"
+      - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/FindOpenSSL.cmake:548 (_OpenSSL_test_and_find_dependencies)"
+      - "vcpkg-master/scripts/buildsystems/vcpkg.cmake:855 (_find_package)"
+      - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "build/vcpkg_installed/x64-linux/share/curl/CURLConfig.cmake:52 (find_dependency)"
+      - "build/vcpkg_installed/x64-linux/share/curl/vcpkg-cmake-wrapper.cmake:11 (_find_package)"
+      - "vcpkg-master/scripts/buildsystems/vcpkg.cmake:809 (include)"
+      - "CMakeLists.txt:53 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-8to5Xe"
+      binary: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-8to5Xe"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+      VCPKG_APPLOCAL_DEPS: "ON"
+      VCPKG_TARGET_TRIPLET: "x64-linux"
+      Z_VCPKG_ROOT_DIR: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/vcpkg-master"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-8to5Xe
+        
+        Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_c97ea/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c97ea.dir/build.make CMakeFiles/cmTC_c97ea.dir/build
+        gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-8to5Xe'
+        Building C object CMakeFiles/cmTC_c97ea.dir/src.c.o
+        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIE -o CMakeFiles/cmTC_c97ea.dir/src.c.o -c /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-8to5Xe/src.c
+        Linking C executable cmTC_c97ea
+        /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c97ea.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_c97ea.dir/src.c.o -o cmTC_c97ea 
+        gmake[1]: Leaving directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-8to5Xe'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFiles.cmake:137 (try_compile)"
+      - "include/CMakeLists.txt:19 (CHECK_INCLUDE_FILES)"
+    checks:
+      - "Looking for include file inttypes.h"
+    directories:
+      source: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-Xwbn4t"
+      binary: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-Xwbn4t"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+      VCPKG_APPLOCAL_DEPS: "ON"
+      VCPKG_TARGET_TRIPLET: "x64-linux"
+      Z_VCPKG_ROOT_DIR: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/vcpkg-master"
+    buildResult:
+      variable: "HAVE_INTTYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-Xwbn4t
+        
+        Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_1211f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1211f.dir/build.make CMakeFiles/cmTC_1211f.dir/build
+        gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-Xwbn4t'
+        Building C object CMakeFiles/cmTC_1211f.dir/HAVE_INTTYPES_H.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_1211f.dir/HAVE_INTTYPES_H.c.o -c /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-Xwbn4t/HAVE_INTTYPES_H.c
+        Linking C executable cmTC_1211f
+        /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1211f.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_1211f.dir/HAVE_INTTYPES_H.c.o -o cmTC_1211f 
+        gmake[1]: Leaving directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-Xwbn4t'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFiles.cmake:137 (try_compile)"
+      - "include/CMakeLists.txt:20 (CHECK_INCLUDE_FILES)"
+    checks:
+      - "Looking for include file stdint.h"
+    directories:
+      source: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-nKUI3E"
+      binary: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-nKUI3E"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+      VCPKG_APPLOCAL_DEPS: "ON"
+      VCPKG_TARGET_TRIPLET: "x64-linux"
+      Z_VCPKG_ROOT_DIR: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/vcpkg-master"
+    buildResult:
+      variable: "HAVE_STDINT_H"
+      cached: true
+      stdout: |
+        Change Dir: /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-nKUI3E
+        
+        Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_c12b8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c12b8.dir/build.make CMakeFiles/cmTC_c12b8.dir/build
+        gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-nKUI3E'
+        Building C object CMakeFiles/cmTC_c12b8.dir/HAVE_STDINT_H.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_c12b8.dir/HAVE_STDINT_H.c.o -c /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-nKUI3E/HAVE_STDINT_H.c
+        Linking C executable cmTC_c12b8
+        /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c12b8.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_c12b8.dir/HAVE_STDINT_H.c.o -o cmTC_c12b8 
+        gmake[1]: Leaving directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-nKUI3E'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFiles.cmake:137 (try_compile)"
+      - "include/CMakeLists.txt:21 (CHECK_INCLUDE_FILES)"
+    checks:
+      - "Looking for include file stdlib.h"
+    directories:
+      source: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-aJjEiQ"
+      binary: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-aJjEiQ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+      VCPKG_APPLOCAL_DEPS: "ON"
+      VCPKG_TARGET_TRIPLET: "x64-linux"
+      Z_VCPKG_ROOT_DIR: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/vcpkg-master"
+    buildResult:
+      variable: "HAVE_STDLIB_H"
+      cached: true
+      stdout: |
+        Change Dir: /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-aJjEiQ
+        
+        Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ebc20/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ebc20.dir/build.make CMakeFiles/cmTC_ebc20.dir/build
+        gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-aJjEiQ'
+        Building C object CMakeFiles/cmTC_ebc20.dir/HAVE_STDLIB_H.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_ebc20.dir/HAVE_STDLIB_H.c.o -c /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-aJjEiQ/HAVE_STDLIB_H.c
+        Linking C executable cmTC_ebc20
+        /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ebc20.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_ebc20.dir/HAVE_STDLIB_H.c.o -o cmTC_ebc20 
+        gmake[1]: Leaving directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-aJjEiQ'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFiles.cmake:137 (try_compile)"
+      - "include/CMakeLists.txt:22 (CHECK_INCLUDE_FILES)"
+    checks:
+      - "Looking for include file limits.h"
+    directories:
+      source: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-dmOjXK"
+      binary: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-dmOjXK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+      VCPKG_APPLOCAL_DEPS: "ON"
+      VCPKG_TARGET_TRIPLET: "x64-linux"
+      Z_VCPKG_ROOT_DIR: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/vcpkg-master"
+    buildResult:
+      variable: "HAVE_LIMITS_H"
+      cached: true
+      stdout: |
+        Change Dir: /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-dmOjXK
+        
+        Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_98e80/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_98e80.dir/build.make CMakeFiles/cmTC_98e80.dir/build
+        gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-dmOjXK'
+        Building C object CMakeFiles/cmTC_98e80.dir/HAVE_LIMITS_H.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_98e80.dir/HAVE_LIMITS_H.c.o -c /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-dmOjXK/HAVE_LIMITS_H.c
+        Linking C executable cmTC_98e80
+        /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_98e80.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_98e80.dir/HAVE_LIMITS_H.c.o -o cmTC_98e80 
+        gmake[1]: Leaving directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-dmOjXK'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFiles.cmake:137 (try_compile)"
+      - "include/CMakeLists.txt:23 (CHECK_INCLUDE_FILES)"
+    checks:
+      - "Looking for include file sys/types.h"
+    directories:
+      source: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-F5fCUX"
+      binary: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-F5fCUX"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+      VCPKG_APPLOCAL_DEPS: "ON"
+      VCPKG_TARGET_TRIPLET: "x64-linux"
+      Z_VCPKG_ROOT_DIR: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/vcpkg-master"
+    buildResult:
+      variable: "HAVE_SYS_TYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-F5fCUX
+        
+        Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ae7dd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ae7dd.dir/build.make CMakeFiles/cmTC_ae7dd.dir/build
+        gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-F5fCUX'
+        Building C object CMakeFiles/cmTC_ae7dd.dir/HAVE_SYS_TYPES_H.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_ae7dd.dir/HAVE_SYS_TYPES_H.c.o -c /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-F5fCUX/HAVE_SYS_TYPES_H.c
+        Linking C executable cmTC_ae7dd
+        /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae7dd.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_ae7dd.dir/HAVE_SYS_TYPES_H.c.o -o cmTC_ae7dd 
+        gmake[1]: Leaving directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-F5fCUX'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CheckFunctionExists.cmake:91 (try_compile)"
+      - "include/CMakeLists.txt:25 (CHECK_FUNCTION_EXISTS)"
+    checks:
+      - "Looking for strtoimax"
+    directories:
+      source: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-iZbNVC"
+      binary: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-iZbNVC"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+      VCPKG_APPLOCAL_DEPS: "ON"
+      VCPKG_TARGET_TRIPLET: "x64-linux"
+      Z_VCPKG_ROOT_DIR: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/vcpkg-master"
+    buildResult:
+      variable: "HAVE_STRTOIMAX_F"
+      cached: true
+      stdout: |
+        Change Dir: /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-iZbNVC
+        
+        Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_c7b16/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c7b16.dir/build.make CMakeFiles/cmTC_c7b16.dir/build
+        gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-iZbNVC'
+        Building C object CMakeFiles/cmTC_c7b16.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=strtoimax -fPIE -o CMakeFiles/cmTC_c7b16.dir/CheckFunctionExists.c.o -c /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-iZbNVC/CheckFunctionExists.c
+        Linking C executable cmTC_c7b16
+        /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c7b16.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strtoimax CMakeFiles/cmTC_c7b16.dir/CheckFunctionExists.c.o -o cmTC_c7b16 
+        gmake[1]: Leaving directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-iZbNVC'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/share/cmake-3.26/Modules/CheckFunctionExists.cmake:91 (try_compile)"
+      - "include/CMakeLists.txt:26 (CHECK_FUNCTION_EXISTS)"
+    checks:
+      - "Looking for strptime"
+    directories:
+      source: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-EJb9kl"
+      binary: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-EJb9kl"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+      VCPKG_APPLOCAL_DEPS: "ON"
+      VCPKG_TARGET_TRIPLET: "x64-linux"
+      Z_VCPKG_ROOT_DIR: "/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/vcpkg-master"
+    buildResult:
+      variable: "HAVE_STRPTIME_F"
+      cached: true
+      stdout: |
+        Change Dir: /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-EJb9kl
+        
+        Run Build Command(s):/home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_8a45c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_8a45c.dir/build.make CMakeFiles/cmTC_8a45c.dir/build
+        gmake[1]: Entering directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-EJb9kl'
+        Building C object CMakeFiles/cmTC_8a45c.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=strptime -fPIE -o CMakeFiles/cmTC_8a45c.dir/CheckFunctionExists.c.o -c /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-EJb9kl/CheckFunctionExists.c
+        Linking C executable cmTC_8a45c
+        /home/xxeniash/.local/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8a45c.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strptime CMakeFiles/cmTC_8a45c.dir/CheckFunctionExists.c.o -o cmTC_8a45c 
+        gmake[1]: Leaving directory '/home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/CMakeFiles/CMakeScratch/TryCompile-EJb9kl'
+        
+      exitCode: 0
 ...

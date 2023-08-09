@@ -1,0 +1,118 @@
+Package: vcpkg-cmake-config
+Version: 2022-02-06
+Port-Version: 1
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 71fbbf9568f178addfdfc479e6670d280f537f41ade4cbf13ec919629e9e9e15
+Status: install ok installed
+
+Package: vcpkg-cmake
+Version: 2023-05-04
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 5b405c70c69fbf7631b9abfca451b3d7b0a78c2252d1ece7fde2a6f938f3928c
+Status: install ok installed
+
+Package: vcpkg-cmake-get-vars
+Version: 2023-03-02
+Depends: vcpkg-cmake
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 9a17458b4e609e5fcbcf715f7b41157a6eec531cd40d900f48e9aac43e8fecf3
+Status: install ok installed
+
+Package: openssl
+Version: 3.1.1
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config, vcpkg-cmake-get-vars
+Architecture: x64-linux
+Multi-Arch: same
+Abi: b90b44e979761ca5d11a1afa84609912cdedd152f8bfad85677c02f176158359
+Description: OpenSSL is an open source project that provides a robust, commercial-grade, and full-featured toolkit for the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols. It is also a general-purpose cryptography library.
+Status: install ok installed
+
+Package: zlib
+Version: 1.2.13
+Depends: vcpkg-cmake
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 54359483685a2ec8a8f9d99694c7b97f9b0f5769d4caf7b755236a64a9354b7e
+Description: A compression library
+Status: install ok installed
+
+Package: curl
+Version: 8.2.0
+Depends: vcpkg-cmake, vcpkg-cmake-config, zlib
+Architecture: x64-linux
+Multi-Arch: same
+Abi: a22b8186bbe274a8fd11c7950ca6694ce3df2982a324222dd04c3c1dd756c408
+Description: A library for transferring data with URLs
+Default-Features: non-http, ssl
+Status: install ok installed
+
+Package: curl
+Feature: non-http
+Architecture: x64-linux
+Multi-Arch: same
+Description: Enables protocols beyond HTTP/HTTPS/HTTP2
+Status: install ok installed
+
+Package: curl
+Feature: openssl
+Depends: openssl
+Architecture: x64-linux
+Multi-Arch: same
+Description: SSL support (OpenSSL)
+Status: install ok installed
+
+Package: curl
+Feature: ssl
+Architecture: x64-linux
+Multi-Arch: same
+Description: Default SSL backend
+Status: install ok installed
+
+Package: curlpp
+Version: 2018-06-15
+Port-Version: 7
+Depends: curl, vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: e8e8857f49fa0def87b028f3599c6c64deb58a001b96807aa07d9c83d11148a7
+Description: C++ wrapper around libcURL
+Status: install ok installed
+
+Package: inih
+Version: 56
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 17ae7c1bec7126d4b83e8f2a972f31f0fcdafcfa2b22eaab542435f3c6d1bac9
+Description: Simple .INI file parser
+Status: install ok installed
+
+Package: inih
+Feature: cpp
+Architecture: x64-linux
+Multi-Arch: same
+Description: Build the C++ library
+Status: install ok installed
+
+Package: nlohmann-json
+Version: 3.11.2
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 075b81b947f19d256a2e4b7869d4b0a232136246d534a794c4e5ab5887db0fbd
+Description: JSON for Modern C++
+Status: install ok installed
+
+Package: pugixml
+Version: 1.13.0
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-linux
+Multi-Arch: same
+Abi: 6f54ea8f05e7516fdeb7a8c2cbdebfd99923f444107a6ac207f1a37beb860060
+Description: Light-weight, simple and fast XML parser for C++ with XPath support
+Status: install ok installed
+
