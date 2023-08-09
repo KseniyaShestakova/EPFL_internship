@@ -410,7 +410,7 @@ void multiple_reads(uint64_t size, int num_iter) {
 
 
 void multiple_lists(int no_prefix, int with_prefix, int num_iter,
-                    bool include_prefix, bool iterate) {
+                    bool include_prefix, bool iterating) {
     bool flag = false;
     std::string path = "127.0.0.1:9000";
     BackendData* bd = nullptr;
@@ -433,22 +433,30 @@ void multiple_lists(int no_prefix, int with_prefix, int num_iter,
         EXPECT_TRUE(flag) << "Failed to open\n";
     }
 
+    uint64_t total = include_prefix ? with_prefix : with_prefix + no_prefix;
+
     for (int it = 0; it < num_iter; ++it) {
         BackendIterator* bi = nullptr;
 
-        if (include_prefix) {
+        if (!include_prefix) {
             get_all(bd, ns, &bi);
         } else {
             get_by_prefix(bd, ns, &bi, "prefix/");
         }
 
-        if (!iterate) {
+        if (!iterating) {
             continue;
         }
+
+        // iterate
+        std::string name;
+        uint64_t cnt = 0;
+        while (iterate(bd, bi, name)) {
+            ++cnt;
+        }
+        EXPECT_EQ(cnt, total) << "Wrong number of elements\n";
     }
 }
-
-
 
 
 TEST(Basic, JustBoot) {
@@ -565,3 +573,12 @@ TEST(HighLoad, ListNoPrefix) {
 TEST(HighLoad, ListWithPrefix) {
     multiple_lists(500, 500, 200, true, false);
 }
+
+TEST(HighLoad, IterateNoPrefix) {
+    multiple_lists(500, 500, 200, false, true);
+}
+
+TEST(HighLoad, IterateWithPrefix) {
+    multiple_lists(500, 500, 200, true, true);
+}
+

@@ -260,6 +260,49 @@ void list_example(minio::s3::Client& client,
     }
 }
 
+void read_object(minio::s3::Client& client,
+                 const std::string& bucket_name,
+                 const std::string& object_name,
+                 size_t* offset,
+                 size_t* length) {
+    minio::s3::GetObjectArgs args;
+    args.bucket = bucket_name;
+    args.object = object_name;
+    args.offset = offset;
+    args.length = length;
+
+    args.datafunc = [](minio::http::DataFunctionArgs args) -> bool {
+        std::cout << args.datachunk;
+        return true;
+    };
+
+    minio::s3::GetObjectResponse resp = client.GetObject(args);
+    if (!resp) {
+        std::cout << "unable to get object: " << resp.Error().String();
+    }
+    std::cout << std::endl;
+}
+
+// try to load something from string
+void put_object(minio::s3::Client* client,
+                const std::string& bucket,
+                const std::string& object,
+                const std::string& content) {
+    std::istringstream str(content);
+
+    minio::s3::PutObjectArgs args(str, content.size(), 0);
+    args.bucket = bucket;
+    args.object = object;
+
+    minio::s3::PutObjectResponse resp = client->PutObject(args);
+
+    if (resp) {
+        std::cout << object << " was successfully uploaded to " << bucket << std::endl;
+    } else {
+        std::cout << "Error: PutObject: " << resp.Error().String() << std::endl;
+    }
+}
+
 
 int main(int argc, char* argv[]) {
 	// set-up: create S3 base URL
@@ -270,17 +313,22 @@ int main(int argc, char* argv[]) {
     minio::creds::StaticProvider provider("minioadmin", "minioadmin");
 
     // create S3 client - based on URL and provider
-    minio::s3::Client client(base_url, &provider);
+    minio::s3::Client* client = new minio::s3::Client(base_url, &provider);
 
     // let's start with creating bucket
-    make_bucket(client, "test-bucket");
-    upload_object(client, "test-bucket", "test-object", "/home/xxeniash/test.txt");
-    stat_object(client, "test-bucket", "test-object");
-    show_object(client, "test-bucket", "test-object");
+    size_t offset = 2;
+    size_t length = 3;
+    make_bucket(*client, "test-bucket");
+    read_object(*client, "test-bucket", "test-object", &offset, &length);
+    std::cout << offset << " " << length << std::endl;
+    upload_object(*client, "test-bucket", "test-object", "/home/xxeniash/test.txt");
+    //stat_object(client, "test-bucket", "test-object");
+    //show_object(client, "test-bucket", "test-object");
+    put_object(client, "test-bucket", "obj.txt", "hello");
     //remove_object(client, "test-bucket", "test-object");
     //remove_bucket(client, "test-bucket");
-    remove_objects_example(client, "test-bucket");
-    list_example(client, "test-bucket", "obj", "object-2");
+    //remove_objects_example(client, "test-bucket");
+    //list_example(client, "test-bucket", "obj", "object-2");
 
     return 0;
 

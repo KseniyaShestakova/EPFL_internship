@@ -1,10 +1,10 @@
-Start testing: Aug 08 17:31 CEST
+Start testing: Aug 09 09:46 CEST
 ----------------------------------------------------------
-1/24 Testing: Basic.JustBoot
-1/24 Test: Basic.JustBoot
+1/26 Testing: Basic.JustBoot
+1/26 Test: Basic.JustBoot
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Basic.JustBoot" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Basic.JustBoot" start time: Aug 08 17:31 CEST
+"Basic.JustBoot" start time: Aug 09 09:46 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -13,25 +13,25 @@ Note: Google Test filter = Basic.JustBoot
 [----------] Global test environment set-up.
 [----------] 1 test from Basic
 [ RUN      ] Basic.JustBoot
-[       OK ] Basic.JustBoot (6039 ms)
-[----------] 1 test from Basic (6039 ms total)
+[       OK ] Basic.JustBoot (6028 ms)
+[----------] 1 test from Basic (6028 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6039 ms total)
+[==========] 1 test from 1 test suite ran. (6028 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.05 sec
+Test time =   6.04 sec
 ----------------------------------------------------------
 Test Passed.
-"Basic.JustBoot" end time: Aug 08 17:31 CEST
+"Basic.JustBoot" end time: Aug 09 09:46 CEST
 "Basic.JustBoot" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-2/24 Testing: Basic.BootAndCreateNamespace
-2/24 Test: Basic.BootAndCreateNamespace
+2/26 Testing: Basic.BootAndCreateNamespace
+2/26 Test: Basic.BootAndCreateNamespace
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Basic.BootAndCreateNamespace" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Basic.BootAndCreateNamespace" start time: Aug 08 17:31 CEST
+"Basic.BootAndCreateNamespace" start time: Aug 09 09:46 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -41,25 +41,25 @@ Note: Google Test filter = Basic.BootAndCreateNamespace
 [----------] 1 test from Basic
 [ RUN      ] Basic.BootAndCreateNamespace
 Successfully deleted test-ns-0
-[       OK ] Basic.BootAndCreateNamespace (6064 ms)
-[----------] 1 test from Basic (6065 ms total)
+[       OK ] Basic.BootAndCreateNamespace (6060 ms)
+[----------] 1 test from Basic (6060 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6065 ms total)
+[==========] 1 test from 1 test suite ran. (6060 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.09 sec
+Test time =   6.07 sec
 ----------------------------------------------------------
 Test Passed.
-"Basic.BootAndCreateNamespace" end time: Aug 08 17:31 CEST
+"Basic.BootAndCreateNamespace" end time: Aug 09 09:46 CEST
 "Basic.BootAndCreateNamespace" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-3/24 Testing: CAssert.easy_test_1
-3/24 Test: CAssert.easy_test_1
+3/26 Testing: CAssert.easy_test_1
+3/26 Test: CAssert.easy_test_1
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=CAssert.easy_test_1" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"CAssert.easy_test_1" start time: Aug 08 17:31 CEST
+"CAssert.easy_test_1" start time: Aug 09 09:46 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -74,25 +74,25 @@ Successfully deleted obj1.txt
 Successfully deleted test-ns-1
 Easy test 1 passed!
 
-[       OK ] CAssert.easy_test_1 (6057 ms)
-[----------] 1 test from CAssert (6057 ms total)
+[       OK ] CAssert.easy_test_1 (6044 ms)
+[----------] 1 test from CAssert (6044 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6057 ms total)
+[==========] 1 test from 1 test suite ran. (6044 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.07 sec
+Test time =   6.06 sec
 ----------------------------------------------------------
 Test Passed.
-"CAssert.easy_test_1" end time: Aug 08 17:31 CEST
+"CAssert.easy_test_1" end time: Aug 09 09:46 CEST
 "CAssert.easy_test_1" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-4/24 Testing: CAssert.easy_test_2
-4/24 Test: CAssert.easy_test_2
+4/26 Testing: CAssert.easy_test_2
+4/26 Test: CAssert.easy_test_2
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=CAssert.easy_test_2" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"CAssert.easy_test_2" start time: Aug 08 17:31 CEST
+"CAssert.easy_test_2" start time: Aug 09 09:46 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -110,25 +110,25 @@ Successfully deleted obj1.txt
 Successfully deleted test-ns-2
 Easy test 2 passed!
 
-[       OK ] CAssert.easy_test_2 (6084 ms)
-[----------] 1 test from CAssert (6084 ms total)
+[       OK ] CAssert.easy_test_2 (6100 ms)
+[----------] 1 test from CAssert (6100 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6084 ms total)
+[==========] 1 test from 1 test suite ran. (6100 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.09 sec
+Test time =   6.11 sec
 ----------------------------------------------------------
 Test Passed.
-"CAssert.easy_test_2" end time: Aug 08 17:31 CEST
+"CAssert.easy_test_2" end time: Aug 09 09:46 CEST
 "CAssert.easy_test_2" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-5/24 Testing: CAssert.easy_test_3
-5/24 Test: CAssert.easy_test_3
+5/26 Testing: CAssert.easy_test_3
+5/26 Test: CAssert.easy_test_3
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=CAssert.easy_test_3" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"CAssert.easy_test_3" start time: Aug 08 17:31 CEST
+"CAssert.easy_test_3" start time: Aug 09 09:46 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -139,7 +139,7 @@ Note: Google Test filter = CAssert.easy_test_3
 [ RUN      ] CAssert.easy_test_3
 Added object obj1.txt to bucket test-ns-3
 written0out of10
-Got modification time:1691508690000 and size: 10
+Got modification time:1691567205000 and size: 10
 Bytes read 10
 Read: Test write
 deleting obj1.txt...
@@ -147,25 +147,25 @@ Successfully deleted obj1.txt
 Successfully deleted test-ns-3
 Easy test 3 passed!
 
-[       OK ] CAssert.easy_test_3 (6074 ms)
-[----------] 1 test from CAssert (6074 ms total)
+[       OK ] CAssert.easy_test_3 (6068 ms)
+[----------] 1 test from CAssert (6068 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6074 ms total)
+[==========] 1 test from 1 test suite ran. (6068 ms total)
 [  PASSED  ] 1 test.
 <end of output>
 Test time =   6.08 sec
 ----------------------------------------------------------
 Test Passed.
-"CAssert.easy_test_3" end time: Aug 08 17:31 CEST
+"CAssert.easy_test_3" end time: Aug 09 09:46 CEST
 "CAssert.easy_test_3" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-6/24 Testing: CAssert.easy_test_4
-6/24 Test: CAssert.easy_test_4
+6/26 Testing: CAssert.easy_test_4
+6/26 Test: CAssert.easy_test_4
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=CAssert.easy_test_4" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"CAssert.easy_test_4" start time: Aug 08 17:31 CEST
+"CAssert.easy_test_4" start time: Aug 09 09:46 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -229,25 +229,25 @@ Successfully deleted obj4
 Successfully deleted test-ns-4
 Easy test 4 passed!
 
-[       OK ] CAssert.easy_test_4 (6130 ms)
-[----------] 1 test from CAssert (6130 ms total)
+[       OK ] CAssert.easy_test_4 (6221 ms)
+[----------] 1 test from CAssert (6221 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6130 ms total)
+[==========] 1 test from 1 test suite ran. (6221 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.14 sec
+Test time =   6.23 sec
 ----------------------------------------------------------
 Test Passed.
-"CAssert.easy_test_4" end time: Aug 08 17:31 CEST
+"CAssert.easy_test_4" end time: Aug 09 09:46 CEST
 "CAssert.easy_test_4" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-7/24 Testing: HighLoad.Create200
-7/24 Test: HighLoad.Create200
+7/26 Testing: HighLoad.Create200
+7/26 Test: HighLoad.Create200
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Create200" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.Create200" start time: Aug 08 17:31 CEST
+"HighLoad.Create200" start time: Aug 09 09:46 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -456,25 +456,25 @@ Added object obj196 to bucket ns-create-200
 Added object obj197 to bucket ns-create-200
 Added object obj198 to bucket ns-create-200
 Added object obj199 to bucket ns-create-200
-[       OK ] HighLoad.Create200 (7022 ms)
-[----------] 1 test from HighLoad (7022 ms total)
+[       OK ] HighLoad.Create200 (6872 ms)
+[----------] 1 test from HighLoad (6872 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (7022 ms total)
+[==========] 1 test from 1 test suite ran. (6872 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   7.03 sec
+Test time =   6.88 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.Create200" end time: Aug 08 17:31 CEST
-"HighLoad.Create200" time elapsed: 00:00:07
+"HighLoad.Create200" end time: Aug 09 09:46 CEST
+"HighLoad.Create200" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-8/24 Testing: HighLoad.Create500
-8/24 Test: HighLoad.Create500
+8/26 Testing: HighLoad.Create500
+8/26 Test: HighLoad.Create500
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Create500" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.Create500" start time: Aug 08 17:31 CEST
+"HighLoad.Create500" start time: Aug 09 09:46 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -983,25 +983,25 @@ Added object obj496 to bucket ns-create-500
 Added object obj497 to bucket ns-create-500
 Added object obj498 to bucket ns-create-500
 Added object obj499 to bucket ns-create-500
-[       OK ] HighLoad.Create500 (8133 ms)
-[----------] 1 test from HighLoad (8133 ms total)
+[       OK ] HighLoad.Create500 (8224 ms)
+[----------] 1 test from HighLoad (8224 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (8133 ms total)
+[==========] 1 test from 1 test suite ran. (8224 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   8.14 sec
+Test time =   8.23 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.Create500" end time: Aug 08 17:31 CEST
+"HighLoad.Create500" end time: Aug 09 09:47 CEST
 "HighLoad.Create500" time elapsed: 00:00:08
 ----------------------------------------------------------
 
-9/24 Testing: HighLoad.Open200
-9/24 Test: HighLoad.Open200
+9/26 Testing: HighLoad.Open200
+9/26 Test: HighLoad.Open200
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Open200" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.Open200" start time: Aug 08 17:31 CEST
+"HighLoad.Open200" start time: Aug 09 09:47 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -1010,25 +1010,25 @@ Note: Google Test filter = HighLoad.Open200
 [----------] Global test environment set-up.
 [----------] 1 test from HighLoad
 [ RUN      ] HighLoad.Open200
-[       OK ] HighLoad.Open200 (6273 ms)
-[----------] 1 test from HighLoad (6273 ms total)
+[       OK ] HighLoad.Open200 (10676 ms)
+[----------] 1 test from HighLoad (10676 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6273 ms total)
+[==========] 1 test from 1 test suite ran. (10676 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.28 sec
+Test time =  10.68 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.Open200" end time: Aug 08 17:31 CEST
-"HighLoad.Open200" time elapsed: 00:00:06
+"HighLoad.Open200" end time: Aug 09 09:47 CEST
+"HighLoad.Open200" time elapsed: 00:00:10
 ----------------------------------------------------------
 
-10/24 Testing: HighLoad.Open500
-10/24 Test: HighLoad.Open500
+10/26 Testing: HighLoad.Open500
+10/26 Test: HighLoad.Open500
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Open500" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.Open500" start time: Aug 08 17:31 CEST
+"HighLoad.Open500" start time: Aug 09 09:47 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -1037,25 +1037,25 @@ Note: Google Test filter = HighLoad.Open500
 [----------] Global test environment set-up.
 [----------] 1 test from HighLoad
 [ RUN      ] HighLoad.Open500
-[       OK ] HighLoad.Open500 (6726 ms)
-[----------] 1 test from HighLoad (6726 ms total)
+[       OK ] HighLoad.Open500 (6574 ms)
+[----------] 1 test from HighLoad (6574 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6726 ms total)
+[==========] 1 test from 1 test suite ran. (6574 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.73 sec
+Test time =   6.58 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.Open500" end time: Aug 08 17:32 CEST
+"HighLoad.Open500" end time: Aug 09 09:47 CEST
 "HighLoad.Open500" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-11/24 Testing: HighLoad.Delete200
-11/24 Test: HighLoad.Delete200
+11/26 Testing: HighLoad.Delete200
+11/26 Test: HighLoad.Delete200
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Delete200" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.Delete200" start time: Aug 08 17:32 CEST
+"HighLoad.Delete200" start time: Aug 09 09:47 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -1264,25 +1264,25 @@ Successfully deleted obj196
 Successfully deleted obj197
 Successfully deleted obj198
 Successfully deleted obj199
-[       OK ] HighLoad.Delete200 (6588 ms)
-[----------] 1 test from HighLoad (6588 ms total)
+[       OK ] HighLoad.Delete200 (6448 ms)
+[----------] 1 test from HighLoad (6448 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6588 ms total)
+[==========] 1 test from 1 test suite ran. (6448 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.60 sec
+Test time =   6.46 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.Delete200" end time: Aug 08 17:32 CEST
+"HighLoad.Delete200" end time: Aug 09 09:47 CEST
 "HighLoad.Delete200" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-12/24 Testing: HighLoad.Delete500
-12/24 Test: HighLoad.Delete500
+12/26 Testing: HighLoad.Delete500
+12/26 Test: HighLoad.Delete500
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Delete500" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.Delete500" start time: Aug 08 17:32 CEST
+"HighLoad.Delete500" start time: Aug 09 09:47 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -1791,25 +1791,25 @@ Successfully deleted obj496
 Successfully deleted obj497
 Successfully deleted obj498
 Successfully deleted obj499
-[       OK ] HighLoad.Delete500 (7310 ms)
-[----------] 1 test from HighLoad (7310 ms total)
+[       OK ] HighLoad.Delete500 (7038 ms)
+[----------] 1 test from HighLoad (7038 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (7310 ms total)
+[==========] 1 test from 1 test suite ran. (7038 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   7.32 sec
+Test time =   7.05 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.Delete500" end time: Aug 08 17:32 CEST
+"HighLoad.Delete500" end time: Aug 09 09:47 CEST
 "HighLoad.Delete500" time elapsed: 00:00:07
 ----------------------------------------------------------
 
-13/24 Testing: HighLoad.Write512_200
-13/24 Test: HighLoad.Write512_200
+13/26 Testing: HighLoad.Write512_200
+13/26 Test: HighLoad.Write512_200
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Write512_200" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.Write512_200" start time: Aug 08 17:32 CEST
+"HighLoad.Write512_200" start time: Aug 09 09:47 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -1818,25 +1818,25 @@ Note: Google Test filter = HighLoad.Write512_200
 [----------] Global test environment set-up.
 [----------] 1 test from HighLoad
 [ RUN      ] HighLoad.Write512_200
-[       OK ] HighLoad.Write512_200 (7143 ms)
-[----------] 1 test from HighLoad (7143 ms total)
+[       OK ] HighLoad.Write512_200 (7043 ms)
+[----------] 1 test from HighLoad (7043 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (7143 ms total)
+[==========] 1 test from 1 test suite ran. (7043 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   7.15 sec
+Test time =   7.05 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.Write512_200" end time: Aug 08 17:32 CEST
+"HighLoad.Write512_200" end time: Aug 09 09:47 CEST
 "HighLoad.Write512_200" time elapsed: 00:00:07
 ----------------------------------------------------------
 
-14/24 Testing: HighLoad.Write512_500
-14/24 Test: HighLoad.Write512_500
+14/26 Testing: HighLoad.Write512_500
+14/26 Test: HighLoad.Write512_500
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Write512_500" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.Write512_500" start time: Aug 08 17:32 CEST
+"HighLoad.Write512_500" start time: Aug 09 09:47 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -1845,25 +1845,25 @@ Note: Google Test filter = HighLoad.Write512_500
 [----------] Global test environment set-up.
 [----------] 1 test from HighLoad
 [ RUN      ] HighLoad.Write512_500
-[       OK ] HighLoad.Write512_500 (8330 ms)
-[----------] 1 test from HighLoad (8330 ms total)
+[       OK ] HighLoad.Write512_500 (8345 ms)
+[----------] 1 test from HighLoad (8345 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (8330 ms total)
+[==========] 1 test from 1 test suite ran. (8345 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   8.34 sec
+Test time =   8.35 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.Write512_500" end time: Aug 08 17:32 CEST
+"HighLoad.Write512_500" end time: Aug 09 09:47 CEST
 "HighLoad.Write512_500" time elapsed: 00:00:08
 ----------------------------------------------------------
 
-15/24 Testing: HighLoad.Write2048_200
-15/24 Test: HighLoad.Write2048_200
+15/26 Testing: HighLoad.Write2048_200
+15/26 Test: HighLoad.Write2048_200
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Write2048_200" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.Write2048_200" start time: Aug 08 17:32 CEST
+"HighLoad.Write2048_200" start time: Aug 09 09:47 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -1872,25 +1872,25 @@ Note: Google Test filter = HighLoad.Write2048_200
 [----------] Global test environment set-up.
 [----------] 1 test from HighLoad
 [ RUN      ] HighLoad.Write2048_200
-[       OK ] HighLoad.Write2048_200 (7006 ms)
-[----------] 1 test from HighLoad (7006 ms total)
+[       OK ] HighLoad.Write2048_200 (6961 ms)
+[----------] 1 test from HighLoad (6961 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (7006 ms total)
+[==========] 1 test from 1 test suite ran. (6961 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   7.01 sec
+Test time =   6.97 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.Write2048_200" end time: Aug 08 17:32 CEST
-"HighLoad.Write2048_200" time elapsed: 00:00:07
+"HighLoad.Write2048_200" end time: Aug 09 09:47 CEST
+"HighLoad.Write2048_200" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-16/24 Testing: HighLoad.Write2048_500
-16/24 Test: HighLoad.Write2048_500
+16/26 Testing: HighLoad.Write2048_500
+16/26 Test: HighLoad.Write2048_500
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Write2048_500" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.Write2048_500" start time: Aug 08 17:32 CEST
+"HighLoad.Write2048_500" start time: Aug 09 09:47 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -1899,25 +1899,25 @@ Note: Google Test filter = HighLoad.Write2048_500
 [----------] Global test environment set-up.
 [----------] 1 test from HighLoad
 [ RUN      ] HighLoad.Write2048_500
-[       OK ] HighLoad.Write2048_500 (8478 ms)
-[----------] 1 test from HighLoad (8478 ms total)
+[       OK ] HighLoad.Write2048_500 (8353 ms)
+[----------] 1 test from HighLoad (8353 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (8478 ms total)
+[==========] 1 test from 1 test suite ran. (8353 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   8.49 sec
+Test time =   8.36 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.Write2048_500" end time: Aug 08 17:32 CEST
+"HighLoad.Write2048_500" end time: Aug 09 09:48 CEST
 "HighLoad.Write2048_500" time elapsed: 00:00:08
 ----------------------------------------------------------
 
-17/24 Testing: HighLoad.Read512_200
-17/24 Test: HighLoad.Read512_200
+17/26 Testing: HighLoad.Read512_200
+17/26 Test: HighLoad.Read512_200
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Read512_200" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.Read512_200" start time: Aug 08 17:32 CEST
+"HighLoad.Read512_200" start time: Aug 09 09:48 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -1926,25 +1926,25 @@ Note: Google Test filter = HighLoad.Read512_200
 [----------] Global test environment set-up.
 [----------] 1 test from HighLoad
 [ RUN      ] HighLoad.Read512_200
-[       OK ] HighLoad.Read512_200 (6503 ms)
-[----------] 1 test from HighLoad (6503 ms total)
+[       OK ] HighLoad.Read512_200 (6446 ms)
+[----------] 1 test from HighLoad (6446 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6503 ms total)
+[==========] 1 test from 1 test suite ran. (6446 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.51 sec
+Test time =   6.45 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.Read512_200" end time: Aug 08 17:32 CEST
+"HighLoad.Read512_200" end time: Aug 09 09:48 CEST
 "HighLoad.Read512_200" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-18/24 Testing: HighLoad.Read512_500
-18/24 Test: HighLoad.Read512_500
+18/26 Testing: HighLoad.Read512_500
+18/26 Test: HighLoad.Read512_500
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Read512_500" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.Read512_500" start time: Aug 08 17:32 CEST
+"HighLoad.Read512_500" start time: Aug 09 09:48 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -1953,25 +1953,25 @@ Note: Google Test filter = HighLoad.Read512_500
 [----------] Global test environment set-up.
 [----------] 1 test from HighLoad
 [ RUN      ] HighLoad.Read512_500
-[       OK ] HighLoad.Read512_500 (7199 ms)
-[----------] 1 test from HighLoad (7199 ms total)
+[       OK ] HighLoad.Read512_500 (7069 ms)
+[----------] 1 test from HighLoad (7069 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (7199 ms total)
+[==========] 1 test from 1 test suite ran. (7069 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   7.21 sec
+Test time =   7.08 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.Read512_500" end time: Aug 08 17:33 CEST
+"HighLoad.Read512_500" end time: Aug 09 09:48 CEST
 "HighLoad.Read512_500" time elapsed: 00:00:07
 ----------------------------------------------------------
 
-19/24 Testing: HighLoad.Read2048_200
-19/24 Test: HighLoad.Read2048_200
+19/26 Testing: HighLoad.Read2048_200
+19/26 Test: HighLoad.Read2048_200
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Read2048_200" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.Read2048_200" start time: Aug 08 17:33 CEST
+"HighLoad.Read2048_200" start time: Aug 09 09:48 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -1980,25 +1980,25 @@ Note: Google Test filter = HighLoad.Read2048_200
 [----------] Global test environment set-up.
 [----------] 1 test from HighLoad
 [ RUN      ] HighLoad.Read2048_200
-[       OK ] HighLoad.Read2048_200 (6483 ms)
-[----------] 1 test from HighLoad (6483 ms total)
+[       OK ] HighLoad.Read2048_200 (6500 ms)
+[----------] 1 test from HighLoad (6500 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6483 ms total)
+[==========] 1 test from 1 test suite ran. (6500 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.49 sec
+Test time =   6.51 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.Read2048_200" end time: Aug 08 17:33 CEST
+"HighLoad.Read2048_200" end time: Aug 09 09:48 CEST
 "HighLoad.Read2048_200" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-20/24 Testing: HighLoad.Read2048_500
-20/24 Test: HighLoad.Read2048_500
+20/26 Testing: HighLoad.Read2048_500
+20/26 Test: HighLoad.Read2048_500
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.Read2048_500" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.Read2048_500" start time: Aug 08 17:33 CEST
+"HighLoad.Read2048_500" start time: Aug 09 09:48 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -2007,25 +2007,25 @@ Note: Google Test filter = HighLoad.Read2048_500
 [----------] Global test environment set-up.
 [----------] 1 test from HighLoad
 [ RUN      ] HighLoad.Read2048_500
-[       OK ] HighLoad.Read2048_500 (7081 ms)
-[----------] 1 test from HighLoad (7081 ms total)
+[       OK ] HighLoad.Read2048_500 (7093 ms)
+[----------] 1 test from HighLoad (7093 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (7081 ms total)
+[==========] 1 test from 1 test suite ran. (7093 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   7.09 sec
+Test time =   7.10 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.Read2048_500" end time: Aug 08 17:33 CEST
+"HighLoad.Read2048_500" end time: Aug 09 09:48 CEST
 "HighLoad.Read2048_500" time elapsed: 00:00:07
 ----------------------------------------------------------
 
-21/24 Testing: HighLoad.ListNoPrefix
-21/24 Test: HighLoad.ListNoPrefix
+21/26 Testing: HighLoad.ListNoPrefix
+21/26 Test: HighLoad.ListNoPrefix
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.ListNoPrefix" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.ListNoPrefix" start time: Aug 08 17:33 CEST
+"HighLoad.ListNoPrefix" start time: Aug 09 09:48 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -2034,25 +2034,25 @@ Note: Google Test filter = HighLoad.ListNoPrefix
 [----------] Global test environment set-up.
 [----------] 1 test from HighLoad
 [ RUN      ] HighLoad.ListNoPrefix
-[       OK ] HighLoad.ListNoPrefix (11974 ms)
-[----------] 1 test from HighLoad (11974 ms total)
+[       OK ] HighLoad.ListNoPrefix (16376 ms)
+[----------] 1 test from HighLoad (16376 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (11974 ms total)
+[==========] 1 test from 1 test suite ran. (16376 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =  11.98 sec
+Test time =  16.39 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.ListNoPrefix" end time: Aug 08 17:33 CEST
-"HighLoad.ListNoPrefix" time elapsed: 00:00:11
+"HighLoad.ListNoPrefix" end time: Aug 09 09:48 CEST
+"HighLoad.ListNoPrefix" time elapsed: 00:00:16
 ----------------------------------------------------------
 
-22/24 Testing: HighLoad.ListWithPrefix
-22/24 Test: HighLoad.ListWithPrefix
+22/26 Testing: HighLoad.ListWithPrefix
+22/26 Test: HighLoad.ListWithPrefix
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.ListWithPrefix" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HighLoad.ListWithPrefix" start time: Aug 08 17:33 CEST
+"HighLoad.ListWithPrefix" start time: Aug 09 09:48 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -2061,25 +2061,79 @@ Note: Google Test filter = HighLoad.ListWithPrefix
 [----------] Global test environment set-up.
 [----------] 1 test from HighLoad
 [ RUN      ] HighLoad.ListWithPrefix
-[       OK ] HighLoad.ListWithPrefix (16831 ms)
-[----------] 1 test from HighLoad (16831 ms total)
+[       OK ] HighLoad.ListWithPrefix (11867 ms)
+[----------] 1 test from HighLoad (11867 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (16831 ms total)
+[==========] 1 test from 1 test suite ran. (11867 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =  16.84 sec
+Test time =  11.88 sec
 ----------------------------------------------------------
 Test Passed.
-"HighLoad.ListWithPrefix" end time: Aug 08 17:33 CEST
-"HighLoad.ListWithPrefix" time elapsed: 00:00:16
+"HighLoad.ListWithPrefix" end time: Aug 09 09:49 CEST
+"HighLoad.ListWithPrefix" time elapsed: 00:00:11
 ----------------------------------------------------------
 
-23/24 Testing: HigLoad.Close200
-23/24 Test: HigLoad.Close200
+23/26 Testing: HighLoad.IterateNoPrefix
+23/26 Test: HighLoad.IterateNoPrefix
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.IterateNoPrefix" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.IterateNoPrefix" start time: Aug 09 09:49 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.IterateNoPrefix
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.IterateNoPrefix
+[       OK ] HighLoad.IterateNoPrefix (16379 ms)
+[----------] 1 test from HighLoad (16379 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (16379 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =  16.39 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.IterateNoPrefix" end time: Aug 09 09:49 CEST
+"HighLoad.IterateNoPrefix" time elapsed: 00:00:16
+----------------------------------------------------------
+
+24/26 Testing: HighLoad.IterateWithPrefix
+24/26 Test: HighLoad.IterateWithPrefix
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HighLoad.IterateWithPrefix" "--gtest_also_run_disabled_tests"
+Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+"HighLoad.IterateWithPrefix" start time: Aug 09 09:49 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = HighLoad.IterateWithPrefix
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from HighLoad
+[ RUN      ] HighLoad.IterateWithPrefix
+[       OK ] HighLoad.IterateWithPrefix (11908 ms)
+[----------] 1 test from HighLoad (11908 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (11908 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =  11.92 sec
+----------------------------------------------------------
+Test Passed.
+"HighLoad.IterateWithPrefix" end time: Aug 09 09:49 CEST
+"HighLoad.IterateWithPrefix" time elapsed: 00:00:11
+----------------------------------------------------------
+
+25/26 Testing: HigLoad.Close200
+25/26 Test: HigLoad.Close200
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HigLoad.Close200" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HigLoad.Close200" start time: Aug 08 17:33 CEST
+"HigLoad.Close200" start time: Aug 09 09:49 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -2088,25 +2142,25 @@ Note: Google Test filter = HigLoad.Close200
 [----------] Global test environment set-up.
 [----------] 1 test from HigLoad
 [ RUN      ] HigLoad.Close200
-[       OK ] HigLoad.Close200 (6292 ms)
-[----------] 1 test from HigLoad (6292 ms total)
+[       OK ] HigLoad.Close200 (6242 ms)
+[----------] 1 test from HigLoad (6242 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6292 ms total)
+[==========] 1 test from 1 test suite ran. (6242 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.30 sec
+Test time =   6.25 sec
 ----------------------------------------------------------
 Test Passed.
-"HigLoad.Close200" end time: Aug 08 17:33 CEST
+"HigLoad.Close200" end time: Aug 09 09:49 CEST
 "HigLoad.Close200" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-24/24 Testing: HigLoad.Close500
-24/24 Test: HigLoad.Close500
+26/26 Testing: HigLoad.Close500
+26/26 Test: HigLoad.Close500
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=HigLoad.Close500" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"HigLoad.Close500" start time: Aug 08 17:33 CEST
+"HigLoad.Close500" start time: Aug 09 09:49 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -2115,18 +2169,18 @@ Note: Google Test filter = HigLoad.Close500
 [----------] Global test environment set-up.
 [----------] 1 test from HigLoad
 [ RUN      ] HigLoad.Close500
-[       OK ] HigLoad.Close500 (6580 ms)
-[----------] 1 test from HigLoad (6580 ms total)
+[       OK ] HigLoad.Close500 (6544 ms)
+[----------] 1 test from HigLoad (6544 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6580 ms total)
+[==========] 1 test from 1 test suite ran. (6544 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.59 sec
+Test time =   6.55 sec
 ----------------------------------------------------------
 Test Passed.
-"HigLoad.Close500" end time: Aug 08 17:33 CEST
+"HigLoad.Close500" end time: Aug 09 09:49 CEST
 "HigLoad.Close500" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-End testing: Aug 08 17:33 CEST
+End testing: Aug 09 09:49 CEST

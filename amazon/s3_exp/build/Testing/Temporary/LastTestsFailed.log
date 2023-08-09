@@ -1,1 +1,2 @@
-7:HighLoad.Write512_200
+1:HighLoad.IterateNoPrefix
+2:HighLoad.IterateWithPrefix
