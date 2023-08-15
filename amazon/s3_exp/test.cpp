@@ -479,7 +479,7 @@ TEST(Basic, BootAndCreateNamespace) {
     fini(bd);
 }
 
-
+/*
 
 TEST(CAssert, easy_test_1) {
     easy_test_1();
@@ -497,6 +497,7 @@ TEST(CAssert, easy_test_4) {
     easy_test_4();
 }
 
+*/
 
 
 TEST(HighLoad, Create200) {

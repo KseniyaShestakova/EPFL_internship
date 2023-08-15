@@ -18,6 +18,7 @@ find_package(AWSSDK REQUIRED COMPONENTS s3)
 add_executable(${PROJECT_NAME} "test.cpp") #Add app's main starting file.
 add_executable(setup "setup.cpp")
 add_executable(finish "finish.cpp")
+add_executable(refresh "refresh.cpp")
 
 add_definitions(${GLIB_CFLAGS_OTHER})
 set_compiler_flags(${PROJECT_NAME})
@@ -31,6 +32,10 @@ target_link_libraries(setup  PRIVATE ${GLIB_LDFLAGS})
 
 target_link_libraries(finish PRIVATE ${AWSSDK_LINK_LIBRARIES})
 target_link_libraries(finish  PRIVATE ${GLIB_LDFLAGS})
+
+target_link_libraries(refresh PRIVATE ${AWSSDK_LINK_LIBRARIES})
+target_link_libraries(refresh  PRIVATE ${GLIB_LDFLAGS})
+
 
 include(FetchContent)
 

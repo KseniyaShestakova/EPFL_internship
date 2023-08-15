@@ -1,0 +1,49 @@
+Test project /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+      Start  1: Basic.JustBoot
+ 1/22 Test  #1: Basic.JustBoot ...................   Passed    6.08 sec
+      Start  2: Basic.BootAndCreateNamespace
+ 2/22 Test  #2: Basic.BootAndCreateNamespace .....   Passed    6.12 sec
+      Start  3: HighLoad.Create200
+ 3/22 Test  #3: HighLoad.Create200 ...............   Passed    7.14 sec
+      Start  4: HighLoad.Create500
+ 4/22 Test  #4: HighLoad.Create500 ...............   Passed    9.04 sec
+      Start  5: HighLoad.Open200
+ 5/22 Test  #5: HighLoad.Open200 .................   Passed   10.79 sec
+      Start  6: HighLoad.Open500
+ 6/22 Test  #6: HighLoad.Open500 .................   Passed    6.91 sec
+      Start  7: HighLoad.Delete200
+ 7/22 Test  #7: HighLoad.Delete200 ...............   Passed    6.56 sec
+      Start  8: HighLoad.Delete500
+ 8/22 Test  #8: HighLoad.Delete500 ...............   Passed    7.57 sec
+      Start  9: HighLoad.Write512_200
+ 9/22 Test  #9: HighLoad.Write512_200 ............   Passed    7.37 sec
+      Start 10: HighLoad.Write512_500
+10/22 Test #10: HighLoad.Write512_500 ............   Passed    9.09 sec
+      Start 11: HighLoad.Write2048_200
+11/22 Test #11: HighLoad.Write2048_200 ...........   Passed    7.25 sec
+      Start 12: HighLoad.Write2048_500
+12/22 Test #12: HighLoad.Write2048_500 ...........   Passed    9.86 sec
+      Start 13: HighLoad.Read512_200
+13/22 Test #13: HighLoad.Read512_200 .............   Passed    6.61 sec
+      Start 14: HighLoad.Read512_500
+14/22 Test #14: HighLoad.Read512_500 .............   Passed    7.78 sec
+      Start 15: HighLoad.Read2048_200
+15/22 Test #15: HighLoad.Read2048_200 ............   Passed    6.63 sec
+      Start 16: HighLoad.Read2048_500
+16/22 Test #16: HighLoad.Read2048_500 ............   Passed    7.61 sec
+      Start 17: HighLoad.ListNoPrefix
+17/22 Test #17: HighLoad.ListNoPrefix ............   Passed   21.42 sec
+      Start 18: HighLoad.ListWithPrefix
+18/22 Test #18: HighLoad.ListWithPrefix ..........   Passed   14.14 sec
+      Start 19: HighLoad.IterateNoPrefix
+19/22 Test #19: HighLoad.IterateNoPrefix .........   Passed   21.73 sec
+      Start 20: HighLoad.IterateWithPrefix
+20/22 Test #20: HighLoad.IterateWithPrefix .......   Passed   14.45 sec
+      Start 21: HigLoad.Close200
+21/22 Test #21: HigLoad.Close200 .................   Passed    6.30 sec
+      Start 22: HigLoad.Close500
+22/22 Test #22: HigLoad.Close500 .................   Passed    6.84 sec
+
+100% tests passed, 0 tests failed out of 22
+
+Total Test time (real) = 207.30 sec

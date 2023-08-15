@@ -211,6 +211,19 @@ finish/fast:
 .PHONY : finish/fast
 
 #=============================================================================
+# Target rules for targets named refresh
+
+# Build rule for target.
+refresh: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 refresh
+.PHONY : refresh
+
+# fast build rule for target.
+refresh/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/refresh.dir/build.make CMakeFiles/refresh.dir/build
+.PHONY : refresh/fast
+
+#=============================================================================
 # Target rules for targets named gmock
 
 # Build rule for target.
@@ -286,6 +299,30 @@ finish.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/finish.dir/build.make CMakeFiles/finish.dir/finish.cpp.s
 .PHONY : finish.cpp.s
 
+refresh.o: refresh.cpp.o
+.PHONY : refresh.o
+
+# target to build an object file
+refresh.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/refresh.dir/build.make CMakeFiles/refresh.dir/refresh.cpp.o
+.PHONY : refresh.cpp.o
+
+refresh.i: refresh.cpp.i
+.PHONY : refresh.i
+
+# target to preprocess a source file
+refresh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/refresh.dir/build.make CMakeFiles/refresh.dir/refresh.cpp.i
+.PHONY : refresh.cpp.i
+
+refresh.s: refresh.cpp.s
+.PHONY : refresh.s
+
+# target to generate assembly for a file
+refresh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/refresh.dir/build.make CMakeFiles/refresh.dir/refresh.cpp.s
+.PHONY : refresh.cpp.s
+
 setup.o: setup.cpp.o
 .PHONY : setup.o
 
@@ -353,10 +390,14 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... refresh"
 	@echo "... setup"
 	@echo "... finish.o"
 	@echo "... finish.i"
 	@echo "... finish.s"
+	@echo "... refresh.o"
+	@echo "... refresh.i"
+	@echo "... refresh.s"
 	@echo "... setup.o"
 	@echo "... setup.i"
 	@echo "... setup.s"

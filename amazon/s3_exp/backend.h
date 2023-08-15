@@ -20,10 +20,6 @@
 // C-style structs, no OOP
 #include <glib.h>
 
-void foo(gchar const* str) {
-    Aws::String string = str;
-    std::cout << str;
-}
 
 struct BackendData {
     std::string path = "127.0.0.1:9000";
@@ -111,7 +107,6 @@ bool create_without_check(BackendData*bd, const Aws::String& bucket,
          Aws::MakeShared<Aws::StringStream>("SampleAllocationTag", "");
  
     if (!*inputData) {
-        std::cerr << "Error while creating shared_ptr" << std::endl;
         return false;
     }
  
@@ -120,12 +115,8 @@ bool create_without_check(BackendData*bd, const Aws::String& bucket,
     Aws::S3::Model::PutObjectOutcome outcome = (bd->client)->PutObject(request);
  
     if (!outcome.IsSuccess()) {
-        std::cerr << "Error: PutObject: " <<
-            outcome.GetError().GetMessage() << std::endl;
         return false;
     } 
-    std::cout << "Added object " << object << " to bucket " <<
-            bucket << std::endl;
     fill_object(bo, bucket, object);
     auto it_bool_pair = handler.emplace(path, *bo);
     
@@ -145,8 +136,6 @@ bool exists(BackendData* bd, const Aws::String& bucket, const Aws::String& objec
         if (err.GetExceptionName() == "NoSuchKey") {
             return false;
         }
-        std::cerr << "Error: GetObject: " <<
-                  err.GetExceptionName() << ": " << err.GetMessage() << std::endl;
         return true; //error should be handled somehow!
     }
     return true; 
@@ -157,7 +146,6 @@ bool create_or_open(BackendData* bd, const Aws::String& bucket,
                                      BackendObject** bo,
                                      bool non_create) {
     if (*bo != nullptr) {
-        std::cerr << "You are about to lose existing object handler!" << std::endl;
         return false;
     }
 
@@ -203,7 +191,6 @@ bool close(BackendData* bd, BackendObject* bo) {
     auto it = handler.find(path);
 
     if (it == handler.end()) {
-        std::cout << "Not found" << std::endl;
         return false;
     }
 
@@ -227,15 +214,7 @@ bool delete_object(BackendData* bd, const Aws::String& objectKey,
 
     Aws::S3::Model::DeleteObjectOutcome outcome = (bd->client)->DeleteObject(request);
 
-    if (!outcome.IsSuccess()) {
-        auto err = outcome.GetError();
-        std::cerr << "Error: DeleteObject: " <<
-                  err.GetExceptionName() << ": " << err.GetMessage() << std::endl;
-        return false;
-    }
-
-    std::cout << "Successfully deleted " << objectKey << std::endl;
-    return true;
+    return outcome.IsSuccess();
 }
 
 // we cannot delete an object used by another process or thread
@@ -245,13 +224,10 @@ bool delete_object(BackendData* bd, BackendObject* bo) {
     auto it = handler.find(path);
 
     if (it == handler.end()) {
-        std::cout << "Not found in the map" << std::endl;
         return false;
     }
 
     if ((*it).second->refCount > 1) {
-        std::cout << "Many links, can't delete: "
-            << (*it).second->refCount << std::endl;
         return false;
     }
 
@@ -278,9 +254,6 @@ bool status(BackendData* bd, BackendObject* bo,
     Aws::S3::Model::GetObjectOutcome outcome = (bd->client)->GetObject(request);
 
     if (!outcome.IsSuccess()) {
-        const Aws::S3::S3Error& err = outcome.GetError();
-        std::cerr << "Error: GetObject: " <<
-                  err.GetExceptionName() << ": " << err.GetMessage() << std::endl;
         return false;
     }
 
@@ -313,8 +286,6 @@ bool read(BackendData* bd, BackendObject* bo,
     Aws::S3::Model::GetObjectOutcome outcome = (bd->client)->GetObject(request);
     if (!outcome.IsSuccess()) {
         auto err = outcome.GetError();
-        std::cerr << "Error: GetObject: " << err.GetExceptionName() <<
-            ": " << err.GetMessage() << std::endl;
         return false;
     }
 
@@ -344,7 +315,6 @@ bool write(BackendData* bd, BackendObject* bo,
         Aws::MakeShared<Aws::StringStream>("SampleAllocationTag", buffer);
 
     if (!*inputData) {
-        std::cerr << "Error while creating shared ptr" << std::endl;
         return false;
     }
 
@@ -354,8 +324,6 @@ bool write(BackendData* bd, BackendObject* bo,
 
     if (!outcome.IsSuccess()) {
         auto err = outcome.GetError();
-        std::cerr << "Error: PutObject: " << err.GetExceptionName() <<
-            ": " << err.GetMessage() << std::endl;
         return false;
     }
 
@@ -382,9 +350,6 @@ bool get_list(BackendData* bd, const  Aws::String& bucket,
     auto outcome = (bd->client)->ListObjects(request);
 
     if (!outcome.IsSuccess()) {
-        auto& err = outcome.GetError();
-        std::cerr << "Error: ListObjects: " <<
-            err.GetExceptionName() << ": " << err.GetMessage() << std::endl;
         return false;
     }
 
@@ -415,12 +380,6 @@ bool iterate(BackendData* bd, BackendIterator* bi, std::string& name) {
 
     iterator_next(bi);
 
-    /*if (name == "") {
-        iterator_free(bi);
-        return false;
-    }
-
-    return false;*/
     return (name != "");
 }
 
@@ -429,7 +388,6 @@ bool iterate(BackendData* bd, BackendIterator* bi, std::string& name) {
 // default value of path = "127.0.0.1:9000"
 bool init(const std::string& path, BackendData** bd) {
     if (*bd != nullptr) {
-        std::cerr << "You are going to loose non-empty BackendData pointer";
         return false;
     }
 
@@ -651,9 +609,6 @@ bool create_namespace(BackendData* bd, const Aws::String& bucketName) {
     Aws::S3::Model::CreateBucketOutcome outcome = (bd->client)->CreateBucket(request);
 
     if (!outcome.IsSuccess()) {
-        auto err = outcome.GetError();
-        std::cerr << "Error: CreateBucket: " << err.GetExceptionName() <<
-            ": " << err.GetMessage() << std::endl;
     }
 
     return outcome.IsSuccess();
@@ -667,11 +622,8 @@ bool delete_bucket(BackendData* bd, const Aws::String& bucket) {
 
     if (!outcome.IsSuccess()) {
         auto err = outcome.GetError();
-        std::cerr << "Error: DeleteBucket: " <<
-            err.GetExceptionName() << ": " << err.GetMessage() << std::endl;
         return false;
     }
-    std::cout << "Successfully deleted " << bucket << std::endl;
     return true;
 }
 
@@ -682,7 +634,6 @@ bool clean_namespace(BackendData* bd, const Aws::String&/*namespace*/ bucket) {
     std::string name;
 
     while(iterate(bd, bi, name)) {
-        std::cout << "deleting " << name << "..." << std::endl;
         bool ret = delete_object(bd, name, bucket);
         if (!ret) {
             return false;
