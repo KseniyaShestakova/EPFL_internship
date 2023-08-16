@@ -85,7 +85,7 @@ void prepare_list(BackendData* bd, int no_prefix, int with_prefix) {
 int main() {
     bool flag = false;
 
-    std::string path = "127.0.0.1:9000";
+    std::string path = "play.min.io:9443";
     BackendData* bd = nullptr;
     flag = init(path, &bd);
     assert("Failed to initialize backend" && flag);

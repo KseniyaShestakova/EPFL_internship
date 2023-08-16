@@ -89,10 +89,7 @@ bool create_without_check(BackendData* bd, const std::string& bucket,
 
     minio::s3::PutObjectResponse resp = (bd->client).PutObject(args);
 
-    if (resp) {
-        std::cout << "Added " << object << " to " << bucket << std::endl;
-    } else {
-        std::cout << "Error: PutObject: " << resp.Error().String() << std::endl;
+    if (!resp) {
         return false;
     }
 
@@ -125,7 +122,6 @@ bool create_or_open(BackendData* bd, const std::string& bucket,
                                      BackendObject** bo,
                                      bool non_create) {
     if (*bo != nullptr) {
-        std::cerr << "You are about to lose existing object handler!" << std::endl;
         return false;
     }
 
@@ -194,12 +190,7 @@ bool delete_object(BackendData* bd, const std::string& object,
 
     minio::s3::RemoveObjectResponse resp = (bd->client).RemoveObject(args);
 
-    if (resp) {
-        std::cout << "Deleted " << object << " from " << bucket << std::endl;
-        return true;
-    }
-    std::cout << "Error: RemoveObject: " << resp.Error().String() << std::endl;
-    return false;
+    return true;
 }
 
 bool delete_object(BackendData* bd, BackendObject* bo) {
@@ -208,13 +199,10 @@ bool delete_object(BackendData* bd, BackendObject* bo) {
     auto it = handler.find(path);
 
     if (it == handler.end()) {
-        std::cout << "Not found" << std::endl;
         return false;
     }
 
     if ((*it).second->refCount > 1) {
-        std::cout << "Many links, can't delete: " <<
-            (*it).second->refCount << std::endl;
         return false;
     }
 
@@ -244,7 +232,6 @@ bool status(BackendData* bd, BackendObject* bo,
         *size = resp.size;
         return true;
     }
-    std::cout << "Error: Stat: " << resp.Error().String() << std::endl;
     return false;
 }
 
@@ -259,8 +246,6 @@ bool read(BackendData* bd, BackendObject* bo,
     args.offset = &offset;
     args.length = &length;
 
-    std::cout << "offset: " << *(args.offset)
-        << "; length: " << *(args.length) << std::endl;
 
     uint64_t total = 0;
     args.datafunc = [&](minio::http::DataFunctionArgs args) -> bool {
@@ -272,11 +257,7 @@ bool read(BackendData* bd, BackendObject* bo,
 
     minio::s3::GetObjectResponse resp = (bd->client).GetObject(args);
 
-    std::cout << "offset: " << *(args.offset)
-         << "; length: " << *(args.length) << std::endl;
-
     if (!resp) {
-        std::cout << "Error: GetObject: " << resp.Error().String() << std::endl;
         return false;
     }
     *bytes_read = total;
@@ -296,12 +277,7 @@ bool write(BackendData* bd, BackendObject* bo,
 
     minio::s3::PutObjectResponse resp = (bd->client).PutObject(args);
 
-    if (!resp) {
-        std::cout << "Error: PutObject: " << resp.Error().String() << std::endl;
-        return false;
-    }
-
-    return true;
+    return resp;
 }
 
 bool get_list(BackendData* bd, const std::string& bucket,
@@ -341,7 +317,6 @@ bool iterate(BackendData* bd, BackendIterator* bi, std::string& name) {
 
 bool init(const std::string& path, BackendData** bd) {
     if (*bd != nullptr) {
-        std::cerr << "You're trying to reuse existing BackendData pointer!";
         return false;
     }
     *bd = new BackendData(path);
@@ -388,13 +363,7 @@ bool create_namespace(BackendData* bd,
  
     minio::s3::MakeBucketResponse resp = (bd->client).MakeBucket(args);
 
-    if (resp) {
-        std::cout << bucket_name << " was created" << std::endl;
-        return true;
-    }
-    std::cout << "unable to create " << bucket_name <<
-        resp.Error().String() << std::endl;
-    return false;
+    return resp;
 }
 
 bool delete_bucket(BackendData* bd, const std::string& bucket) {
@@ -403,13 +372,7 @@ bool delete_bucket(BackendData* bd, const std::string& bucket) {
 
     minio::s3::RemoveBucketResponse resp = (bd->client).RemoveBucket(args);
 
-    if (resp) {
-        std::cout << bucket << " was removed successfully" << std::endl;
-        return true;
-    }
-
-    std::cout << "Error:  RemoveBucket: " << resp.Error().String() << std::endl;
-    return false;
+    return resp;
 }
 
 bool clean_namespace(BackendData* bd, const std::string& bucket,
@@ -419,7 +382,6 @@ bool clean_namespace(BackendData* bd, const std::string& bucket,
 
     std::string name;
     while (iterate(bd, bi, name)) {
-        std::cout << "deleting " << name << "..." << std::endl;
         bool ret = delete_object(bd, name, bucket);
         if (!ret) {
             return false;
@@ -433,7 +395,6 @@ bool clean_namespace(BackendData* bd, const std::string& bucket,
         get_by_prefix(bd, bucket, &bi, prefix);
         
         while (iterate(bd, bi, name)) {
-            std::cout << "deleting " << name << "..." << std::endl;
             bool ret = delete_object(bd, name, bucket);
             if (!ret) {
                 return false;

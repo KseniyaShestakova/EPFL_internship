@@ -1,0 +1,49 @@
+Test project /home/xxeniash/EPFL_internship/minio_dev/minio-cpp/build/examples
+      Start  1: Basic.JustBoot
+ 1/22 Test  #1: Basic.JustBoot ......................   Passed    0.00 sec
+      Start  2: Basic.BootAndCreateNamespace
+ 2/22 Test  #2: Basic.BootAndCreateNamespace ........   Passed    1.82 sec
+      Start  3: HighLoad.Createsmall_num_iter
+ 3/22 Test  #3: HighLoad.Createsmall_num_iter .......   Passed   14.95 sec
+      Start  4: HighLoad.Createlarge_num_iter
+ 4/22 Test  #4: HighLoad.Createlarge_num_iter .......   Passed   41.68 sec
+      Start  5: HighLoad.Opensmall_num_iter
+ 5/22 Test  #5: HighLoad.Opensmall_num_iter .........   Passed   14.42 sec
+      Start  6: HighLoad.Openlarge_num_iter
+ 6/22 Test  #6: HighLoad.Openlarge_num_iter .........   Passed   18.34 sec
+      Start  7: HighLoad.Deletesmall_num_iter
+ 7/22 Test  #7: HighLoad.Deletesmall_num_iter .......   Passed   15.98 sec
+      Start  8: HighLoad.Deletelarge_num_iter
+ 8/22 Test  #8: HighLoad.Deletelarge_num_iter .......   Passed   41.47 sec
+      Start  9: HighLoad.Write512_small_num_iter
+ 9/22 Test  #9: HighLoad.Write512_small_num_iter ....   Passed   14.34 sec
+      Start 10: HighLoad.Write512_large_num_iter
+10/22 Test #10: HighLoad.Write512_large_num_iter ....   Passed   47.47 sec
+      Start 11: HighLoad.Write2048_small_num_iter
+11/22 Test #11: HighLoad.Write2048_small_num_iter ...   Passed   23.59 sec
+      Start 12: HighLoad.Write2048_large_num_iter
+12/22 Test #12: HighLoad.Write2048_large_num_iter ...   Passed   40.51 sec
+      Start 13: HighLoad.Read512_small_num_iter
+13/22 Test #13: HighLoad.Read512_small_num_iter .....   Passed   16.52 sec
+      Start 14: HighLoad.Read512_large_num_iter
+14/22 Test #14: HighLoad.Read512_large_num_iter .....   Passed   50.79 sec
+      Start 15: HighLoad.Read2048_small_num_iter
+15/22 Test #15: HighLoad.Read2048_small_num_iter ....   Passed   15.57 sec
+      Start 16: HighLoad.Read2048_large_num_iter
+16/22 Test #16: HighLoad.Read2048_large_num_iter ....   Passed   36.26 sec
+      Start 17: HighLoad.ListNoPrefix
+17/22 Test #17: HighLoad.ListNoPrefix ...............   Passed   46.02 sec
+      Start 18: HighLoad.ListWithPrefix
+18/22 Test #18: HighLoad.ListWithPrefix .............   Passed   47.26 sec
+      Start 19: HighLoad.IterateNoPrefix
+19/22 Test #19: HighLoad.IterateNoPrefix ............   Passed   64.09 sec
+      Start 20: HighLoad.IterateWithPrefix
+20/22 Test #20: HighLoad.IterateWithPrefix ..........   Passed   50.28 sec
+      Start 21: HigLoad.Closesmall_num_iter
+21/22 Test #21: HigLoad.Closesmall_num_iter .........   Passed   10.30 sec
+      Start 22: HigLoad.Closelarge_num_iter
+22/22 Test #22: HigLoad.Closelarge_num_iter .........   Passed   23.90 sec
+
+100% tests passed, 0 tests failed out of 22
+
+Total Test time (real) = 635.58 sec

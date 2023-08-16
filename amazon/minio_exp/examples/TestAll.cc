@@ -306,7 +306,7 @@ void put_object(minio::s3::Client* client,
 
 int main(int argc, char* argv[]) {
 	// set-up: create S3 base URL
-    minio::s3::BaseUrl base_url("play.min.io");
+    minio::s3::BaseUrl base_url("localhost");
 
     // create credential provider
     // probably accepts arbitrary credentials

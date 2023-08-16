@@ -1,5 +1,7 @@
 SET(S3_LIBS ${requiredlibs})
 
+enable_testing()
+
 include(FetchContent)
 
 FetchContent_Declare(
@@ -23,6 +25,10 @@ TARGET_LINK_LIBRARIES(setup PRIVATE miniocpp ${S3_LIBS})
 
 ADD_EXECUTABLE(finish finish.cpp)
 TARGET_LINK_LIBRARIES(finish PRIVATE miniocpp ${S3_LIBS})
+
+ADD_EXECUTABLE(refresh refresh.cpp)
+TARGET_LINK_LIBRARIES(refresh PRIVATE miniocpp ${S3_LIBS})
+
 
 include(GoogleTest)
 gtest_discover_tests(test)

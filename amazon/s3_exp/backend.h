@@ -608,9 +608,6 @@ bool create_namespace(BackendData* bd, const Aws::String& bucketName) {
 
     Aws::S3::Model::CreateBucketOutcome outcome = (bd->client)->CreateBucket(request);
 
-    if (!outcome.IsSuccess()) {
-    }
-
     return outcome.IsSuccess();
 }
 
