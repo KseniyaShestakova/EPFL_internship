@@ -1,2 +1,5 @@
-7:HighLoad.Create200
-8:HighLoad.Create500
+8:Write.Write512
+9:Write.Write1024
+10:Write.Write2048
+11:Write.Write4096
+12:Write.Write8192

@@ -608,6 +608,13 @@ bool create_namespace(BackendData* bd, const Aws::String& bucketName) {
 
     Aws::S3::Model::CreateBucketOutcome outcome = (bd->client)->CreateBucket(request);
 
+    if (!outcome.IsSuccess()) {
+        auto err = outcome.GetError();
+        std::cerr << "Error: CreateBucket: " <<
+                  err.GetExceptionName() << ": " << err.GetMessage() << std::endl;
+    
+    }
+
     return outcome.IsSuccess();
 }
 

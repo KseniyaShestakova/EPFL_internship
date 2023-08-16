@@ -497,7 +497,7 @@ TEST(CAssert, easy_test_4) {
     easy_test_4();
 }
 
-*/
+
 
 
 TEST(HighLoad, Create200) {
@@ -531,8 +531,6 @@ TEST(HighLoad, Delete200) {
 TEST(HighLoad, Delete500) {
      multiple_deletes(500);
  }
-
-
 
 TEST(HighLoad, Write512_200) {
     multiple_writes(512, 200);
@@ -582,4 +580,46 @@ TEST(HighLoad, IterateNoPrefix) {
 TEST(HighLoad, IterateWithPrefix) {
     multiple_lists(500, 500, 200, true, true);
 }
+*/
 
+static const int _num_iter = 300;
+
+TEST(Read, Read512) {
+    multiple_reads(512, _num_iter);
+}
+
+TEST(Read, Read1024) {
+    multiple_reads(1024, _num_iter);
+}
+
+TEST(Read, Read2048) {
+    multiple_reads(2048, _num_iter);
+}
+
+TEST(Read, Read4096) {
+    multiple_reads(4096, _num_iter);
+}
+
+TEST(Read, Read8192) {
+    multiple_reads(8192, _num_iter);
+}
+
+TEST(Write, Write512) {
+     multiple_writes(512, _num_iter);
+ }
+
+ TEST(Write, Write1024) {
+     multiple_writes(1024, _num_iter);
+ }
+
+ TEST(Write, Write2048) {
+     multiple_writes(2048, _num_iter);
+ }
+
+ TEST(Write, Write4096) {
+     multiple_writes(4096, _num_iter);
+ }
+
+ TEST(Write, Write8192) {
+     multiple_writes(8192, _num_iter);
+ }

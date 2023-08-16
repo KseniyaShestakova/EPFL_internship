@@ -8,21 +8,22 @@ void prepare_create(BackendData* bd, int num_iter) {
     assert(flag && "Failed to create namespace");
 }
 
-void prepare_general(BackendData* bd, const std::string& operation, int num_iter) {
+// num is describing some characteristic specific for this test
+void prepare_general(BackendData* bd, const std::string& operation, int num) {
     bool flag = false;
-    std::string ns = "ns-" + operation + "-" + std::to_string(num_iter);
+    std::string ns = "ns-" + operation + "-" + std::to_string(num);
 
     flag = create_namespace(bd, ns);
     assert(flag && "Failed to create namespace");
     
-    std::vector<BackendObject*> bo(num_iter, nullptr);
+    std::vector<BackendObject*> bo(num, nullptr);
 
-    for (int i = 0; i < num_iter; ++i) {
+    for (int i = 0; i < num; ++i) {
         flag = create(bd, ns, "obj" + std::to_string(i), &bo[i]);
         assert(flag && "Failed to create object");
     }
 
-    for (int i = 0; i < num_iter; ++i) {
+    for (int i = 0; i < num; ++i) {
         flag = close(bd, bo[i]);
         assert(flag && "Failed to close object");
     }
@@ -33,6 +34,8 @@ void prepare_read(BackendData* bd, int size, int num_iter) {
     bool flag = false;
  
     std::string ns = "ns-read-" + std::to_string(size) + "-" + std::to_string(num_iter);
+
+    std::cout << "Trying to create " << ns << std::endl;
     flag = create_namespace(bd, ns);
     assert(flag && "Failed to create namespace");
  
@@ -82,37 +85,51 @@ void prepare_list(BackendData* bd, int no_prefix, int with_prefix) {
     }
 }
 
-int main() {
-    bool flag = false;
-
-    std::string path = "play.min.io:9443";
-    BackendData* bd = nullptr;
-    flag = init(path, &bd);
-    assert("Failed to initialize backend" && flag);
-
+void setup_general(BackendData* bd) {
     prepare_create(bd, 200);
     prepare_create(bd, 500);
-
+ 
     std::vector<std::string> operations = { "open", "close", "delete",
-                                    "write-512", "write-2048"};
-
+                                     "write-512", "write-2048"};
+ 
     std::vector<int> num_iters = {200, 500};
     std::vector<int> sizes = {512, 2048};
-
+ 
     for (auto operation: operations) {
         for (auto num_iter: num_iters) {
             prepare_general(bd, operation, num_iter);
         }
     }
-
+ 
     for (auto  num_iter: num_iters) {
         for (auto size: sizes) {
             prepare_read(bd, size, num_iter);
         }
     }
-
+ 
     prepare_list(bd, 500, 500);
-    
+}
+
+void setup_read_write(BackendData* bd) {
+    int num_iter = 300;
+
+    std::vector<int> sizes = {512, 1024, 2048, 4096, 8192};
+
+    for (auto size: sizes) {
+        prepare_read(bd, size, num_iter);
+        prepare_general(bd, "write", size);
+    }
+}
+
+int main() {
+    bool flag = false;
+
+    std::string path = "127.0.0.1:9000";
+    BackendData* bd = nullptr;
+    flag = init(path, &bd);
+    assert("Failed to initialize backend" && flag);
+
+    setup_read_write(bd);
 
     fini(bd);
 }
