@@ -3,27 +3,33 @@
 #include <vector>
 #include <string.h>
 
+static const int default_num_objects = 300;
+
 void prepare_create(BackendData* bd, int num_iter) {
     bool flag = create_namespace(bd, "ns-create-" + std::to_string(num_iter));
     assert(flag && "Failed to create namespace");
 }
 
 // num is describing some characteristic specific for this test
-void prepare_general(BackendData* bd, const std::string& operation, int num) {
+void prepare_general(BackendData* bd, const std::string& operation, int num,
+                                        bool use_default = false) {
+    int num_objects = use_default ? default_num_objects : num;
+
     bool flag = false;
+
     std::string ns = "ns-" + operation + "-" + std::to_string(num);
 
     flag = create_namespace(bd, ns);
     assert(flag && "Failed to create namespace");
     
-    std::vector<BackendObject*> bo(num, nullptr);
+    std::vector<BackendObject*> bo(num_objects, nullptr);
 
-    for (int i = 0; i < num; ++i) {
+    for (int i = 0; i < num_objects; ++i) {
         flag = create(bd, ns, "obj" + std::to_string(i), &bo[i]);
         assert(flag && "Failed to create object");
     }
 
-    for (int i = 0; i < num; ++i) {
+    for (int i = 0; i < num_objects; ++i) {
         flag = close(bd, bo[i]);
         assert(flag && "Failed to close object");
     }
@@ -113,11 +119,11 @@ void setup_general(BackendData* bd) {
 void setup_read_write(BackendData* bd) {
     int num_iter = 300;
 
-    std::vector<int> sizes = {512, 1024, 2048, 4096, 8192};
+    std::vector<int> sizes = {512, 1024, 2048, 4096, 8192, 12288, 16384, 32768};
 
     for (auto size: sizes) {
         prepare_read(bd, size, num_iter);
-        prepare_general(bd, "write", size);
+        prepare_general(bd, "write", size, true);
     }
 }
 

@@ -1,7 +1,7 @@
 #! /bin/python
 
-report_file = open('../report/report.txt', 'r')
-result_file = open('../report/result.csv', 'a')
+report_file = open('../report/report_rw.txt', 'r')
+result_file = open('../report/result_rw.csv', 'a')
 lines = report_file.readlines()
 
 for line in lines:

@@ -1,0 +1,41 @@
+Test project /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+      Start  1: Basic.JustBoot
+ 1/18 Test  #1: Basic.JustBoot ...................   Passed    6.04 sec
+      Start  2: Basic.BootAndCreateNamespace
+ 2/18 Test  #2: Basic.BootAndCreateNamespace .....   Passed    6.04 sec
+      Start  3: Read.Read512
+ 3/18 Test  #3: Read.Read512 .....................   Passed    6.73 sec
+      Start  4: Read.Read1024
+ 4/18 Test  #4: Read.Read1024 ....................   Passed    6.78 sec
+      Start  5: Read.Read2048
+ 5/18 Test  #5: Read.Read2048 ....................   Passed    6.70 sec
+      Start  6: Read.Read4096
+ 6/18 Test  #6: Read.Read4096 ....................   Passed    6.76 sec
+      Start  7: Read.Read8192
+ 7/18 Test  #7: Read.Read8192 ....................   Passed    7.07 sec
+      Start  8: Read.Read12288
+ 8/18 Test  #8: Read.Read12288 ...................   Passed    6.82 sec
+      Start  9: Read.Read16384
+ 9/18 Test  #9: Read.Read16384 ...................   Passed    6.81 sec
+      Start 10: Read.Read32768
+10/18 Test #10: Read.Read32768 ...................   Passed    7.03 sec
+      Start 11: Write.Write512
+11/18 Test #11: Write.Write512 ...................   Passed    7.75 sec
+      Start 12: Write.Write1024
+12/18 Test #12: Write.Write1024 ..................   Passed    7.70 sec
+      Start 13: Write.Write2048
+13/18 Test #13: Write.Write2048 ..................   Passed    7.48 sec
+      Start 14: Write.Write4096
+14/18 Test #14: Write.Write4096 ..................   Passed    7.54 sec
+      Start 15: Write.Write8192
+15/18 Test #15: Write.Write8192 ..................   Passed    7.69 sec
+      Start 16: Write.Write12288
+16/18 Test #16: Write.Write12288 .................   Passed    8.06 sec
+      Start 17: Write.Write16384
+17/18 Test #17: Write.Write16384 .................   Passed    7.66 sec
+      Start 18: Write.Write32768
+18/18 Test #18: Write.Write32768 .................   Passed    8.46 sec
+
+100% tests passed, 0 tests failed out of 18
+
+Total Test time (real) = 129.14 sec

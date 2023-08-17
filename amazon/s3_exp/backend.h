@@ -632,20 +632,28 @@ bool delete_bucket(BackendData* bd, const Aws::String& bucket) {
 }
 
 bool clean_namespace(BackendData* bd, const Aws::String&/*namespace*/ bucket) {
-    BackendIterator* bi;
-    get_all(bd, bucket, &bi);
+    bool not_empty = true;
 
-    std::string name;
+    while (not_empty) {
+        int cnt = 0;
 
-    while(iterate(bd, bi, name)) {
-        bool ret = delete_object(bd, name, bucket);
-        if (!ret) {
-            return false;
-        }
+        BackendIterator* bi;
+        get_all(bd, bucket, &bi);
+
+        std::string name;
+
+        while(iterate(bd, bi, name)) {
+            ++cnt;
+            bool ret = delete_object(bd, name, bucket);
+            if (!ret) {
+                return false;
+            }
+         }
+
+        not_empty = cnt;
+                    
+        iterator_free(bi);
     }
-
-    iterator_free(bi);
-
 
     return delete_bucket(bd, bucket);
 }

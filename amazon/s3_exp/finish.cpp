@@ -4,7 +4,9 @@
 #include <string>
 
 void clean_up(BackendData* bd, const std::string& operation, int num_iters) {
-    bool flag = clean_namespace(bd, "ns-" + operation + "-" + std::to_string(num_iters));
+    std::string ns = "ns-" + operation + "-" + std::to_string(num_iters);
+    std::cout << "trying to clean " << ns << std::endl; 
+    bool flag = clean_namespace(bd, ns);
     assert(flag && "Failed to clean namespace");
 }
 
@@ -26,7 +28,7 @@ void finish_general(BackendData* bd) {
 void finish_read_write(BackendData* bd) {
     int num_iter = 300;
 
-    std::vector<int> sizes = {512, 1024, 2048, 4096, 8192};
+    std::vector<int> sizes = {512, 1024, 2048, 4096, 8192, 12288, 16384, 32768};
 
     for (auto size: sizes) {
         clean_up(bd, "read-" + std::to_string(size), num_iter);

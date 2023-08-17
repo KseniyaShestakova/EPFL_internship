@@ -343,7 +343,7 @@ void multiple_deletes(int num_iter) {
 }
 
 
-void multiple_writes(int size, int num_iter) {
+void multiple_writes(int size, int num_iter, bool include_num_iter = true) {
     bool flag = false;
 
     std::string path = "127.0.0.1:9000";
@@ -351,7 +351,10 @@ void multiple_writes(int size, int num_iter) {
     flag = init(path, &bd);
     assert("Failed to initialize backend" && flag);
 
-    std::string ns = "ns-write-" + std::to_string(size) + "-" + std::to_string(num_iter);
+    std::string ns = "ns-write-" + std::to_string(size);
+    if (include_num_iter) {
+        ns += "-" + std::to_string(num_iter);
+    }
 
     std::vector<BackendObject*> bo(num_iter, nullptr);
 
@@ -604,22 +607,48 @@ TEST(Read, Read8192) {
     multiple_reads(8192, _num_iter);
 }
 
+TEST(Read, Read12288) {
+     multiple_reads(12288, _num_iter);
+}
+
+TEST(Read, Read16384) {
+    multiple_reads(16384, _num_iter);
+}
+
+TEST(Read, Read32768) {
+    multiple_reads(32768, _num_iter);
+}
+
+
+
 TEST(Write, Write512) {
-     multiple_writes(512, _num_iter);
- }
+    multiple_writes(512, _num_iter, false);
+}
 
- TEST(Write, Write1024) {
-     multiple_writes(1024, _num_iter);
- }
+TEST(Write, Write1024) {
+    multiple_writes(1024, _num_iter, false);
+}
 
- TEST(Write, Write2048) {
-     multiple_writes(2048, _num_iter);
- }
+TEST(Write, Write2048) {
+    multiple_writes(2048, _num_iter, false);
+}
 
- TEST(Write, Write4096) {
-     multiple_writes(4096, _num_iter);
- }
+TEST(Write, Write4096) {
+    multiple_writes(4096, _num_iter, false);
+}
 
- TEST(Write, Write8192) {
-     multiple_writes(8192, _num_iter);
- }
+TEST(Write, Write8192) {
+    multiple_writes(8192, _num_iter, false);
+}
+
+TEST(Write, Write12288) {
+     multiple_writes(12288, _num_iter, false);
+}
+
+TEST(Write, Write16384) {
+      multiple_writes(16384, _num_iter, false);
+}
+
+TEST(Write, Write32768) {
+    multiple_writes(32768, _num_iter, false);
+}
