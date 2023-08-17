@@ -1,4 +1,4 @@
-# Summer@EPFL 2023 internship project by Kseniya Shestakova
+# Summer@EPFL 2023 internship project by Kseniya Shastakova
 This repository contains results of reasearch at Summer@EPFL 2023 internship carried by Kseniya Shastakova. \
 The aim of the project was to develop backend for JULEA using APIs for object storages. OpenIO C SDK, MinIO C++ SDK and AWS C++ SDK were used for implementing 3 different backends.
 ## Navigation
