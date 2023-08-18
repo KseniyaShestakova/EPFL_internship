@@ -1,0 +1,29 @@
+Test project /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
+      Start  1: Basic.JustBoot
+ 1/12 Test  #1: Basic.JustBoot ...................   Passed    6.04 sec
+      Start  2: Basic.BootAndCreateNamespace
+ 2/12 Test  #2: Basic.BootAndCreateNamespace .....   Passed    6.08 sec
+      Start  3: NumObjDep.Read200
+ 3/12 Test  #3: NumObjDep.Read200 ................   Passed    6.48 sec
+      Start  4: NumObjDep.Read400
+ 4/12 Test  #4: NumObjDep.Read400 ................   Passed    6.89 sec
+      Start  5: NumObjDep.Read600
+ 5/12 Test  #5: NumObjDep.Read600 ................   Passed    7.33 sec
+      Start  6: NumObjDep.Read800
+ 6/12 Test  #6: NumObjDep.Read800 ................   Passed    7.82 sec
+      Start  7: NumObjDep.Read1000
+ 7/12 Test  #7: NumObjDep.Read1000 ...............   Passed    8.29 sec
+      Start  8: NumObjDep.Write200
+ 8/12 Test  #8: NumObjDep.Write200 ...............   Passed    7.10 sec
+      Start  9: NumObjDep.Write400
+ 9/12 Test  #9: NumObjDep.Write400 ...............   Passed    7.84 sec
+      Start 10: NumObjDep.Write600
+10/12 Test #10: NumObjDep.Write600 ...............   Passed    8.87 sec
+      Start 11: NumObjDep.Write800
+11/12 Test #11: NumObjDep.Write800 ...............   Passed   10.07 sec
+      Start 12: NumObjDep.Write1000
+12/12 Test #12: NumObjDep.Write1000 ..............   Passed   11.86 sec
+
+100% tests passed, 0 tests failed out of 12
+
+Total Test time (real) =  94.71 sec

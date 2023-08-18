@@ -586,7 +586,7 @@ TEST(HighLoad, IterateWithPrefix) {
 */
 
 static const int _num_iter = 300;
-
+/*
 TEST(Read, Read512) {
     multiple_reads(512, _num_iter);
 }
@@ -651,4 +651,48 @@ TEST(Write, Write16384) {
 
 TEST(Write, Write32768) {
     multiple_writes(32768, _num_iter, false);
+}*/
+
+static const int _block_size = 2048;
+
+TEST(NumObjDep, Read200) {
+    multiple_reads(_block_size, 200);
 }
+
+TEST(NumObjDep, Read400) {
+    multiple_reads(_block_size, 400);
+}
+
+TEST(NumObjDep, Read600) {
+    multiple_reads(_block_size, 600);
+}
+
+TEST(NumObjDep, Read800) {
+    multiple_reads(_block_size, 800);
+}
+
+TEST(NumObjDep, Read1000) {
+     multiple_reads(_block_size, 1000);
+}
+
+TEST(NumObjDep, Write200) {
+    multiple_writes(_block_size, 200);
+}
+ 
+TEST(NumObjDep, Write400) {
+    multiple_writes(_block_size, 400);
+}
+ 
+TEST(NumObjDep, Write600) {
+    multiple_writes(_block_size, 600);
+}
+ 
+TEST(NumObjDep, Write800) {
+    multiple_writes(_block_size, 800);
+}
+ 
+TEST(NumObjDep, Write1000) {
+     multiple_writes(_block_size, 1000);
+}
+
+

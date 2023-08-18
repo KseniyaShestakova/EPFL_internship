@@ -1,11 +1,11 @@
 test 1 0
 HelloTest.Basic 1 24.3118
-Basic.JustBoot 151 0.0399928
+Basic.JustBoot 202 0.0299018
 CAssert.easy_test_1 11 0.551707
 CAssert.easy_test_2 11 0.55264
 CAssert.easy_test_3 11 0.555374
 CAssert.easy_test_4 11 0.56226
-Basic.BootAndCreateNamespace 149 0.0405565
+Basic.BootAndCreateNamespace 200 0.0303831
 HighLoad.Create100 1 6.60559
 HighLoad.Create200 56 0.12742
 HighLoad.Create500 55 0.164346
@@ -47,4 +47,14 @@ Write.Write12288 97 0.083061
 Write.Write16384 97 0.0789636
 Read.Read32768 76 0.0925542
 Write.Write32768 76 0.111287
+NumObjDep.Read200 51 0.12708
+NumObjDep.Read400 51 0.135028
+NumObjDep.Read600 51 0.143661
+NumObjDep.Read800 51 0.153321
+NumObjDep.Read1000 51 0.162611
+NumObjDep.Write200 51 0.139299
+NumObjDep.Write400 51 0.153772
+NumObjDep.Write600 51 0.174013
+NumObjDep.Write800 51 0.197468
+NumObjDep.Write1000 51 0.232478
 ---

@@ -1,10 +1,10 @@
-Start testing: Aug 17 15:49 CEST
+Start testing: Aug 18 13:23 CEST
 ----------------------------------------------------------
-1/18 Testing: Basic.JustBoot
-1/18 Test: Basic.JustBoot
+1/12 Testing: Basic.JustBoot
+1/12 Test: Basic.JustBoot
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Basic.JustBoot" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Basic.JustBoot" start time: Aug 17 15:49 CEST
+"Basic.JustBoot" start time: Aug 18 13:23 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -13,25 +13,25 @@ Note: Google Test filter = Basic.JustBoot
 [----------] Global test environment set-up.
 [----------] 1 test from Basic
 [ RUN      ] Basic.JustBoot
-[       OK ] Basic.JustBoot (6031 ms)
-[----------] 1 test from Basic (6031 ms total)
+[       OK ] Basic.JustBoot (6033 ms)
+[----------] 1 test from Basic (6033 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6031 ms total)
+[==========] 1 test from 1 test suite ran. (6033 ms total)
 [  PASSED  ] 1 test.
 <end of output>
 Test time =   6.04 sec
 ----------------------------------------------------------
 Test Passed.
-"Basic.JustBoot" end time: Aug 17 15:49 CEST
+"Basic.JustBoot" end time: Aug 18 13:23 CEST
 "Basic.JustBoot" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-2/18 Testing: Basic.BootAndCreateNamespace
-2/18 Test: Basic.BootAndCreateNamespace
+2/12 Testing: Basic.BootAndCreateNamespace
+2/12 Test: Basic.BootAndCreateNamespace
 Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Basic.BootAndCreateNamespace" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Basic.BootAndCreateNamespace" start time: Aug 17 15:49 CEST
+"Basic.BootAndCreateNamespace" start time: Aug 18 13:23 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -40,450 +40,288 @@ Note: Google Test filter = Basic.BootAndCreateNamespace
 [----------] Global test environment set-up.
 [----------] 1 test from Basic
 [ RUN      ] Basic.BootAndCreateNamespace
-[       OK ] Basic.BootAndCreateNamespace (6035 ms)
-[----------] 1 test from Basic (6035 ms total)
+[       OK ] Basic.BootAndCreateNamespace (6060 ms)
+[----------] 1 test from Basic (6061 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6036 ms total)
+[==========] 1 test from 1 test suite ran. (6061 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.04 sec
+Test time =   6.08 sec
 ----------------------------------------------------------
 Test Passed.
-"Basic.BootAndCreateNamespace" end time: Aug 17 15:49 CEST
+"Basic.BootAndCreateNamespace" end time: Aug 18 13:23 CEST
 "Basic.BootAndCreateNamespace" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-3/18 Testing: Read.Read512
-3/18 Test: Read.Read512
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Read.Read512" "--gtest_also_run_disabled_tests"
+3/12 Testing: NumObjDep.Read200
+3/12 Test: NumObjDep.Read200
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=NumObjDep.Read200" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Read.Read512" start time: Aug 17 15:49 CEST
+"NumObjDep.Read200" start time: Aug 18 13:23 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Read.Read512
+Note: Google Test filter = NumObjDep.Read200
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 1 test from Read
-[ RUN      ] Read.Read512
-[       OK ] Read.Read512 (6723 ms)
-[----------] 1 test from Read (6723 ms total)
+[----------] 1 test from NumObjDep
+[ RUN      ] NumObjDep.Read200
+[       OK ] NumObjDep.Read200 (6470 ms)
+[----------] 1 test from NumObjDep (6470 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6723 ms total)
+[==========] 1 test from 1 test suite ran. (6470 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.73 sec
+Test time =   6.48 sec
 ----------------------------------------------------------
 Test Passed.
-"Read.Read512" end time: Aug 17 15:49 CEST
-"Read.Read512" time elapsed: 00:00:06
+"NumObjDep.Read200" end time: Aug 18 13:23 CEST
+"NumObjDep.Read200" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-4/18 Testing: Read.Read1024
-4/18 Test: Read.Read1024
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Read.Read1024" "--gtest_also_run_disabled_tests"
+4/12 Testing: NumObjDep.Read400
+4/12 Test: NumObjDep.Read400
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=NumObjDep.Read400" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Read.Read1024" start time: Aug 17 15:49 CEST
+"NumObjDep.Read400" start time: Aug 18 13:23 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Read.Read1024
+Note: Google Test filter = NumObjDep.Read400
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 1 test from Read
-[ RUN      ] Read.Read1024
-[       OK ] Read.Read1024 (6775 ms)
-[----------] 1 test from Read (6775 ms total)
+[----------] 1 test from NumObjDep
+[ RUN      ] NumObjDep.Read400
+[       OK ] NumObjDep.Read400 (6879 ms)
+[----------] 1 test from NumObjDep (6879 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6776 ms total)
+[==========] 1 test from 1 test suite ran. (6879 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.78 sec
+Test time =   6.89 sec
 ----------------------------------------------------------
 Test Passed.
-"Read.Read1024" end time: Aug 17 15:49 CEST
-"Read.Read1024" time elapsed: 00:00:06
+"NumObjDep.Read400" end time: Aug 18 13:23 CEST
+"NumObjDep.Read400" time elapsed: 00:00:06
 ----------------------------------------------------------
 
-5/18 Testing: Read.Read2048
-5/18 Test: Read.Read2048
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Read.Read2048" "--gtest_also_run_disabled_tests"
+5/12 Testing: NumObjDep.Read600
+5/12 Test: NumObjDep.Read600
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=NumObjDep.Read600" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Read.Read2048" start time: Aug 17 15:49 CEST
+"NumObjDep.Read600" start time: Aug 18 13:23 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Read.Read2048
+Note: Google Test filter = NumObjDep.Read600
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 1 test from Read
-[ RUN      ] Read.Read2048
-[       OK ] Read.Read2048 (6692 ms)
-[----------] 1 test from Read (6692 ms total)
+[----------] 1 test from NumObjDep
+[ RUN      ] NumObjDep.Read600
+[       OK ] NumObjDep.Read600 (7319 ms)
+[----------] 1 test from NumObjDep (7319 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6692 ms total)
+[==========] 1 test from 1 test suite ran. (7319 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.70 sec
+Test time =   7.33 sec
 ----------------------------------------------------------
 Test Passed.
-"Read.Read2048" end time: Aug 17 15:49 CEST
-"Read.Read2048" time elapsed: 00:00:06
+"NumObjDep.Read600" end time: Aug 18 13:23 CEST
+"NumObjDep.Read600" time elapsed: 00:00:07
 ----------------------------------------------------------
 
-6/18 Testing: Read.Read4096
-6/18 Test: Read.Read4096
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Read.Read4096" "--gtest_also_run_disabled_tests"
+6/12 Testing: NumObjDep.Read800
+6/12 Test: NumObjDep.Read800
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=NumObjDep.Read800" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Read.Read4096" start time: Aug 17 15:49 CEST
+"NumObjDep.Read800" start time: Aug 18 13:23 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Read.Read4096
+Note: Google Test filter = NumObjDep.Read800
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 1 test from Read
-[ RUN      ] Read.Read4096
-[       OK ] Read.Read4096 (6757 ms)
-[----------] 1 test from Read (6757 ms total)
+[----------] 1 test from NumObjDep
+[ RUN      ] NumObjDep.Read800
+[       OK ] NumObjDep.Read800 (7812 ms)
+[----------] 1 test from NumObjDep (7812 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6757 ms total)
+[==========] 1 test from 1 test suite ran. (7812 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.76 sec
+Test time =   7.82 sec
 ----------------------------------------------------------
 Test Passed.
-"Read.Read4096" end time: Aug 17 15:49 CEST
-"Read.Read4096" time elapsed: 00:00:06
+"NumObjDep.Read800" end time: Aug 18 13:23 CEST
+"NumObjDep.Read800" time elapsed: 00:00:07
 ----------------------------------------------------------
 
-7/18 Testing: Read.Read8192
-7/18 Test: Read.Read8192
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Read.Read8192" "--gtest_also_run_disabled_tests"
+7/12 Testing: NumObjDep.Read1000
+7/12 Test: NumObjDep.Read1000
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=NumObjDep.Read1000" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Read.Read8192" start time: Aug 17 15:49 CEST
+"NumObjDep.Read1000" start time: Aug 18 13:23 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Read.Read8192
+Note: Google Test filter = NumObjDep.Read1000
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 1 test from Read
-[ RUN      ] Read.Read8192
-[       OK ] Read.Read8192 (7067 ms)
-[----------] 1 test from Read (7067 ms total)
+[----------] 1 test from NumObjDep
+[ RUN      ] NumObjDep.Read1000
+[       OK ] NumObjDep.Read1000 (8286 ms)
+[----------] 1 test from NumObjDep (8286 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (7067 ms total)
+[==========] 1 test from 1 test suite ran. (8286 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   7.07 sec
+Test time =   8.29 sec
 ----------------------------------------------------------
 Test Passed.
-"Read.Read8192" end time: Aug 17 15:50 CEST
-"Read.Read8192" time elapsed: 00:00:07
+"NumObjDep.Read1000" end time: Aug 18 13:24 CEST
+"NumObjDep.Read1000" time elapsed: 00:00:08
 ----------------------------------------------------------
 
-8/18 Testing: Read.Read12288
-8/18 Test: Read.Read12288
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Read.Read12288" "--gtest_also_run_disabled_tests"
+8/12 Testing: NumObjDep.Write200
+8/12 Test: NumObjDep.Write200
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=NumObjDep.Write200" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Read.Read12288" start time: Aug 17 15:50 CEST
+"NumObjDep.Write200" start time: Aug 18 13:24 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Read.Read12288
+Note: Google Test filter = NumObjDep.Write200
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 1 test from Read
-[ RUN      ] Read.Read12288
-[       OK ] Read.Read12288 (6811 ms)
-[----------] 1 test from Read (6811 ms total)
+[----------] 1 test from NumObjDep
+[ RUN      ] NumObjDep.Write200
+[       OK ] NumObjDep.Write200 (7097 ms)
+[----------] 1 test from NumObjDep (7097 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6811 ms total)
+[==========] 1 test from 1 test suite ran. (7097 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.82 sec
+Test time =   7.10 sec
 ----------------------------------------------------------
 Test Passed.
-"Read.Read12288" end time: Aug 17 15:50 CEST
-"Read.Read12288" time elapsed: 00:00:06
+"NumObjDep.Write200" end time: Aug 18 13:24 CEST
+"NumObjDep.Write200" time elapsed: 00:00:07
 ----------------------------------------------------------
 
-9/18 Testing: Read.Read16384
-9/18 Test: Read.Read16384
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Read.Read16384" "--gtest_also_run_disabled_tests"
+9/12 Testing: NumObjDep.Write400
+9/12 Test: NumObjDep.Write400
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=NumObjDep.Write400" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Read.Read16384" start time: Aug 17 15:50 CEST
+"NumObjDep.Write400" start time: Aug 18 13:24 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Read.Read16384
+Note: Google Test filter = NumObjDep.Write400
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 1 test from Read
-[ RUN      ] Read.Read16384
-[       OK ] Read.Read16384 (6800 ms)
-[----------] 1 test from Read (6800 ms total)
+[----------] 1 test from NumObjDep
+[ RUN      ] NumObjDep.Write400
+[       OK ] NumObjDep.Write400 (7835 ms)
+[----------] 1 test from NumObjDep (7835 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (6800 ms total)
+[==========] 1 test from 1 test suite ran. (7835 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   6.81 sec
+Test time =   7.84 sec
 ----------------------------------------------------------
 Test Passed.
-"Read.Read16384" end time: Aug 17 15:50 CEST
-"Read.Read16384" time elapsed: 00:00:06
+"NumObjDep.Write400" end time: Aug 18 13:24 CEST
+"NumObjDep.Write400" time elapsed: 00:00:07
 ----------------------------------------------------------
 
-10/18 Testing: Read.Read32768
-10/18 Test: Read.Read32768
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Read.Read32768" "--gtest_also_run_disabled_tests"
+10/12 Testing: NumObjDep.Write600
+10/12 Test: NumObjDep.Write600
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=NumObjDep.Write600" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Read.Read32768" start time: Aug 17 15:50 CEST
+"NumObjDep.Write600" start time: Aug 18 13:24 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Read.Read32768
+Note: Google Test filter = NumObjDep.Write600
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 1 test from Read
-[ RUN      ] Read.Read32768
-[       OK ] Read.Read32768 (7026 ms)
-[----------] 1 test from Read (7026 ms total)
+[----------] 1 test from NumObjDep
+[ RUN      ] NumObjDep.Write600
+[       OK ] NumObjDep.Write600 (8867 ms)
+[----------] 1 test from NumObjDep (8867 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (7026 ms total)
+[==========] 1 test from 1 test suite ran. (8867 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   7.03 sec
+Test time =   8.87 sec
 ----------------------------------------------------------
 Test Passed.
-"Read.Read32768" end time: Aug 17 15:50 CEST
-"Read.Read32768" time elapsed: 00:00:07
+"NumObjDep.Write600" end time: Aug 18 13:24 CEST
+"NumObjDep.Write600" time elapsed: 00:00:08
 ----------------------------------------------------------
 
-11/18 Testing: Write.Write512
-11/18 Test: Write.Write512
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Write.Write512" "--gtest_also_run_disabled_tests"
+11/12 Testing: NumObjDep.Write800
+11/12 Test: NumObjDep.Write800
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=NumObjDep.Write800" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Write.Write512" start time: Aug 17 15:50 CEST
+"NumObjDep.Write800" start time: Aug 18 13:24 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Write.Write512
+Note: Google Test filter = NumObjDep.Write800
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 1 test from Write
-[ RUN      ] Write.Write512
-[       OK ] Write.Write512 (7743 ms)
-[----------] 1 test from Write (7743 ms total)
+[----------] 1 test from NumObjDep
+[ RUN      ] NumObjDep.Write800
+[       OK ] NumObjDep.Write800 (10063 ms)
+[----------] 1 test from NumObjDep (10063 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (7743 ms total)
+[==========] 1 test from 1 test suite ran. (10063 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   7.75 sec
+Test time =  10.07 sec
 ----------------------------------------------------------
 Test Passed.
-"Write.Write512" end time: Aug 17 15:50 CEST
-"Write.Write512" time elapsed: 00:00:07
+"NumObjDep.Write800" end time: Aug 18 13:24 CEST
+"NumObjDep.Write800" time elapsed: 00:00:10
 ----------------------------------------------------------
 
-12/18 Testing: Write.Write1024
-12/18 Test: Write.Write1024
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Write.Write1024" "--gtest_also_run_disabled_tests"
+12/12 Testing: NumObjDep.Write1000
+12/12 Test: NumObjDep.Write1000
+Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=NumObjDep.Write1000" "--gtest_also_run_disabled_tests"
 Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Write.Write1024" start time: Aug 17 15:50 CEST
+"NumObjDep.Write1000" start time: Aug 18 13:24 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Write.Write1024
+Note: Google Test filter = NumObjDep.Write1000
 [==========] Running 1 test from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 1 test from Write
-[ RUN      ] Write.Write1024
-[       OK ] Write.Write1024 (7687 ms)
-[----------] 1 test from Write (7687 ms total)
+[----------] 1 test from NumObjDep
+[ RUN      ] NumObjDep.Write1000
+[       OK ] NumObjDep.Write1000 (11849 ms)
+[----------] 1 test from NumObjDep (11849 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (7687 ms total)
+[==========] 1 test from 1 test suite ran. (11849 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   7.70 sec
+Test time =  11.86 sec
 ----------------------------------------------------------
 Test Passed.
-"Write.Write1024" end time: Aug 17 15:50 CEST
-"Write.Write1024" time elapsed: 00:00:07
+"NumObjDep.Write1000" end time: Aug 18 13:24 CEST
+"NumObjDep.Write1000" time elapsed: 00:00:11
 ----------------------------------------------------------
 
-13/18 Testing: Write.Write2048
-13/18 Test: Write.Write2048
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Write.Write2048" "--gtest_also_run_disabled_tests"
-Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Write.Write2048" start time: Aug 17 15:50 CEST
-Output:
-----------------------------------------------------------
-Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Write.Write2048
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from Write
-[ RUN      ] Write.Write2048
-[       OK ] Write.Write2048 (7476 ms)
-[----------] 1 test from Write (7476 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (7476 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   7.48 sec
-----------------------------------------------------------
-Test Passed.
-"Write.Write2048" end time: Aug 17 15:50 CEST
-"Write.Write2048" time elapsed: 00:00:07
-----------------------------------------------------------
-
-14/18 Testing: Write.Write4096
-14/18 Test: Write.Write4096
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Write.Write4096" "--gtest_also_run_disabled_tests"
-Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Write.Write4096" start time: Aug 17 15:50 CEST
-Output:
-----------------------------------------------------------
-Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Write.Write4096
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from Write
-[ RUN      ] Write.Write4096
-[       OK ] Write.Write4096 (7533 ms)
-[----------] 1 test from Write (7533 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (7533 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   7.54 sec
-----------------------------------------------------------
-Test Passed.
-"Write.Write4096" end time: Aug 17 15:50 CEST
-"Write.Write4096" time elapsed: 00:00:07
-----------------------------------------------------------
-
-15/18 Testing: Write.Write8192
-15/18 Test: Write.Write8192
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Write.Write8192" "--gtest_also_run_disabled_tests"
-Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Write.Write8192" start time: Aug 17 15:50 CEST
-Output:
-----------------------------------------------------------
-Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Write.Write8192
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from Write
-[ RUN      ] Write.Write8192
-[       OK ] Write.Write8192 (7677 ms)
-[----------] 1 test from Write (7677 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (7677 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   7.69 sec
-----------------------------------------------------------
-Test Passed.
-"Write.Write8192" end time: Aug 17 15:51 CEST
-"Write.Write8192" time elapsed: 00:00:07
-----------------------------------------------------------
-
-16/18 Testing: Write.Write12288
-16/18 Test: Write.Write12288
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Write.Write12288" "--gtest_also_run_disabled_tests"
-Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Write.Write12288" start time: Aug 17 15:51 CEST
-Output:
-----------------------------------------------------------
-Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Write.Write12288
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from Write
-[ RUN      ] Write.Write12288
-[       OK ] Write.Write12288 (8048 ms)
-[----------] 1 test from Write (8048 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (8048 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   8.06 sec
-----------------------------------------------------------
-Test Passed.
-"Write.Write12288" end time: Aug 17 15:51 CEST
-"Write.Write12288" time elapsed: 00:00:08
-----------------------------------------------------------
-
-17/18 Testing: Write.Write16384
-17/18 Test: Write.Write16384
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Write.Write16384" "--gtest_also_run_disabled_tests"
-Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Write.Write16384" start time: Aug 17 15:51 CEST
-Output:
-----------------------------------------------------------
-Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Write.Write16384
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from Write
-[ RUN      ] Write.Write16384
-[       OK ] Write.Write16384 (7650 ms)
-[----------] 1 test from Write (7650 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (7650 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   7.66 sec
-----------------------------------------------------------
-Test Passed.
-"Write.Write16384" end time: Aug 17 15:51 CEST
-"Write.Write16384" time elapsed: 00:00:07
-----------------------------------------------------------
-
-18/18 Testing: Write.Write32768
-18/18 Test: Write.Write32768
-Command: "/home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/app" "--gtest_filter=Write.Write32768" "--gtest_also_run_disabled_tests"
-Directory: /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build
-"Write.Write32768" start time: Aug 17 15:51 CEST
-Output:
-----------------------------------------------------------
-Running main() from /home/xxeniash/EPFL_internship/EPFL_internship/amazon/s3_exp/build/_deps/googletest-src/googletest/src/gtest_main.cc
-Note: Google Test filter = Write.Write32768
-[==========] Running 1 test from 1 test suite.
-[----------] Global test environment set-up.
-[----------] 1 test from Write
-[ RUN      ] Write.Write32768
-[       OK ] Write.Write32768 (8449 ms)
-[----------] 1 test from Write (8449 ms total)
-
-[----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (8449 ms total)
-[  PASSED  ] 1 test.
-<end of output>
-Test time =   8.46 sec
-----------------------------------------------------------
-Test Passed.
-"Write.Write32768" end time: Aug 17 15:51 CEST
-"Write.Write32768" time elapsed: 00:00:08
-----------------------------------------------------------
-
-End testing: Aug 17 15:51 CEST
+End testing: Aug 18 13:24 CEST

@@ -36,6 +36,18 @@ void finish_read_write(BackendData* bd) {
     }
 }
 
+void finish_num_obj_dep(BackendData* bd) {
+    int block_size = 2048;
+
+    std::vector<int> num_iters = { 200, 400, 600, 800, 1000 };
+
+    for (auto num_iter: num_iters) {
+        clean_up(bd, "read-" + std::to_string(block_size), num_iter);
+        clean_up(bd, "write-" + std::to_string(block_size), num_iter);
+    }
+
+}
+
 int main() {
     bool flag = false;
 
@@ -44,7 +56,7 @@ int main() {
     flag = init(path, &bd);
     assert("Failed to initialize backend" && flag);
 
-    finish_read_write(bd);
+    finish_num_obj_dep(bd);
 
     fini(bd);
 }
