@@ -13,3 +13,4 @@ The aim of the project was to develop backend for JULEA using APIs for object st
 * [`readings/`](https://github.com/KseniyaShestakova/EPFL_internship/tree/main/readings) contains information regarding building, compiling and running code samples from this repo,
    as well as some general information that will help the reader to get more comprehensive understanding of object storages
 * [`scripts/`](https://github.com/KseniyaShestakova/EPFL_internship/tree/main/scripts) contains scripts used to automate some repetitive and routine stuff occuring along building and running code samples
+* [`paper/`](https://github.com/KseniyaShestakova/EPFL_internship/tree/main/paper) contains detailed [report](https://github.com/KseniyaShestakova/EPFL_internship/blob/main/paper/JULEA.pdf) about the work done and source code of the report latex file
